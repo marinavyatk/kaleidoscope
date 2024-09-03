@@ -1,0 +1,106 @@
+:root {
+  --offset-x: 120px;
+  --offset-y: 160px;
+
+  @media (max-width: 1439px) {
+    --offset-x: 20px;
+    --offset-y: 100px;
+  }
+  @media (max-width: 767px) {
+    --offset-x: 16px;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+select,
+textarea,
+optgroup,
+option {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+button,
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family), sans-serif;
+  color: var(--color-light);
+  background-color: var(--color-dark);
+  line-height: 1.2;
+  font-weight: var(--fw-normal);
+  font-size: 18px;
+}
+html body[data-scroll-locked] {
+  overflow: unset !important;
+  margin-right: 0 !important;
+}
+
+h1 {
+  font-weight: var(--fw-bold);
+  font-size: 100px;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2 {
+  font-weight: var(--fw-bold);
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-weight: var(--fw-bold);
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1440px) {
+  h1 {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}

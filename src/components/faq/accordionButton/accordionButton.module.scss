@@ -1,0 +1,99 @@
+.buttonContainer {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s ease-in;
+  flex-shrink: 0;
+
+  .closedBackground {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transition: all 0.5s ease-in;
+  }
+
+  .horizontal,
+  .vertical {
+    height: 5px;
+    width: 38px;
+    border-radius: 3px;
+    background-color: var(--color-black);
+    position: absolute;
+    transition: all 0.5s ease-in;
+  }
+
+  .vertical {
+    transform: rotate(90deg);
+  }
+}
+
+.opened {
+  transform: rotate(90deg);
+  border-radius: 50%;
+
+  .closedBackground {
+    background-color: var(--color-secondary);
+    opacity: 1;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: all 0.5s ease-in;
+  }
+
+  .horizontal {
+    width: 0;
+  }
+}
+
+@media (max-width: 1440px) {
+  .buttonContainer {
+    width: 40px;
+    height: 40px;
+
+    .horizontal,
+    .vertical {
+      height: 2px;
+      width: 18px;
+    }
+  }
+
+  .opened {
+    .closedBackground {
+      width: 40px;
+      height: 40px;
+    }
+    .horizontal {
+      width: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .buttonContainer {
+    width: 30px;
+    height: 30px;
+
+    .horizontal,
+    .vertical {
+      height: 1px;
+      width: 12px;
+    }
+  }
+
+  .opened {
+    .closedBackground {
+      width: 30px;
+      height: 30px;
+    }
+    .horizontal {
+      width: 0;
+    }
+  }
+}

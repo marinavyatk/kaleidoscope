@@ -1,0 +1,46 @@
+.carousel {
+  margin: auto;
+  position: relative;
+}
+
+.itemsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 600px;
+}
+
+.navPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 30px auto 65px;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .btnPrev {
+    transform: rotate(-90deg);
+  }
+
+  .btnNext {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel {
+    margin: 0;
+
+    .itemsContainer {
+      min-height: 400px;
+    }
+  }
+  .navPanel {
+    margin: 24px auto 0;
+  }
+}

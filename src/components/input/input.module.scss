@@ -1,0 +1,79 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  transition: all 0.5s;
+  font-family: var(--font-family-secondary);
+
+  flex-shrink: 1;
+
+  &:focus-within {
+    .mainLabel {
+      //color: var(--color-light-100);
+    }
+  }
+}
+
+.label {
+  line-height: 1.56;
+  margin-bottom: 9px;
+}
+
+.input {
+  font-size: 27px;
+  line-height: 1.3;
+  background-color: transparent;
+  padding: 17px 27px 21px;
+  caret-color: var(--color-primary);
+  border: 1px solid var(--color-light);
+  border-radius: 113px;
+
+  &::placeholder {
+    color: rgba(248, 246, 240, 0.2);
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-dark) inset;
+    -webkit-text-fill-color: var(--color-light);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.error {
+  input {
+    color: var(--color-secondary);
+  }
+
+  .errorMessage {
+    color: var(--color-secondary);
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    right: 0;
+  }
+}
+
+@media (max-width: 1440px) {
+  .label {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .input {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .label {
+    font-size: 14px;
+  }
+  .input {
+    font-size: 14px;
+    padding: 11px 14px;
+  }
+}

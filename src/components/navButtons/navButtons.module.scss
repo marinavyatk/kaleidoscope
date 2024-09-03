@@ -1,0 +1,24 @@
+.navButtons {
+  display: flex;
+  gap: 20px;
+  width: fit-content;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .btnPrev {
+    transform: rotate(-90deg);
+  }
+
+  .btnNext {
+    transform: rotate(90deg);
+  }
+}

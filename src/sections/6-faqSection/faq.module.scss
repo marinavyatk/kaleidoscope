@@ -1,0 +1,18 @@
+.faq {
+  padding: var(--offset-y) var(--offset-x);
+
+  h2 {
+    margin-bottom: 67px;
+  }
+}
+
+@media (max-width: 1439px) {
+  .faq h2 {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .faq h2 {
+    margin-bottom: 54px;
+  }
+}

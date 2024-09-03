@@ -1,0 +1,126 @@
+.cardContainer {
+  position: absolute;
+}
+
+.card {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  min-height: 600px;
+  padding: 44px 37px 30px;
+  text-align: center;
+  filter: blur(1px);
+  transform: scale(0.75);
+  transition: transform 0.5s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(45, 18, 8, 0.15);
+    transition: background-color 0.5s ease;
+  }
+
+  .cardBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .cardName {
+    color: var(--color-primary);
+    font-size: 50px;
+    font-weight: var(--fw-bold);
+    margin-bottom: 24px;
+  }
+
+  .description {
+    color: var(--color-dark);
+    font-family: var(--font-family-secondary);
+    font-size: 18px;
+    margin-bottom: 31px;
+  }
+
+  .model {
+    width: 100%;
+    margin-bottom: 38px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  button {
+    z-index: 1;
+  }
+}
+
+.activeCard {
+  .card {
+    transition: transform 0.5s;
+    filter: blur(0);
+    transform: scale(1) translateX(0);
+    z-index: 1;
+
+    &::before {
+      background-color: transparent;
+    }
+  }
+}
+
+.hiddenCard {
+  .card {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease 0.5s;
+    transform: scale(0.75);
+  }
+}
+
+.nextCard {
+  .card {
+    z-index: -1;
+    transform: translateX(82%) scale(0.75); //6% or 27px under active card
+    transition: transform 0.5s;
+  }
+}
+
+.prevCard {
+  .card {
+    transform: translateX(-82%) scale(0.75);
+    transition: transform 0.5s;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 36px 14px 30px;
+    max-width: 288px;
+    min-height: 400px;
+
+    .cardName {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .description {
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+
+    .model {
+      margin-bottom: 21px;
+      height: 151px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.mapSection {
+  width: 100%;
+  height: 900px;
+  position: relative;
+
+  h2 {
+    position: absolute;
+    top: var(--offset-y);
+    left: var(--offset-x);
+    z-index: 1;
+  }
+}
+.mapContainer {
+  width: 100%;
+  height: 900px;
+}
+
+@media (max-width: 1439px) {
+  .mapSection,
+  .mapContainer {
+    height: 690px;
+  }
+}
+@media (max-width: 767px) {
+  .mapSection {
+    height: unset;
+    h2 {
+      position: static;
+      margin-bottom: 50px;
+      padding: 0 var(--offset-x);
+    }
+  }
+
+  .mapContainer {
+    height: 500px;
+  }
+}

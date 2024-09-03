@@ -1,0 +1,165 @@
+.headerContainer {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.2));
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark);
+  padding: 0 122px;
+  clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+  font-family: var(--font-family-secondary);
+  margin: 20px var(--offset-x) 0;
+}
+
+.links {
+  width: 39%;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 41px 0 40px;
+    white-space: nowrap;
+  }
+}
+
+.logo {
+  height: 66px;
+  margin: 13px 0 21px;
+}
+
+.rightBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 39%;
+  gap: 20px;
+
+  a {
+    text-transform: uppercase;
+  }
+}
+
+.player {
+  width: 360px;
+}
+
+@media (max-width: 1700px) {
+  .header {
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .header {
+    padding: 0 40px;
+  }
+
+  .links a {
+    font-size: 18px;
+    padding: 20px 0 20px;
+  }
+
+  .logo {
+    height: 50px;
+    margin: 10px 0 15px;
+  }
+
+  .player {
+    width: 64%;
+  }
+}
+
+@media (max-width: 1099px) {
+  .header {
+    padding: 8px 30px;
+  }
+
+  .logo {
+    margin: 0;
+    width: fit-content;
+    height: 38px;
+  }
+
+  .player {
+    width: 182px;
+    height: 34px;
+  }
+
+  .links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--color-dark);
+    font-family: var(--font-family-secondary);
+    text-align: center;
+    margin: 2px calc(var(--offset-x) + 2%) 0;
+    width: auto;
+    height: 0;
+    transition:
+      height 0.5s,
+      padding 0.5s;
+    overflow: hidden;
+
+    a {
+      padding: 10px 0;
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: -1;
+    transition:
+      background-color 0.5s 0.1s,
+      height 0.1s;
+  }
+
+  .headerMobile:has(input[type='checkbox']:checked) {
+    .links {
+      height: 300px;
+      padding: 50px 0;
+      transition:
+        height 0.5s,
+        padding 0.5s;
+    }
+
+    .background {
+      background-color: var(--color-dark);
+      opacity: 0.3;
+      height: 100vh;
+      width: 100vw;
+      transition:
+        background-color 0.5s 0.1s,
+        height 0.1s;
+    }
+  }
+}
+
+@media (max-width: 567px) {
+  .header {
+    margin: 16px 0 0;
+    padding: 3px 16px;
+    width: 100%;
+  }
+  .links {
+    margin: 2px 2% 0;
+  }
+
+  .logo {
+    height: 34px;
+  }
+  .player {
+    width: 288px;
+    height: 60px;
+    position: relative;
+    margin: 14px auto 0;
+    z-index: -1;
+  }
+}
