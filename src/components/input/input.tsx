@@ -1,7 +1,13 @@
+// 'use client'
+
 import React, { ComponentPropsWithoutRef, Ref } from 'react';
 import clsx from 'clsx';
 import s from './input.module.scss';
-import InputMask from '@mona-health/react-input-mask';
+// import InputMask from '@mona-health/react-input-mask';
+
+import dynamic from 'next/dynamic';
+
+const InputMask = dynamic(() => import('@mona-health/react-input-mask'), { ssr: false });
 
 export type InputProps = {
   label: string;
@@ -23,7 +29,7 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
       {restProps.type === 'tel' ? (
         <InputMask
           mask='+7\ (999) 999-99-99'
-          {...restProps}
+          {...restProps as any}
           className={s.input}
           name={restProps?.name}
           id={restProps?.name}
