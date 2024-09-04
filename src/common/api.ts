@@ -3,7 +3,11 @@ import {Category, Field, GetFAQ} from '@/common/types';
 
 export const instance = axios.create({
     // baseURL: 'http://sashc8qp.beget.tech/wp-json/wp/v2'
-    baseURL: 'https://kaleidoscope-games.store'
+    // baseURL: 'https://kaleidoscope-games.store',
+    baseURL: 'https://kaleidoscope-games.store/wp-json/wp/v2',
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+    }
 });
 
 const getProperties = (array: any[]) => {
@@ -21,8 +25,12 @@ const getProperties = (array: any[]) => {
 };
 
 export const api = {
+    // getFAQ() {
+    //     return instance.get<GetFAQ[]>('/faq?_fields=title,content,meta')
+    //         .then((response) => getProperties(response.data));
+    // },
     getFAQ() {
-        return instance.get<GetFAQ[]>('/faq?_fields=title,content,meta')
+        return instance.get<GetFAQ[]>('/faq')
             .then((response) => getProperties(response.data));
     },
     // getProducts() {
