@@ -5,9 +5,7 @@ export const instance = axios.create({
     // baseURL: 'http://sashc8qp.beget.tech/wp-json/wp/v2'
     // baseURL: 'https://kaleidoscope-games.store',
     baseURL: 'https://kaleidoscope-games.store/wp-json/wp/v2',
-    headers: {
-        'Access-Control-Allow-Origin': '*'
-    }
+
 });
 
 const getProperties = (array: any[]) => {
