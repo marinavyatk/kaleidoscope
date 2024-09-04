@@ -1,15 +1,51 @@
 import {useEffect, useState} from 'react';
 import {api} from '@/common/api';
-import {Category, Nullable} from '@/common/types';
+import {CatalogCardData, Field, Nullable, ProductCardData} from '@/common/types';
+
+
+export type Product = {
+    title: Field;
+    content: Field;
+    meta: Record<string, string>;
+    link: string;
+};
 
 export const useProducts = () => {
-    const [products, setProducts] = useState<Nullable<Category[]>>(null);
+    const [productCardData, setProductCardData] = useState<Nullable<ProductCardData[]>>(null);
+    const [catalogCardData, setCatalogCardData] = useState<Nullable<CatalogCardData[]>>(null);
+
     useEffect(() => {
+        const catalogCardDataStructured: CatalogCardData[] = [];
+        const productCardDataStructured: ProductCardData[] = [];
+
         api.getProducts()
-            .then((data) => setProducts(data))
-            .then((data) => console.log(data))
-            .catch((error) => console.error('Error fetching Products:', error));
+            .then((data) => {
+                console.log('productAllData:', data);
+                data.forEach((product: Product) => {
+                    productCardDataStructured.push({
+                        description: product.content.rendered,
+                        name: product.title.rendered,
+                        specifications: product.meta,
+                    });
+
+                    catalogCardDataStructured.push({
+                        name: product.title.rendered,
+                        img: ''
+                    });
+                });
+
+                return api.getProductImages();
+            })
+            .then((img) => {
+                const updatedCatalogData = catalogCardDataStructured.map((product) => ({...product, img}));
+                const updatedProductData = productCardDataStructured.map((product) => ({...product, img}));
+
+                setProductCardData(updatedProductData);
+                setCatalogCardData(updatedCatalogData);
+            })
+            .catch((error) => console.error('Error fetching Products:', error))
+
     }, []);
 
-    return products;
-}
+    return {productCardData, catalogCardData};
+};

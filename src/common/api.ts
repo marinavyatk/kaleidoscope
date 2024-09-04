@@ -2,7 +2,8 @@ import axios from 'axios';
 import {Category, Field, GetFAQ} from '@/common/types';
 
 export const instance = axios.create({
-    baseURL: 'http://sashc8qp.beget.tech/wp-json/wp/v2'
+    // baseURL: 'http://sashc8qp.beget.tech/wp-json/wp/v2'
+    baseURL: 'https://kaleidoscope-games.store'
 });
 
 const getProperties = (array: any[]) => {
@@ -21,16 +22,28 @@ const getProperties = (array: any[]) => {
 
 export const api = {
     getFAQ() {
-        return instance.get<GetFAQ[]>('/faq?_fields=title,content')
+        return instance.get<GetFAQ[]>('/faq?_fields=title,content,meta')
             .then((response) => getProperties(response.data));
     },
+    // getProducts() {
+    //     return instance.get('/product?_fields=title,content,product_category').then((response) => response.data);
+    // },
     getProducts() {
-        return instance.get('/product?_fields=title,content,product_category').then((response) => response.data);
+        return instance.get('/product').then((response) => response.data);
     },
+    getProductImages() {
+        return instance.get('/media/18').then((response) => response.data.source_url);
+    },
+    // getProductsCategories() {
+    //     return instance.get<Category[]>('/product_category?_fields=id,name').then((response) => response.data);
+    // },
     getProductsCategories() {
-        return instance.get<Category[]>('/product_category?_fields=id,name').then((response) => response.data);
+        return instance.get<Category[]>('/product_category').then((response) => response.data);
     },
+    // getProjectMap() {
+    //     return instance.get<any>('/project_map').then((response) => response.data);
+    // },
     getProjectMap() {
-        return instance.get<Category[]>('/project_map').then((response) => response.data);
+        return instance.get<any>('/project_map?_fields=quarter_data,title').then((response) => response.data);
     },
 }

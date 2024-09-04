@@ -1,7 +1,6 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import s from "@/styles/Home.module.css";
+import Head from 'next/head';
+import {Inter} from 'next/font/google';
+import s from '@/styles/Home.module.css';
 import {Header} from '@/components/header/header';
 import {MainSection} from '@/sections/1-mainSection/mainSection';
 import {AboutSection} from '@/sections/2-aboutSection/aboutSection';

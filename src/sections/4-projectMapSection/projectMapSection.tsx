@@ -1,67 +1,79 @@
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import StepPhoto from '../../assets/step-photo.png';
-import {MutableRefObject, useEffect, useRef} from 'react';
-import { handleSwiper } from '@/common/commonFunctions';
-import { Keyboard, Navigation } from 'swiper/modules';
-import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
-import { stepsData, Timeline } from '@/components/timeline/timeline';
+import {Swiper, SwiperClass, SwiperSlide} from 'swiper/react';
+import {MutableRefObject, useEffect, useRef, useState} from 'react';
+import {handleSwiper} from '@/common/commonFunctions';
+import {Keyboard, Navigation} from 'swiper/modules';
+import {ViewCloserModal} from '@/components/modal/viewCloserModal/viewCloserModal';
+import {Timeline} from '@/components/timeline/timeline';
 import 'swiper/scss';
-import { NavButtons } from '@/components/navButtons/navButtons';
-import { useMediaQuery } from 'react-responsive';
+import {NavButtons} from '@/components/navButtons/navButtons';
 import s from './projectMapSection.module.scss';
-import {api} from '@/common/api';
+import {useProjectMap} from '@/common/customHooks/useProjectMap';
 
-const photos = [StepPhoto, StepPhoto, StepPhoto, StepPhoto, StepPhoto];
 
 export const ProjectMapSection = () => {
-  const swiperRef = useRef<SwiperClass>(null);
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
-  const stepPhotos = photos.map((photo, index) => {
+    const [activeStepIndex, setActiveStepIndex] = useState(0);
+    const swiperRef = useRef<SwiperClass>(null);
+    const [isClient, setIsClient] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
+
+    const {projectMap, stepData} = useProjectMap();
+
+    useEffect(() => {
+        setIsClient(true); // Устанавливаем, что компонент рендерится на клиенте
+
+        const handleResize = () => {
+            if (typeof window !== 'undefined') {
+                setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1439);
+            }
+        };
+
+        handleResize(); // Устанавливаем начальное значение
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const stepPhotos = projectMap?.[activeStepIndex]?.gallery.map((photo, index) => (
+        <SwiperSlide key={`photo-${index}`} className={s.slide}>
+            <ViewCloserModal
+                imgSrc={photo.url}
+                trigger={<img src={photo.url} alt="" className={s.stepPhoto}/>}
+            />
+        </SwiperSlide>
+    ));
+
+    if (!isClient) return null; // Не рендерим компонент на сервере
+
     return (
-      <SwiperSlide key={`photo-${index}`} className={s.slide}>
-        <ViewCloserModal
-          imgSrc={photo.src}
-          trigger={<img src={photo.src} alt='' className={s.stepPhoto} />}
-        />
-      </SwiperSlide>
+        <section className={s.projectMapSection} id="history">
+            <h2>карта проекта</h2>
+            <div className={s.background}>
+                идея <br/>
+                и&nbsp;миссия
+            </div>
+            <h3>{projectMap?.[activeStepIndex]?.title}</h3>
+            <div className={s.description}>
+                <p>
+                    {projectMap?.[activeStepIndex]?.description}
+                </p>
+                {isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons}/>}
+            </div>
+
+            <Swiper
+                modules={[Keyboard, Navigation]}
+                slidesPerView={'auto'}
+                spaceBetween={22}
+                onSwiper={(swiper) => {
+                    handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
+                }}
+                keyboard
+                loop
+                className={s.slidesContainer}
+            >
+                {stepPhotos}
+            </Swiper>
+            {!isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons}/>}
+            <Timeline stepsData={stepData || undefined} activeStepIndex={activeStepIndex} setActiveStepIndex={setActiveStepIndex}/>
+        </section>
     );
-  });
-
-
-  useEffect(()=>{
-      api.getProjectMap().then((data)=>console.log(data));
-  }, [])
-  return (
-    <section className={s.projectMapSection} id='history'>
-      <h2>карта проекта</h2>
-      <div className={s.background}>
-        идея <br />
-        и&nbsp;миссия
-      </div>
-      <h3>2024 г.</h3>
-      <div className={s.description}>
-        <p>
-          Реализована первая малая архитектурная форма КОРОБКА № с функцией развлекательно-игрового
-          комплекса.
-        </p>
-        {isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons} />}
-      </div>
-
-      <Swiper
-        modules={[Keyboard, Navigation]}
-        slidesPerView={'auto'}
-        spaceBetween={22}
-        onSwiper={(swiper) => {
-          handleSwiper(swiper, swiperRef as  MutableRefObject<SwiperClass>);
-        }}
-        keyboard
-        loop
-        className={s.slidesContainer}
-      >
-        {stepPhotos}
-      </Swiper>
-      {!isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons} />}
-      <Timeline stepsData={stepsData} />
-    </section>
-  );
 };

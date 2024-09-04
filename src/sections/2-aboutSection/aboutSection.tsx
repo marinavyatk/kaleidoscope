@@ -1,7 +1,7 @@
 import s from './aboutSection.module.scss';
 import {Button} from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
-import Image from 'next/image';
+import Boy from '../../assets/boy.png';
 
 export const AboutSection = () => {
     return (
@@ -11,11 +11,8 @@ export const AboutSection = () => {
                 <span>Калейдоскоп</span>
             </div>
             <div className={s.boy}>
-                <div className={s.imgContainer}>
-                    <Image src={'/boy.png'} alt="" fill quality={100}/>
+                    <img src={Boy.src} alt=""/>
                 </div>
-
-            </div>
             <h2>
                 объединяем поколения
                 <br/>

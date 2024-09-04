@@ -10,9 +10,12 @@
     right: 0;
     z-index: -2;
 
-    img {
-      width: 100%;
-      height: 100%;
+    .gradient {
+      object-fit: cover;
+    }
+
+    .pattern {
+      padding: 60px 65px;
     }
   }
 
@@ -32,18 +35,25 @@
 
   button {
     opacity: 0.3;
-    transition:
-      opacity 0.3s,
-      text-decoration 0.3s;
+    transition: opacity 0.3s,
+    text-decoration 0.3s;
   }
 
   .active {
     opacity: 1;
     text-decoration: underline;
-    transition:
-      opacity 0.3s,
-      text-decoration 0.3s;
+    transition: opacity 0.3s,
+    text-decoration 0.3s;
   }
+}
+
+@media (max-width: 1750px) {
+  .catalogSection .background .pattern {
+    display: none;
+  }
+  //.catalogSection .background .gradient {
+  // padding-top: 50px;
+  //}
 }
 
 @media (max-width: 1439px) {
@@ -65,7 +75,8 @@
 
 @media (max-width: 767px) {
   .catalogSection {
-    padding: 120px var(--offset-x) 20px;
+    padding: 0 var(--offset-x);
+    margin: 120px 0 20px;
 
     h2 {
       margin-bottom: 50px;

@@ -12,6 +12,11 @@
       width: 28px;
       height: 28px;
     }
+
+    &:disabled{
+      opacity: 0.5;
+      cursor: unset;
+    }
   }
 
   .btnPrev {

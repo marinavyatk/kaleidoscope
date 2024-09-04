@@ -6,7 +6,9 @@ export const useCategories = () => {
     const [categories, setCategories] = useState<Nullable<Category[]>>(null);
     useEffect(() => {
         api.getProductsCategories()
-            .then((data) => setCategories(data))
+            .then((data) => {
+                console.log('categories', data)
+                setCategories(data)})
             .catch((error) => console.error('Error fetching categories:', error));
     }, []);
 

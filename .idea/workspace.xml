@@ -5,11 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="temp">
+      <change afterPath="$PROJECT_DIR$/src/common/customHooks/useProjectMap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/loader/loader.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/loader/loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useProducts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useProducts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/carousel/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/carousel/carousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/input/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/productCardModal/productCardModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/productCardModal/productCardModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/player/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/slider/slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/slider/slider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/6-faqSection/faq.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/6-faqSection/faq.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +113,7 @@
       <workItem from="1725279793891" duration="567000" />
       <workItem from="1725280505612" duration="27374000" />
       <workItem from="1725349874308" duration="2441000" />
-      <workItem from="1725352419322" duration="1528000" />
+      <workItem from="1725352419322" duration="62207000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -98,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725350823128</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="temp">
+      <option name="closed" value="true" />
+      <created>1725354095333</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725354095333</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -92,6 +92,12 @@
     z-index: -1;
     transform: translateX(82%) scale(0.75); //6% or 27px under active card
     transition: transform 0.5s;
+    pointer-events: none;
+
+    button {
+      pointer-events: none;
+    }
+
   }
 }
 
@@ -99,6 +105,11 @@
   .card {
     transform: translateX(-82%) scale(0.75);
     transition: transform 0.5s;
+    pointer-events: none;
+
+    button {
+      pointer-events: none;
+    }
   }
 }
 

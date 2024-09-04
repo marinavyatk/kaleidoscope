@@ -1,14 +1,15 @@
 import s from './productCardModal.module.scss';
 import { Modal } from '../modal';
-import { ProductCard, ProductData } from '@/sections/productCard/productCard';
+import { ProductCard } from '@/sections/productCard/productCard';
 import { Button } from '../../button/button';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { handleSwiper } from '@/common/commonFunctions';
 import {MutableRefObject, useRef} from 'react';
+import {ProductCardData} from '@/common/types';
 
 export type ProductCardsSliderProps = {
-  productsData: ProductData[];
+  productsData: ProductCardData[];
   activeSlide: number;
   setActiveIndex: (index: number) => void;
 };
@@ -19,7 +20,7 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
 
   const cards = productsData.map((product, index) => {
     return (
-      <SwiperSlide key={product.productName}>
+      <SwiperSlide key={product.name}>
         <ProductCard
           productData={{ ...product }}
           onClose={() => setActiveIndex(index)}

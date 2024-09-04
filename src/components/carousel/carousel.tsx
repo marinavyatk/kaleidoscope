@@ -1,15 +1,17 @@
-import { useState } from 'react';
-import { Card, CardData } from '../card/card';
+import {useState} from 'react';
+import {Card} from '../card/card';
 import s from './carousel.module.scss';
-import { ProgressBar } from '../progressBar/progressBar';
+import {ProgressBar} from '../progressBar/progressBar';
 import Arrow from '../../assets/arrow-up.svg';
+import {CatalogCardData, ProductCardData} from '@/common/types';
 
 export type CarouselProps = {
-  items: CardData[];
+  items: CatalogCardData[];
+  productCardData: ProductCardData[]
 };
 
 export const Carousel = (props: CarouselProps) => {
-  const { items } = props;
+  const { items, productCardData } = props;
   const [activeIndex, setActiveIndex] = useState(items.length < 3 ? 0 : 1);
 
   const nextItem = () => {
@@ -28,6 +30,7 @@ export const Carousel = (props: CarouselProps) => {
   };
 
   const generateItems = () => {
+    if(!items.length) return
     const itemComponents = [];
     for (let i = activeIndex - 1; i <= activeIndex + 1; i++) {
       let index = i;
@@ -38,11 +41,12 @@ export const Carousel = (props: CarouselProps) => {
       }
       itemComponents.push(
         <Card
-          key={index}
+          key={`card-${index}`}
           cardData={{ ...items[index] }}
           status={getStatus(index)}
           activeSlide={activeIndex}
           setActiveIndex={setActiveIndex}
+          productCardData={productCardData}
         />,
       );
     }

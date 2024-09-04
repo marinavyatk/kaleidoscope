@@ -11,8 +11,13 @@
     margin-bottom: 60px;
   }
 }
+
 @media (max-width: 767px) {
-  .faq h2 {
-    margin-bottom: 54px;
+  .faq {
+    padding: 55px var(--offset-x);
+
+    h2 {
+      margin-bottom: 54px;
+    }
   }
 }
