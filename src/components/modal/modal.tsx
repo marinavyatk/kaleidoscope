@@ -18,7 +18,9 @@ export const Modal = (props: ModalProps) => {
   return (
     <div {...restProps}>
       <Dialog.Root {...rootProps}>
-        <Dialog.Trigger asChild className={s.triggerContainer}>{trigger}</Dialog.Trigger>
+        <Dialog.Trigger asChild className={s.triggerContainer}>
+          {trigger}
+        </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className={s.overlay} />
           <Dialog.Content

@@ -1,16 +1,18 @@
-import {useEffect, useState} from 'react';
-import {api} from '@/common/api';
-import {Category, Nullable} from '@/common/types';
+import { useEffect, useState } from 'react';
+import { api } from '@/common/api';
+import { Category, Nullable } from '@/common/types';
 
 export const useCategories = () => {
-    const [categories, setCategories] = useState<Nullable<Category[]>>(null);
-    useEffect(() => {
-        api.getProductsCategories()
-            .then((data) => {
-                console.log('categories', data)
-                setCategories(data)})
-            .catch((error) => console.error('Error fetching categories:', error));
-    }, []);
+  const [categories, setCategories] = useState<Nullable<Category[]>>(null);
+  useEffect(() => {
+    api
+      .getProductsCategories()
+      .then((data) => {
+        console.log('categories', data);
+        setCategories(data);
+      })
+      .catch((error) => console.error('Error fetching categories:', error));
+  }, []);
 
-    return categories;
-}
+  return categories;
+};

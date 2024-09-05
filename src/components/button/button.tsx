@@ -25,4 +25,3 @@ export const Button = forwardRef(
 ) as <T extends ElementType = 'button'>(
   props: { ref?: Ref<HTMLElement> } & ButtonProps<T>,
 ) => ReactElement;
-

@@ -1,20 +1,20 @@
 import React, { ComponentPropsWithoutRef, Ref } from 'react';
 import clsx from 'clsx';
 import s from './input.module.scss';
-import dynamic from 'next/dynamic';
-
-const InputMask = dynamic(() => import('@mona-health/react-input-mask'), { ssr: false });
+// import InputMask from 'react-input-mask';
+// import InputMask from 'react-input-mask-next';
+import InputMask from '@mona-health/react-input-mask';
 
 export type InputProps = {
   label: string;
-  errorMessage?: string | undefined;
   containerProps?: ComponentPropsWithoutRef<'div'>;
+  error?: boolean;
 } & ComponentPropsWithoutRef<'input'>;
 
 export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElement>) => {
-  const { label, errorMessage, containerProps, className, ...restProps } = props;
+  const { label, error, containerProps, className, ...restProps } = props;
   const classNames = clsx(s.inputContainer, className, containerProps?.className, {
-    [s.error]: errorMessage,
+    [s.error]: error,
   });
 
   return (
@@ -25,7 +25,7 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
       {restProps.type === 'tel' ? (
         <InputMask
           mask='+7\ (999) 999-99-99'
-          {...restProps as any}
+          {...(restProps as any)}
           className={s.input}
           name={restProps?.name}
           id={restProps?.name}
@@ -40,7 +40,6 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
           ref={ref}
         />
       )}
-      {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
     </div>
   );
 });

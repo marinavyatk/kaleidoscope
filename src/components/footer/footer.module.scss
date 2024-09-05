@@ -262,7 +262,6 @@
     align-items: flex-start;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     -webkit-box-align: start;
@@ -273,6 +272,7 @@
 
     .logo {
       width: 57px;
+      height: 41px;
     }
 
     .arrowUp {

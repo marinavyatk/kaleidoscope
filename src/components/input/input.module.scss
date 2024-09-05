@@ -44,17 +44,14 @@
 }
 
 .error {
-  input {
-    color: var(--color-secondary);
-  }
+  .input {
+    color: var(--color-error);
+    border-color: var(--color-error);
+    caret-color: var(--color-error);
 
-  .errorMessage {
-    color: var(--color-secondary);
-    font-size: 14px;
-    position: absolute;
-    bottom: 0;
-    transform: translateY(100%);
-    right: 0;
+    &::placeholder{
+      color: var(--color-error);
+    }
   }
 }
 

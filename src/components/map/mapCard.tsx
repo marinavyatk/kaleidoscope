@@ -1,5 +1,6 @@
 import s from './map.module.scss';
 import CloseIcon from '../../assets/close.svg';
+import Image from 'next/image';
 
 export type MapCardProps = {
   placeTitle: string;
@@ -20,10 +21,15 @@ export const MapCard = (props: MapCardProps) => {
           </button>
         </div>
         <div className={s.imgContainer}>
-          <img src={placePhoto} alt={placeTitle} />
+          <Image
+            src={placePhoto}
+            alt={placeDescription}
+            fill
+            sizes='(max-width: 767px) 238px, (max-width: 1439px) 368px, 468px'
+          />
         </div>
       </div>
-      <p>{placeDescription}</p>
+      <div dangerouslySetInnerHTML={{ __html: placeDescription }} className={s.description}></div>
     </div>
   );
 };

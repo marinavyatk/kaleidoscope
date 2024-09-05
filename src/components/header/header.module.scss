@@ -1,6 +1,13 @@
 .headerContainer {
   filter: drop-shadow(0 0 2px #38241a);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(228, 211, 165, 0.05) 50%, rgba(0, 0, 0, 0) 50%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(228, 211, 165, 0.05) 50%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  max-width: 1920px;
+  margin: auto;
 }
 
 .header {
@@ -107,8 +114,9 @@
     margin: 2px calc(var(--offset-x) + 2%) 0;
     width: auto;
     height: 0;
-    transition: height 0.5s,
-    padding 0.5s;
+    transition:
+      height 0.5s,
+      padding 0.5s;
     overflow: hidden;
 
     a {
@@ -122,16 +130,18 @@
     left: 0;
     background-color: transparent;
     z-index: -1;
-    transition: background-color 0.5s 0.1s,
-    height 0.1s;
+    transition:
+      background-color 0.5s 0.1s,
+      height 0.1s;
   }
 
   .headerMobile:has(input[type='checkbox']:checked) {
     .links {
       height: 300px;
       padding: 50px 0;
-      transition: height 0.5s,
-      padding 0.5s;
+      transition:
+        height 0.5s,
+        padding 0.5s;
     }
 
     .background {
@@ -139,8 +149,9 @@
       opacity: 0.3;
       height: 100vh;
       width: 100vw;
-      transition: background-color 0.5s 0.1s,
-      height 0.1s;
+      transition:
+        background-color 0.5s 0.1s,
+        height 0.1s;
     }
   }
 }
@@ -160,6 +171,9 @@
 
   .logo {
     height: 34px;
+    width: 48px;
+    object-fit: contain;
+    margin-left: 0;
   }
   .player {
     width: 288px;

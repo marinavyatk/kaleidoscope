@@ -9,19 +9,39 @@ import {
   YMapMarker,
   YMapZoomControl,
 } from 'ymap3-components';
-import { points } from './helpers';
 import s from './map.module.scss';
 import { ClusterSign } from './clusterSign';
 import MapCustomization from './map-customization.json';
 import { MapPoint } from './mapPoint';
 import * as YMaps from '@yandex/ymaps3-types';
+import { LngLat } from '@yandex/ymaps3-types';
 import type { Feature } from '@yandex/ymaps3-types/packages/clusterer/YMapClusterer/interface';
 import { useMediaQuery } from 'react-responsive';
+import { useMap } from '@/common/customHooks/useMap';
+import { v4 as uuid } from 'uuid';
 
 export const Map = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+
+  const mapData = useMap();
+  const pointsInfo: Feature[] | null =
+    mapData &&
+    mapData.map((point) => ({
+      type: 'Feature',
+      id: uuid(),
+      geometry: {
+        type: 'Point',
+        coordinates: point.coordinates.split(',').map(Number) as LngLat,
+      },
+      properties: {
+        placeTitle: point.title.rendered,
+        placeDescription: point.content.rendered,
+        placePhoto: point.thumbnail_url,
+      },
+    }));
+  console.log('pointsInfo', pointsInfo);
 
   const location = { center: [54.81, 54.55], zoom: isMobile ? 2 : 4 };
   const apiKey = '9e37f796-a14c-440b-8977-8bec80c9f745';
@@ -49,7 +69,12 @@ export const Map = () => {
           behaviors={['drag', 'pinchZoom', 'dblClick']}
           zoomRange={{ min: 2, max: 21 }}
         >
-          <YMapCustomClusterer marker={marker} cluster={cluster} gridSize={64} features={points} />
+          <YMapCustomClusterer
+            marker={marker}
+            cluster={cluster}
+            gridSize={64}
+            features={pointsInfo || []}
+          />
           <YMapDefaultSchemeLayer
             customization={MapCustomization as YMaps.VectorCustomizationItem[]}
           />

@@ -21,10 +21,14 @@
     "react": "^18",
     "react-dom": "^18",
     "react-headroom": "^3.2.1",
+    "react-hook-form": "^7.53.0",
+    "react-input-mask": "^2.0.4",
+    "react-input-mask-next": "^3.0.0-alpha.12",
     "react-responsive": "^10.0.0",
     "sass": "^1.77.8",
     "swiper": "^11.1.9",
     "use-sound": "^4.0.3",
+    "uuid": "^10.0.0",
     "ymap3-components": "^1.1.6"
   },
   "devDependencies": {
@@ -34,9 +38,12 @@
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@types/react-headroom": "^3.2.3",
+    "@types/react-input-mask": "^3.0.5",
+    "@types/uuid": "^10.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
     "file-loader": "^6.2.0",
+    "prettier": "3.3.3",
     "typescript": "^5",
     "url-loader": "^4.1.1"
   }

@@ -1,5 +1,5 @@
-import {MutableRefObject, RefObject} from 'react';
-import {SwiperClass} from 'swiper/react';
+import { MutableRefObject } from 'react';
+import { SwiperClass } from 'swiper/react';
 
 export const handlePrevButtonClick = (swiperRef: MutableRefObject<SwiperClass>) => {
   swiperRef.current?.slidePrev();

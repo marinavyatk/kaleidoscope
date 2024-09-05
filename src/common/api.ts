@@ -1,55 +1,87 @@
 import axios from 'axios';
-import {Category, Field, GetFAQ} from '@/common/types';
+import { Category, DocumentData, FaqData, Field, FormValues, MapData } from '@/common/types';
 
 export const instance = axios.create({
-    // baseURL: 'http://sashc8qp.beget.tech/wp-json/wp/v2'
-    // baseURL: 'https://kaleidoscope-games.store',
-    baseURL: 'https://kaleidoscope-games.store/wp-json/wp/v2',
-
+  baseURL: 'https://kaleidoscope-games.store',
 });
 
 const getProperties = (array: any[]) => {
-    return array.map((item: Record<string, Field>) => {
-        const result: Record<string, string> = {};
+  return array.map((item: Record<string, Field>) => {
+    const result: Record<string, string> = {};
 
-        for (let key in item) {
-            if (item[key] && item[key].rendered) {
-                result[key] = item[key].rendered;
-            }
-        }
+    for (let key in item) {
+      if (item[key] && item[key].rendered) {
+        result[key] = item[key].rendered;
+      }
+    }
 
-        return result;
-    });
+    return result;
+  });
 };
 
 export const api = {
-    // getFAQ() {
-    //     return instance.get<GetFAQ[]>('/faq?_fields=title,content,meta')
-    //         .then((response) => getProperties(response.data));
-    // },
-    getFAQ() {
-        return instance.get<GetFAQ[]>('/faq')
-            .then((response) => getProperties(response.data));
-    },
-    // getProducts() {
-    //     return instance.get('/product?_fields=title,content,product_category').then((response) => response.data);
-    // },
-    getProducts() {
-        return instance.get('/product').then((response) => response.data);
-    },
-    getProductImages() {
-        return instance.get('/media/18').then((response) => response.data.source_url);
-    },
-    // getProductsCategories() {
-    //     return instance.get<Category[]>('/product_category?_fields=id,name').then((response) => response.data);
-    // },
-    getProductsCategories() {
-        return instance.get<Category[]>('/product_category').then((response) => response.data);
-    },
-    // getProjectMap() {
-    //     return instance.get<any>('/project_map').then((response) => response.data);
-    // },
-    getProjectMap() {
-        return instance.get<any>('/project_map?_fields=quarter_data,title').then((response) => response.data);
-    },
-}
+  getProductsCategories() {
+    return instance
+      .get<Category[]>('/wp-json/wp/v2/product_category?_fields=id,name')
+      .then((response) => response.data);
+  },
+  getProducts(categoryId: number) {
+    return instance
+      .get(
+        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields`,
+      )
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error('Ошибка при загрузке товаров:', error);
+      });
+  },
+  getProductImages() {
+    return instance
+      .get('/wp-json/wp/v2/media/18')
+      .then((response) => response.data.source_url)
+      .catch((error) => {
+        console.error('Ошибка при загрузке изображений:', error);
+      });
+  },
+  getProjectMap() {
+    return instance
+      .get<any>('/wp-json/wp/v2/project_map?_fields=quarter_data,title')
+      .then((response) => response.data);
+  },
+  getFAQ() {
+    return instance
+      .get<FaqData[]>('/wp-json/wp/v2/faq?_fields=title,content')
+      .then((response) => getProperties(response.data));
+  },
+  getDocuments() {
+    return (
+      instance
+        // .get('/wp-json/wp/v2/document?_fields=title,thumbnail_url')
+        .get<DocumentData[]>('/wp-json/wp/v2/document')
+        .then((response) => response.data)
+    );
+  },
+  getDocumentsImages() {
+    return instance
+      .get('/wp-json/wp/v2/media/28?_fields=source_url')
+      .then((response) => response.data);
+  },
+  getPoints() {
+    return instance
+      .get<MapData[]>('/wp-json/wp/v2/map_marker?_fields=coordinates,content,title,thumbnail_url')
+      .then((response) => response.data);
+  },
+  sendForm(data: FormValues) {
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('tel', data.tel);
+    formData.append('message', data.message);
+    formData.append('wpcf7_unit_tag', '7d46482');
+
+    return instance.post('/wp-json/contact-form-7/v1/contact-forms/36/feedback', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+};
