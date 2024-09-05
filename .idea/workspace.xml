@@ -5,74 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Added all requests + form validation">
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/customHooks/useMap.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/declarations.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/site.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon/site.webmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/close.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/close.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/commonFunctions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/commonFunctions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useFAQ.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useFAQ.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useProducts.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useProjectMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useProjectMap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/carousel/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/carousel/carousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/faq/accordionItem/accordionItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/faq/accordionItem/accordionItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/input/input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loader/loader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loader/loader.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loader/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loader/loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/map.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/map.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/map.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/mapCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/mapCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/productCardModal/productCardModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/productCardModal/productCardModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/player/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player/player.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/slider/slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/slider/slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/hello.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/6-faqSection/faq.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/6-faqSection/faq.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/7-formSection/formSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/7-formSection/formSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/7-formSection/formSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/7-formSection/formSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_colors.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svgr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/svgr.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +92,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="4833000" />
+      <workItem from="1725574417691" duration="5154000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -201,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725464809370</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added all requests + form validation">
+      <option name="closed" value="true" />
+      <created>1725579383759</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725579383759</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
