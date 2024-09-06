@@ -1,8 +1,7 @@
 import s from './documentationSection.module.scss';
 import { Button } from '@/components/button/button';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import Doc from '../../assets/doc.png';
-import { MutableRefObject, useRef } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { Keyboard, Navigation } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -10,30 +9,38 @@ import { ProgressBar } from '@/components/progressBar/progressBar';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
 import { handleSwiper } from '@/common/commonFunctions';
 import { NavButtons } from '@/components/navButtons/navButtons';
-import { useDocuments } from '@/common/customHooks/useDocuments';
 import { v4 as uuid } from 'uuid';
+import { useDocuments } from '@/common/customHooks/useDocuments';
 
 export const DocumentationSection = () => {
   const swiperRef = useRef<SwiperClass>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  console.log('currentSlide', currentSlide);
   const documents = useDocuments();
+  // const documents = [
+  //   { title: { rendered: 'Документ 1' }, thumbnail_url: '' },
+  //   { title: { rendered: 'Документ 2' }, thumbnail_url: '' },
+  //   { title: { rendered: 'Документ 3' }, thumbnail_url: '' },
+  // ];
   const isDocsExist = documents && documents.length;
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.update();
+    }
+  }, [documents]);
+
+  const slideNumber = currentSlide + 1 < 10 ? `0${currentSlide + 1}` : currentSlide + 1;
   const docs =
     isDocsExist &&
-    documents?.map((doc, index) => {
-      const slideNumber = index + 1 < 10 ? `0${index + 1}` : index + 1;
-
+    documents?.map((doc) => {
       return (
-        <SwiperSlide key={uuid()} virtualIndex={index}>
+        <SwiperSlide key={uuid()}>
           <div className={s.docInfo}>
             <div>
               <div className={s.imgContainer}>
-                <img src={Doc.src} alt='' />
-              </div>
-              <div className={s.navPanel}>
-                <span>{slideNumber}</span>
-                <ProgressBar currentSlide={index + 1} total={documents.length} />
-
-                <NavButtons swiperRef={swiperRef} />
+                <img src={doc?.thumbnail_url} alt='' />
               </div>
             </div>
             <div className={s.description}>
@@ -53,14 +60,26 @@ export const DocumentationSection = () => {
       <h2>документация</h2>
       <div className={s.background}>документация</div>
       {isDocsExist && (
-        <Swiper
-          modules={[Keyboard, Navigation]}
-          onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
-          keyboard
-          loop
-        >
-          {docs}
-        </Swiper>
+        <>
+          <Swiper
+            modules={[Keyboard, Navigation]}
+            onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
+            keyboard
+            onSlideChange={(swiper) => {
+              console.log('SlidChange swipper', swiper);
+              setCurrentSlide(swiper.activeIndex);
+            }}
+          >
+            {docs}
+          </Swiper>
+
+          <div className={s.navPanel}>
+            <span>{slideNumber}</span>
+            <ProgressBar currentSlide={currentSlide + 1} total={documents.length} />
+
+            <NavButtons swiperRef={swiperRef} />
+          </div>
+        </>
       )}
     </section>
   );
