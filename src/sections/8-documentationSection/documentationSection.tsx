@@ -1,5 +1,3 @@
-'use client';
-
 import s from './documentationSection.module.scss';
 import { Button } from '@/components/button/button';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';

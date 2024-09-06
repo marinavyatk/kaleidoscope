@@ -1,5 +1,3 @@
-'use client';
-
 import { ComponentPropsWithoutRef, useState, useEffect, useRef } from 'react';
 import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
