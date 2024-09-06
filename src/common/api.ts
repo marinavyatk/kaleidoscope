@@ -28,12 +28,12 @@ export const api = {
   getProducts(categoryId: number) {
     return instance
       .get(
-        // `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields`,
-        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc`,
+        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields`,
+        // `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc`,
       )
       .then((response) => {
         console.log('products', response.data);
-        response.data;
+        return response.data;
       })
       .catch((error) => {
         console.error('Ошибка при загрузке товаров:', error);
