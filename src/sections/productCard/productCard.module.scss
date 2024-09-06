@@ -10,11 +10,12 @@
 .productCard {
   padding: 160px 120px;
   width: 100%;
+  max-width: 1920px;
   min-height: 100vh;
   flex-direction: column;
   gap: 50px;
   position: relative;
-  //background-color: var(--color-dark);
+  margin: auto;
 
   h2,
   h3 {
@@ -39,7 +40,6 @@
 .background {
   position: absolute;
   z-index: -2;
-  //background: radial-gradient(circle, #57251b 0%, rgba(0, 0, 0, 0) 100%);
   background: radial-gradient(circle, #57251b 0%, var(--color-dark) 100%);
   top: 0;
   bottom: 0;
