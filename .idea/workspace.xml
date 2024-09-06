@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="deploy fix">
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="footer contacts changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +109,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="28352000" />
+      <workItem from="1725574417691" duration="31507000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -227,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725627116051</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="footer contacts changed">
+      <option name="closed" value="true" />
+      <created>1725629111346</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1725629111346</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +254,7 @@
     <MESSAGE value="small style edits" />
     <MESSAGE value="change photo" />
     <MESSAGE value="deploy fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy fix" />
+    <MESSAGE value="footer contacts changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="footer contacts changed" />
   </component>
 </project>

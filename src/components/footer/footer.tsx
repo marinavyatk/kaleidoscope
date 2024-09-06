@@ -55,6 +55,7 @@ export const Footer = () => {
               href='https://t.me/kaleidoscopegames'
               className={s.link + ' ' + s.telegram}
               rel='nofollow'
+              target={'_blank'}
               aria-label={'Мы в телеграмме'}
             >
               <TelegramIcon />

@@ -32,6 +32,12 @@ export const ProjectMapSection = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.update();
+    }
+  }, [projectMap, activeStepIndex]);
+
   const stepPhotos = projectMap?.[activeStepIndex]?.gallery.map((photo, index) => (
     <SwiperSlide key={`photo-${index}`} className={s.slide}>
       <ViewCloserModal
