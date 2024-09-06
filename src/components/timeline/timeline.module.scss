@@ -149,6 +149,8 @@
 //viewed
 .viewed {
   .line {
+    background-color: var(--color-light);
+
     .filledLine {
       width: 100%;
       min-width: 100%;

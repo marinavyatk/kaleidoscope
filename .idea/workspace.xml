@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Change document section">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" afterDir="false" />
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="filled line">
       <change beforePath="$PROJECT_DIR$/src/components/timeline/timeline.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/timeline/timeline.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +104,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="36974000" />
+      <workItem from="1725574417691" duration="37256000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -263,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725635466305</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="filled line">
+      <option name="closed" value="true" />
+      <created>1725638024383</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725638024383</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +284,7 @@
     <MESSAGE value="footer contacts changed" />
     <MESSAGE value="Fix nav buttons disable" />
     <MESSAGE value="Change document section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change document section" />
+    <MESSAGE value="filled line" />
+    <option name="LAST_COMMIT_MESSAGE" value="filled line" />
   </component>
 </project>
