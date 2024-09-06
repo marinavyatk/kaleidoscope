@@ -1,7 +1,7 @@
 import s from './aboutSection.module.scss';
 import { Button } from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
-import Boy from '../../assets/boy.png';
+import Boy from '../../assets/boy.webp';
 
 export const AboutSection = () => {
   return (

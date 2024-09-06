@@ -72,20 +72,27 @@
 
   .email {
     font-size: 24px;
+    //padding: 38px 0;
+    margin:  38px 0;
   }
 
-  p {
+  .tel {
     padding: 38px 0;
     border-bottom: 1px solid var(--color-light-30);
+    display: block;
 
     &:first-child {
       padding-top: 0;
     }
   }
+  //
+  //.email {
+  //  padding: 38px 0;
+  //}
 
-  p:last-of-type {
-    border: none;
-  }
+  //p:last-of-type {
+  //  border: none;
+  //}
 
   .links {
     display: flex;
@@ -188,19 +195,19 @@
   .footerRight {
     font-size: 20px;
 
-    p .email {
+     .email {
       font-size: 20px;
       word-break: break-word;
       line-height: 1;
     }
 
-    p {
+    .tel {
       padding: 30px 0;
     }
 
-    p:last-of-type {
-      padding: 30px 0 42px;
-    }
+    //p:last-of-type {
+    //  padding: 30px 0 42px;
+    //}
 
     .links {
       gap: 20px;
@@ -298,10 +305,10 @@
     p {
       padding: 14px 0;
     }
-
-    p:last-of-type {
-      padding: 14px 0 30px;
-    }
+    //
+    //p:last-of-type {
+    //  padding: 14px 0 30px;
+    //}
 
     .links {
       gap: 22px;

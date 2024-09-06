@@ -29,28 +29,30 @@ export const Footer = () => {
         </div>
 
         <div className={s.footerRight}>
-          <p>+7 918 417-50-23</p>
-          <p>+7 989 140-25-25</p>
-          <p>
-            <a href='mailto:info@kaleidoscope-games.ru' className={s.email}>
-              info@kaleidoscope-games.ru
-            </a>
-          </p>
+          <a href='tel:+79184175023' className={s.tel}>
+            +7 918 417-50-23
+          </a>
+          <a href='tel:+79891402525' className={s.tel}>
+            +7 989 140-25-25
+          </a>
+          <a href='mailto:info@kaleidoscope-games.ru' className={s.email}>
+            info@kaleidoscope-games.ru
+          </a>
           <div className={s.links}>
-            <a href='#' className={s.link} rel='nofollow' aria-label={'Мы в WhatsUp'}>
-              <WhatsUpIcon />
-            </a>
-            <a href='#' className={s.link} rel='nofollow' aria-label={'Мы на Rutube'}>
-              <RutubeIcon />
-            </a>
-            <a href='#' className={s.link} rel='nofollow' aria-label={'МЫ на Youtube'}>
-              <YoutubeIcon />
-            </a>
-            <a href='#' className={s.link} rel='nofollow' aria-label={'Мы ВКонтакте'}>
-              <VKIcon />
-            </a>
+            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы в WhatsUp'}>*/}
+            {/*  <WhatsUpIcon />*/}
+            {/*</a>*/}
+            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы на Rutube'}>*/}
+            {/*  <RutubeIcon />*/}
+            {/*</a>*/}
+            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'МЫ на Youtube'}>*/}
+            {/*  <YoutubeIcon />*/}
+            {/*</a>*/}
+            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы ВКонтакте'}>*/}
+            {/*  <VKIcon />*/}
+            {/*</a>*/}
             <a
-              href='#'
+              href='https://t.me/kaleidoscopegames'
               className={s.link + ' ' + s.telegram}
               rel='nofollow'
               aria-label={'Мы в телеграмме'}

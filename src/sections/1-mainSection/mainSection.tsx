@@ -1,4 +1,4 @@
-import {Button} from '@/components/button/button';
+import { Button } from '@/components/button/button';
 import s from './mainSection.module.scss';
 import Image from 'next/image';
 
@@ -9,7 +9,7 @@ export const MainSection = () => {
         <Image src={'/main-section-bg.png'} alt='' fill quality={100} />
       </div>
       <div className={s.kids}>
-        <Image src={'/kids.png'} alt='' fill quality={100} />
+        <Image src={'/kids.webp'} alt='' fill quality={100} />
       </div>
       <h1>
         Калейдоскоп ИГР

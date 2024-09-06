@@ -28,9 +28,13 @@ export const api = {
   getProducts(categoryId: number) {
     return instance
       .get(
-        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields`,
+        // `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields`,
+        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc`,
       )
-      .then((response) => response.data)
+      .then((response) => {
+        console.log('products', response.data);
+        response.data;
+      })
       .catch((error) => {
         console.error('Ошибка при загрузке товаров:', error);
       });
@@ -38,7 +42,10 @@ export const api = {
   getProductImages() {
     return instance
       .get('/wp-json/wp/v2/media/18')
-      .then((response) => response.data.source_url)
+      .then((response) => {
+        console.log(response.data);
+        return response.data.source_url;
+      })
       .catch((error) => {
         console.error('Ошибка при загрузке изображений:', error);
       });
