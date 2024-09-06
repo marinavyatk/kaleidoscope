@@ -1,3 +1,5 @@
+'use client';
+
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { handleSwiper } from '@/common/commonFunctions';

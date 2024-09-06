@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="check input zooming">
-      <change afterPath="$PROJECT_DIR$/src/components/input/textarea.tsx" afterDir="false" />
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Added form sending">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useMap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/button.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/form.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/map.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +107,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="18457000" />
+      <workItem from="1725574417691" duration="19274000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -180,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725579692065</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added form sending">
+      <option name="closed" value="true" />
+      <created>1725619218746</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725619218746</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +183,7 @@
     <MESSAGE value="temp" />
     <MESSAGE value="Added all requests + form validation" />
     <MESSAGE value="check input zooming" />
-    <option name="LAST_COMMIT_MESSAGE" value="check input zooming" />
+    <MESSAGE value="Added form sending" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added form sending" />
   </component>
 </project>
