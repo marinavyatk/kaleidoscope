@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="temp">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.module.scss" afterDir="false" />
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="mobile menu iphone">
       <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +104,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="19842000" />
+      <workItem from="1725574417691" duration="20324000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -182,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725619878263</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="mobile menu iphone">
+      <option name="closed" value="true" />
+      <created>1725620457771</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725620457771</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +197,7 @@
     <MESSAGE value="check input zooming" />
     <MESSAGE value="Added form sending" />
     <MESSAGE value="temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp" />
+    <MESSAGE value="mobile menu iphone" />
+    <option name="LAST_COMMIT_MESSAGE" value="mobile menu iphone" />
   </component>
 </project>

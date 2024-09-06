@@ -34,20 +34,20 @@ export const Header = (props: HeaderProps) => {
     }
   }, []);
 
-  useEffect(() => {
-    const menuElement = menuRef.current;
-    if (isOpen && menuElement) {
-      disableBodyScroll(menuElement);
-    } else if (menuElement) {
-      enableBodyScroll(menuElement);
-    }
-
-    return () => {
-      if (menuElement) {
-        enableBodyScroll(menuElement);
-      }
-    };
-  }, [isOpen]);
+  // useEffect(() => {
+  //   const menuElement = menuRef.current;
+  //   if (isOpen && menuElement) {
+  //     disableBodyScroll(menuElement);
+  //   } else if (menuElement) {
+  //     enableBodyScroll(menuElement);
+  //   }
+  //
+  //   return () => {
+  //     if (menuElement) {
+  //       enableBodyScroll(menuElement);
+  //     }
+  //   };
+  // }, [isOpen]);
 
   if (!isClient) return null;
 
