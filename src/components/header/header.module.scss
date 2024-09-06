@@ -1,10 +1,10 @@
 .headerContainer {
   filter: drop-shadow(0 0 2px #38241a);
   background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(228, 211, 165, 0.05) 50%,
-    rgba(0, 0, 0, 0) 50%
+                  180deg,
+                  rgba(0, 0, 0, 0) 0%,
+                  rgba(228, 211, 165, 0.05) 50%,
+                  rgba(0, 0, 0, 0) 50%
   );
   max-width: 1920px;
   margin: auto;
@@ -25,23 +25,28 @@
   clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
   font-family: var(--font-family-secondary);
   margin: 20px var(--offset-x) 0;
+
+  a {
+    font-size: 16px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 41px 0 40px;
+
+    &:focus {
+      text-shadow: 1px 1px 5px var(--color-light-secondary);
+    }
+  }
 }
 
 .links {
   width: 39%;
   display: flex;
   justify-content: space-between;
-
-  a {
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 41px 0 40px;
-    white-space: nowrap;
-  }
 }
 
 .logo {
   height: 66px;
+  width: 88px;
   margin: 13px 0 21px;
 }
 
@@ -51,10 +56,6 @@
   justify-content: space-between;
   width: 39%;
   gap: 20px;
-
-  a {
-    text-transform: uppercase;
-  }
 }
 
 .player {
@@ -70,11 +71,11 @@
 @media (max-width: 1440px) {
   .header {
     padding: 0 40px;
-  }
 
-  .links a {
-    font-size: 18px;
-    padding: 20px 0 20px;
+    a {
+      font-size: 18px;
+      padding: 20px 0 20px;
+    }
   }
 
   .logo {
@@ -90,12 +91,16 @@
 @media (max-width: 1099px) {
   .header {
     padding: 8px 30px;
+
+    a {
+      padding: 10px 0;
+    }
   }
 
   .logo {
     margin: 0;
-    width: fit-content;
     height: 38px;
+    width: 54px;
   }
 
   .player {
@@ -108,19 +113,22 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: var(--color-dark);
     font-family: var(--font-family-secondary);
     text-align: center;
-    margin: 2px calc(var(--offset-x) + 2%) 0;
-    width: auto;
     height: 0;
-    transition:
-      height 0.5s,
-      padding 0.5s;
     overflow: hidden;
+    padding: 2px calc(var(--offset-x) + 2%) 0;
+    width: 100%;
 
-    a {
-      padding: 10px 0;
+    .linksBackground {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      background-color: var(--color-dark);
+      height: 0;
+      transition: height 0.5s,
+      padding 0.5s;
+      width: 100%;
     }
   }
 
@@ -130,18 +138,20 @@
     left: 0;
     background-color: transparent;
     z-index: -1;
-    transition:
-      background-color 0.5s 0.1s,
-      height 0.1s;
+    transition: background-color 0.5s 0.1s,
+    height 0.1s;
   }
 
   .headerMobile:has(input[type='checkbox']:checked) {
     .links {
       height: 300px;
-      padding: 50px 0;
-      transition:
-        height 0.5s,
+
+      .linksBackground {
+        height: 300px;
+        padding: 50px 0;
+        transition: height 0.5s,
         padding 0.5s;
+      }
     }
 
     .background {
@@ -149,9 +159,8 @@
       opacity: 0.3;
       height: 100vh;
       width: 100vw;
-      transition:
-        background-color 0.5s 0.1s,
-        height 0.1s;
+      transition: background-color 0.5s 0.1s,
+      height 0.1s;
     }
   }
 }
@@ -166,7 +175,8 @@
     width: 100%;
   }
   .links {
-    margin: 2px 2% 0;
+    z-index: 2;
+    padding: 2px 2% 0;
   }
 
   .logo {
@@ -180,6 +190,5 @@
     height: 60px;
     position: relative;
     margin: 14px auto 0;
-    z-index: -1;
   }
 }

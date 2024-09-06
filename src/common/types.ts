@@ -1,3 +1,5 @@
+import { string } from 'prop-types';
+
 export type Nullable<T> = null | T;
 
 export type Product = {
@@ -14,9 +16,9 @@ export type Faq = {
 };
 
 export type FormValues = {
-  name: string;
-  tel: string;
-  message: string;
+  clientName: string;
+  clientTel: string;
+  clientMessage: string;
 };
 
 //requests types
@@ -52,4 +54,9 @@ export type MapData = {
   content: Field;
   thumbnail_url: string;
   coordinates: string;
+};
+
+export type FormResponse = {
+  message: string;
+  status: string;
 };

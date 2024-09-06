@@ -4,8 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Added all requests + form validation">
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="check input zooming">
+      <change afterPath="$PROJECT_DIR$/src/components/input/textarea.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useCategories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/button.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/form.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/input/input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/map/map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +47,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/CodingProjects/kaleidoscope",
+    "last_opened_file_path": "D:/CodingProjects/octoweb",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.build.executor": "Run",
+    "npm.dev.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "D:\\CodingProjects\\kaleidoscope\\node_modules\\prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "D:\\CodingProjects\\kaleidoscope\\node_modules\\typescript\\lib",
@@ -51,7 +70,7 @@
       <recent name="D:\CodingProjects\kaleidoscope\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -62,8 +81,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -92,7 +122,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="5154000" />
+      <workItem from="1725574417691" duration="18457000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -142,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725579383759</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="check input zooming">
+      <option name="closed" value="true" />
+      <created>1725579692065</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1725579692065</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +189,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="temp" />
     <MESSAGE value="Added all requests + form validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added all requests + form validation" />
+    <MESSAGE value="check input zooming" />
+    <option name="LAST_COMMIT_MESSAGE" value="check input zooming" />
   </component>
 </project>

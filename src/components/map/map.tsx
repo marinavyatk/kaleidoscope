@@ -41,7 +41,6 @@ export const Map = () => {
         placePhoto: point.thumbnail_url,
       },
     }));
-  console.log('pointsInfo', pointsInfo);
 
   const location = { center: [54.81, 54.55], zoom: isMobile ? 2 : 4 };
   const apiKey = '9e37f796-a14c-440b-8977-8bec80c9f745';

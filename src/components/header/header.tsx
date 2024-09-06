@@ -83,21 +83,23 @@ export const Header = (props: HeaderProps) => {
             </header>
             <div className={s.background}></div>
             <div className={s.links}>
-              <a href='#about' onClick={() => setIsOpen(false)}>
-                О нас
-              </a>
-              <a href='#catalog' onClick={() => setIsOpen(false)}>
-                Каталог
-              </a>
-              <a href='#history' onClick={() => setIsOpen(false)}>
-                История
-              </a>
-              <a href='#realized' onClick={() => setIsOpen(false)}>
-                Реализовано
-              </a>
-              <a href='#contacts' onClick={() => setIsOpen(false)}>
-                Контакты
-              </a>
+              <div className={s.linksBackground}>
+                <a href='#about' onClick={() => setIsOpen(false)}>
+                  О нас
+                </a>
+                <a href='#catalog' onClick={() => setIsOpen(false)}>
+                  Каталог
+                </a>
+                <a href='#history' onClick={() => setIsOpen(false)}>
+                  История
+                </a>
+                <a href='#realized' onClick={() => setIsOpen(false)}>
+                  Реализовано
+                </a>
+                <a href='#contacts' onClick={() => setIsOpen(false)}>
+                  Контакты
+                </a>
+              </div>
             </div>
             {isMobile && (
               <div className={s.player}>

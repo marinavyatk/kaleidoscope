@@ -73,10 +73,10 @@ export const api = {
   },
   sendForm(data: FormValues) {
     const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('tel', data.tel);
-    formData.append('message', data.message);
-    formData.append('wpcf7_unit_tag', '7d46482');
+    formData.append('clientName', data.clientName);
+    formData.append('clientTel', data.clientTel);
+    formData.append('clientMessage', data.clientMessage);
+    formData.append('_wpcf7_unit_tag', 'wpcf7-f36-p7-o1');
 
     return instance.post('/wp-json/contact-form-7/v1/contact-forms/36/feedback', formData, {
       headers: {

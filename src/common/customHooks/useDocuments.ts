@@ -8,7 +8,6 @@ export const useDocuments = () => {
     api
       .getDocuments()
       .then((data) => {
-        console.log('documents', data);
         setDocuments(data);
       })
       .catch((error) => console.error('Error fetching documents:', error));

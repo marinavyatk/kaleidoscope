@@ -9,7 +9,6 @@ export const useMap = () => {
     api
       .getPoints()
       .then((data) => {
-        console.log('map', data);
         setMap(data);
       })
       .catch((error) => console.error('Error fetching map:', error));

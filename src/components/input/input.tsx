@@ -1,8 +1,6 @@
 import React, { ComponentPropsWithoutRef, Ref } from 'react';
 import clsx from 'clsx';
 import s from './input.module.scss';
-// import InputMask from 'react-input-mask';
-// import InputMask from 'react-input-mask-next';
 import InputMask from '@mona-health/react-input-mask';
 
 export type InputProps = {

@@ -8,7 +8,6 @@ export const useCategories = () => {
     api
       .getProductsCategories()
       .then((data) => {
-        console.log('categories', data);
         setCategories(data);
       })
       .catch((error) => console.error('Error fetching categories:', error));
