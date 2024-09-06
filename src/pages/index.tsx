@@ -5,7 +5,6 @@ import { MainSection } from '@/sections/1-mainSection/mainSection';
 import { AboutSection } from '@/sections/2-aboutSection/aboutSection';
 import { CatalogSection } from '@/sections/3-catalogSection/catalogSection';
 import { ProjectMapSection } from '@/sections/4-projectMapSection/projectMapSection';
-import { MapSection } from '@/sections/5-mapSection/mapSection';
 import { DocumentationSection } from '@/sections/8-documentationSection/documentationSection';
 import { Footer } from '@/components/footer/footer';
 import { FormSection } from '@/sections/7-formSection/formSection';
@@ -28,7 +27,6 @@ export default function Home() {
         <AboutSection />
         <CatalogSection />
         <ProjectMapSection />
-        <MapSection />
         <FAQ />
         <FormSection />
         <DocumentationSection />

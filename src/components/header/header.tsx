@@ -1,10 +1,9 @@
-import { ComponentPropsWithoutRef, useState, useEffect, useRef } from 'react';
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from 'react';
 import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
 import { BurgerButton } from '../burgerButton/burgerButton';
 import { Player } from '../player/player';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 export type HeaderProps = ComponentPropsWithoutRef<'header'>;
 
@@ -15,6 +14,7 @@ export const Header = (props: HeaderProps) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -34,25 +34,10 @@ export const Header = (props: HeaderProps) => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const menuElement = menuRef.current;
-  //   if (isOpen && menuElement) {
-  //     disableBodyScroll(menuElement);
-  //   } else if (menuElement) {
-  //     enableBodyScroll(menuElement);
-  //   }
-  //
-  //   return () => {
-  //     if (menuElement) {
-  //       enableBodyScroll(menuElement);
-  //     }
-  //   };
-  // }, [isOpen]);
-
   if (!isClient) return null;
 
   return (
-    <Headroom className={className}>
+    <Headroom className={className} ref={headerRef}>
       <div className={s.headerContainer}>
         {!isTabletOrMobile ? (
           <header {...restProps} className={s.header}>
@@ -60,7 +45,7 @@ export const Header = (props: HeaderProps) => {
               <a href='#about'>О нас</a>
               <a href='#catalog'>Каталог</a>
               <a href='#history'>История</a>
-              <a href='#realized'>Реализовано</a>
+              {/*<a href='#realized'>Реализовано</a>*/}
             </div>
             <Logo className={s.logo} />
             <div className={s.rightBlock}>
@@ -93,9 +78,9 @@ export const Header = (props: HeaderProps) => {
                 <a href='#history' onClick={() => setIsOpen(false)}>
                   История
                 </a>
-                <a href='#realized' onClick={() => setIsOpen(false)}>
-                  Реализовано
-                </a>
+                {/*<a href='#realized' onClick={() => setIsOpen(false)}>*/}
+                {/*  Реализовано*/}
+                {/*</a>*/}
                 <a href='#contacts' onClick={() => setIsOpen(false)}>
                   Контакты
                 </a>
