@@ -46,7 +46,8 @@
 
   h2 {
     margin-bottom: 412px;
-    word-wrap: break-word;
+    white-space: wrap;
+    max-width: 811px;
   }
 
   .description {
@@ -100,7 +101,6 @@
 
     h2 {
       margin-bottom: 80px;
-      white-space: nowrap;
     }
 
     .description {
@@ -140,7 +140,7 @@
 
     .boy {
       img {
-        height: 50%;
+        height: 55%;
       }
     }
 

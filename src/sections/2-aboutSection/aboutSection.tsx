@@ -13,11 +13,7 @@ export const AboutSection = () => {
       <div className={s.boy}>
         <img src={Boy.src} alt='' />
       </div>
-      <h2>
-        объединяем поколения
-        <br />
-        через соперни&shy;чество
-      </h2>
+      <h2>объединяем поколения через соперни&shy;чество</h2>
       <div className={s.description}>
         <div className={s.aboutCompany}>
           <h3>о компании</h3>

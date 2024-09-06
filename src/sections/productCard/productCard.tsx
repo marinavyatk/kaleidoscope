@@ -57,9 +57,11 @@ export const ProductCard = (props: ProductCardProps) => {
                   );
                 })}
               </div>
-              <a href='#' download rel='nofollow'>
-                получить кп
-              </a>
+              <DialogClose>
+                <a href='#form' rel='nofollow'>
+                  получить кп
+                </a>
+              </DialogClose>
             </div>
           )}
         </div>
@@ -82,18 +84,21 @@ export const ProductCard = (props: ProductCardProps) => {
                   );
                 })}
               </div>
-
-              <a href='#' download rel='nofollow'>
-                получить кп
-              </a>
+              <DialogClose>
+                <a href='#form' rel='nofollow'>
+                  получить кп
+                </a>
+              </DialogClose>
             </div>
           </div>
         )}
       </div>
       <div className={s.cardFooter}>
-        <a href='#' download rel='nofollow'>
-          получить кп
-        </a>
+        <DialogClose>
+          <a href='#form' rel='nofollow'>
+            получить кп
+          </a>
+        </DialogClose>
         <div className={s.navButtons}>
           <button onClick={() => handlePrevButtonClick(swiperRef as MutableRefObject<SwiperClass>)}>
             <ArrowIcon />
