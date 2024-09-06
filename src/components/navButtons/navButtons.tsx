@@ -12,11 +12,6 @@ export type NavButtonsProps = {
 export const NavButtons = (props: NavButtonsProps) => {
   const { swiperRef, className, ...restProps } = props;
   const classNames = clsx(s.navButtons, className);
-  const [isLocked, setIsLocked] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (swiperRef?.current) setIsLocked(swiperRef.current?.isLocked);
-  }, [swiperRef?.current?.isLocked]);
 
   return (
     <div className={classNames} {...restProps}>
@@ -24,7 +19,6 @@ export const NavButtons = (props: NavButtonsProps) => {
         className={s.btnPrev}
         onClick={() => handlePrevButtonClick(swiperRef as MutableRefObject<SwiperClass>)}
         aria-label={'Назад'}
-        disabled={isLocked}
       >
         <Arrow />
       </button>
@@ -32,7 +26,6 @@ export const NavButtons = (props: NavButtonsProps) => {
         className={s.btnNext}
         onClick={() => handleNextButtonClick(swiperRef as MutableRefObject<SwiperClass>)}
         aria-label={'Вперёд'}
-        disabled={isLocked}
       >
         <Arrow />
       </button>

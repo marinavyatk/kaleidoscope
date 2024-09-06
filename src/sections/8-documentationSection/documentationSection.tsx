@@ -16,7 +16,6 @@ export const DocumentationSection = () => {
   const swiperRef = useRef<SwiperClass>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  console.log('currentSlide', currentSlide);
   const documents = useDocuments();
   // const documents = [
   //   { title: { rendered: 'Документ 1' }, thumbnail_url: '' },
@@ -24,12 +23,6 @@ export const DocumentationSection = () => {
   //   { title: { rendered: 'Документ 3' }, thumbnail_url: '' },
   // ];
   const isDocsExist = documents && documents.length;
-
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.update();
-    }
-  }, [documents]);
 
   const slideNumber = currentSlide + 1 < 10 ? `0${currentSlide + 1}` : currentSlide + 1;
   const docs =
