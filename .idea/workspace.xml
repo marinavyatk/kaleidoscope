@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="small style edits">
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="deploy fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/boy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kids.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/footer/footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +105,7 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="26232000" />
+      <workItem from="1725574417691" duration="28352000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -217,7 +211,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725624715135</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="change photo">
+      <option name="closed" value="true" />
+      <created>1725626987640</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1725626987640</updated>
+    </task>
+    <task id="LOCAL-00015" summary="deploy fix">
+      <option name="closed" value="true" />
+      <created>1725627116051</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725627116051</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +240,8 @@
     <MESSAGE value="temp" />
     <MESSAGE value="mobile menu iphone" />
     <MESSAGE value="small style edits" />
-    <option name="LAST_COMMIT_MESSAGE" value="small style edits" />
+    <MESSAGE value="change photo" />
+    <MESSAGE value="deploy fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy fix" />
   </component>
 </project>
