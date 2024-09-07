@@ -21,7 +21,7 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
     return (
       <SwiperSlide key={product.name}>
         <ProductCard
-          productData={{ ...product }}
+          productData={product}
           onClose={() => setActiveIndex(index)}
           swiperRef={swiperRef}
         />

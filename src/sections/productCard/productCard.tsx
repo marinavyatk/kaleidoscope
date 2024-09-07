@@ -1,7 +1,6 @@
 import s from './productCard.module.scss';
 import CloseIcon from '../../assets/close.svg';
 import ArrowIcon from '../../assets/arrow-triangle.svg';
-import Model from '../../assets/product.png';
 import { useMediaQuery } from 'react-responsive';
 import { ComponentPropsWithoutRef, MutableRefObject, RefObject } from 'react';
 import { clsx } from 'clsx';
@@ -10,9 +9,10 @@ import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFun
 import { DialogClose } from '@radix-ui/react-dialog';
 import { Product } from '@/common/types';
 import { v4 as uuid } from 'uuid';
+import Image from 'next/image';
 
 export type ProductCardProps = {
-  productData?: Product;
+  productData: Product;
   swiperRef: RefObject<SwiperClass>;
   onClose: () => void;
 } & ComponentPropsWithoutRef<'div'>;
@@ -66,7 +66,7 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={s.model}>
-          <img src={Model.src} alt='' />
+          <Image src={productData?.img} alt={'Фото товара'} fill sizes={'957px'} />
         </div>
 
         {isTabletOrMobile && (

@@ -1,10 +1,11 @@
-import {ComponentPropsWithoutRef} from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 import CardBackground from '../../assets/card.svg';
 import clsx from 'clsx';
 import s from './card.module.scss';
-import {ProductCardModal} from '../modal/productCardModal/productCardModal';
-import {Product} from '@/common/types';
+import { ProductCardModal } from '../modal/productCardModal/productCardModal';
+import { Product } from '@/common/types';
 import Image from 'next/image';
+import { Loader } from '@/components/loader/loader';
 
 export type CardProps = {
   product: Product;
@@ -25,7 +26,11 @@ export const Card = (props: CardProps) => {
         <p className={s.cardName}>{product?.name}</p>
         <p className={s.description}>{product?.shortDescription}</p>
         <div className={s.model}>
-          <Image src={product?.img || ''} alt='' fill sizes='(max-width: 767px) 259px, 526px'/>
+          {product.imgLoading ? (
+            <Loader className={s.loader} />
+          ) : (
+            <Image src={product?.img || ''} alt='' fill sizes='(max-width: 767px) 259px, 526px' />
+          )}
         </div>
         {restProps.children}
         <ProductCardModal

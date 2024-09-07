@@ -28,22 +28,19 @@ export const api = {
   getProducts(categoryId: number) {
     return instance
       .get(
-        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields`,
-        // `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc`,
+        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields,featured_media`,
       )
       .then((response) => {
-        // console.log('products', response.data);
         return response.data;
       })
       .catch((error) => {
         console.error('Ошибка при загрузке товаров:', error);
       });
   },
-  getProductImages() {
+  getProductImage(productId: number) {
     return instance
-      .get('/wp-json/wp/v2/media/18')
+      .get(`/wp-json/wp/v2/media/${productId}?_fileds=source_url`)
       .then((response) => {
-        // console.log(response.data);
         return response.data.source_url;
       })
       .catch((error) => {
@@ -61,12 +58,9 @@ export const api = {
       .then((response) => getProperties(response.data));
   },
   getDocuments() {
-    return (
-      instance
-        // .get('/wp-json/wp/v2/document?_fields=title,thumbnail_url')
-        .get<DocumentData[]>('/wp-json/wp/v2/document')
-        .then((response) => response.data)
-    );
+    return instance
+      .get<DocumentData[]>('/wp-json/wp/v2/document')
+      .then((response) => response.data);
   },
   getDocumentsImages() {
     return instance

@@ -5,53 +5,18 @@ import 'swiper/css';
 import { Carousel } from '@/components/carousel/carousel';
 import Image from 'next/image';
 import { useCategories } from '@/common/customHooks/useCategories';
-import { api } from '@/common/api';
-import { Nullable, Product, ProductData } from '@/common/types';
 import { v4 as uuid } from 'uuid';
 import { Loader } from '@/components/loader/loader';
+import { useProducts } from '@/common/customHooks/useProducts';
 
 export const CatalogSection = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const categories = useCategories();
-  const [products, setProducts] = useState<Nullable<Product[]>>(null);
-  const [loading, setLoading] = useState(true);
+  const { products, loading } = useProducts(activeCategory);
 
   useEffect(() => {
     setActiveCategory(categories?.[0].id || 0);
   }, [categories]);
-
-  useEffect(() => {
-    let isCancelled = false;
-    setLoading(true);
-    const fetchProductsAndImages = async () => {
-      try {
-        const [productData, img] = await Promise.all([
-          api.getProducts(activeCategory),
-          api.getProductImages(),
-        ]);
-        if (isCancelled) return;
-        const structuredData = productData.map((product: ProductData) => ({
-          description: product.content.rendered,
-          name: product.title.rendered,
-          specifications: product.custom_meta_fields,
-          shortDescription: product.short_description,
-          img,
-        }));
-
-        setProducts(structuredData);
-      } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProductsAndImages();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [activeCategory]);
 
   const categoriesButtons = categories?.map((item) => {
     const handleChangeCategory = () => {

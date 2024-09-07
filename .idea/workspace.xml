@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="doc section + button focus state styles">
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="header fixed + input mask validation">
+      <change afterPath="$PROJECT_DIR$/src/common/customHooks/useProducts.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input/input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loader/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loader/loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/productCardModal/productCardModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/productCardModal/productCardModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +117,7 @@
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
       <workItem from="1725574417691" duration="42227000" />
-      <workItem from="1725645786205" duration="16722000" />
+      <workItem from="1725645786205" duration="28869000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -302,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725669603514</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="header fixed + input mask validation">
+      <option name="closed" value="true" />
+      <created>1725702195340</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725702195340</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +341,7 @@
     <MESSAGE value="header break issue" />
     <MESSAGE value="header break issue + commercial offer" />
     <MESSAGE value="doc section + button focus state styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="doc section + button focus state styles" />
+    <MESSAGE value="header fixed + input mask validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="header fixed + input mask validation" />
   </component>
 </project>

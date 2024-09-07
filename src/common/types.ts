@@ -1,12 +1,12 @@
-import { string } from 'prop-types';
-
 export type Nullable<T> = null | T;
 
 export type Product = {
   name: string;
   description: string;
   shortDescription: string;
-  img?: string;
+  imgId: number;
+  imgLoading: boolean;
+  img: string;
   specifications: { key: string; value: string }[];
 };
 
@@ -42,6 +42,7 @@ export type ProductData = {
   short_description: string;
   custom_meta_fields: { key: string; value: string }[];
   link: string;
+  ['featured_media']: number;
 };
 
 export type DocumentData = {

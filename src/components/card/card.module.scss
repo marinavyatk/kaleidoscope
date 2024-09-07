@@ -55,10 +55,18 @@
     height: 307px;
     margin-bottom: 38px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 100%;
       object-fit: contain;
+    }
+
+    .loader{
+      border-color: #949494;
+      border-bottom-color: var(--color-primary);
     }
   }
 
