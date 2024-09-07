@@ -20,30 +20,8 @@ export const CatalogSection = () => {
     setActiveCategory(categories?.[0].id || 0);
   }, [categories]);
 
-  // useEffect(() => {
-  //   const structuredData: Product[] = [];
-  //   api
-  //     .getProducts(activeCategory)
-  //     .then((data) => {
-  //       data.forEach((product: ProductData) => {
-  //         structuredData.push({
-  //           description: product.content.rendered,
-  //           name: product.title.rendered,
-  //           specifications: product.custom_meta_fields,
-  //           shortDescription: product.short_description,
-  //           img: '',
-  //         });
-  //       });
-  //       return api.getProductImages();
-  //     })
-  //     .then((img) => {
-  //       const updatedProductData = structuredData.map((product) => ({ ...product, img }));
-  //       setProducts(updatedProductData);
-  //     });
-  // }, [activeCategory]);
-
   useEffect(() => {
-    let isCancelled = false; // Флаг для предотвращения обновления состояния после размонтирования компонента
+    let isCancelled = false;
     setLoading(true);
     const fetchProductsAndImages = async () => {
       try {
@@ -51,9 +29,7 @@ export const CatalogSection = () => {
           api.getProducts(activeCategory),
           api.getProductImages(),
         ]);
-
-        if (isCancelled) return; // Проверка, не был ли компонент размонтирован
-
+        if (isCancelled) return;
         const structuredData = productData.map((product: ProductData) => ({
           description: product.content.rendered,
           name: product.title.rendered,
@@ -66,14 +42,14 @@ export const CatalogSection = () => {
       } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
       } finally {
-        setLoading(false); // Сбрасываем загрузку в false после завершения запроса
+        setLoading(false);
       }
     };
 
     fetchProductsAndImages();
 
     return () => {
-      isCancelled = true; // Устанавливаем флаг, если компонент будет размонтирован
+      isCancelled = true;
     };
   }, [activeCategory]);
 

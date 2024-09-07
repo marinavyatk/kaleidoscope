@@ -1,7 +1,7 @@
 import s from './documentationSection.module.scss';
 import { Button } from '@/components/button/button';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useRef, useState } from 'react';
 import { Keyboard, Navigation } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -11,17 +11,12 @@ import { handleSwiper } from '@/common/commonFunctions';
 import { NavButtons } from '@/components/navButtons/navButtons';
 import { v4 as uuid } from 'uuid';
 import { useDocuments } from '@/common/customHooks/useDocuments';
+import { Loader } from '@/components/loader/loader';
 
 export const DocumentationSection = () => {
   const swiperRef = useRef<SwiperClass>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const documents = useDocuments();
-  // const documents = [
-  //   { title: { rendered: 'Документ 1' }, thumbnail_url: '' },
-  //   { title: { rendered: 'Документ 2' }, thumbnail_url: '' },
-  //   { title: { rendered: 'Документ 3' }, thumbnail_url: '' },
-  // ];
+  const { documents, loading } = useDocuments();
   const isDocsExist = documents && documents.length;
 
   const slideNumber = currentSlide + 1 < 10 ? `0${currentSlide + 1}` : currentSlide + 1;
@@ -51,28 +46,35 @@ export const DocumentationSection = () => {
   return (
     <section className={s.docSection}>
       <h2>документация</h2>
-      <div className={s.background}>документация</div>
-      {isDocsExist && (
+      <div className={s.background}>
+        документац
+        <wbr />
+        ия
+      </div>
+      {isDocsExist ? (
         <>
           <Swiper
             modules={[Keyboard, Navigation]}
             onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
             keyboard
             onSlideChange={(swiper) => {
-              console.log('SlidChange swipper', swiper);
               setCurrentSlide(swiper.activeIndex);
             }}
           >
             {docs}
           </Swiper>
+          <div className={s.navPanelContainer}>
+            <div className={s.navPanel}>
+              <span>{slideNumber}</span>
+              <ProgressBar currentSlide={currentSlide + 1} total={documents.length} />
 
-          <div className={s.navPanel}>
-            <span>{slideNumber}</span>
-            <ProgressBar currentSlide={currentSlide + 1} total={documents.length} />
-
-            <NavButtons swiperRef={swiperRef} />
+              <NavButtons swiperRef={swiperRef} />
+            </div>
+            <div className={s.emptyElement}></div>
           </div>
         </>
+      ) : (
+        <div className={s.placeholder}>{loading && <Loader />}</div>
       )}
     </section>
   );

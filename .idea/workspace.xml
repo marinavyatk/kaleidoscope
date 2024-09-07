@@ -4,11 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="header break issue">
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="header break issue + commercial offer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/customHooks/useDocuments.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/button.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/faq/accordionButton/accordionButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/faq/accordionButton/accordionButton.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/input/input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/formStatusModal/formStatusModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_boilerplate.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_boilerplate.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +48,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/CodingProjects/octoweb",
+    "last_opened_file_path": "D:/CodingProjects/kaleidoscope/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -48,9 +64,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CodingProjects\kaleidoscope\public" />
       <recent name="D:\CodingProjects\kaleidoscope" />
       <recent name="D:\CodingProjects\kaleidoscope\public\favicon" />
-      <recent name="D:\CodingProjects\kaleidoscope\public" />
       <recent name="D:\CodingProjects\kaleidoscope\src\styles" />
       <recent name="D:\CodingProjects\kaleidoscope\src" />
     </key>
@@ -107,7 +123,8 @@
       <workItem from="1725349874308" duration="2441000" />
       <workItem from="1725352419322" duration="63127000" />
       <workItem from="1725462114507" duration="52053000" />
-      <workItem from="1725574417691" duration="39693000" />
+      <workItem from="1725574417691" duration="42227000" />
+      <workItem from="1725645786205" duration="14857000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -285,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725639192693</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="header break issue + commercial offer">
+      <option name="closed" value="true" />
+      <created>1725642341710</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1725642341710</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +330,7 @@
     <MESSAGE value="Change document section" />
     <MESSAGE value="filled line" />
     <MESSAGE value="header break issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="header break issue" />
+    <MESSAGE value="header break issue + commercial offer" />
+    <option name="LAST_COMMIT_MESSAGE" value="header break issue + commercial offer" />
   </component>
 </project>

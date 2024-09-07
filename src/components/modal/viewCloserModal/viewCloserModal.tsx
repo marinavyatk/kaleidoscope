@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-
 import s from './viewCloserModal.module.scss';
 import { Modal } from '../modal';
 

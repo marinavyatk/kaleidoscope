@@ -45,6 +45,7 @@ export const Header = (props: HeaderProps) => {
               <a href='#about'>О нас</a>
               <a href='#catalog'>Каталог</a>
               <a href='#history'>История</a>
+              {/*need later*/}
               {/*<a href='#realized'>Реализовано</a>*/}
             </div>
             <Logo className={s.logo} />
@@ -78,6 +79,7 @@ export const Header = (props: HeaderProps) => {
                 <a href='#history' onClick={() => setIsOpen(false)}>
                   История
                 </a>
+                {/*need later*/}
                 {/*<a href='#realized' onClick={() => setIsOpen(false)}>*/}
                 {/*  Реализовано*/}
                 {/*</a>*/}

@@ -39,6 +39,7 @@ export const Footer = () => {
             info@kaleidoscope-games.ru
           </a>
           <div className={s.links}>
+            {/*need if it will be more links*/}
             {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы в WhatsUp'}>*/}
             {/*  <WhatsUpIcon />*/}
             {/*</a>*/}

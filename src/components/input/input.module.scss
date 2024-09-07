@@ -5,14 +5,7 @@
   position: relative;
   transition: all 0.5s;
   font-family: var(--font-family-secondary);
-
   flex-shrink: 1;
-
-  &:focus-within {
-    .mainLabel {
-      //color: var(--color-light-100);
-    }
-  }
 }
 
 .label {

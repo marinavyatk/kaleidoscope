@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
 import { Header } from '@/components/header/header';
 import { MainSection } from '@/sections/1-mainSection/mainSection';
 import { AboutSection } from '@/sections/2-aboutSection/aboutSection';
@@ -10,8 +9,6 @@ import { Footer } from '@/components/footer/footer';
 import { FormSection } from '@/sections/7-formSection/formSection';
 import { FAQ } from '@/sections/6-faqSection/faq';
 import s from '@/styles/index.module.scss';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (

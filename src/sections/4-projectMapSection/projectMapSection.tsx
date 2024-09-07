@@ -18,15 +18,14 @@ export const ProjectMapSection = () => {
   const { projectMap, stepData } = useProjectMap();
 
   useEffect(() => {
-    setIsClient(true); // Устанавливаем, что компонент рендерится на клиенте
-
+    setIsClient(true);
     const handleResize = () => {
       if (typeof window !== 'undefined') {
         setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1439);
       }
     };
 
-    handleResize(); // Устанавливаем начальное значение
+    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
@@ -41,7 +40,7 @@ export const ProjectMapSection = () => {
     </SwiperSlide>
   ));
 
-  if (!isClient) return null; // Не рендерим компонент на сервере
+  if (!isClient) return null;
 
   return (
     <section className={s.projectMapSection} id='history'>
@@ -59,12 +58,10 @@ export const ProjectMapSection = () => {
       <Swiper
         modules={[Keyboard, Navigation]}
         slidesPerView={'auto'}
-        // spaceBetween={22}
         onSwiper={(swiper) => {
           handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
         }}
         keyboard
-        // loop
         className={s.slidesContainer}
       >
         {stepPhotos}
