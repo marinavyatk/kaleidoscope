@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, Ref } from 'react';
+import React, { ComponentPropsWithoutRef, Ref, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import s from './input.module.scss';
 import InputMask from '@mona-health/react-input-mask';
@@ -14,6 +14,11 @@ export const Input = React.forwardRef((props: InputProps, ref: Ref<HTMLInputElem
   const classNames = clsx(s.inputContainer, className, containerProps?.className, {
     [s.error]: error,
   });
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (!isClient) return null;
 
   return (
     <div {...containerProps} className={classNames}>

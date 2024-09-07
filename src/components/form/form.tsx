@@ -50,7 +50,13 @@ export const Form = () => {
           placeholder={errors.clientTel ? 'Заполните поле' : 'Введите номер'}
           type='tel'
           containerProps={{ className: s.inputContainer }}
-          {...register('clientTel', { required: true })}
+          {...register('clientTel', {
+            required: true,
+            validate: (value) => {
+              const phoneDigits = value.replace(/\D/g, '');
+              return phoneDigits.length === 11;
+            },
+          })}
           error={!!errors.clientTel}
         />
       </div>

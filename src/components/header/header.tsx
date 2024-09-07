@@ -34,6 +34,14 @@ export const Header = (props: HeaderProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
   if (!isClient) return null;
 
   return (
