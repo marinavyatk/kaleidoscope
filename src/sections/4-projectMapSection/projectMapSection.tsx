@@ -45,11 +45,11 @@ export const ProjectMapSection = () => {
   return (
     <section className={s.projectMapSection} id='history'>
       <h2>карта проекта</h2>
-      <div className={s.background}>
-        идея <br />
-        и&nbsp;миссия
-      </div>
       <h3>{projectMap?.[activeStepIndex]?.title}</h3>
+      <div className={s.background}>
+        <span>идея</span>
+        <span>и миссия</span>
+      </div>
       <div className={s.description}>
         <p>{projectMap?.[activeStepIndex]?.description}</p>
         {isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons} />}

@@ -63,6 +63,7 @@
 
   img {
     width: 100%;
+    object-fit: contain;
   }
 }
 
@@ -71,10 +72,11 @@
     font-size: 50px;
     width: 50%;
   }
-  .close{
-    width: 42px;
-    height: 42px;
-  }
+}
+
+.close{
+  width: 42px;
+  height: 42px;
 }
 
 .cardMain {
@@ -147,7 +149,9 @@
   }
 
   .model {
-    position: static;
+    position: relative;
+    height: 500px;
+    top: 0;
   }
 
   .cardHeader h2 {
@@ -237,5 +241,11 @@
     button {
       gap: 10px;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .model {
+    height: 300px;
   }
 }
