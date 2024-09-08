@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Fetched images">
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="remove some images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/bg-radial-gradient.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/boy.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/card.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/catalog-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/catalog-model.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/close.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/doc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/map-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/map-marker.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pause.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/play-direction.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/play.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/product.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/separator.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/step-photo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/boy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/catalog-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/catalog-model.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/compress.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/doc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/kids.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/main-section-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/map-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/product.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/song-cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725716370269</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="remove some images">
+      <option name="closed" value="true" />
+      <created>1725781515639</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1725781515639</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +350,7 @@
     <MESSAGE value="doc section + button focus state styles" />
     <MESSAGE value="header fixed + input mask validation" />
     <MESSAGE value="Fetched images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fetched images" />
+    <MESSAGE value="remove some images" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove some images" />
   </component>
 </project>

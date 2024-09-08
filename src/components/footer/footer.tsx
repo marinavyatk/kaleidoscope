@@ -65,7 +65,9 @@ export const Footer = () => {
         </div>
       </div>
       <div className={s.footerBottom}>
-        <a href='#'>Политика конфиденциальности</a>
+        <a href='/privacy-policy.pdf' target={'_blank'}>
+          Политика конфиденциальности
+        </a>
         <p>© 2024 «Калейдоскоп игр» — Все права защищены</p>
       </div>
     </footer>
