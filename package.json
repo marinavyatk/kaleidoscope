@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start",    "lint": "next lint"
   },
   "dependencies": {
     "@mona-health/react-input-mask": "^3.0.3",
