@@ -36,10 +36,8 @@ export const CatalogSection = () => {
 
   return (
     <section className={s.catalogSection} id='catalog'>
-      <div className={s.background}>
-        <Image src={'/radial-bg.png'} alt='' fill className={s.gradient} />
-        <Image src={'/bg-pattern-catalog.svg'} alt='' fill className={s.pattern} />
-      </div>
+      <Image src={'/radial-bg.webp'} alt='' fill className={s.gradient} />
+      <Image src={'/bg-pattern-catalog.svg'} alt='' fill className={s.pattern} />
       <h2>Каталог</h2>
       <div className={s.catalogMain}>
         {loading || !products?.length ? (

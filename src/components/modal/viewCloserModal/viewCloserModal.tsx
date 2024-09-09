@@ -16,6 +16,7 @@ export const ViewCloserModal = (props: ViewCloserModalProps) => {
       trigger={trigger}
     >
       <div className={s.imgContainer}>
+        {/*img is used because the Image next component needs to be controlled in size through the fill property and a container with relative positioning, which makes some area near the image impossible to close by clicking on the background*/}
         <img alt={'View image'} className={s.imgCloser} src={imgSrc} />
       </div>
     </Modal>

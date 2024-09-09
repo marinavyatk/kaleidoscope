@@ -8,6 +8,7 @@ import 'swiper/scss';
 import { NavButtons } from '@/components/navButtons/navButtons';
 import s from './projectMapSection.module.scss';
 import { useProjectMap } from '@/common/customHooks/useProjectMap';
+import Image from 'next/image';
 
 export const ProjectMapSection = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -35,7 +36,11 @@ export const ProjectMapSection = () => {
     <SwiperSlide key={`photo-${index}`} className={s.slide}>
       <ViewCloserModal
         imgSrc={photo.url}
-        trigger={<img src={photo.url} alt='' className={s.stepPhoto} />}
+        trigger={
+          <div className={s.stepPhoto}>
+            <Image src={photo.url} alt='' fill sizes='404px' />
+          </div>
+        }
       />
     </SwiperSlide>
   ));

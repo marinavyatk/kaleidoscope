@@ -4,12 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="added privacy policy">
-      <change afterPath="$PROJECT_DIR$/ecosystem.config.js" afterDir="false" />
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="change bg size">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/btn-with-shadow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/main-section-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/radial-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/song-cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/bg-radial-gradient.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/boy.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/boy.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/player/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/7-formSection/formSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/7-formSection/formSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/7-formSection/formSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/7-formSection/formSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +48,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/CodingProjects/empty",
+    "last_opened_file_path": "D:/CodingProjects/kaleidoscope/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,7 +125,7 @@
       <workItem from="1725462114507" duration="52053000" />
       <workItem from="1725574417691" duration="42227000" />
       <workItem from="1725645786205" duration="33140000" />
-      <workItem from="1725814144623" duration="10312000" />
+      <workItem from="1725814144623" duration="21977000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -328,7 +343,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725781515639</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="pm2 config file + temp remove catalog section background">
+      <option name="closed" value="true" />
+      <created>1725871198512</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1725871198512</updated>
+    </task>
+    <task id="LOCAL-00029" summary="change bg size">
+      <option name="closed" value="true" />
+      <created>1725880386466</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1725880386466</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +384,8 @@
     <MESSAGE value="header fixed + input mask validation" />
     <MESSAGE value="Fetched images" />
     <MESSAGE value="remove some images" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove some images" />
+    <MESSAGE value="pm2 config file + temp remove catalog section background" />
+    <MESSAGE value="change bg size" />
+    <option name="LAST_COMMIT_MESSAGE" value="change bg size" />
   </component>
 </project>

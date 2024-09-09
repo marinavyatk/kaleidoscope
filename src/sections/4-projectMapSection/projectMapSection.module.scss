@@ -59,8 +59,12 @@
 .stepPhoto {
   width: 404px;
   height: 250px;
-  object-fit: cover;
+  position: relative;
   background-color: var(--color-bg-text);
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .navButtons {

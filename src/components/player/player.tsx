@@ -62,8 +62,8 @@ export const Player = () => {
       <div className={s.playerWithoutSlider}>
         <div className={s.cover}>
           <Image
-            src={'/song-cover.png'}
-            blurDataURL={'/song-cover.png'}
+            src={'/song-cover.webp'}
+            blurDataURL={'/song-cover.webp'}
             alt='Обложка песни'
             fill
             placeholder={'blur'}

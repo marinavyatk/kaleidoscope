@@ -5,12 +5,15 @@ import Image from 'next/image';
 export const MainSection = () => {
   return (
     <section className={s.mainSection}>
-      <div className={s.background}>
-        <Image src={'/main-section-bg.png'} alt='' fill quality={100} />
-      </div>
-      <div className={s.kids}>
-        <Image src={'/kids.webp'} alt='' fill quality={100} />
-      </div>
+      <Image
+        src={'/main-section-bg.webp'}
+        alt=''
+        fill
+        quality={100}
+        priority
+        className={s.background}
+      />
+      <Image src={'/kids.webp'} alt='' fill quality={100} priority className={s.kids} />
       <h1>
         Калейдоскоп ИГР
         <br />

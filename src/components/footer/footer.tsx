@@ -29,11 +29,11 @@ export const Footer = () => {
         </div>
 
         <div className={s.footerRight}>
-          <a href='tel:+79184175023' className={s.tel}>
-            +7 918 417-50-23
-          </a>
           <a href='tel:+79891402525' className={s.tel}>
             +7 989 140-25-25
+          </a>
+          <a href='tel:+79994184174' className={s.tel}>
+            +7 999 418-41-74
           </a>
           <a href='mailto:info@kaleidoscope-games.ru' className={s.email}>
             info@kaleidoscope-games.ru
