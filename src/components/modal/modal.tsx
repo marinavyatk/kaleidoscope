@@ -1,19 +1,21 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { DialogContentProps, DialogProps } from '@radix-ui/react-dialog';
+import { DialogContentProps, DialogOverlayProps, DialogProps } from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import s from './modal.module.scss';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export type ModalProps = {
   contentProps?: DialogContentProps;
+  overlayProps?: DialogOverlayProps;
   modalHeader: string;
   rootProps?: DialogProps;
   trigger?: ReactNode;
 } & ComponentPropsWithoutRef<'div'>;
 
 export const Modal = (props: ModalProps) => {
-  const { children, contentProps, modalHeader, rootProps, trigger, ...restProps } = props;
+  const { children, contentProps, overlayProps, modalHeader, rootProps, trigger, ...restProps } =
+    props;
 
   return (
     <div {...restProps}>
@@ -22,7 +24,10 @@ export const Modal = (props: ModalProps) => {
           {trigger}
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className={s.overlay} />
+          <Dialog.Overlay
+            {...overlayProps}
+            className={clsx(s.overlay, overlayProps && overlayProps?.className)}
+          />
           <Dialog.Content
             {...contentProps}
             aria-describedby={undefined}

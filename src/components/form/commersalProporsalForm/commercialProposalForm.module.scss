@@ -1,0 +1,55 @@
+.commercialProposalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: scroll;
+  scrollbar-width: none;
+
+  .hidden {
+    display: none;
+  }
+
+  .submitBlock {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 40px;
+    font-family: var(--font-family-secondary);
+    line-height: 156%;
+    p {
+      color: rgba(248, 246, 240, 0.6);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .commercialProposalForm {
+    gap: 24px;
+
+    .submitBlock {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+
+      button {
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .commercialProposalForm {
+    .submitBlock {
+      p {
+        line-height: 1.2;
+        font-size: 9px;
+      }
+
+      button {
+        align-self: unset;
+        margin-top: 10px;
+      }
+    }
+  }
+}

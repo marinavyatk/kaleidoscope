@@ -21,6 +21,13 @@ export type FormValues = {
   clientMessage: string;
 };
 
+export type CPFormValues = {
+  clientName: string;
+  clientTel: string;
+  clientEmail: string;
+  product: string;
+};
+
 //requests types
 export type Category = {
   id: number;

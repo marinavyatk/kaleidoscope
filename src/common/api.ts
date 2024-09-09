@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { Category, DocumentData, FaqData, Field, FormValues, MapData } from '@/common/types';
+import {
+  Category,
+  CPFormValues,
+  DocumentData,
+  FaqData,
+  Field,
+  FormValues,
+  MapData,
+} from '@/common/types';
 
 export const instance = axios.create({
   baseURL: 'https://kaleidoscope-games.store',
@@ -77,6 +85,20 @@ export const api = {
     formData.append('clientName', data.clientName);
     formData.append('clientTel', data.clientTel);
     formData.append('clientMessage', data.clientMessage);
+    formData.append('_wpcf7_unit_tag', 'wpcf7-f36-p7-o1');
+
+    return instance.post('/wp-json/contact-form-7/v1/contact-forms/36/feedback', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+  sendCPForm(data: CPFormValues) {
+    const formData = new FormData();
+    formData.append('clientName', data.clientName);
+    formData.append('clientTel', data.clientTel);
+    formData.append('clientEmail', data.clientEmail);
+    formData.append('product', data.product);
     formData.append('_wpcf7_unit_tag', 'wpcf7-f36-p7-o1');
 
     return instance.post('/wp-json/contact-form-7/v1/contact-forms/36/feedback', formData, {

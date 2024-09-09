@@ -27,14 +27,6 @@
     font-family: var(--font-family-secondary);
     font-size: 20px;
   }
-
-  a {
-    color: #bd4030;
-    text-decoration: underline;
-    text-transform: uppercase;
-    font-weight: var(--fw-bold);
-    font-size: 30px;
-  }
 }
 
 .background {
@@ -74,9 +66,17 @@
   }
 }
 
-.close{
-  width: 42px;
-  height: 42px;
+.close {
+  svg {
+    width: 42px;
+    height: 42px;
+    transition: color 0.3s ease-in-out;
+  }
+
+  &:hover {
+    color: var(--color-light-secondary);
+    transition: color 0.3s ease-in-out;
+  }
 }
 
 .cardMain {
@@ -111,7 +111,7 @@
       }
     }
 
-    a {
+    .commercialProposal {
       display: none;
     }
   }
@@ -142,10 +142,6 @@
 @media (max-width: 1800px) {
   .productCard {
     padding: 100px 20px;
-
-    a {
-      font-size: 24px;
-    }
   }
 
   .model {
@@ -157,7 +153,7 @@
   .cardHeader h2 {
     width: 74%;
   }
-  .cardFooter a {
+  .cardFooter .commercialProposal {
     display: none;
   }
   .cardMain {
@@ -167,9 +163,10 @@
       margin-bottom: 30px;
     }
   }
-  .cardMain .specifications a {
+  .cardMain .specifications .commercialProposal {
     display: block;
     margin-top: 40px;
+    margin-left: auto;
   }
   .cardFooter .navButtons {
     justify-content: space-between;
@@ -180,24 +177,24 @@
 @media (max-width: 767px) {
   .productCard {
     padding: 30px 16px 60px;
-
-    a {
-      font-size: 30px;
-    }
   }
 
   .cardHeader {
     flex-wrap: wrap-reverse;
     gap: 10px;
+
     h2 {
       font-size: 26px;
       width: unset;
     }
   }
   .close {
-    width: 20px;
-    height: 20px;
     margin-left: auto;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .description p,
@@ -229,8 +226,9 @@
       max-width: 100%;
       text-align: start;
 
-      a {
+      .commercialProposal {
         text-align: center;
+        margin: 40px auto 0;
       }
     }
   }
@@ -238,6 +236,7 @@
   .cardFooter .navButtons {
     gap: 0;
     font-size: 20px;
+
     button {
       gap: 10px;
     }

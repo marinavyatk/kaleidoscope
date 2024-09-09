@@ -1,0 +1,49 @@
+.cpContainer {
+  box-shadow: 0 0 5px var(--color-light-30);
+}
+.cpOverlay {
+  z-index: 4;
+}
+
+.cpTrigger {
+  color: #bd4030;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  font-size: 30px;
+}
+
+.cpModalContent {
+  background-color: var(--color-dark);
+  padding: 32px;
+  max-width: 700px;
+
+  .close {
+    color: var(--color-light);
+    transition: color 0.3s ease-in-out;
+    margin-left: auto;
+    display: block;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      color: var(--color-light-secondary);
+      transition: color 0.3s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 1800px) {
+  .cpTrigger {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cpTrigger {
+    font-size: 30px;
+  }
+}

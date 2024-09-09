@@ -39,8 +39,8 @@ export const Form = () => {
     <form className={s.form} onSubmit={handleSubmit(onSubmit)} autoComplete={'off'}>
       <div className={s.mainUserData}>
         <Input
-          label={'Ваше Имя'}
-          placeholder={errors.clientName ? 'Заполните поле' : 'Введите Имя'}
+          label={'Ваше имя'}
+          placeholder={errors.clientName ? 'Заполните поле' : 'Введите имя'}
           containerProps={{ className: s.inputContainer }}
           {...register('clientName', { required: true })}
           error={!!errors.clientName}
