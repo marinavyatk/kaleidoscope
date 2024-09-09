@@ -37,7 +37,7 @@ export const CatalogSection = () => {
   return (
     <section className={s.catalogSection} id='catalog'>
       <div className={s.background}>
-        {/*<Image src={'/radial-bg.png'} alt='' fill className={s.gradient} />*/}
+        <Image src={'/radial-bg.png'} alt='' fill className={s.gradient} />
         <Image src={'/bg-pattern-catalog.svg'} alt='' fill className={s.pattern} />
       </div>
       <h2>Каталог</h2>
