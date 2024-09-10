@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import { Input } from '@/components/input/input';
 import { Button } from '@/components/button/button';
 import s from './commercialProposalForm.module.scss';
+import { api } from '@/common/api';
 
 export type CPFormProps = {
   chosenProduct: string;
@@ -29,20 +30,20 @@ export const CommercialProposalForm = (props: CPFormProps) => {
   });
 
   const onSubmit = (data: CPFormValues) => {
-    // api
-    //   .sendCPForm(data)
-    //   .then((response) => {
-    //     setStatus(response.data?.message);
-    //     if (response.data.status === 'mail_sent') {
-    //       setError(false);
-    //     } else {
-    //       setError(true);
-    //     }
-    //   })
-    //   .catch((response) => {
-    //     setStatus(response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.');
-    //     setError(true);
-    //   });
+    api
+      .sendCPForm(data)
+      .then((response) => {
+        setStatus(response.data?.message);
+        if (response.data.status === 'mail_sent') {
+          setError(false);
+        } else {
+          setError(true);
+        }
+      })
+      .catch((response) => {
+        setStatus(response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.');
+        setError(true);
+      });
 
     console.log('get CP data', data);
   };

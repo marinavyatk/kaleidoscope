@@ -98,10 +98,10 @@ export const api = {
     formData.append('clientName', data.clientName);
     formData.append('clientTel', data.clientTel);
     formData.append('clientEmail', data.clientEmail);
-    formData.append('product', data.product);
-    formData.append('_wpcf7_unit_tag', 'wpcf7-f36-p7-o1');
+    formData.append('productType', data.product);
+    formData.append('_wpcf7_unit_tag', 'wpcf7-f79-p7-o2');
 
-    return instance.post('/wp-json/contact-form-7/v1/contact-forms/36/feedback', formData, {
+    return instance.post('/wp-json/contact-form-7/v1/contact-forms/79/feedback', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

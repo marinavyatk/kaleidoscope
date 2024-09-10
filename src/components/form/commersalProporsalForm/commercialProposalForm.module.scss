@@ -4,6 +4,7 @@
   gap: 32px;
   overflow: scroll;
   scrollbar-width: none;
+  font-family: var(--font-family-secondary);
 
   .hidden {
     display: none;
@@ -14,10 +15,16 @@
     justify-content: space-between;
     gap: 10px;
     margin-top: 40px;
-    font-family: var(--font-family-secondary);
     line-height: 156%;
     p {
       color: rgba(248, 246, 240, 0.6);
+    }
+  }
+  .formResponse {
+    margin-top: 10px;
+
+    &.error {
+      color: var(--color-error);
     }
   }
 }
