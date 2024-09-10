@@ -3,7 +3,7 @@ import { Button } from '../button/button';
 import s from './form.module.scss';
 import { useForm } from 'react-hook-form';
 import { FormValues } from '@/common/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '@/common/api';
 import { Textarea } from '@/components/input/textarea';
 import { clsx } from 'clsx';
@@ -13,10 +13,23 @@ export const Form = () => {
   const [error, setError] = useState(false);
 
   const {
+    reset,
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    if (status && !error) {
+      timeoutId = setTimeout(() => {
+        setStatus('');
+        reset();
+      }, 3000);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [status]);
 
   const onSubmit = (data: FormValues) => {
     api

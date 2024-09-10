@@ -22,6 +22,7 @@
   }
   .formResponse {
     margin-top: 10px;
+    color: var(--color-success);
 
     &.error {
       color: var(--color-error);

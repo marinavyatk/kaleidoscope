@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { CPFormValues } from '@/common/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 import { Input } from '@/components/input/input';
 import { Button } from '@/components/button/button';
@@ -17,6 +17,7 @@ export const CommercialProposalForm = (props: CPFormProps) => {
   const [error, setError] = useState(false);
 
   const {
+    reset,
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -28,6 +29,18 @@ export const CommercialProposalForm = (props: CPFormProps) => {
       product: chosenProduct,
     },
   });
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    if (status && !error) {
+      timeoutId = setTimeout(() => {
+        setStatus('');
+        reset();
+      }, 3000);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [status]);
 
   const onSubmit = (data: CPFormValues) => {
     api

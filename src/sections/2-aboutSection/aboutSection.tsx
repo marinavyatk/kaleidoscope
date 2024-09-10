@@ -2,10 +2,14 @@ import s from './aboutSection.module.scss';
 import { Button } from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
 import Image from 'next/image';
+import { Boy } from '@/components/3d/boy';
+import { Scene } from '@/components/3d/scene';
 
 export const AboutSection = () => {
   return (
     <section className={s.aboutSection} id='about'>
+      {/*<Boy />*/}
+      <Scene />
       <Separator className={s.separator} />
       <div className={s.backgroundText}>
         <span>Калейдоскоп</span>
