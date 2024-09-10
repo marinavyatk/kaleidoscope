@@ -65,9 +65,17 @@ export const Footer = () => {
         </div>
       </div>
       <div className={s.footerBottom}>
-        <a href='/privacy-policy.pdf' target={'_blank'}>
-          Политика конфиденциальности
-        </a>
+        <div className={s.bottomLinks}>
+          <a href='/privacy-policy.pdf' target='_blank' rel='nofollow'>
+            Политика конфиденциальности
+          </a>
+          <span>
+            Разработано в{' '}
+            <a href='https://octoweb.ru/' target='_blank' rel='nofollow'>
+              OctoWeb
+            </a>
+          </span>
+        </div>
         <p>© 2024 «Калейдоскоп игр» — Все права защищены</p>
       </div>
     </footer>

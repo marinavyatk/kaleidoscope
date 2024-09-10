@@ -61,6 +61,15 @@
 
     svg {
       width: 100px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+
+      svg {
+        transform: translateY(-4px);
+        transition: transform 0.3s ease-in-out;
+      }
     }
   }
 }
@@ -118,7 +127,7 @@
   background-color: #060200;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
   column-gap: 15px;
   font-size: 14px;
@@ -126,6 +135,11 @@
   text-transform: none;
   font-weight: var(--fw-normal);
   padding: 40px 120px;
+
+  .bottomLinks {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 1440px) and (max-width: 1599px) {

@@ -11,7 +11,6 @@ export const Header = (props: HeaderProps) => {
   const { className, ...restProps } = props;
   const [isClient, setIsClient] = useState(false);
   const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const headerRef = useRef(null);
@@ -24,7 +23,6 @@ export const Header = (props: HeaderProps) => {
     if (typeof window !== 'undefined') {
       const handleResize = () => {
         setIsTabletOrMobile(window.innerWidth <= 1099);
-        setIsMobile(window.innerWidth <= 567);
       };
 
       handleResize();
@@ -68,11 +66,9 @@ export const Header = (props: HeaderProps) => {
           <div className={s.headerMobile} ref={menuRef}>
             <header className={s.header}>
               <Logo className={s.logo} />
-              {!isMobile && (
-                <div className={s.player}>
-                  <Player />
-                </div>
-              )}
+              <div className={s.player}>
+                <Player />
+              </div>
               <BurgerButton onChange={() => setIsOpen((prev) => !prev)} checked={isOpen} />
             </header>
             <div className={s.background}></div>
@@ -96,11 +92,6 @@ export const Header = (props: HeaderProps) => {
                 </a>
               </div>
             </div>
-            {isMobile && (
-              <div className={s.player}>
-                <Player />
-              </div>
-            )}
           </div>
         )}
       </div>

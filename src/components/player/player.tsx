@@ -67,7 +67,7 @@ export const Player = () => {
             alt='Обложка песни'
             fill
             placeholder={'blur'}
-            sizes='(max-width: 567px) 53px, (max-width: 1439px) 32px, 64px'
+            sizes='(max-width: 567px) 53px, 32px'
           />
         </div>
         <div className={s.playerWithoutCover}>

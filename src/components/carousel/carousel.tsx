@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Card } from '../card/card';
 import s from './carousel.module.scss';
 import { ProgressBar } from '../progressBar/progressBar';
@@ -12,6 +12,8 @@ export type CarouselProps = {
 export const Carousel = (props: CarouselProps) => {
   const { products } = props;
   const [activeIndex, setActiveIndex] = useState(products.length < 3 ? 0 : 1);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const nextItem = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % products.length);
@@ -52,8 +54,31 @@ export const Carousel = (props: CarouselProps) => {
     return itemComponents;
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      nextItem();
+    }
+
+    if (touchEndX.current - touchStartX.current > 50) {
+      prevItem();
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
   return (
-    <div className={s.carousel}>
+    <div
+      className={s.carousel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className={s.itemsContainer}>{generateItems()}</div>
       {products.length && (
         <div className={s.navPanel}>

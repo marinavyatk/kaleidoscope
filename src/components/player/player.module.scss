@@ -89,30 +89,3 @@
     }
   }
 }
-
-@media (max-width: 567px) {
-  .cover {
-    width: 53px;
-    height: 53px;
-  }
-
-  .playerWithoutCover {
-    margin: 13px 22px 13px 11px;
-  }
-
-  .songTitle {
-    font-size: 11px;
-  }
-
-  .author {
-    font-size: 6px;
-  }
-
-  .controlPanel {
-    gap: 14px;
-
-    svg {
-      height: 12px;
-    }
-  }
-}
