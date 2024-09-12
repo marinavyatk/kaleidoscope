@@ -5,12 +5,12 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';
 
-const Scene: ComponentType = dynamic(
-  () => import('../../components/3d/scene').then((mod) => mod.Scene),
-  {
-    ssr: false,
-  },
-);
+// const Scene: ComponentType = dynamic(
+//   () => import('../../components/3d/scene').then((mod) => mod.Scene),
+//   {
+//     ssr: false,
+//   },
+// );
 export const AboutSection = () => {
   return (
     <section className={s.aboutSection} id='about'>
