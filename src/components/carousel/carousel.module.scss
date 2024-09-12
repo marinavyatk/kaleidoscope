@@ -1,6 +1,10 @@
 .carousel {
   margin: auto;
   position: relative;
+
+  &:focus{
+    outline: none;
+  }
 }
 
 .itemsContainer {
@@ -30,6 +34,10 @@
   .btnNext {
     transform: rotate(90deg);
   }
+}
+
+.hidden{
+  opacity: 0;
 }
 
 @media (max-width: 767px) {

@@ -4,8 +4,7 @@
 
 .card {
   position: relative;
-  max-width: 600px;
-  width: 100%;
+  width: 600px;
   min-height: 600px;
   padding: 44px 37px 30px;
   text-align: center;
@@ -92,14 +91,12 @@
   .card {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.5s ease 0.5s;
     transform: scale(0.75);
   }
 }
 
 .nextCard {
   .card {
-    z-index: -1;
     transform: translateX(82%) scale(0.75); //6% or 27px under active card
     transition: transform 0.5s;
     pointer-events: none;
@@ -107,6 +104,14 @@
     button {
       pointer-events: none;
     }
+  }
+
+  &.forward {
+    z-index: -2;
+  }
+
+  &.backward {
+    z-index: -1;
   }
 }
 
@@ -118,6 +123,18 @@
 
     button {
       pointer-events: none;
+    }
+  }
+
+  &.forward {
+    .card {
+      z-index: -1;
+    }
+  }
+
+  &.backward {
+    .card {
+      z-index: -2;
     }
   }
 }

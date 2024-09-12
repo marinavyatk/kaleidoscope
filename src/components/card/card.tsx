@@ -13,11 +13,21 @@ export type CardProps = {
   status: string;
   activeSlide: number;
   setActiveIndex: (index: number) => void;
+  direction: 'forward' | 'backward';
 } & ComponentPropsWithoutRef<'div'>;
 
 export const Card = (props: CardProps) => {
-  const { product, products, activeSlide, setActiveIndex, className, status, ...restProps } = props;
-  const classNames = clsx(s.cardContainer, className, s[status]);
+  const {
+    product,
+    products,
+    activeSlide,
+    setActiveIndex,
+    className,
+    status,
+    direction,
+    ...restProps
+  } = props;
+  const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
 
   return (
     <div {...restProps} className={classNames}>

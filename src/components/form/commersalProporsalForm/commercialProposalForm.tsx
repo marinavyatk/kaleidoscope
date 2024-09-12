@@ -57,8 +57,6 @@ export const CommercialProposalForm = (props: CPFormProps) => {
         setStatus(response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.');
         setError(true);
       });
-
-    console.log('get CP data', data);
   };
 
   return (
