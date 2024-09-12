@@ -14,8 +14,10 @@ export const Footer = () => {
         <div className={s.footerLeft}>
           <p>ИП Резник Александр Александрович</p>
           <p className={s.inn}>ИНН: 230808907002</p>
-          <p className={s.city}>Краснодар</p>
-          <p className={s.address}>350012, Майский проезд, 22, Россия</p>
+          <p className={s.address}>
+            350089, Краснодарский край, г.&nbsp;Краснодар, проспект Чекистов, дом&nbsp;23,
+            оф.&nbsp;226
+          </p>
         </div>
 
         <div className={s.footerCenter}>

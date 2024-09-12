@@ -14,11 +14,7 @@ export const MainSection = () => {
         className={s.background}
       />
       <Image src={'/kids.webp'} alt='' fill quality={100} priority className={s.kids} />
-      <h1>
-        Калейдоскоп ИГР
-        <br />
-        <span>конструкторское бюро</span>
-      </h1>
+      <h1>Калейдоскоп ИГР</h1>
       <p>Производим уникальные изделия для развития спортивного будущего!</p>
       <Button as='a' href='#catalog'>
         Смотреть все изделия

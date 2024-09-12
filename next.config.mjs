@@ -25,6 +25,18 @@ const nextConfig = {
           },
         },
       },
+        {
+          test: /\.(gltf)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                outputPath: 'models/',
+                publicPath: '/models/',
+              },
+            },
+          ],
+        }
     );
 
     fileLoaderRule.exclude = /\.svg$/i;

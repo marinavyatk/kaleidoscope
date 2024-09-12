@@ -19,20 +19,11 @@
     font-family: var(--font-family-secondary);
     margin: 30px 0;
   }
-
-  h1 span {
-    font-size: 50px;
-    line-height: 1;
-  }
 }
 
 @media (max-width: 1440px) {
   .mainSection {
     padding: 573px 20px 110px;
-
-    h1 span {
-      font-size: 40px;
-    }
 
     p {
       font-size: 22px;
@@ -44,10 +35,6 @@
 @media (max-width: 767px) {
   .mainSection {
     padding: 341px 16px 86px;
-
-    h1 span {
-      font-size: 16px;
-    }
 
     p {
       font-size: 18px;

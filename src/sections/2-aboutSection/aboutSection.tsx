@@ -2,14 +2,19 @@ import s from './aboutSection.module.scss';
 import { Button } from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
 import Image from 'next/image';
-import { Boy } from '@/components/3d/boy';
-import { Scene } from '@/components/3d/scene';
+import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
 
+const Scene: ComponentType = dynamic(
+  () => import('../../components/3d/scene').then((mod) => mod.Scene),
+  {
+    ssr: false,
+  },
+);
 export const AboutSection = () => {
   return (
     <section className={s.aboutSection} id='about'>
-      {/*<Boy />*/}
-      <Scene />
+      {/*<Scene />*/}
       <Separator className={s.separator} />
       <div className={s.backgroundText}>
         <span>Калейдоскоп</span>
@@ -25,8 +30,8 @@ export const AboutSection = () => {
           <h3>о компании</h3>
           <div className={s.text}>
             <p>
-              Конструкторское бюро ”Калейдоскоп Игр» разрабатывает и производит уникальные
-              спортивные изделия в виде малых архитектурных форм и снарядов для спорта.
+              «Калейдоскоп Игр» разрабатывает и производит уникальные спортивные изделия в виде
+              малых архитектурных форм и снарядов для спорта.
             </p>
             <p>
               Мы стремимся превратить каждое своё изделие в источник радости, способный приносить
