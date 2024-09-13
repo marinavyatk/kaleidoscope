@@ -5,12 +5,12 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';
 
-// const Scene: ComponentType = dynamic(
-//   () => import('../../components/3d/scene').then((mod) => mod.Scene),
-//   {
-//     ssr: false,
-//   },
-// );
+const Scene: ComponentType = dynamic(
+  () => import('../../components/3d/scene').then((mod) => mod.Scene),
+  {
+    ssr: false,
+  },
+);
 export const AboutSection = () => {
   return (
     <section className={s.aboutSection} id='about'>
@@ -20,8 +20,8 @@ export const AboutSection = () => {
       </div>
       <div className={s.boy}>
         <div className={s.imageContainer}>
-          <Image src={'/boy.webp'} alt='' fill quality={100} />
-          {/*<Scene />*/}
+          {/*<Image src={'/boy.webp'} alt='' fill quality={100} />*/}
+          <Scene />
         </div>
       </div>
       <h2>объединяем поколения через соперни&shy;чество</h2>
