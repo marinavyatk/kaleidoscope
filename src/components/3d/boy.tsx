@@ -8,7 +8,7 @@ import { SkeletonUtils } from 'three-stdlib';
 
 export default function ModelComponent() {
   const sceneRef = useRef<Scene>();
-  const { scene, animations } = useGLTF('/models/boy.gltf');
+  const { scene, animations } = useGLTF('/models/boy.glb');
   const { actions, names } = useAnimations(animations, sceneRef);
 
   useEffect(() => {
