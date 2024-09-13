@@ -9,6 +9,7 @@ import { Footer } from '@/components/footer/footer';
 import { FormSection } from '@/sections/7-formSection/formSection';
 import { FAQ } from '@/sections/6-faqSection/faq';
 import s from '@/styles/index.module.scss';
+import { GreetingSection } from '@/sections/greetingSection/greetingSection';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <div className={s.content}>
+        <GreetingSection />
         <Header className={s.header} />
         <MainSection />
         <AboutSection />
