@@ -14,7 +14,6 @@ import { ComponentType } from 'react';
 export const AboutSection = () => {
   return (
     <section className={s.aboutSection} id='about'>
-      {/*<Scene />*/}
       <Separator className={s.separator} />
       <div className={s.backgroundText}>
         <span>Калейдоскоп</span>
@@ -22,6 +21,7 @@ export const AboutSection = () => {
       <div className={s.boy}>
         <div className={s.imageContainer}>
           <Image src={'/boy.webp'} alt='' fill quality={100} />
+          {/*<Scene />*/}
         </div>
       </div>
       <h2>объединяем поколения через соперни&shy;чество</h2>
