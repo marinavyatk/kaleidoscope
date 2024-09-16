@@ -1,52 +1,88 @@
 .greetingSection {
+  z-index: 10;
+  background-color: var(--color-dark);
+  display: flex;
+}
+
+.innerContainer {
   text-align: center;
-  padding: 666px 20px 255px;
+  padding: 666px 0 255px;
   position: relative;
-  background: linear-gradient(180deg, rgba(41, 17, 7, 0) 0%, rgba(41, 17, 7, 0) 50%, #261006 100%);
+  background: linear-gradient(180deg, rgba(41, 17, 7, 0) 0%, rgba(41, 17, 7, 0) 40%, #261006 100%);
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
 
   .background {
+    background-image: url("/main-section-bg.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     z-index: -2;
-    object-fit: cover;
+
+    &::after {
+      content: '';
+      background-color: var(--color-dark);
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      position: relative;
+      opacity: 0.3;
+    }
+
+    &.hidden::after {
+      content: '';
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
   }
 
   .kids {
     z-index: -1;
-    object-fit: cover;
-    opacity: 1;
-
-    .bgContainer {
-      background-color: #e4d3a5;
-    }
+    background-image: url("/greeting/desktop/00000.png.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     &.hidden {
       opacity: 0;
       transition: opacity 0.4s;
     }
-
   }
 
-
   .firstLine {
-    font-weight: var(--fw-bold);
     font-size: 100px;
-    line-height: 1;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    margin: 0 10px 20px;
   }
 
   .secondLine {
     font-size: 60px;
-    font-weight: var(--fw-bold);
-    line-height: 1;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+    margin: 0 10px 30px;
   }
 }
 
+.goRight, .goLeft {
+  transition: transform 0.5s ease-in-out 0.4s;
+}
+
+.goRight {
+  transform: translateX(100vw);
+}
+
+.goLeft {
+  transform: translateX(-100vw);
+}
+
+.hiddenSection {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
 
 @media (max-width: 1440px) {
-  .greetingSection {
-    padding: 513px 20px 168px;
+  .innerContainer {
+    padding: 513px 0 168px;
+
     .firstLine {
       font-size: 70px;
     }
@@ -57,15 +93,29 @@
   }
 }
 
-@media (max-width: 767px) {
-  .greetingSection {
-    padding: 270px 20px 85px;
+@media (max-width: 768px) {
+  .innerContainer {
+    .kids {
+      background-image: url("/greeting/tablet/00000.png.webp");
+    }
+
     .firstLine {
       font-size: 40px;
     }
 
     .secondLine {
       font-size: 26px;
+    }
+
+  }
+}
+
+@media (max-width: 480px) {
+  .innerContainer {
+    padding: 270px 0 85px;
+
+    .kids {
+      background-image: url("/greeting/mobile/00000.png.webp");
     }
   }
 }

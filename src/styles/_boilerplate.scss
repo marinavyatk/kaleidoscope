@@ -17,6 +17,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 *,
@@ -48,6 +49,12 @@ button,
 a {
   all: unset;
   cursor: pointer;
+}
+
+img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 body {
@@ -102,4 +109,19 @@ h3 {
   h3 {
     font-size: 18px;
   }
+}
+
+.mainContainer{
+  max-width: 1920px;
+  margin: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.fullContainer{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

@@ -37,9 +37,9 @@ export const ProjectMapSection = () => {
       <ViewCloserModal
         imgSrc={photo.url}
         trigger={
-          <div className={s.stepPhoto}>
+          <button className={s.stepPhoto} aria-label={'Посмотреть'}>
             <Image src={photo.url} alt='' fill sizes='404px' />
-          </div>
+          </button>
         }
       />
     </SwiperSlide>
@@ -51,7 +51,7 @@ export const ProjectMapSection = () => {
     <section className={s.projectMapSection} id='history'>
       <h2>карта проекта</h2>
       <h3>{projectMap?.[activeStepIndex]?.title}</h3>
-      <div className={s.background}>
+      <div className={s.background} role='presentation'>
         <span>идея</span>
         <span>и миссия</span>
       </div>

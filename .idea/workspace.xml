@@ -4,39 +4,133 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Changed images">
-      <change afterPath="$PROJECT_DIR$/src/components/form/commersalProporsalForm/commercialProposalForm.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/form/commersalProporsalForm/commercialProposalForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/modal/commercialProposalModal/commersalProporsalModal.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/modal/commercialProposalModal/commersalProporsalModal.tsx" afterDir="false" />
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Change 3d model">
+      <change afterPath="$PROJECT_DIR$/src/components/animations/animation.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/animations/animation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/button.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/button.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/faq/accordionButton/accordionButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/faq/accordionButton/accordionButton.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/input/input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/input/input.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00026.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00027.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00029.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00030.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00031.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00033.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00034.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00036.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00037.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00038.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00039.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00042.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00043.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00044.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00045.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00046.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00047.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00048.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00049.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00050.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00051.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00052.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00053.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00054.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00055.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00056.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00057.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00058.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00059.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00060.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00061.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00062.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00063.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00064.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00065.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00067.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00068.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00070.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00071.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00072.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00073.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00074.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00075.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00076.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00077.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00079.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00080.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00081.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00082.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00083.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00084.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00085.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00086.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00087.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00088.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00089.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00090.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/idle_00091.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/main-section-bg.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/main-section-bg.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/models/boy.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/boy.gltf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/step-photo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/animations/debAnimation/debAnimation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/animations/debAnimation/debAnimation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burgerButton/burgerButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burgerButton/burgerButton.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/burgerButton/burgerButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/burgerButton/burgerButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/carousel/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/carousel/carousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/map/helpers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/player/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/EurofontExtendedC/COPYRIGHT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/EurofontExtendedC/COPYRIGHT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/EurofontExtendedC/eurofontextendedc.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/EurofontExtendedC/eurofontextendedc.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/EurofontExtendedC/eurofontextendedc_bold.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/EurofontExtendedC/eurofontextendedc_bold.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/PTRootUI/COPYRIGHT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/PTRootUI/COPYRIGHT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/PTRootUI/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/PTRootUI/LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/PTRootUI/PT-Root-UI_Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/PTRootUI/PT-Root-UI_Bold.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/PTRootUI/PT-Root-UI_Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/PTRootUI/PT-Root-UI_Medium.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/hello.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/greetingSection/greetingSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/greetingSection/greetingSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/greetingSection/greetingSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/greetingSection/greetingSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/_boilerplate.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_boilerplate.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_typography.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +154,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/CodingProjects/kaleidoscope/public",
+    "last_opened_file_path": "D:/CodingProjects/octoweb",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,12 +171,14 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CodingProjects\kaleidoscope\public" />
+      <recent name="D:\CodingProjects\kaleidoscope\src\assets" />
       <recent name="D:\CodingProjects\kaleidoscope" />
       <recent name="D:\CodingProjects\kaleidoscope\public\favicon" />
       <recent name="D:\CodingProjects\kaleidoscope\src\styles" />
-      <recent name="D:\CodingProjects\kaleidoscope\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CodingProjects\kaleidoscope\public\models" />
+      <recent name="D:\CodingProjects\kaleidoscope\public" />
       <recent name="D:\CodingProjects\kaleidoscope\src\components\modal\commercialProposalModal" />
       <recent name="D:\CodingProjects\kaleidoscope\src\components\form\commersalProporsalForm" />
     </key>
@@ -141,7 +237,10 @@
       <workItem from="1725462114507" duration="52053000" />
       <workItem from="1725574417691" duration="42227000" />
       <workItem from="1725645786205" duration="33140000" />
-      <workItem from="1725814144623" duration="35226000" />
+      <workItem from="1725814144623" duration="71430000" />
+      <workItem from="1726038316569" duration="75649000" />
+      <workItem from="1726210607093" duration="29503000" />
+      <workItem from="1726423457429" duration="32162000" />
     </task>
     <task id="LOCAL-00001" summary="temp">
       <option name="closed" value="true" />
@@ -383,7 +482,111 @@
       <option name="project" value="LOCAL" />
       <updated>1725890609212</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added CP form">
+      <option name="closed" value="true" />
+      <created>1725903995995</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1725903995995</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Style changes">
+      <option name="closed" value="true" />
+      <created>1725957175604</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1725957175604</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added cp form request">
+      <option name="closed" value="true" />
+      <created>1725962507378</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1725962507378</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Change form sending caption">
+      <option name="closed" value="true" />
+      <created>1725967185304</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1725967185304</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Change address + text">
+      <option name="closed" value="true" />
+      <created>1726147588118</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1726147588118</updated>
+    </task>
+    <task id="LOCAL-00036" summary="import error fix">
+      <option name="closed" value="true" />
+      <created>1726147756357</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1726147756357</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix products animation">
+      <option name="closed" value="true" />
+      <created>1726161808757</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1726161808757</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Added 3d boy">
+      <option name="closed" value="true" />
+      <created>1726215275980</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1726215275980</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added 3d boy + import">
+      <option name="closed" value="true" />
+      <created>1726215330485</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1726215330485</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Added model">
+      <option name="closed" value="true" />
+      <created>1726215730530</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1726215730530</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Greeting animation temp">
+      <option name="closed" value="true" />
+      <created>1726221336545</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1726221336545</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Change 3d model">
+      <option name="closed" value="true" />
+      <created>1726231723184</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1726231723184</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Change 3d model">
+      <option name="closed" value="true" />
+      <created>1726231852469</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1726231852469</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,14 +605,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added all requests + form validation" />
-    <MESSAGE value="check input zooming" />
-    <MESSAGE value="Added form sending" />
-    <MESSAGE value="temp" />
-    <MESSAGE value="mobile menu iphone" />
-    <MESSAGE value="small style edits" />
-    <MESSAGE value="change photo" />
-    <MESSAGE value="deploy fix" />
     <MESSAGE value="footer contacts changed" />
     <MESSAGE value="Fix nav buttons disable" />
     <MESSAGE value="Change document section" />
@@ -423,6 +618,18 @@
     <MESSAGE value="pm2 config file + temp remove catalog section background" />
     <MESSAGE value="change bg size" />
     <MESSAGE value="Changed images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed images" />
+    <MESSAGE value="Added CP form" />
+    <MESSAGE value="Style changes" />
+    <MESSAGE value="Added cp form request" />
+    <MESSAGE value="Change form sending caption" />
+    <MESSAGE value="Change address + text" />
+    <MESSAGE value="import error fix" />
+    <MESSAGE value="fix products animation" />
+    <MESSAGE value="Added 3d boy" />
+    <MESSAGE value="Added 3d boy + import" />
+    <MESSAGE value="Added model" />
+    <MESSAGE value="Greeting animation temp" />
+    <MESSAGE value="Change 3d model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change 3d model" />
   </component>
 </project>

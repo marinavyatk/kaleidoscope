@@ -1,75 +1,89 @@
 import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
-import { DebAnimation } from '@/components/animations/debAnimation/debAnimation';
 import { Button } from '@/components/button/button';
 import s from './greetingSection.module.scss';
-import Image from 'next/image';
+import { Animation } from '@/components/animations/animation';
 
-export const GreetingSection = () => {
+type GreetingSectionProps = {
+  setShowGreeting: (show: boolean) => void;
+  setPlaying: (show: boolean) => void;
+  className?: string;
+};
+
+export const GreetingSection = (props: GreetingSectionProps) => {
+  const { setShowGreeting, setPlaying, className } = props;
   const [showAnimation, setShowAnimation] = useState(false);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [animationEnd, setAnimationEnd] = useState(false);
+  const classNames = clsx(
+    s.greetingSection,
+    'fullContainer',
+    animationEnd && s.hiddenSection,
+    className,
+  );
 
   const handleButtonClick = () => {
     if (images.length) {
       setShowAnimation((prev) => !prev);
     }
+    setPlaying(true);
   };
 
   useEffect(() => {
-    const preloadImages = async (numFrames: number) => {
-      const loadedImages: HTMLImageElement[] = [];
-      let loadedCount = 0;
+    if (animationEnd) {
+      setTimeout(() => {
+        setShowGreeting(false);
+        window.scroll({
+          top: 0,
+          behavior: 'instant',
+        });
+      }, 400);
+    }
+  }, [animationEnd]);
 
-      for (let i = 0; i < numFrames; i++) {
-        const img = new window.Image();
-        const imgSrc = `/deb/${i.toString().padStart(5, '0')}.png.webp`;
-        img.src = imgSrc;
-
-        img.onload = () => {
-          loadedCount++;
-          loadedImages[i] = img;
-          if (loadedCount === numFrames) {
-            setImages(loadedImages);
+  useEffect(() => {
+    const screenWidth = window.innerWidth;
+    const preloadImages = (numFrames: number) => {
+      const promises = Array.from({ length: numFrames }, (_, i) => {
+        return new Promise<HTMLImageElement>((resolve, reject) => {
+          const img = new window.Image();
+          let imgSrc = '';
+          if (screenWidth >= 768) {
+            imgSrc = `/greeting/desktop/${i.toString().padStart(5, '0')}.png.webp`;
+          } else if (screenWidth >= 480) {
+            imgSrc = `/greeting/tablet/${i.toString().padStart(5, '0')}.png.webp`;
+          } else {
+            imgSrc = `/greeting/mobile/${i.toString().padStart(5, '0')}.png.webp`;
           }
-        };
+          img.src = imgSrc;
+          img.onload = () => resolve(img);
+          img.onerror = () => reject(new Error(`Failed to load image: ${imgSrc}`));
+        });
+      });
 
-        img.onerror = (err) => {
-          console.error(`Failed to load image: ${imgSrc}`, err);
-        };
-      }
+      Promise.all(promises)
+        .then(setImages)
+        .catch((err) => console.error('Image preload error:', err));
     };
 
     preloadImages(36);
   }, []);
 
   return (
-    <section className={s.greetingSection}>
-      <div className={s.bgContainer}>
-        <Image
-          src={'/main-section-bg.webp'}
-          alt=''
-          fill
-          quality={100}
-          priority
-          className={s.background}
-        />
+    <section className={classNames}>
+      <div className={clsx(s.innerContainer, 'mainContainer')}>
+        <div className={clsx(s.background, showAnimation && s.hidden, 'fullContainer')}></div>
+        {!showAnimation ? (
+          <div className={clsx(s.kids, 'fullContainer')}></div>
+        ) : (
+          <Animation images={images} setAnimationEnd={setAnimationEnd} />
+        )}
+        <div className={clsx(s.firstLine, showAnimation && s.goLeft)}>Привет, чемпион!</div>
+        <div className={clsx(s.secondLine, showAnimation && s.goRight)}>Ну что, приступим?</div>
+        <Button onClick={handleButtonClick} className={clsx(showAnimation && s.goRight)}>
+          Поехали!
+        </Button>
       </div>
-      {!showAnimation ? (
-        <Image
-          src={'/deb/00000.png.webp'}
-          alt=''
-          fill
-          quality={100}
-          priority
-          className={clsx(s.kids, showAnimation && s.hidden)}
-        />
-      ) : (
-        <DebAnimation images={images} />
-      )}
-
-      <div className={s.firstLine}>Привет, чемпион!</div>
-      <div className={s.secondLine}>Ну что, приступим?</div>
-      <Button onClick={handleButtonClick}>поехали!</Button>
     </section>
   );
 };

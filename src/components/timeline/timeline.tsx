@@ -26,7 +26,11 @@ export const TimelineStep = (props: TimelineSegmentProps) => {
     <div className={classNames}>
       {topTitle && <span className={s.topTitle}>{topTitle}</span>}
       <div className={s.graphics}>
-        <button className={s.pointButton} onClick={handleChangeStep}>
+        <button
+          className={s.pointButton}
+          onClick={handleChangeStep}
+          aria-label={`Посмотреть ${bottomTitle}`}
+        >
           <div className={s.point}></div>
         </button>
         <div className={s.line}>

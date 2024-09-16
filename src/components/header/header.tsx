@@ -1,14 +1,16 @@
-import { ComponentPropsWithoutRef, useEffect, useRef, useState } from 'react';
+import { ComponentPropsWithoutRef, ReactNode, useEffect, useRef, useState } from 'react';
 import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
 import { BurgerButton } from '../burgerButton/burgerButton';
 import { Player } from '../player/player';
 
-export type HeaderProps = ComponentPropsWithoutRef<'header'>;
+export type HeaderProps = {
+  player: ReactNode;
+} & ComponentPropsWithoutRef<'header'>;
 
 export const Header = (props: HeaderProps) => {
-  const { className, ...restProps } = props;
+  const { player, className, ...restProps } = props;
   const [isClient, setIsClient] = useState(false);
   const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +60,8 @@ export const Header = (props: HeaderProps) => {
             <div className={s.rightBlock}>
               <a href='#contacts'>Контакты</a>
               <div className={s.player}>
-                <Player />
+                {player}
+                {/*<Player />*/}
               </div>
             </div>
           </header>
@@ -67,7 +70,8 @@ export const Header = (props: HeaderProps) => {
             <header className={s.header}>
               <Logo className={s.logo} />
               <div className={s.player}>
-                <Player />
+                {player}
+                {/*<Player />*/}
               </div>
               <BurgerButton onChange={() => setIsOpen((prev) => !prev)} checked={isOpen} />
             </header>

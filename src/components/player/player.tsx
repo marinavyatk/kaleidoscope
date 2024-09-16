@@ -7,8 +7,13 @@ import PlayIcon from '../../assets/play.svg';
 import { Slider } from '../slider/slider';
 import Image from 'next/image';
 
-export const Player = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+type PlayerProps = {
+  initialPlaying: boolean;
+};
+
+export const Player = (props: PlayerProps) => {
+  const { initialPlaying } = props;
+  const [isPlaying, setIsPlaying] = useState(initialPlaying);
   const [play, { pause, duration, sound }] = useSound('/compress.mp3');
   const [currTime, setCurrTime] = useState(0);
   const isDraggingRef = useRef(false);
@@ -22,6 +27,16 @@ export const Player = () => {
       setIsPlaying(true);
     }
   };
+
+  useEffect(() => {
+    if (initialPlaying) {
+      play();
+      setIsPlaying(true);
+    } else {
+      pause();
+      setIsPlaying(false);
+    }
+  }, [initialPlaying, play, pause]);
 
   useEffect(() => {
     if (!isPlaying || !sound || isDraggingRef.current) return;

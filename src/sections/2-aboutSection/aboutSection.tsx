@@ -20,8 +20,8 @@ export const AboutSection = () => {
       </div>
       <div className={s.boy}>
         <div className={s.imageContainer}>
-          {/*<Image src={'/boy.webp'} alt='' fill quality={100} />*/}
-          <Scene />
+          <Image src={'/boy.webp'} alt='' fill quality={100} />
+          {/*<Scene />*/}
         </div>
       </div>
       <h2>объединяем поколения через соперни&shy;чество</h2>

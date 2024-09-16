@@ -10,11 +10,16 @@ export const BurgerButton = (props: BurgerButtonProps) => {
       <input
         className={s.checkbox}
         type='checkbox'
-        name=''
-        id=''
+        // name=''
+        // id=''
+        name='burger-menu'
+        id='burger-menu-checkbox'
         onChange={onChange}
         checked={checked}
       />
+      <label htmlFor='burger-menu-checkbox' className={s.hidden}>
+        Открыть/Закрыть меню
+      </label>
       <div className={s.hamburgerLines}>
         <span className={s.line1}></span>
         <span className={s.line2}></span>
