@@ -4,10 +4,12 @@ import s from './animation.module.scss';
 type AnimationProps = {
   images: HTMLImageElement[];
   setAnimationEnd?: (animationEnd: boolean) => void;
+  ms: number;
+  loop?: boolean;
 };
 
 export const Animation = (props: AnimationProps) => {
-  const { images, setAnimationEnd } = props;
+  const { images, setAnimationEnd, ms, loop = false } = props;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [frameIndex, setFrameIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -18,25 +20,29 @@ export const Animation = (props: AnimationProps) => {
     intervalRef.current = setInterval(() => {
       setFrameIndex((prevIndex) => {
         if (prevIndex === images.length - 1) {
-          clearInterval(intervalRef.current!);
-          return prevIndex;
+          if (loop) {
+            return 0;
+          } else {
+            clearInterval(intervalRef.current!);
+            return prevIndex;
+          }
         }
         return prevIndex + 1;
       });
-    }, 83);
+    }, ms);
 
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
     };
-  }, [images]);
+  }, [images, ms, loop]);
 
   useEffect(() => {
-    if (frameIndex === images.length - 1 && setAnimationEnd) {
+    if (frameIndex === images.length - 1 && !loop && setAnimationEnd) {
       setAnimationEnd(true);
     }
-  }, [frameIndex, images.length]);
+  }, [frameIndex, images.length, loop, setAnimationEnd]);
 
   const drawImageCover = (context: CanvasRenderingContext2D, img: HTMLImageElement) => {
     const canvas = context.canvas;

@@ -76,7 +76,7 @@ export const GreetingSection = (props: GreetingSectionProps) => {
         {!showAnimation ? (
           <div className={clsx(s.kids, 'fullContainer')}></div>
         ) : (
-          <Animation images={images} setAnimationEnd={setAnimationEnd} />
+          <Animation images={images} setAnimationEnd={setAnimationEnd} ms={83} />
         )}
         <div className={clsx(s.firstLine, showAnimation && s.goLeft)}>Привет, чемпион!</div>
         <div className={clsx(s.secondLine, showAnimation && s.goRight)}>Ну что, приступим?</div>
