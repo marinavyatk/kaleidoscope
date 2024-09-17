@@ -16,6 +16,13 @@ import { Player } from '@/components/player/player';
 export default function Home() {
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
+
+  (function () {
+    var script = document.createElement('script');
+    script.src = 'https://console.re/connector.js';
+    document.body.appendChild(script);
+  })();
+
   return (
     <>
       <Head>
