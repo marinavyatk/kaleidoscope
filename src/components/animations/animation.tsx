@@ -3,7 +3,7 @@ import s from './animation.module.scss';
 
 type AnimationProps = {
   images: HTMLImageElement[];
-  setAnimationEnd: (animationEnd: boolean) => void;
+  setAnimationEnd?: (animationEnd: boolean) => void;
 };
 
 export const Animation = (props: AnimationProps) => {
@@ -33,7 +33,7 @@ export const Animation = (props: AnimationProps) => {
   }, [images]);
 
   useEffect(() => {
-    if (frameIndex === images.length - 1) {
+    if (frameIndex === images.length - 1 && setAnimationEnd) {
       setAnimationEnd(true);
     }
   }, [frameIndex, images.length]);

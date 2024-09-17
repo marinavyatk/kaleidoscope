@@ -1,6 +1,5 @@
 .mainSection {
   text-align: center;
-  //padding: 650px 20px 160px;
   padding: 650px 20px 230px;
   position: relative;
   background: linear-gradient(180deg, rgba(41, 17, 7, 0) 0%, rgba(41, 17, 7, 0) 50%, #261006 100%);
@@ -13,6 +12,10 @@
   .kids {
     z-index: -1;
     object-fit: cover;
+    background-image: url("/animation-desktop.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   p {
@@ -35,11 +38,22 @@
 
 @media (max-width: 767px) {
   .mainSection {
-    padding: 341px 16px 86px;
+    padding: 573px 20px 250px;
 
     p {
       font-size: 18px;
       margin: 20px 0 40px;
+    }
+    .kids {
+      background-image: url("/animation-tablet.webp");
+    }
+  }
+}
+@media (max-width: 480px) {
+  .mainSection {
+    padding: 341px 16px 86px;
+    .kids {
+      background-image: url("/animation-mobile.webp");
     }
   }
 }

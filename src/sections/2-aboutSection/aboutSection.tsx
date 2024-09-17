@@ -1,27 +1,27 @@
 import s from './aboutSection.module.scss';
 import { Button } from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { ComponentType } from 'react';
+import { useRef } from 'react';
+import { ModelProps } from '@/components/3d/boy';
 
-const Scene: ComponentType = dynamic(
+const Scene = dynamic<ModelProps>(
   () => import('../../components/3d/scene').then((mod) => mod.Scene),
-  {
-    ssr: false,
-  },
+  { ssr: false },
 );
+
 export const AboutSection = () => {
+  const modelContainerRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <section className={s.aboutSection} id='about'>
+    <section className={s.aboutSection} id='about' ref={modelContainerRef}>
       <Separator className={s.separator} />
       <div className={s.backgroundText}>
         <span>Калейдоскоп</span>
       </div>
       <div className={s.boy}>
         <div className={s.imageContainer}>
-          <Image src={'/boy.webp'} alt='' fill quality={100} />
-          {/*<Scene />*/}
+          <Scene containerRef={modelContainerRef} />
         </div>
       </div>
       <h2>объединяем поколения через соперни&shy;чество</h2>

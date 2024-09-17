@@ -3,7 +3,6 @@ import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
 import { BurgerButton } from '../burgerButton/burgerButton';
-import { Player } from '../player/player';
 
 export type HeaderProps = {
   player: ReactNode;
