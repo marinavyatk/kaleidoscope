@@ -10,18 +10,19 @@ import { FormSection } from '@/sections/7-formSection/formSection';
 import { FAQ } from '@/sections/6-faqSection/faq';
 import s from '@/styles/index.module.scss';
 import { GreetingSection } from '@/sections/greetingSection/greetingSection';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Player } from '@/components/player/player';
 
 export default function Home() {
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
-
-  (function () {
-    var script = document.createElement('script');
-    script.src = 'https://console.re/connector.js';
-    document.body.appendChild(script);
-  })();
+  useEffect(() => {
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://console.re/connector.js';
+      document.body.appendChild(script);
+    })();
+  }, []);
 
   return (
     <>
