@@ -53,32 +53,21 @@ export const Player = (props: PlayerProps) => {
 
   const tempSetStartSong = () => {
     sound.seek([0]);
+    setCurrTime(0);
   };
 
   useEffect(() => {
-    const handleDeviceChange = () => {
-      navigator.mediaDevices.enumerateDevices().then((devices) => {
-        const headphonesConnected = devices.some(
-          (device) => device.kind === 'audiooutput' && device.label.includes('Headphone'),
-        );
+    if (sound) {
+      const handlePause = () => {
+        setIsPlaying(false);
+      };
+      sound.on('pause', handlePause);
 
-        if (headphonesConnected && !isPlaying) {
-          play();
-          setIsPlaying(true);
-        }
-      });
-    };
-
-    if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) {
-      navigator.mediaDevices.addEventListener('devicechange', handleDeviceChange);
+      return () => {
+        sound.off('pause', handlePause);
+      };
     }
-
-    return () => {
-      if (navigator.mediaDevices && navigator.mediaDevices.removeEventListener) {
-        navigator.mediaDevices.removeEventListener('devicechange', handleDeviceChange);
-      }
-    };
-  }, [isPlaying, play]);
+  }, [sound]);
 
   return (
     <div className={s.player}>
