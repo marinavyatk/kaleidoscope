@@ -25,6 +25,7 @@
   background-color: var(--color-light);
   border-radius: 50%;
   cursor: pointer;
+  touch-action: none;
 
   &:focus-visible {
     outline: none;

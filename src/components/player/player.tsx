@@ -14,7 +14,7 @@ type PlayerProps = {
 export const Player = (props: PlayerProps) => {
   const { initialPlaying } = props;
   const [isPlaying, setIsPlaying] = useState(initialPlaying);
-  const [play, { pause, duration, sound }] = useSound('/compress.mp3');
+  const [play, { pause, duration, sound }] = useSound('/compress.mp3', { loop: true });
   const [currTime, setCurrTime] = useState(0);
   const isDraggingRef = useRef(false);
 
@@ -54,6 +54,31 @@ export const Player = (props: PlayerProps) => {
   const tempSetStartSong = () => {
     sound.seek([0]);
   };
+
+  useEffect(() => {
+    const handleDeviceChange = () => {
+      navigator.mediaDevices.enumerateDevices().then((devices) => {
+        const headphonesConnected = devices.some(
+          (device) => device.kind === 'audiooutput' && device.label.includes('Headphone'),
+        );
+
+        if (headphonesConnected && !isPlaying) {
+          play();
+          setIsPlaying(true);
+        }
+      });
+    };
+
+    if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) {
+      navigator.mediaDevices.addEventListener('devicechange', handleDeviceChange);
+    }
+
+    return () => {
+      if (navigator.mediaDevices && navigator.mediaDevices.removeEventListener) {
+        navigator.mediaDevices.removeEventListener('devicechange', handleDeviceChange);
+      }
+    };
+  }, [isPlaying, play]);
 
   return (
     <div className={s.player}>
