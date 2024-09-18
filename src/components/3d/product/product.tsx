@@ -8,7 +8,6 @@ export type ModelProps = {
 
 export default function Model(props: ModelProps) {
   const { link } = props;
-  if (!link) return <Box args={[1, 1, 1]} />;
 
   const sceneRef = useRef();
   // const { scene } = useGLTF('/models/1.glb');
@@ -17,5 +16,7 @@ export default function Model(props: ModelProps) {
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
 
   console.log('link', link);
+  if (!link) return <Box args={[1, 1, 1]} />;
+
   return <primitive object={clone} ref={sceneRef} />;
 }

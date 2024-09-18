@@ -67,7 +67,7 @@ export const ProductCard = (props: ProductCardProps) => {
         </div>
         <div className={s.model}>
           {/*<Image src={productData?.img} alt={'Фото товара'} fill sizes={'957px'} />*/}
-          <Scene link={productData.model} />
+          {productData?.model && <Scene link={productData.model} />}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>
