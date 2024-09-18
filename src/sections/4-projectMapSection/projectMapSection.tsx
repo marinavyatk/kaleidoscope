@@ -13,17 +13,13 @@ import Image from 'next/image';
 export const ProjectMapSection = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const swiperRef = useRef<SwiperClass>(null);
-  const [isClient, setIsClient] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
 
   const { projectMap, stepData } = useProjectMap();
 
   useEffect(() => {
-    setIsClient(true);
     const handleResize = () => {
-      if (typeof window !== 'undefined') {
-        setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1439);
-      }
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1439);
     };
 
     handleResize();
@@ -32,8 +28,8 @@ export const ProjectMapSection = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const stepPhotos = projectMap?.[activeStepIndex]?.gallery.map((photo, index) => (
-    <SwiperSlide key={`photo-${index}`} className={s.slide}>
+  const stepPhotos = projectMap?.[activeStepIndex]?.gallery.map((photo) => (
+    <SwiperSlide key={photo.url} className={s.slide}>
       <ViewCloserModal
         imgSrc={photo.url}
         trigger={
@@ -45,8 +41,6 @@ export const ProjectMapSection = () => {
     </SwiperSlide>
   ));
 
-  if (!isClient) return null;
-
   return (
     <section className={s.projectMapSection} id='history'>
       <h2>карта проекта</h2>
@@ -57,10 +51,16 @@ export const ProjectMapSection = () => {
       </div>
       <div className={s.description}>
         <p>{projectMap?.[activeStepIndex]?.description}</p>
-        {isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons} />}
+        {isTablet && (
+          <NavButtons
+            swiperRef={swiperRef}
+            className={s.navButtons}
+            key={`nav-tablet-buttons-${activeStepIndex}`}
+          />
+        )}
       </div>
-
       <Swiper
+        key={activeStepIndex} //need for correct render slides when activeStepIndex changes
         modules={[Keyboard, Navigation]}
         slidesPerView={'auto'}
         onSwiper={(swiper) => {
@@ -68,10 +68,17 @@ export const ProjectMapSection = () => {
         }}
         keyboard
         className={s.slidesContainer}
+        onSlideChange={() => swiperRef.current?.update()}
       >
         {stepPhotos}
       </Swiper>
-      {!isTablet && <NavButtons swiperRef={swiperRef} className={s.navButtons} />}
+      {!isTablet && (
+        <NavButtons
+          swiperRef={swiperRef}
+          className={s.navButtons}
+          key={`nav-buttons-${activeStepIndex}`}
+        />
+      )}
       <Timeline
         stepsData={stepData || undefined}
         activeStepIndex={activeStepIndex}

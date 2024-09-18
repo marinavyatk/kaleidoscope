@@ -91,11 +91,21 @@ export const Carousel = ({ products }: CarouselProps) => {
         ))}
       </div>
       <div className={clsx(s.navPanel, !products.length && s.hidden)}>
-        <button className={s.btnPrev} onClick={prevItem} aria-label={'Назад'}>
+        <button
+          className={s.btnPrev}
+          onClick={prevItem}
+          aria-label={'Назад'}
+          disabled={products.length <= 1}
+        >
           <Arrow />
         </button>
         <ProgressBar currentSlide={activeIndex + 1} total={products.length} />
-        <button className={s.btnNext} onClick={nextItem} aria-label={'Вперёд'}>
+        <button
+          className={s.btnNext}
+          onClick={nextItem}
+          aria-label={'Вперёд'}
+          disabled={products.length <= 1}
+        >
           <Arrow />
         </button>
       </div>
