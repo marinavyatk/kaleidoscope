@@ -44,6 +44,7 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
           keyboard
           loop
           initialSlide={activeSlide}
+          allowTouchMove={false}
         >
           {cards}
         </Swiper>

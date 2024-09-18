@@ -10,12 +10,21 @@ import { FormSection } from '@/sections/7-formSection/formSection';
 import { FAQ } from '@/sections/6-faqSection/faq';
 import s from '@/styles/index.module.scss';
 import { GreetingSection } from '@/sections/greetingSection/greetingSection';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Player } from '@/components/player/player';
+import { api } from '@/common/api';
+import { ContactsData } from '@/common/types';
 
 export default function Home() {
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
+  const [contactInfo, setContactInfo] = useState<ContactsData>({} as ContactsData);
+  useEffect(() => {
+    api.getContacts().then((data) => {
+      console.log(data);
+      setContactInfo(data);
+    });
+  }, []);
 
   return (
     <>
@@ -29,7 +38,7 @@ export default function Home() {
           <GreetingSection
             setShowGreeting={setShowGreeting}
             setPlaying={setInitialPlaying}
-            className={!showGreeting ? s.hiddenGreeting : 'ss'}
+            className={!showGreeting ? s.hiddenGreeting : ''}
           />
         )}
         <Header
@@ -46,7 +55,13 @@ export default function Home() {
             <FAQ />
             <FormSection />
             <DocumentationSection />
-            <Footer />
+            {contactInfo && (
+              <Footer
+                tels={contactInfo['contact_phones']}
+                emails={contactInfo['contact_emails']}
+                socialLinks={contactInfo['social_links']}
+              />
+            )}
           </>
         )}
       </div>

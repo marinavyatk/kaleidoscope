@@ -66,7 +66,7 @@ export const GreetingSection = (props: GreetingSectionProps) => {
         .catch((err) => console.error('Image preload error:', err));
     };
 
-    preloadImages(36);
+    preloadImages(28);
   }, []);
 
   return (
@@ -76,7 +76,7 @@ export const GreetingSection = (props: GreetingSectionProps) => {
         {!showAnimation ? (
           <div className={clsx(s.kids, 'fullContainer')}></div>
         ) : (
-          <Animation images={images} setAnimationEnd={setAnimationEnd} ms={83} />
+          <Animation images={images} setAnimationEnd={setAnimationEnd} ms={70} />
         )}
         <div className={clsx(s.firstLine, showAnimation && s.goLeft)}>Привет, чемпион!</div>
         <div className={clsx(s.secondLine, showAnimation && s.goRight)}>Ну что, приступим?</div>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   Category,
+  ContactsData,
   CPFormValues,
   DocumentData,
   FaqData,
@@ -36,7 +37,7 @@ export const api = {
   getProducts(categoryId: number) {
     return instance
       .get(
-        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields,featured_media`,
+        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields,featured_media,model_3d_link`,
       )
       .then((response) => {
         return response.data;
@@ -78,6 +79,11 @@ export const api = {
   getPoints() {
     return instance
       .get<MapData[]>('/wp-json/wp/v2/map_marker?_fields=coordinates,content,title,thumbnail_url')
+      .then((response) => response.data);
+  },
+  getContacts() {
+    return instance
+      .get<ContactsData>('/wp-json/custom/v1/contact-info/')
       .then((response) => response.data);
   },
   sendForm(data: FormValues) {

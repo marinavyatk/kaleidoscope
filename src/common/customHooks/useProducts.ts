@@ -23,6 +23,7 @@ export const useProducts = (activeCategory: number) => {
           imgId: product['featured_media'],
           imgLoading: true,
           img: '',
+          model: product['model_3d_link'],
         }));
 
         setProducts(structuredData);

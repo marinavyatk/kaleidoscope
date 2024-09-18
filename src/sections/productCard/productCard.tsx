@@ -11,6 +11,7 @@ import { Product } from '@/common/types';
 import { v4 as uuid } from 'uuid';
 import Image from 'next/image';
 import { CommercialProposalModal } from '@/components/modal/commercialProposalModal/commersalProporsalModal';
+import { Scene } from '@/components/3d/product/scene';
 
 export type ProductCardProps = {
   productData: Product;
@@ -65,7 +66,8 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={s.model}>
-          <Image src={productData?.img} alt={'Фото товара'} fill sizes={'957px'} />
+          {/*<Image src={productData?.img} alt={'Фото товара'} fill sizes={'957px'} />*/}
+          <Scene link={productData.model} />
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>

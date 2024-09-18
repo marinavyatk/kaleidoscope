@@ -6,8 +6,16 @@ import YoutubeIcon from '../../assets/social-media-icons/youtube.svg';
 import VKIcon from '../../assets/social-media-icons/vk.svg';
 import TelegramIcon from '../../assets/social-media-icons/telegram.svg';
 import ArrowUp from '../../assets/arrow-up.svg';
+import { formatPhoneNumber } from '@/common/commonFunctions';
 
-export const Footer = () => {
+type FooterProps = {
+  tels: string[];
+  emails: string[];
+  socialLinks: Record<string, string>;
+};
+
+export const Footer = (props: FooterProps) => {
+  const { tels, emails, socialLinks } = props;
   return (
     <footer className={s.footer} id='contacts'>
       <div className={s.footerContent}>
@@ -31,38 +39,77 @@ export const Footer = () => {
         </div>
 
         <div className={s.footerRight}>
-          <a href='tel:+79891402525' className={s.tel}>
-            +7 989 140-25-25
-          </a>
-          <a href='tel:+79994184174' className={s.tel}>
-            +7 999 418-41-74
-          </a>
-          <a href='mailto:info@kaleidoscope-games.ru' className={s.email}>
-            info@kaleidoscope-games.ru
-          </a>
+          {tels?.map((tel) => {
+            return (
+              <a href={`tel:${tel}`} className={s.tel} key={tel}>
+                {formatPhoneNumber(tel)}
+              </a>
+            );
+          })}
+          {emails?.map((email) => {
+            return (
+              <a href={`mailto:${email}`} className={s.email} key={email}>
+                {email}
+              </a>
+            );
+          })}
+
           <div className={s.links}>
-            {/*need if it will be more links*/}
-            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы в WhatsUp'}>*/}
-            {/*  <WhatsUpIcon />*/}
-            {/*</a>*/}
-            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы на Rutube'}>*/}
-            {/*  <RutubeIcon />*/}
-            {/*</a>*/}
-            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'МЫ на Youtube'}>*/}
-            {/*  <YoutubeIcon />*/}
-            {/*</a>*/}
-            {/*<a href='#' className={s.link} rel='nofollow' aria-label={'Мы ВКонтакте'}>*/}
-            {/*  <VKIcon />*/}
-            {/*</a>*/}
-            <a
-              href='https://t.me/kaleidoscopegames'
-              className={s.link + ' ' + s.telegram}
-              rel='nofollow'
-              target={'_blank'}
-              aria-label={'Мы в телеграмме'}
-            >
-              <TelegramIcon />
-            </a>
+            {socialLinks?.whatsapp && (
+              <a
+                href={socialLinks.whatsapp}
+                className={s.link}
+                rel='nofollow'
+                target={'_blank'}
+                aria-label='Мы в WhatsApp'
+              >
+                <WhatsUpIcon />
+              </a>
+            )}
+            {socialLinks?.rutube && (
+              <a
+                href={socialLinks.rutube}
+                className={s.link}
+                rel='nofollow'
+                target={'_blank'}
+                aria-label='Мы на Rutube'
+              >
+                <RutubeIcon />
+              </a>
+            )}
+            {socialLinks?.youtube && (
+              <a
+                href={socialLinks.youtube}
+                className={s.link}
+                rel='nofollow'
+                target={'_blank'}
+                aria-label='Мы на Youtube'
+              >
+                <YoutubeIcon />
+              </a>
+            )}
+            {socialLinks?.vk && (
+              <a
+                href={socialLinks.vk}
+                className={s.link + ' ' + s.telegram}
+                rel='nofollow'
+                target={'_blank'}
+                aria-label='Мы ВКонтакте'
+              >
+                <VKIcon />
+              </a>
+            )}
+            {socialLinks?.telegram && (
+              <a
+                href={socialLinks.telegram}
+                className={s.link + ' ' + s.telegram}
+                rel='nofollow'
+                target={'_blank'}
+                aria-label='Мы в telegram'
+              >
+                <TelegramIcon />
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ export type Product = {
   imgLoading: boolean;
   img: string;
   specifications: { key: string; value: string }[];
+  model: string;
 };
 
 export type Faq = {
@@ -50,6 +51,7 @@ export type ProductData = {
   custom_meta_fields: { key: string; value: string }[];
   link: string;
   ['featured_media']: number;
+  ['model_3d_link']: string;
 };
 
 export type DocumentData = {
@@ -67,4 +69,11 @@ export type MapData = {
 export type FormResponse = {
   message: string;
   status: string;
+};
+
+export type ContactsData = {
+  ['consultation_phone']: string;
+  ['contact_phones']: string[];
+  ['contact_emails']: string[];
+  ['social_links']: Record<string, string>;
 };

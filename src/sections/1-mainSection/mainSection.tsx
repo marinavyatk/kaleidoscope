@@ -39,8 +39,12 @@ export const MainSection = () => {
   return (
     <section className={s.mainSection}>
       <Image src={'/main-section-bg.webp'} alt='' fill quality={100} className={s.background} />
-      {/*<div className={clsx(s.kids, 'fullContainer')} />*/}
-      <Animation images={images} ms={50} loop />
+      {images.length ? (
+        <Animation images={images} ms={50} loop repeatInterval={5000} />
+      ) : (
+        <div className={clsx(s.kids, 'fullContainer')} />
+      )}
+
       <h1>Калейдоскоп ИГР</h1>
       <p>Производим уникальные изделия для развития спортивного будущего!</p>
       <Button as='a' href='#catalog'>

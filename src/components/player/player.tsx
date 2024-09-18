@@ -56,19 +56,6 @@ export const Player = (props: PlayerProps) => {
     setCurrTime(0);
   };
 
-  useEffect(() => {
-    if (sound) {
-      const handlePause = () => {
-        setIsPlaying(false);
-      };
-      sound.on('pause', handlePause);
-
-      return () => {
-        sound.off('pause', handlePause);
-      };
-    }
-  }, [sound]);
-
   return (
     <div className={s.player}>
       <div className={s.slider}>

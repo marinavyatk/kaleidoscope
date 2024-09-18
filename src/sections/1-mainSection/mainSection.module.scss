@@ -12,7 +12,7 @@
   .kids {
     z-index: -1;
     object-fit: cover;
-    background-image: url("/animation-desktop.webp");
+    background-image: url("/waving/desktop/00000.png.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -45,7 +45,7 @@
       margin: 20px 0 40px;
     }
     .kids {
-      background-image: url("/animation-tablet.webp");
+      background-image: url("/waving/tablet/00000.png.webp");
     }
   }
 }
@@ -53,7 +53,7 @@
   .mainSection {
     padding: 341px 16px 86px;
     .kids {
-      background-image: url("/animation-mobile.webp");
+      background-image: url("/waving/mobile/00000.png.webp");
     }
   }
 }
