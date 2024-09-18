@@ -1,6 +1,6 @@
-import { useMemo, useRef } from 'react';
-import { Box, useGLTF } from '@react-three/drei';
-import { SkeletonUtils } from 'three-stdlib';
+import { useEffect, useRef, useState } from 'react';
+import { useGLTF } from '@react-three/drei';
+import { Box3, Vector3 } from 'three';
 
 export type ModelProps = {
   link: string;
@@ -8,15 +8,28 @@ export type ModelProps = {
 
 export default function Model(props: ModelProps) {
   const { link } = props;
-
   const sceneRef = useRef();
-  // const { scene } = useGLTF('/models/1.glb');
-  // const { scene } = useGLTF('https://kaleidoscope-games.store/wp-content/uploads/2024/09/1.glb');
   const { scene } = useGLTF(link, true);
-  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
+  const [scale, setScale] = useState(1);
 
-  console.log('link', link);
-  if (!link) return <Box args={[1, 1, 1]} />;
+  useEffect(() => {
+    if (sceneRef.current) {
+      const box = new Box3().setFromObject(sceneRef.current);
+      const modelSize = box.getSize(new Vector3());
+      const maxModelSize = Math.max(modelSize.x, modelSize.y, modelSize.z);
+      const screenWidth = window.innerWidth;
+      const desiredSize = screenWidth > 650 ? 2.4 : 2;
+      const calculatedScale = desiredSize / maxModelSize;
+      setScale(calculatedScale);
+    }
+  }, [scene]);
 
-  return <primitive object={clone} ref={sceneRef} />;
+  return (
+    <primitive
+      object={scene}
+      ref={sceneRef}
+      position={[0, -0.3, 0]}
+      scale={[scale, scale, scale]}
+    />
+  );
 }

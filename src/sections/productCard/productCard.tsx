@@ -2,16 +2,16 @@ import s from './productCard.module.scss';
 import CloseIcon from '../../assets/close.svg';
 import ArrowIcon from '../../assets/arrow-triangle.svg';
 import { useMediaQuery } from 'react-responsive';
-import { ComponentPropsWithoutRef, MutableRefObject, RefObject } from 'react';
+import { ComponentPropsWithoutRef, MutableRefObject, RefObject, Suspense } from 'react';
 import { clsx } from 'clsx';
 import { SwiperClass } from 'swiper/react';
 import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFunctions';
 import { DialogClose } from '@radix-ui/react-dialog';
 import { Product } from '@/common/types';
 import { v4 as uuid } from 'uuid';
-import Image from 'next/image';
 import { CommercialProposalModal } from '@/components/modal/commercialProposalModal/commersalProporsalModal';
 import { Scene } from '@/components/3d/product/scene';
+import { Loader } from '@/components/loader/loader';
 
 export type ProductCardProps = {
   productData: Product;
@@ -66,8 +66,17 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={s.model}>
-          {/*<Image src={productData?.img} alt={'Фото товара'} fill sizes={'957px'} />*/}
-          {productData?.model && <Scene link={productData.model} />}
+          {productData?.model && (
+            <Suspense
+              fallback={
+                <div className={s.loader}>
+                  <Loader />
+                </div>
+              }
+            >
+              <Scene link={productData.model} />
+            </Suspense>
+          )}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>

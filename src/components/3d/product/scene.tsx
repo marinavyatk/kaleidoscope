@@ -18,11 +18,11 @@ export function Scene(props: ModelProps) {
         </div>
       }
     >
-      <Canvas className={s.canvas} camera={{ position: [-2, 2, 2], fov: 50, zoom: 1.5 }}>
+      <Canvas className={s.canvas} camera={{ position: [-1.36, 1.73, 2.38], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[-1, 10, -2]} intensity={1.7} castShadow />
         <directionalLight position={[2, -5, 5]} intensity={0.5} castShadow />
-        <OrbitControls />
+        <OrbitControls enableZoom={false} minPolarAngle={1} maxPolarAngle={1} rotateSpeed={0.8} />
         <Model link={link} />
       </Canvas>
     </Suspense>
