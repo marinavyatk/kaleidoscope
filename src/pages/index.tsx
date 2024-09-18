@@ -21,7 +21,6 @@ export default function Home() {
   const [contactInfo, setContactInfo] = useState<ContactsData>({} as ContactsData);
   useEffect(() => {
     api.getContacts().then((data) => {
-      console.log(data);
       setContactInfo(data);
     });
   }, []);

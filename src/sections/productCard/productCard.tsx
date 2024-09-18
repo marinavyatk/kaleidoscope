@@ -65,19 +65,7 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
           )}
         </div>
-        <div className={s.model}>
-          {productData?.model && (
-            <Suspense
-              fallback={
-                <div className={s.loader}>
-                  <Loader />
-                </div>
-              }
-            >
-              <Scene link={productData.model} />
-            </Suspense>
-          )}
-        </div>
+        <div className={s.model}>{productData?.model && <Scene link={productData.model} />}</div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>
             <div className={s.specifications}>

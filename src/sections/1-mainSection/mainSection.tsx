@@ -2,11 +2,13 @@ import { Button } from '@/components/button/button';
 import s from './mainSection.module.scss';
 import Image from 'next/image';
 import { clsx } from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Animation } from '@/components/animations/animation';
 
 export const MainSection = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
+  const animationRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const screenWidth = window.innerWidth;
@@ -36,11 +38,36 @@ export const MainSection = () => {
     preloadImages(176);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldPlayAnimation(true);
+          } else {
+            setShouldPlayAnimation(false);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    if (animationRef.current) {
+      observer.observe(animationRef.current);
+    }
+
+    return () => {
+      if (animationRef.current) {
+        observer.unobserve(animationRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className={s.mainSection}>
+    <section className={s.mainSection} ref={animationRef}>
       <Image src={'/main-section-bg.webp'} alt='' fill quality={100} className={s.background} />
-      {images.length ? (
-        <Animation images={images} ms={50} loop repeatInterval={5000} />
+      {images.length && shouldPlayAnimation ? (
+        <Animation images={images} ms={40} />
       ) : (
         <div className={clsx(s.kids, 'fullContainer')} />
       )}

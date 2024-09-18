@@ -1,4 +1,4 @@
-import { ForwardedRef, useEffect, useMemo, useRef } from 'react';
+import { ForwardedRef, useEffect, useMemo, useRef, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { LoopOnce, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
@@ -13,16 +13,19 @@ export default function ModelComponent(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/models/boy.glb');
   const { actions, names } = useAnimations(animations, sceneRef);
+  const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
 
   useEffect(() => {
     const animationName = names[0];
     const action = actions[animationName];
-    if (action) {
+    action?.play();
+    if (action && shouldPlayAnimation) {
+      action.reset();
       action.setLoop(LoopOnce, 1);
       action.clampWhenFinished = true;
       action.play();
     }
-  }, [actions, names]);
+  }, [actions, names, shouldPlayAnimation]);
 
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const target = new Object3D();
@@ -111,6 +114,30 @@ export default function ModelComponent(props: ModelProps) {
     intersectionPoint,
     containerRef,
   ]);
+
+  useEffect(() => {
+    const container = getContainerElement();
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldPlayAnimation(true);
+          } else {
+            setShouldPlayAnimation(false);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.unobserve(container);
+    };
+  }, [containerRef]);
 
   return <primitive object={clone} ref={sceneRef} position={[0.14, -1.42, 0]} />;
 }

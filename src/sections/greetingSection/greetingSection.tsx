@@ -66,7 +66,7 @@ export const GreetingSection = (props: GreetingSectionProps) => {
         .catch((err) => console.error('Image preload error:', err));
     };
 
-    preloadImages(28);
+    preloadImages(20);
   }, []);
 
   return (
