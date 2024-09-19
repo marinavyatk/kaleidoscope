@@ -3,10 +3,10 @@ import { Button } from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
-import { ModelProps } from '@/components/3d/boy';
+import { ModelProps } from '@/components/3d/boy/boy';
 
 const Scene = dynamic<ModelProps>(
-  () => import('../../components/3d/scene').then((mod) => mod.Scene),
+  () => import('../../components/3d/boy/scene').then((mod) => mod.Scene),
   { ssr: false },
 );
 

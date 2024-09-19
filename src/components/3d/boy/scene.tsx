@@ -1,19 +1,19 @@
 import { lazy, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import s from './3d.module.scss';
+import s from '../3d.module.scss';
 import { Environment } from '@react-three/drei';
 import { Loader } from '@/components/loader/loader';
-import { ModelProps } from '@/components/3d/boy';
+import { ModelProps } from '@/components/3d/boy/boy';
 
-const ModelComponent = lazy(() => import('./boy'));
+const Model = lazy(() => import('./boy'));
 
 export function Scene(props: ModelProps) {
   const { containerRef } = props;
   return (
     <Suspense
       fallback={
-        <div className={s.loader}>
-          <Loader />
+        <div className={s.loaderContainer}>
+          <Loader className={s.loader} />
         </div>
       }
     >
@@ -21,7 +21,7 @@ export function Scene(props: ModelProps) {
         <Environment preset={'apartment'} environmentIntensity={0.3} />
         <directionalLight position={[2.6, 2.25, 1]} intensity={0.5} />
         <directionalLight position={[-2, -1, -5]} intensity={1.5} />
-        <ModelComponent containerRef={containerRef} />
+        <Model containerRef={containerRef} />
       </Canvas>
     </Suspense>
   );

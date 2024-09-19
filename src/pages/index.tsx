@@ -16,7 +16,8 @@ import { api } from '@/common/api';
 import { ContactsData } from '@/common/types';
 
 export default function Home() {
-  const [showGreeting, setShowGreeting] = useState(true);
+  // const [showGreeting, setShowGreeting] = useState(true);
+  const [showGreeting, setShowGreeting] = useState(false);
   const [initialPlaying, setInitialPlaying] = useState(false);
   const [contactInfo, setContactInfo] = useState<ContactsData>({} as ContactsData);
   useEffect(() => {

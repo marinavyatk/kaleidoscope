@@ -4,11 +4,13 @@ import Image from 'next/image';
 import { clsx } from 'clsx';
 import { useEffect, useState, useRef } from 'react';
 import { Animation } from '@/components/animations/animation';
+import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export const MainSection = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
   const animationRef = useRef<HTMLDivElement | null>(null);
+  useIntersectionObserver(animationRef, setShouldPlayAnimation, 0.3);
 
   useEffect(() => {
     const screenWidth = window.innerWidth;
@@ -36,31 +38,6 @@ export const MainSection = () => {
     };
 
     preloadImages(176);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setShouldPlayAnimation(true);
-          } else {
-            setShouldPlayAnimation(false);
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-
-    if (animationRef.current) {
-      observer.observe(animationRef.current);
-    }
-
-    return () => {
-      if (animationRef.current) {
-        observer.unobserve(animationRef.current);
-      }
-    };
   }, []);
 
   return (

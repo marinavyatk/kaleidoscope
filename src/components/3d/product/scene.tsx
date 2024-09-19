@@ -14,7 +14,7 @@ export function Scene(props: ModelProps) {
   return (
     <Suspense
       fallback={
-        <div className={s.loader}>
+        <div className={s.loaderContainer}>
           <Loader />
         </div>
       }

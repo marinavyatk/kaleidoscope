@@ -10,24 +10,13 @@ import s from './projectMapSection.module.scss';
 import { useProjectMap } from '@/common/customHooks/useProjectMap';
 import Image from 'next/image';
 import { Picture } from '@/components/picture/picture';
+import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 
 export const ProjectMapSection = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const swiperRef = useRef<SwiperClass>(null);
-  const [isTablet, setIsTablet] = useState(false);
-
+  const isTablet = useScreenWidth(1439, 768);
   const { projectMap, stepData } = useProjectMap();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsTablet(window.innerWidth >= 768 && window.innerWidth <= 1439);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const stepPhotos = projectMap?.[activeStepIndex]?.gallery.map((photo) => (
     <SwiperSlide key={photo.url} className={s.slide}>

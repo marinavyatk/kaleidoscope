@@ -16,15 +16,12 @@ import { MapPoint } from './mapPoint';
 import * as YMaps from '@yandex/ymaps3-types';
 import { LngLat } from '@yandex/ymaps3-types';
 import type { Feature } from '@yandex/ymaps3-types/packages/clusterer/YMapClusterer/interface';
-import { useMediaQuery } from 'react-responsive';
 import { useMap } from '@/common/customHooks/useMap';
 import { v4 as uuid } from 'uuid';
+import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 
 export const Map = () => {
-  const isMobile = useMediaQuery({
-    query: '(max-width: 767px)',
-  });
-
+  const isTabletOrMobile = useScreenWidth(767);
   const mapData = useMap();
   const pointsInfo: Feature[] | null =
     mapData &&
@@ -42,7 +39,7 @@ export const Map = () => {
       },
     }));
 
-  const location = { center: [54.81, 54.55], zoom: isMobile ? 2 : 4 };
+  const location = { center: [54.81, 54.55], zoom: isTabletOrMobile ? 2 : 4 };
   const apiKey = '9e37f796-a14c-440b-8977-8bec80c9f745';
 
   const marker = useCallback((feature: any) => {

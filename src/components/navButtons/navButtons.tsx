@@ -16,22 +16,23 @@ export const NavButtons = (props: NavButtonsProps) => {
   const [isEnd, setIsEnd] = useState(false);
 
   useEffect(() => {
-    if (swiperRef.current) {
+    const currentRef = swiperRef.current;
+    if (currentRef) {
       const updateButtonState = () => {
-        if (swiperRef.current) {
-          setIsBeginning(swiperRef.current.isBeginning);
-          setIsEnd(swiperRef.current.isEnd);
+        if (currentRef) {
+          setIsBeginning(currentRef.isBeginning);
+          setIsEnd(currentRef.isEnd);
         }
       };
-      swiperRef.current.on('resize', updateButtonState);
-      swiperRef.current.on('reachBeginning', updateButtonState);
-      swiperRef.current.on('reachEnd', updateButtonState);
+      currentRef.on('resize', updateButtonState);
+      currentRef.on('reachBeginning', updateButtonState);
+      currentRef.on('reachEnd', updateButtonState);
       updateButtonState();
 
       return () => {
-        swiperRef?.current?.off('resize', updateButtonState);
-        swiperRef?.current?.off('reachBeginning', updateButtonState);
-        swiperRef?.current?.off('reachEnd', updateButtonState);
+        currentRef?.off('resize', updateButtonState);
+        currentRef?.off('reachBeginning', updateButtonState);
+        currentRef?.off('reachEnd', updateButtonState);
       };
     }
   }, [swiperRef]);

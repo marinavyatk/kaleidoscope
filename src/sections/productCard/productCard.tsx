@@ -1,8 +1,7 @@
 import s from './productCard.module.scss';
 import CloseIcon from '../../assets/close.svg';
 import ArrowIcon from '../../assets/arrow-triangle.svg';
-import { useMediaQuery } from 'react-responsive';
-import { ComponentPropsWithoutRef, MutableRefObject, RefObject, Suspense } from 'react';
+import { ComponentPropsWithoutRef, MutableRefObject, RefObject } from 'react';
 import { clsx } from 'clsx';
 import { SwiperClass } from 'swiper/react';
 import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFunctions';
@@ -11,7 +10,7 @@ import { Product } from '@/common/types';
 import { v4 as uuid } from 'uuid';
 import { CommercialProposalModal } from '@/components/modal/commercialProposalModal/commersalProporsalModal';
 import { Scene } from '@/components/3d/product/scene';
-import { Loader } from '@/components/loader/loader';
+import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 
 export type ProductCardProps = {
   productData: Product;
@@ -22,9 +21,7 @@ export type ProductCardProps = {
 export const ProductCard = (props: ProductCardProps) => {
   const { productData, onClose, swiperRef, className, ...restProps } = props;
   const classNames = clsx(s.productCard, className);
-  const isTabletOrMobile = useMediaQuery({
-    query: '(max-width: 767px)',
-  });
+  const isTabletOrMobile = useScreenWidth(767);
 
   return (
     <div {...restProps} className={classNames}>

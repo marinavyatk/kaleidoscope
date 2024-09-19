@@ -3,6 +3,7 @@ import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
 import { BurgerButton } from '../burgerButton/burgerButton';
+import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 
 export type HeaderProps = {
   player: ReactNode;
@@ -10,28 +11,10 @@ export type HeaderProps = {
 
 export const Header = (props: HeaderProps) => {
   const { player, className, ...restProps } = props;
-  const [isClient, setIsClient] = useState(false);
-  const [isTabletOrMobile, setIsTabletOrMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const headerRef = useRef(null);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleResize = () => {
-        setIsTabletOrMobile(window.innerWidth <= 1099);
-      };
-
-      handleResize();
-      window.addEventListener('resize', handleResize);
-
-      return () => window.removeEventListener('resize', handleResize);
-    }
-  }, []);
+  const isTabletOrMobile = useScreenWidth(1099);
 
   useEffect(() => {
     if (isOpen) {
@@ -40,8 +23,6 @@ export const Header = (props: HeaderProps) => {
       document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
-
-  if (!isClient) return null;
 
   return (
     <Headroom className={className} ref={headerRef}>
@@ -58,20 +39,14 @@ export const Header = (props: HeaderProps) => {
             <Logo className={s.logo} />
             <div className={s.rightBlock}>
               <a href='#contacts'>Контакты</a>
-              <div className={s.player}>
-                {player}
-                {/*<Player />*/}
-              </div>
+              <div className={s.player}>{player}</div>
             </div>
           </header>
         ) : (
           <div className={s.headerMobile} ref={menuRef}>
             <header className={s.header}>
               <Logo className={s.logo} />
-              <div className={s.player}>
-                {player}
-                {/*<Player />*/}
-              </div>
+              <div className={s.player}>{player}</div>
               <BurgerButton onChange={() => setIsOpen((prev) => !prev)} checked={isOpen} />
             </header>
             <div className={s.background}></div>
