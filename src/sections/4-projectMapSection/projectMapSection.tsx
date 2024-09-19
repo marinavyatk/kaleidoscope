@@ -9,6 +9,7 @@ import { NavButtons } from '@/components/navButtons/navButtons';
 import s from './projectMapSection.module.scss';
 import { useProjectMap } from '@/common/customHooks/useProjectMap';
 import Image from 'next/image';
+import { Picture } from '@/components/picture/picture';
 
 export const ProjectMapSection = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -33,9 +34,15 @@ export const ProjectMapSection = () => {
       <ViewCloserModal
         imgSrc={photo.url}
         trigger={
-          <button className={s.stepPhoto} aria-label={'Посмотреть'}>
-            <Image src={photo.url} alt='' fill sizes='404px' />
-          </button>
+          <Picture
+            component={Image}
+            src={photo.url}
+            alt=''
+            fill
+            sizes='404px'
+            containerComponent={'button'}
+            containerProps={{ 'aria-label': 'Посмотреть', className: s.stepPhoto }}
+          />
         }
       />
     </SwiperSlide>

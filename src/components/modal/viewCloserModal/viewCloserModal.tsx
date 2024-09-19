@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import s from './viewCloserModal.module.scss';
 import { Modal } from '../modal';
+import { Picture } from '@/components/picture/picture';
 
 type ViewCloserModalProps = {
   imgSrc: string;
@@ -15,10 +16,7 @@ export const ViewCloserModal = (props: ViewCloserModalProps) => {
       modalHeader={'View image'}
       trigger={trigger}
     >
-      <div className={s.imgContainer}>
-        {/*img is used because the Image next component needs to be controlled in size through the fill property and a container with relative positioning, which makes some area near the image impossible to close by clicking on the background*/}
-        <img alt={'View image'} className={s.imgCloser} src={imgSrc} />
-      </div>
+      <Picture src={imgSrc} className={s.imgCloser} />
     </Modal>
   );
 };

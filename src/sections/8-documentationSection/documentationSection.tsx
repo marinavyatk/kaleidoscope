@@ -12,6 +12,8 @@ import { NavButtons } from '@/components/navButtons/navButtons';
 import { v4 as uuid } from 'uuid';
 import { useDocuments } from '@/common/customHooks/useDocuments';
 import { Loader } from '@/components/loader/loader';
+import { Picture } from '@/components/picture/picture';
+import Image from 'next/image';
 
 export const DocumentationSection = () => {
   const swiperRef = useRef<SwiperClass>(null);
@@ -26,11 +28,14 @@ export const DocumentationSection = () => {
       return (
         <SwiperSlide key={uuid()}>
           <div className={s.docInfo}>
-            <div>
-              <div className={s.imgContainer}>
-                <img src={doc?.thumbnail_url} alt='' />
-              </div>
-            </div>
+            <Picture
+              src={doc?.thumbnail_url}
+              alt={doc?.title.rendered}
+              component={Image}
+              containerProps={{ className: s.imgContainer }}
+              fill
+              sizes='(max-width: 767px) 288px, 604px'
+            />
             <div className={s.description}>
               <p>{doc?.title?.rendered}</p>
               <ViewCloserModal

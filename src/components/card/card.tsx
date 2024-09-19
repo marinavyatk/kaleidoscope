@@ -5,7 +5,7 @@ import s from './card.module.scss';
 import { ProductCardModal } from '../modal/productCardModal/productCardModal';
 import { Product } from '@/common/types';
 import Image from 'next/image';
-import { Loader } from '@/components/loader/loader';
+import { Picture } from '@/components/picture/picture';
 
 export type CardProps = {
   product: Product;
@@ -35,13 +35,15 @@ export const Card = (props: CardProps) => {
         <CardBackground className={s.cardBackground} />
         <p className={s.cardName}>{product?.name}</p>
         <p className={s.description}>{product?.shortDescription}</p>
-        <div className={s.model}>
-          {product.imgLoading ? (
-            <Loader className={s.loader} />
-          ) : (
-            <Image src={product?.img || ''} alt='' fill sizes='(max-width: 767px) 259px, 526px' />
-          )}
-        </div>
+        <Picture
+          component={Image}
+          src={product?.img || ''}
+          alt=''
+          fill
+          sizes='(max-width: 767px) 259px, 526px'
+          containerProps={{ className: s.model }}
+          loaderProps={{ lightBackground: true }}
+        />
         {restProps.children}
         <ProductCardModal
           products={products}

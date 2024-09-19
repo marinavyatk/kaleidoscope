@@ -11,7 +11,7 @@ export const ProgressBar = (props: ProgressBarProps) => {
   const { total, currentSlide, className, ...restProps } = props;
   const classNames = clsx(s.progressBar, className);
   const progressRef = useRef<HTMLDivElement>(null);
-  const progress = (currentSlide / total) * 100;
+  const progress = total == 0 ? 0 : (currentSlide / total) * 100;
 
   useEffect(() => {
     if (progressRef.current) {

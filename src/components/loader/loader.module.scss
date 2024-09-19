@@ -7,6 +7,12 @@
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+  flex-shrink: 0;
+}
+
+.lightBg{
+  border-color: #949494;
+  border-bottom-color: var(--color-primary);
 }
 
 @keyframes rotation {
