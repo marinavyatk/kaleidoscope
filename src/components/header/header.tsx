@@ -9,7 +9,7 @@ export type HeaderProps = {
   player: ReactNode;
 } & ComponentPropsWithoutRef<'header'>;
 
-export const Header = (props: HeaderProps) => {
+const Header = (props: HeaderProps) => {
   const { player, className, ...restProps } = props;
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -76,3 +76,5 @@ export const Header = (props: HeaderProps) => {
     </Headroom>
   );
 };
+
+export default Header;

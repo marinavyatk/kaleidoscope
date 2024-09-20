@@ -3,8 +3,6 @@ import { Button } from '@/components/button/button';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { MutableRefObject, useRef, useState } from 'react';
 import { Keyboard, Navigation } from 'swiper/modules';
-import 'swiper/scss';
-import 'swiper/scss/navigation';
 import { ProgressBar } from '@/components/progressBar/progressBar';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
 import { handleSwiper } from '@/common/commonFunctions';
@@ -15,7 +13,7 @@ import { Loader } from '@/components/loader/loader';
 import { Picture } from '@/components/picture/picture';
 import Image from 'next/image';
 
-export const DocumentationSection = () => {
+const DocumentationSection = () => {
   const swiperRef = useRef<SwiperClass>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const { documents, loading } = useDocuments();
@@ -84,3 +82,5 @@ export const DocumentationSection = () => {
     </section>
   );
 };
+
+export default DocumentationSection;

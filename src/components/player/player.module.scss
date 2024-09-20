@@ -17,7 +17,7 @@
 
 .playerWithoutCover {
   display: flex;
-  margin: 13px 27px 13px 12px;
+  margin: 13px 20px 13px 12px;
   justify-content: space-between;
   width: 100%;
   height: 100%;
@@ -26,8 +26,16 @@
 .songInfo {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   font-family: var(--font-family-secondary);
+}
+
+.songTitle {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
 }
 
 .author {
@@ -87,5 +95,11 @@
     svg {
       height: 10px;
     }
+  }
+}
+
+@media (max-width: 1099px) {
+  .songTitle {
+    max-width: 60px;
   }
 }

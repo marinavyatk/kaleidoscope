@@ -4,29 +4,352 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="Img with loader as separate component">
-      <change afterPath="$PROJECT_DIR$/src/common/customHooks/useIntersectionObserver.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/customHooks/useScreenWidth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/3d/boy/boy.tsx" afterDir="false" />
+    <list default="true" id="da758f7b-b014-4289-af51-43835011c42c" name="Changes" comment="refactoring (added custom hooks + 3d)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/models/boy.glb" beforeDir="false" afterPath="$PROJECT_DIR$/public/boy.glb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/3d/3d.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/3d/3d.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/3d/boy.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/3d/product/scene.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/3d/product/scene.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/3d/scene.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/3d/boy/scene.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/animation-desktop.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/animation-mobile.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/animation-tablet.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/boy.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/PTRootUI/COPYRIGHT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/PTRootUI/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/PTRootUI/PT-Root-UI_Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/PTRootUI/PT-Root-UI_Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00020.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00021.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00022.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00023.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00024.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00025.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00026.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00027.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00028.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00029.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00030.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00031.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00032.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00033.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00034.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/desktop/00035.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00020.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00021.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00022.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00023.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00024.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00025.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00026.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00027.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00028.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00029.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00030.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00031.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00032.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00033.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00034.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/mobile/00035.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00020.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00021.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00022.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00023.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00024.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00025.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00026.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00027.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00028.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00029.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00030.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00031.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00032.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00033.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00034.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/greeting/tablet/00035.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/kids.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00088.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00089.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00090.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00091.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00092.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00093.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00094.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00095.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00096.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00097.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00098.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00099.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00100.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00101.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00102.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00103.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00104.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00105.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00106.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00107.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00108.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00109.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00110.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00111.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00112.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00113.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00114.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00115.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00116.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00117.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00118.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00119.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00120.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00121.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00122.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00123.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00124.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00125.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00126.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00127.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00128.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00129.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00130.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00131.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00132.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00133.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00134.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00135.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00136.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00137.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00138.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00139.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00140.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00141.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00142.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00143.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00144.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00145.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00146.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00147.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00148.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00149.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00150.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00151.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00152.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00153.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00154.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00155.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00156.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00157.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00158.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00159.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00160.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00161.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00162.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00163.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00164.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00165.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00166.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00167.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00168.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00169.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00170.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00171.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00172.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00173.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00174.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/desktop/00175.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00088.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00089.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00090.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00091.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00092.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00093.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00094.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00095.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00096.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00097.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00098.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00099.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00100.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00101.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00102.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00103.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00104.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00105.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00106.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00107.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00108.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00109.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00110.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00111.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00112.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00113.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00114.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00115.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00116.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00117.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00118.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00119.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00120.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00121.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00122.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00123.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00124.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00125.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00126.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00127.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00128.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00129.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00130.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00131.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00132.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00133.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00134.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00135.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00136.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00137.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00138.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00139.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00140.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00141.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00142.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00143.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00144.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00145.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00146.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00147.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00148.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00149.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00150.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00151.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00152.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00153.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00154.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00155.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00156.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00157.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00158.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00159.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00160.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00161.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00162.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00163.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00164.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00165.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00166.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00167.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00168.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00169.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00170.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00171.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00172.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00173.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00174.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/mobile/00175.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00088.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00089.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00090.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00091.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00092.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00093.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00094.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00095.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00096.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00097.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00098.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00099.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00100.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00101.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00102.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00103.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00104.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00105.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00106.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00107.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00108.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00109.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00110.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00111.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00112.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00113.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00114.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00115.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00116.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00117.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00118.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00119.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00120.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00121.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00122.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00123.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00124.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00125.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00126.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00127.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00128.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00129.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00130.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00131.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00132.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00133.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00134.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00135.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00136.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00137.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00138.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00139.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00140.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00141.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00142.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00143.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00144.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00145.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00146.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00147.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00148.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00149.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00150.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00151.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00152.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00153.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00154.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00155.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00156.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00157.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00158.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00159.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00160.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00161.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00162.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00163.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00164.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00165.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00166.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00167.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00168.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00169.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00170.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00171.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00172.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00173.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00174.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/waving/tablet/00175.png.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/3d/boy/boy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/3d/boy/boy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/map.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/map.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/map/map.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navButtons/navButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/viewCloserModal/viewCloserModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/player/player.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player/player.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/player/player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/player/player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/timeline/timeline.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/1-mainSection/mainSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/2-aboutSection/aboutSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/3-catalogSection/catalogSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/4-projectMapSection/projectMapSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/6-faqSection/faq.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/6-faqSection/faq.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/7-formSection/formSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/7-formSection/formSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/8-documentationSection/documentationSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/productCard/productCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_typography.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +373,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CodingProjects/kaleidoscope/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/CodingProjects/empty&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -139,15 +462,11 @@
       <workItem from="1726210607093" duration="29503000" />
       <workItem from="1726423457429" duration="96135000" />
       <workItem from="1726671123795" duration="38867000" />
-      <workItem from="1726766359510" duration="2856000" />
-    </task>
-    <task id="LOCAL-00010" summary="mobile menu iphone">
-      <option name="closed" value="true" />
-      <created>1725620457771</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1725620457771</updated>
+      <workItem from="1726766359510" duration="3959000" />
+      <workItem from="1726770386316" duration="25181000" />
+      <workItem from="1726842703276" duration="983000" />
+      <workItem from="1726843704801" duration="1432000" />
+      <workItem from="1726845326840" duration="4267000" />
     </task>
     <task id="LOCAL-00011" summary="mobile menu iphone">
       <option name="closed" value="true" />
@@ -533,7 +852,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726744093062</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="refactoring (added custom hooks + 3d)">
+      <option name="closed" value="true" />
+      <created>1726769515648</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1726769515648</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +879,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed images" />
     <MESSAGE value="Added CP form" />
     <MESSAGE value="Style changes" />
     <MESSAGE value="Added cp form request" />
@@ -577,7 +903,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="Made buttons disabled" />
     <MESSAGE value="Img with loader as separate component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Img with loader as separate component" />
+    <MESSAGE value="refactoring (added custom hooks + 3d)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring (added custom hooks + 3d)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

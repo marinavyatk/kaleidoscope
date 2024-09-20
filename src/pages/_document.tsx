@@ -20,14 +20,14 @@ export default function Document() {
         />
         <link
           rel='preload'
-          href='/fonts/PTRootUI/PT-Root-UI_Medium.ttf'
+          href='/fonts/PTRootUI/PTRoot-UI-Medium.ttf'
           as='font'
           type='font/ttf'
           crossOrigin='anonymous'
         />
         <link
           rel='preload'
-          href='/fonts/PTRootUI/PT-Root-UI_Bold.ttf'
+          href='/fonts/PTRootUI/PTRoot-UI-Bold.ttf'
           as='font'
           type='font/ttf'
           crossOrigin='anonymous'

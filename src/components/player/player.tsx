@@ -84,12 +84,13 @@ export const Player = (props: PlayerProps) => {
             fill
             placeholder={'blur'}
             sizes='(max-width: 567px) 53px, 32px'
+            priority
           />
         </div>
         <div className={s.playerWithoutCover}>
           <div className={s.songInfo}>
-            <span className={s.songTitle}>Chaff & Dust</span>
-            <span className={s.author}>HYONNA</span>
+            <span className={s.songTitle}>Coming home from mercury</span>
+            <span className={s.author}>Petite Météorite</span>
           </div>
           <div className={s.controlPanel}>
             <button onClick={tempSetStartSong} aria-label={'Предыдущий трек'}>

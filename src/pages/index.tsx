@@ -1,13 +1,6 @@
 import Head from 'next/head';
-import { Header } from '@/components/header/header';
-import { MainSection } from '@/sections/1-mainSection/mainSection';
-import { AboutSection } from '@/sections/2-aboutSection/aboutSection';
-import { CatalogSection } from '@/sections/3-catalogSection/catalogSection';
-import { ProjectMapSection } from '@/sections/4-projectMapSection/projectMapSection';
-import { DocumentationSection } from '@/sections/8-documentationSection/documentationSection';
-import { Footer } from '@/components/footer/footer';
-import { FormSection } from '@/sections/7-formSection/formSection';
-import { FAQ } from '@/sections/6-faqSection/faq';
+import dynamic from 'next/dynamic';
+import Header from '@/components/header/header';
 import s from '@/styles/index.module.scss';
 import { GreetingSection } from '@/sections/greetingSection/greetingSection';
 import { useEffect, useState } from 'react';
@@ -15,16 +8,33 @@ import { Player } from '@/components/player/player';
 import { api } from '@/common/api';
 import { ContactsData } from '@/common/types';
 
-export default function Home() {
-  // const [showGreeting, setShowGreeting] = useState(true);
-  const [showGreeting, setShowGreeting] = useState(false);
+//next/dynamic imports
+const MainSection = dynamic(() => import('../sections/1-mainSection/mainSection'));
+const CatalogSection = dynamic(() => import('../sections/3-catalogSection/catalogSection'));
+const ProjectMapSection = dynamic(
+  () => import('../sections/4-projectMapSection/projectMapSection'),
+);
+const AboutSection = dynamic(() => import('../sections/2-aboutSection/aboutSection'));
+const FAQ = dynamic(() => import('../sections/6-faqSection/faq'));
+const FormSection = dynamic(() => import('../sections/7-formSection/formSection'));
+const DocumentationSection = dynamic(
+  () => import('../sections/8-documentationSection/documentationSection'),
+);
+const Footer = dynamic(() => import('../components/footer/footer'));
+
+export const getStaticProps = async () => {
+  const contactInfo = await api.getContacts();
+  return { props: { contactInfo } };
+};
+
+type HomeProps = {
+  contactInfo: ContactsData;
+};
+
+export default function Home(props: HomeProps) {
+  const { contactInfo } = props;
+  const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
-  const [contactInfo, setContactInfo] = useState<ContactsData>({} as ContactsData);
-  useEffect(() => {
-    api.getContacts().then((data) => {
-      setContactInfo(data);
-    });
-  }, []);
 
   return (
     <>
@@ -55,13 +65,11 @@ export default function Home() {
             <FAQ />
             <FormSection />
             <DocumentationSection />
-            {contactInfo && (
-              <Footer
-                tels={contactInfo['contact_phones']}
-                emails={contactInfo['contact_emails']}
-                socialLinks={contactInfo['social_links']}
-              />
-            )}
+            <Footer
+              tels={contactInfo['contact_phones']}
+              emails={contactInfo['contact_emails']}
+              socialLinks={contactInfo['social_links']}
+            />
           </>
         )}
       </div>

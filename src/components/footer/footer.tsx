@@ -14,7 +14,7 @@ type FooterProps = {
   socialLinks: Record<string, string>;
 };
 
-export const Footer = (props: FooterProps) => {
+const Footer = (props: FooterProps) => {
   const { tels, emails, socialLinks } = props;
   return (
     <footer className={s.footer} id='contacts'>
@@ -130,3 +130,5 @@ export const Footer = (props: FooterProps) => {
     </footer>
   );
 };
+
+export default Footer;

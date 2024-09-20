@@ -2,7 +2,7 @@ import { Form } from '@/components/form/form';
 import s from './formSection.module.scss';
 import Image from 'next/image';
 
-export const FormSection = () => {
+const FormSection = () => {
   return (
     <section className={s.formSection} id='form'>
       <Image src={'/radial-bg.webp'} alt='' className={s.gradient} fill />
@@ -22,3 +22,5 @@ export const FormSection = () => {
     </section>
   );
 };
+
+export default FormSection;

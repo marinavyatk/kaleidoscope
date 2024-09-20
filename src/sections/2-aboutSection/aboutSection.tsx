@@ -4,13 +4,21 @@ import Separator from '../../assets/separator.svg';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 import { ModelProps } from '@/components/3d/boy/boy';
+import { Loader } from '@/components/loader/loader';
 
 const Scene = dynamic<ModelProps>(
   () => import('../../components/3d/boy/scene').then((mod) => mod.Scene),
-  { ssr: false },
+  {
+    ssr: false,
+    loading: () => (
+      <div className={s.loaderContainer}>
+        <Loader className={s.loader} />
+      </div>
+    ),
+  },
 );
 
-export const AboutSection = () => {
+const AboutSection = () => {
   const modelContainerRef = useRef<HTMLDivElement | null>(null);
 
   return (
@@ -59,3 +67,5 @@ export const AboutSection = () => {
     </section>
   );
 };
+
+export default AboutSection;

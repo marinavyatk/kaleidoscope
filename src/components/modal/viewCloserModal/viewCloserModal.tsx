@@ -16,7 +16,7 @@ export const ViewCloserModal = (props: ViewCloserModalProps) => {
       modalHeader={'View image'}
       trigger={trigger}
     >
-      <Picture src={imgSrc} className={s.imgCloser} />
+      <Picture src={imgSrc} className={s.imgCloser} loading='lazy' />
     </Modal>
   );
 };

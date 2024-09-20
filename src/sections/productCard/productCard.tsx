@@ -9,8 +9,22 @@ import { DialogClose } from '@radix-ui/react-dialog';
 import { Product } from '@/common/types';
 import { v4 as uuid } from 'uuid';
 import { CommercialProposalModal } from '@/components/modal/commercialProposalModal/commersalProporsalModal';
-import { Scene } from '@/components/3d/product/scene';
 import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
+import dynamic from 'next/dynamic';
+import { ModelProps } from '@/components/3d/product/product';
+import { Loader } from '@/components/loader/loader';
+
+const Scene = dynamic<ModelProps>(
+  () => import('../../components/3d/product/scene').then((mod) => mod.Scene),
+  {
+    ssr: false,
+    loading: () => (
+      <div className={s.loaderContainer}>
+        <Loader className={s.loader} />
+      </div>
+    ),
+  },
+);
 
 export type ProductCardProps = {
   productData: Product;

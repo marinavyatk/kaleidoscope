@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Animation } from '@/components/animations/animation';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
-export const MainSection = () => {
+const MainSection = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
   const animationRef = useRef<HTMLDivElement | null>(null);
@@ -33,11 +33,14 @@ export const MainSection = () => {
       });
 
       Promise.all(promises)
-        .then(setImages)
+        .then((imgs) => {
+          const reversedImgs = imgs.slice().reverse();
+          setImages([...imgs, ...reversedImgs]);
+        })
         .catch((err) => console.error('Image preload error:', err));
     };
 
-    preloadImages(176);
+    preloadImages(88);
   }, []);
 
   return (
@@ -57,3 +60,5 @@ export const MainSection = () => {
     </section>
   );
 };
+
+export default MainSection;

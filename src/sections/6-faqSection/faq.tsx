@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 export type FAQProps = ComponentPropsWithoutRef<'div'>;
 
-export const FAQ = (props: FAQProps) => {
+const FAQ = (props: FAQProps) => {
   const { className, ...restProps } = props;
   const classNames = clsx(s.faq, className);
   const faqData = useFAQ();
@@ -22,3 +22,5 @@ export const FAQ = (props: FAQProps) => {
     </section>
   );
 };
+
+export default FAQ;

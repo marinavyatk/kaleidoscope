@@ -14,19 +14,18 @@ export default function Model(props: ModelProps) {
   const { scene, animations } = useGLTF('/boy.glb', true);
   const { actions, names } = useAnimations(animations, sceneRef);
   const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
-  useIntersectionObserver(containerRef, setShouldPlayAnimation, 0.2);
+  useIntersectionObserver(containerRef, setShouldPlayAnimation, 0.02);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
     const blinkAnimation = actions[names[1]];
-    bodyAnimation?.play();
     blinkAnimation?.play();
-    if (bodyAnimation && shouldPlayAnimation) {
-      bodyAnimation.reset();
+    bodyAnimation?.play();
+    if (bodyAnimation) {
       bodyAnimation.setLoop(LoopOnce, 1);
       bodyAnimation.clampWhenFinished = true;
     }
-  }, [shouldPlayAnimation]);
+  }, []);
 
   const target = useMemo(() => {
     const newTarget = new Object3D();
@@ -96,5 +95,7 @@ export default function Model(props: ModelProps) {
     };
   }, [target, containerRef]);
 
-  return <primitive object={scene} ref={sceneRef} position={[0.14, -1.42, 0]} />;
+  return (
+    <primitive object={scene} ref={sceneRef} position={[0.14, -1.42, 0]} dracoDecoder={true} />
+  );
 }
