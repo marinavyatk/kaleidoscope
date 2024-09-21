@@ -3,20 +3,20 @@ import { useEffect, useState } from 'react';
 import { api } from '@/common/api';
 import { StepData } from '@/components/timeline/timeline';
 
-export type projectMap = {
+export type ProjectMap = {
   title: string;
   description: string;
   gallery: Array<{ url: string }>;
 };
 
 export const useProjectMap = () => {
-  const [projectMap, setProjectMap] = useState<Nullable<projectMap[]>>(null);
+  const [projectMap, setProjectMap] = useState<Nullable<ProjectMap[]>>(null);
   const [stepData, setStepData] = useState<Nullable<StepData[]>>(null);
   useEffect(() => {
     api
       .getProjectMap()
       .then((data) => {
-        const structuredData: projectMap[] = [];
+        const structuredData: ProjectMap[] = [];
         const stepData: StepData[] = [];
         data.forEach((year: any) => {
           if (year.quarter_data.q1) {

@@ -12,11 +12,16 @@ import { useDocuments } from '@/common/customHooks/useDocuments';
 import { Loader } from '@/components/loader/loader';
 import { Picture } from '@/components/picture/picture';
 import Image from 'next/image';
+import { DocumentData } from '@/common/types';
 
-const DocumentationSection = () => {
+type DocumentationSectionProps = {
+  documents: DocumentData[];
+};
+const DocumentationSection = (props: DocumentationSectionProps) => {
+  const { documents } = props;
   const swiperRef = useRef<SwiperClass>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { documents, loading } = useDocuments();
+  // const { documents, loading } = useDocuments();
   const isDocsExist = documents && documents.length;
 
   const slideNumber = currentSlide + 1 < 10 ? `0${currentSlide + 1}` : currentSlide + 1;
@@ -54,31 +59,31 @@ const DocumentationSection = () => {
         <wbr />
         ия
       </div>
-      {isDocsExist ? (
-        <>
-          <Swiper
-            modules={[Keyboard, Navigation]}
-            onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
-            keyboard
-            onSlideChange={(swiper) => {
-              setCurrentSlide(swiper.activeIndex);
-            }}
-          >
-            {docs}
-          </Swiper>
-          <div className={s.navPanelContainer}>
-            <div className={s.navPanel}>
-              <span>{slideNumber}</span>
-              <ProgressBar currentSlide={currentSlide + 1} total={documents.length} />
+      {/*{isDocsExist ? (*/}
+      <>
+        <Swiper
+          modules={[Keyboard, Navigation]}
+          onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
+          keyboard
+          onSlideChange={(swiper) => {
+            setCurrentSlide(swiper.activeIndex);
+          }}
+        >
+          {docs}
+        </Swiper>
+        <div className={s.navPanelContainer}>
+          <div className={s.navPanel}>
+            <span>{slideNumber}</span>
+            <ProgressBar currentSlide={currentSlide + 1} total={documents.length} />
 
-              <NavButtons swiperRef={swiperRef} />
-            </div>
-            <div className={s.emptyElement}></div>
+            <NavButtons swiperRef={swiperRef} />
           </div>
-        </>
-      ) : (
-        <div className={s.placeholder}>{loading && <Loader />}</div>
-      )}
+          <div className={s.emptyElement}></div>
+        </div>
+      </>
+      {/*) : (*/}
+      {/*<div className={s.placeholder}>{loading && <Loader />}</div>*/}
+      {/*)}*/}
     </section>
   );
 };

@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import { Button } from '@/components/button/button';
 import s from './greetingSection.module.scss';
 import { Animation } from '@/components/animations/animation';
+import Image from 'next/image';
 
 type GreetingSectionProps = {
   setShowGreeting: (show: boolean) => void;
@@ -72,7 +73,9 @@ export const GreetingSection = (props: GreetingSectionProps) => {
   return (
     <section className={classNames}>
       <div className={clsx(s.innerContainer, 'mainContainer')}>
-        <div className={clsx(s.background, showAnimation && s.hidden, 'fullContainer')}></div>
+        <div className={clsx(s.background, showAnimation && s.hidden, 'fullContainer')}>
+          <Image src={'/main-section-bg.webp'} alt='' fill quality={100} priority />
+        </div>
         {!showAnimation ? (
           <div className={clsx(s.kids, 'fullContainer')}></div>
         ) : (

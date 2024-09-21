@@ -3,10 +3,12 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import s from '@/styles/index.module.scss';
 import { GreetingSection } from '@/sections/greetingSection/greetingSection';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Player } from '@/components/player/player';
 import { api } from '@/common/api';
-import { ContactsData } from '@/common/types';
+import { Category, ContactsData, DocumentData } from '@/common/types';
+import { StepData } from '@/components/timeline/timeline';
+import { ProjectMap } from '@/common/customHooks/useProjectMap';
 
 //next/dynamic imports
 const MainSection = dynamic(() => import('../sections/1-mainSection/mainSection'));
@@ -24,15 +26,47 @@ const Footer = dynamic(() => import('../components/footer/footer'));
 
 export const getStaticProps = async () => {
   const contactInfo = await api.getContacts();
-  return { props: { contactInfo } };
+  const categories = await api.getProductsCategories();
+  const documents = await api.getDocuments();
+  const data = await api.getProjectMap();
+  let projectMap;
+  let stepData;
+  const structuredData: ProjectMap[] = [];
+  const stepStructuredData: StepData[] = [];
+  data.forEach((year: any) => {
+    if (year.quarter_data.q1) {
+      structuredData.push(year.quarter_data.q1);
+      stepStructuredData.push({ topTitle: year.title.rendered, bottomTitle: '1 квартал' });
+    }
+    if (year.quarter_data.q2) {
+      structuredData.push(year.quarter_data.q2);
+      stepStructuredData.push({ bottomTitle: '2 квартал' });
+    }
+    if (year.quarter_data.q3) {
+      structuredData.push(year.quarter_data.q3);
+      stepStructuredData.push({ bottomTitle: '3 квартал' });
+    }
+    if (year.quarter_data.q4) {
+      structuredData.push(year.quarter_data.q4);
+      stepStructuredData.push({ bottomTitle: '4 квартал' });
+    }
+  });
+  projectMap = structuredData;
+  stepData = stepStructuredData;
+
+  return { props: { contactInfo, categories, documents, projectMap, stepData } };
 };
 
 type HomeProps = {
   contactInfo: ContactsData;
+  categories: Category[];
+  documents: DocumentData[];
+  projectMap: ProjectMap[];
+  stepData: StepData[];
 };
 
 export default function Home(props: HomeProps) {
-  const { contactInfo } = props;
+  const { contactInfo, categories, documents, projectMap, stepData } = props;
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
 
@@ -51,27 +85,24 @@ export default function Home(props: HomeProps) {
             className={!showGreeting ? s.hiddenGreeting : ''}
           />
         )}
-        <Header
-          className={s.header}
-          player={<Player initialPlaying={initialPlaying} key={`playing-${initialPlaying}`} />}
-        />
-
-        {!showGreeting && (
-          <>
-            <MainSection />
-            <AboutSection />
-            <CatalogSection />
-            <ProjectMapSection />
-            <FAQ />
-            <FormSection />
-            <DocumentationSection />
-            <Footer
-              tels={contactInfo['contact_phones']}
-              emails={contactInfo['contact_emails']}
-              socialLinks={contactInfo['social_links']}
-            />
-          </>
-        )}
+        <div className={showGreeting ? s.hidden : ''}>
+          <Header
+            className={s.header}
+            player={<Player initialPlaying={initialPlaying} key={`playing-${initialPlaying}`} />}
+          />
+          <MainSection />
+          <AboutSection />
+          <CatalogSection categories={categories} />
+          <ProjectMapSection projectMap={projectMap} stepData={stepData} />
+          <FAQ />
+          <FormSection />
+          <DocumentationSection documents={documents} />
+          <Footer
+            tels={contactInfo['contact_phones']}
+            emails={contactInfo['contact_emails']}
+            socialLinks={contactInfo['social_links']}
+          />
+        </div>
       </div>
     </>
   );

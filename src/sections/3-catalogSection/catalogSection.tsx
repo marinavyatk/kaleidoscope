@@ -6,15 +6,21 @@ import { useCategories } from '@/common/customHooks/useCategories';
 import { v4 as uuid } from 'uuid';
 import { Loader } from '@/components/loader/loader';
 import { useProducts } from '@/common/customHooks/useProducts';
+import { Category } from '@/common/types';
 
-const CatalogSection = () => {
-  const [activeCategory, setActiveCategory] = useState(0);
-  const categories = useCategories();
+type CatalogSectionProps = {
+  categories: Category[];
+};
+const CatalogSection = (props: CatalogSectionProps) => {
+  const { categories } = props;
+  // const [activeCategory, setActiveCategory] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(categories?.[0].id || 0);
+  // const categories = useCategories();
   const { products, loading } = useProducts(activeCategory);
 
-  useEffect(() => {
-    setActiveCategory(categories?.[0].id || 0);
-  }, [categories]);
+  // useEffect(() => {
+  //   setActiveCategory(categories?.[0].id || 0);
+  // }, [categories]);
 
   const categoriesButtons = categories?.map((item) => {
     const handleChangeCategory = () => {
