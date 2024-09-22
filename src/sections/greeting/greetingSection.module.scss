@@ -1,6 +1,7 @@
 .greetingSection {
   z-index: 10;
   background-color: var(--color-dark);
+  scrollbar-width: none;
 }
 
 .innerContainer {
@@ -12,11 +13,13 @@
   text-transform: uppercase;
   font-weight: var(--fw-bold);
 
-  .background {
-    //background-image: url("/main-section-bg.webp");
+  .background, .kids{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+  }
+
+  .background {
     z-index: -2;
 
     &::after {
@@ -40,9 +43,6 @@
   .kids {
     z-index: -1;
     background-image: url("/greeting/desktop/00000.png.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 
     &.hidden {
       opacity: 0;

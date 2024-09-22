@@ -49,7 +49,7 @@ export const Form = () => {
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmit(onSubmit)} autoComplete={'off'}>
+    <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={s.mainUserData}>
         <Input
           label={'Ваше имя'}
@@ -82,7 +82,7 @@ export const Form = () => {
       {status && <p className={clsx(s.formResponse, error && s.error)}>{status}</p>}
       <div className={s.submitBlock}>
         <p>Нажимая на кнопку отправить, я&nbsp;даю согласие на обработку персональных данных</p>
-        <Button disabled={isSubmitting}>ОТПРАВИТЬ</Button>
+        <Button disabled={isSubmitting}>Отправить</Button>
       </div>
     </form>
   );

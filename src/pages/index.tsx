@@ -1,60 +1,31 @@
-import Head from 'next/head';
-import dynamic from 'next/dynamic';
-import Header from '@/components/header/header';
-import s from '@/styles/index.module.scss';
-import { GreetingSection } from '@/sections/greetingSection/greetingSection';
 import { useState } from 'react';
+import Head from 'next/head';
+import Header from '@/components/header/header';
+import { GreetingSection } from '@/sections/greeting/greetingSection';
 import { Player } from '@/components/player/player';
 import { api } from '@/common/api';
-import { Category, ContactsData, DocumentData } from '@/common/types';
-import { StepData } from '@/components/timeline/timeline';
-import { ProjectMap } from '@/common/customHooks/useProjectMap';
-
-//next/dynamic imports
-const MainSection = dynamic(() => import('../sections/1-mainSection/mainSection'));
-const CatalogSection = dynamic(() => import('../sections/3-catalogSection/catalogSection'));
-const ProjectMapSection = dynamic(
-  () => import('../sections/4-projectMapSection/projectMapSection'),
-);
-const AboutSection = dynamic(() => import('../sections/2-aboutSection/aboutSection'));
-const FAQ = dynamic(() => import('../sections/6-faqSection/faq'));
-const FormSection = dynamic(() => import('../sections/7-formSection/formSection'));
-const DocumentationSection = dynamic(
-  () => import('../sections/8-documentationSection/documentationSection'),
-);
+import { Category, ContactsData, DocumentData, Faq, ProjectMap, StepData } from '@/common/types';
+import s from '@/styles/index.module.scss';
+import dynamic from 'next/dynamic';
+import { getStructuredProjectMap } from '@/common/commonFunctions';
+const MainSection = dynamic(() => import('@/sections/main/mainSection'));
+const AboutSection = dynamic(() => import('@/sections/about/aboutSection'));
+const CatalogSection = dynamic(() => import('@/sections/catalog/catalogSection'));
+const ProjectMapSection = dynamic(() => import('@/sections/projectMap/projectMapSection'));
+const FAQ = dynamic(() => import('@/sections/faq/faq'));
+const FormSection = dynamic(() => import('@/sections/form/formSection'));
+const DocumentationSection = dynamic(() => import('@/sections/documentation/documentationSection'));
 const Footer = dynamic(() => import('../components/footer/footer'));
 
 export const getStaticProps = async () => {
-  const contactInfo = await api.getContacts();
-  const categories = await api.getProductsCategories();
-  const documents = await api.getDocuments();
-  const data = await api.getProjectMap();
-  let projectMap;
-  let stepData;
-  const structuredData: ProjectMap[] = [];
-  const stepStructuredData: StepData[] = [];
-  data.forEach((year: any) => {
-    if (year.quarter_data.q1) {
-      structuredData.push(year.quarter_data.q1);
-      stepStructuredData.push({ topTitle: year.title.rendered, bottomTitle: '1 квартал' });
-    }
-    if (year.quarter_data.q2) {
-      structuredData.push(year.quarter_data.q2);
-      stepStructuredData.push({ bottomTitle: '2 квартал' });
-    }
-    if (year.quarter_data.q3) {
-      structuredData.push(year.quarter_data.q3);
-      stepStructuredData.push({ bottomTitle: '3 квартал' });
-    }
-    if (year.quarter_data.q4) {
-      structuredData.push(year.quarter_data.q4);
-      stepStructuredData.push({ bottomTitle: '4 квартал' });
-    }
-  });
-  projectMap = structuredData;
-  stepData = stepStructuredData;
+  const contactInfo = (await api.getContacts()) || {};
+  const categories = (await api.getProductsCategories()) || [];
+  const documents = (await api.getDocuments()) || [];
+  const faqData = (await api.getFAQ()) || [];
+  const projectMapData = (await api.getProjectMap()) || [];
+  const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
 
-  return { props: { contactInfo, categories, documents, projectMap, stepData } };
+  return { props: { contactInfo, categories, documents, projectMap, stepData, faqData } };
 };
 
 type HomeProps = {
@@ -63,10 +34,11 @@ type HomeProps = {
   documents: DocumentData[];
   projectMap: ProjectMap[];
   stepData: StepData[];
+  faqData: Faq[];
 };
 
 export default function Home(props: HomeProps) {
-  const { contactInfo, categories, documents, projectMap, stepData } = props;
+  const { contactInfo, categories, documents, projectMap, stepData, faqData } = props;
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
 
@@ -94,7 +66,7 @@ export default function Home(props: HomeProps) {
           <AboutSection />
           <CatalogSection categories={categories} />
           <ProjectMapSection projectMap={projectMap} stepData={stepData} />
-          <FAQ />
+          <FAQ faqData={faqData} />
           <FormSection />
           <DocumentationSection documents={documents} />
           <Footer

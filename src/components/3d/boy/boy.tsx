@@ -1,11 +1,11 @@
-import { ForwardedRef, useEffect, useMemo, useRef, useState } from 'react';
+import { RefObject, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { LoopOnce, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export type ModelProps = {
-  containerRef: ForwardedRef<HTMLDivElement>;
+  containerRef: RefObject<HTMLDivElement>;
 };
 
 export default function Model(props: ModelProps) {
@@ -13,8 +13,7 @@ export default function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/boy.glb', true);
   const { actions, names } = useAnimations(animations, sceneRef);
-  const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
-  useIntersectionObserver(containerRef, setShouldPlayAnimation, 0.02);
+  const shouldPlayAnimation = useIntersectionObserver(containerRef, 0.02);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
@@ -49,15 +48,8 @@ export default function Model(props: ModelProps) {
     }
   });
 
-  const getContainerElement = () => {
-    if (typeof containerRef === 'function') {
-      return null;
-    }
-    return containerRef?.current ?? null;
-  };
-
   useEffect(() => {
-    const container = getContainerElement();
+    const container = containerRef?.current;
     if (!container) return;
 
     const handleMove = (clientX: number, clientY: number) => {

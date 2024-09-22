@@ -3,11 +3,7 @@ import clsx from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import s from './timeline.module.scss';
 import { TimelineStep } from '@/components/timeline/timelineStep';
-
-export type StepData = {
-  topTitle?: string;
-  bottomTitle: string;
-};
+import { StepData } from '@/common/types';
 
 export type TimelineProps = {
   stepsData?: StepData[];

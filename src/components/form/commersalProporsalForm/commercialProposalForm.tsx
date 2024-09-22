@@ -60,11 +60,7 @@ export const CommercialProposalForm = (props: CPFormProps) => {
   };
 
   return (
-    <form
-      className={s.commercialProposalForm}
-      onSubmit={handleSubmit(onSubmit)}
-      autoComplete={'off'}
-    >
+    <form className={s.commercialProposalForm} onSubmit={handleSubmit(onSubmit)}>
       <Input
         label={'Ваше имя'}
         placeholder={errors.clientName ? 'Заполните поле' : 'Введите имя'}
@@ -107,7 +103,7 @@ export const CommercialProposalForm = (props: CPFormProps) => {
       {status && <p className={clsx(s.formResponse, error && s.error)}>{status}</p>}
       <div className={s.submitBlock}>
         <p>Нажимая на кнопку отправить, я&nbsp;даю согласие на обработку персональных данных</p>
-        <Button disabled={isSubmitting}>ОТПРАВИТЬ</Button>
+        <Button disabled={isSubmitting}>Отправить</Button>
       </div>
     </form>
   );

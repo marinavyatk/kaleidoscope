@@ -10,8 +10,6 @@ export const BurgerButton = (props: BurgerButtonProps) => {
       <input
         className={s.checkbox}
         type='checkbox'
-        // name=''
-        // id=''
         name='burger-menu'
         id='burger-menu-checkbox'
         onChange={onChange}

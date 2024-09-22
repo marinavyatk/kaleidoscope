@@ -71,11 +71,6 @@ export const api = {
       .get<DocumentData[]>('/wp-json/wp/v2/document')
       .then((response) => response.data);
   },
-  getDocumentsImages() {
-    return instance
-      .get('/wp-json/wp/v2/media/28?_fields=source_url')
-      .then((response) => response.data);
-  },
   getPoints() {
     return instance
       .get<MapData[]>('/wp-json/wp/v2/map_marker?_fields=coordinates,content,title,thumbnail_url')

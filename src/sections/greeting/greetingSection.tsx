@@ -4,6 +4,7 @@ import { Button } from '@/components/button/button';
 import s from './greetingSection.module.scss';
 import { Animation } from '@/components/animations/animation';
 import Image from 'next/image';
+import { usePreloadImages } from '@/common/customHooks/usePreloadImages';
 
 type GreetingSectionProps = {
   setShowGreeting: (show: boolean) => void;
@@ -14,14 +15,15 @@ type GreetingSectionProps = {
 export const GreetingSection = (props: GreetingSectionProps) => {
   const { setShowGreeting, setPlaying, className } = props;
   const [showAnimation, setShowAnimation] = useState(false);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [animationEnd, setAnimationEnd] = useState(false);
   const classNames = clsx(
     s.greetingSection,
     'fullContainer',
+    'mainContainer',
     animationEnd && s.hiddenSection,
     className,
   );
+  const images = usePreloadImages({ animation: 'greeting', imgQty: 20, reverse: false });
 
   const handleButtonClick = () => {
     if (images.length) {
@@ -29,10 +31,10 @@ export const GreetingSection = (props: GreetingSectionProps) => {
     }
     setPlaying(true);
   };
-
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
     if (animationEnd) {
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         setShowGreeting(false);
         window.scroll({
           top: 0,
@@ -40,39 +42,15 @@ export const GreetingSection = (props: GreetingSectionProps) => {
         });
       }, 400);
     }
-  }, [animationEnd]);
 
-  useEffect(() => {
-    const screenWidth = window.innerWidth;
-    const preloadImages = (numFrames: number) => {
-      const promises = Array.from({ length: numFrames }, (_, i) => {
-        return new Promise<HTMLImageElement>((resolve, reject) => {
-          const img = new window.Image();
-          let imgSrc = '';
-          if (screenWidth >= 768) {
-            imgSrc = `/greeting/desktop/${i.toString().padStart(5, '0')}.png.webp`;
-          } else if (screenWidth >= 480) {
-            imgSrc = `/greeting/tablet/${i.toString().padStart(5, '0')}.png.webp`;
-          } else {
-            imgSrc = `/greeting/mobile/${i.toString().padStart(5, '0')}.png.webp`;
-          }
-          img.src = imgSrc;
-          img.onload = () => resolve(img);
-          img.onerror = () => reject(new Error(`Failed to load image: ${imgSrc}`));
-        });
-      });
-
-      Promise.all(promises)
-        .then(setImages)
-        .catch((err) => console.error('Image preload error:', err));
+    return () => {
+      clearTimeout(timeoutId);
     };
-
-    preloadImages(20);
-  }, []);
+  }, [animationEnd]);
 
   return (
     <section className={classNames}>
-      <div className={clsx(s.innerContainer, 'mainContainer')}>
+      <div className={s.innerContainer}>
         <div className={clsx(s.background, showAnimation && s.hidden, 'fullContainer')}>
           <Image src={'/main-section-bg.webp'} alt='' fill quality={100} priority />
         </div>

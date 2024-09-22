@@ -27,7 +27,6 @@ const Footer = (props: FooterProps) => {
             оф.&nbsp;226
           </p>
         </div>
-
         <div className={s.footerCenter}>
           <Logo className={s.logo} />
           <a href='#top' aria-label={'Перейти вверх страницы'}>
@@ -37,7 +36,6 @@ const Footer = (props: FooterProps) => {
             НАВЕРХ
           </a>
         </div>
-
         <div className={s.footerRight}>
           {tels?.map((tel) => {
             return (
@@ -53,7 +51,6 @@ const Footer = (props: FooterProps) => {
               </a>
             );
           })}
-
           <div className={s.links}>
             {socialLinks?.whatsapp && (
               <a

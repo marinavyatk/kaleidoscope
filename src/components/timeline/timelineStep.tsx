@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import s from './timeline.module.scss';
-import { StepData } from '@/components/timeline/timeline';
+import { StepData } from '@/common/types';
 
 export type TimelineStepProps = {
   status: 'default' | 'active' | 'viewed';

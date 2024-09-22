@@ -3,13 +3,13 @@ import { MutableRefObject, useRef, useState } from 'react';
 import { handleSwiper } from '@/common/commonFunctions';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
-import { StepData, Timeline } from '@/components/timeline/timeline';
+import { Timeline } from '@/components/timeline/timeline';
 import { NavButtons } from '@/components/navButtons/navButtons';
 import s from './projectMapSection.module.scss';
-import { ProjectMap, useProjectMap } from '@/common/customHooks/useProjectMap';
 import Image from 'next/image';
 import { Picture } from '@/components/picture/picture';
 import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
+import { ProjectMap, StepData } from '@/common/types';
 
 type ProjectMapSectionProps = {
   projectMap: ProjectMap[];
@@ -20,7 +20,6 @@ const ProjectMapSection = (props: ProjectMapSectionProps) => {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const swiperRef = useRef<SwiperClass>(null);
   const isTablet = useScreenWidth(1439, 768);
-  // const { projectMap, stepData } = useProjectMap();
 
   const stepPhotos = projectMap?.[activeStepIndex]?.gallery.map((photo) => (
     <SwiperSlide key={photo.url} className={s.slide}>

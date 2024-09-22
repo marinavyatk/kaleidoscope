@@ -42,25 +42,33 @@ export const Carousel = ({ products }: CarouselProps) => {
   };
 
   const handleTouchStart = (event: React.TouchEvent) => {
-    touchStartX.current = event.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      nextItem();
-    }
-
-    if (touchEndX.current - touchStartX.current > 50) {
-      prevItem();
+    const target = event.target as Element;
+    if (!target.closest('button')) {
+      touchStartX.current = event.touches[0].clientX;
     }
   };
 
   const handleTouchMove = (event: React.TouchEvent) => {
-    touchEndX.current = event.touches[0].clientX;
+    const target = event.target as Element;
+    if (!target.closest('button')) {
+      touchEndX.current = event.touches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    const target = event.target as Element;
+    if (!target.closest('button')) {
+      const swipeDistance = touchStartX.current - touchEndX.current;
+
+      if (swipeDistance > 50) {
+        nextItem();
+      } else if (swipeDistance < -50) {
+        prevItem();
+      }
+    }
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    console.log(event.currentTarget);
     if (event.key === 'ArrowRight') {
       nextItem();
     } else if (event.key === 'ArrowLeft') {

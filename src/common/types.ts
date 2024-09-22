@@ -29,6 +29,12 @@ export type CPFormValues = {
   product: string;
 };
 
+export type ProjectMap = {
+  title: string;
+  description: string;
+  gallery: Array<{ url: string }>;
+};
+
 //requests types
 export type Category = {
   id: number;
@@ -54,6 +60,11 @@ export type ProductData = {
   ['model_3d_link']: string;
 };
 
+export type StepData = {
+  topTitle?: string;
+  bottomTitle: string;
+};
+
 export type DocumentData = {
   title: Field;
   thumbnail_url: string;
@@ -64,11 +75,6 @@ export type MapData = {
   content: Field;
   thumbnail_url: string;
   coordinates: string;
-};
-
-export type FormResponse = {
-  message: string;
-  status: string;
 };
 
 export type ContactsData = {
