@@ -12,7 +12,7 @@ const Scene = dynamic<ModelProps>(
     ssr: false,
     loading: () => (
       <div className={s.loaderContainer}>
-        <Loader className={s.loader} />
+        <Loader />
       </div>
     ),
   },

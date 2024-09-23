@@ -9,7 +9,7 @@ export const useMap = () => {
     api
       .getPoints()
       .then((data) => {
-        setMap(data);
+        if (data) setMap(data);
       })
       .catch((error) => console.error('Error fetching map:', error));
   }, []);
