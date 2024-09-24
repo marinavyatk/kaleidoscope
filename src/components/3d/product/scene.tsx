@@ -26,7 +26,13 @@ export function Scene(props: ModelProps) {
         <ambientLight intensity={0.5} />
         <directionalLight position={[-1, 10, -2]} intensity={1.7} castShadow />
         <directionalLight position={[2, -5, 5]} intensity={0.5} castShadow />
-        <OrbitControls enableZoom={false} minPolarAngle={1} maxPolarAngle={1} rotateSpeed={0.8} />
+        <OrbitControls
+          enableZoom={false}
+          minPolarAngle={1}
+          maxPolarAngle={1}
+          rotateSpeed={0.8}
+          enablePan={false}
+        />
         <Model link={link} />
       </Canvas>
     </Suspense>
