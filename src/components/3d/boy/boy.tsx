@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
-import { LoopOnce, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
+import { Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export type ModelProps = {
@@ -13,17 +13,13 @@ export default function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/boy.glb', true);
   const { actions, names } = useAnimations(animations, sceneRef);
-  const shouldPlayAnimation = useIntersectionObserver(containerRef, 0.02);
+  const isVisible = useIntersectionObserver(containerRef, 0.02);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
     const blinkAnimation = actions[names[1]];
     blinkAnimation?.play();
     bodyAnimation?.play();
-    if (bodyAnimation) {
-      bodyAnimation.setLoop(LoopOnce, 1);
-      bodyAnimation.clampWhenFinished = true;
-    }
   }, []);
 
   const target = useMemo(() => {
@@ -41,7 +37,7 @@ export default function Model(props: ModelProps) {
   const previousTargetPosition = useRef(new Vector3(0, 0, 2));
 
   useFrame(() => {
-    if (!shouldPlayAnimation) return;
+    if (!isVisible) return;
     if (head) {
       previousTargetPosition.current.lerp(target.position, 0.1);
       head.lookAt(previousTargetPosition.current);
