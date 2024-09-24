@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode, useEffect, useRef, useState } from 'react';
+import { ComponentPropsWithoutRef, memo, ReactNode, useEffect, useRef, useState } from 'react';
 import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
@@ -77,4 +77,4 @@ const Header = (props: HeaderProps) => {
   );
 };
 
-export default Header;
+export default memo(Header);

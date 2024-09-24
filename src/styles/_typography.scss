@@ -2,7 +2,7 @@
   font-family: 'EurofontExtendedC';
   src:
     local('EurofontExtendedC'),
-    url('/fonts/EurofontExtendedC/eurofontextendedc.otf') format('truetype');
+    url('/fonts/EurofontExtendedC/eurofontextendedc.woff') format('truetype');
   font-weight: normal;
 }
 
@@ -10,7 +10,7 @@
   font-family: 'EurofontExtendedC';
   src:
     local('EurofontExtendedC'),
-    url('/fonts/EurofontExtendedC/eurofontextendedc_bold.otf') format('truetype');
+    url('/fonts/EurofontExtendedC/eurofontextendedc_bold.woff') format('truetype');
   font-weight: bold;
 }
 
@@ -18,7 +18,7 @@
   font-family: 'PT Root UI';
   src:
     local('PT Root UI'),
-    url('/fonts/PTRootUI/PTRoot-UI-Bold.ttf') format('truetype');
+    url('/fonts/PTRootUI/PTRoot-UI-Bold.woff') format('truetype');
   font-weight: bold;
 }
 
@@ -26,7 +26,7 @@
   font-family: 'PT Root UI';
   src:
     local('PT Root UI'),
-    url('/fonts/PTRootUI/PTRoot-UI-Medium.ttf') format('truetype');
+    url('/fonts/PTRootUI/PTRoot-UI-Medium.woff') format('truetype');
   font-weight: normal;
 }
 

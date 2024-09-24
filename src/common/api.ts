@@ -77,7 +77,7 @@ export const api = {
   },
   getDocuments() {
     return instance
-      .get<DocumentData[]>('/wp-json/wp/v2/document')
+      .get<DocumentData[]>('/wp-json/wp/v2/document?_fields=title, thumbnail_url')
       .then((response) => response.data)
       .catch((error) => {
         console.error('Ошибка при загрузке документов:', error);

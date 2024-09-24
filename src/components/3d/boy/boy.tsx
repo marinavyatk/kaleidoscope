@@ -87,7 +87,5 @@ export default function Model(props: ModelProps) {
     };
   }, [target, containerRef]);
 
-  return (
-    <primitive object={scene} ref={sceneRef} position={[0.14, -1.42, 0]} dracoDecoder={true} />
-  );
+  return <primitive object={scene} ref={sceneRef} position={[0.14, -1.42, 0]} />;
 }
