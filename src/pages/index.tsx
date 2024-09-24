@@ -8,14 +8,24 @@ import { Category, ContactsData, DocumentData, Faq, ProjectMap, StepData } from 
 import s from '@/styles/index.module.scss';
 import { getStructuredProjectMap } from '@/common/commonFunctions';
 import ErrorBoundary from '@/components/errorBoundary/errorBoundary';
-import MainSection from '@/sections/main/mainSection';
-import AboutSection from '@/sections/about/aboutSection';
-import CatalogSection from '@/sections/catalog/catalogSection';
-import ProjectMapSection from '@/sections/projectMap/projectMapSection';
-import Footer from '@/components/footer/footer';
-import DocumentationSection from '@/sections/documentation/documentationSection';
-import FormSection from '@/sections/form/formSection';
-import FAQ from '@/sections/faq/faq';
+import dynamic from 'next/dynamic';
+// import MainSection from '@/sections/main/mainSection';
+// import AboutSection from '@/sections/about/aboutSection';
+// import CatalogSection from '@/sections/catalog/catalogSection';
+// import ProjectMapSection from '@/sections/projectMap/projectMapSection';
+// import Footer from '@/components/footer/footer';
+// import DocumentationSection from '@/sections/documentation/documentationSection';
+// import FormSection from '@/sections/form/formSection';
+// import FAQ from '@/sections/faq/faq';
+
+const MainSection = dynamic(() => import('@/sections/main/mainSection'));
+const AboutSection = dynamic(() => import('@/sections/about/aboutSection'));
+const CatalogSection = dynamic(() => import('@/sections/catalog/catalogSection'));
+const ProjectMapSection = dynamic(() => import('@/sections/projectMap/projectMapSection'));
+const FAQ = dynamic(() => import('@/sections/faq/faq'));
+const FormSection = dynamic(() => import('@/sections/form/formSection'));
+const DocumentationSection = dynamic(() => import('@/sections/documentation/documentationSection'));
+const Footer = dynamic(() => import('../components/footer/footer'));
 
 export const getStaticProps = async () => {
   const contactInfo = (await api.getContacts()) || {};
