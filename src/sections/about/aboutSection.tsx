@@ -5,14 +5,14 @@ import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 import { ModelProps } from '@/components/3d/boy/boy';
 import { Loader } from '@/components/loader/loader';
+import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 const Scene = dynamic<ModelProps>(
   () => import('../../components/3d/boy/scene').then((mod) => mod.Scene),
   {
-    ssr: false,
     loading: () => (
       <div className={s.loaderContainer}>
-        <Loader />
+        <Loader className={s.loader} />
       </div>
     ),
   },
@@ -20,6 +20,7 @@ const Scene = dynamic<ModelProps>(
 
 const AboutSection = () => {
   const modelContainerRef = useRef<HTMLDivElement | null>(null);
+  const isVisible = useIntersectionObserver(modelContainerRef, 0.2, true);
 
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
@@ -29,7 +30,7 @@ const AboutSection = () => {
       </div>
       <div className={s.boy}>
         <div className={s.imageContainer}>
-          <Scene containerRef={modelContainerRef} />
+          {isVisible && <Scene containerRef={modelContainerRef} />}
         </div>
       </div>
       <h2>объединяем поколения через соперни&shy;чество</h2>

@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
 
-export const useIntersectionObserver = (ref: any, threshold: number) => {
-  const [shouldPlayAnimation, setShouldPlayAnimation] = useState(false);
+export const useIntersectionObserver = (ref: any, threshold: number, once = false) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
   useEffect(() => {
     const currentRef = ref.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setShouldPlayAnimation(true);
+            setIsIntersecting(true);
+            if (once) {
+              observer.disconnect();
+            }
           } else {
-            setShouldPlayAnimation(false);
+            setIsIntersecting(false);
           }
         });
       },
@@ -26,6 +29,7 @@ export const useIntersectionObserver = (ref: any, threshold: number) => {
         observer.unobserve(currentRef);
       }
     };
-  }, [ref]);
-  return shouldPlayAnimation;
+  }, [ref, once]);
+
+  return isIntersecting;
 };

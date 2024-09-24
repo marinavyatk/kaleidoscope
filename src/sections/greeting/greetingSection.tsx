@@ -52,7 +52,14 @@ export const GreetingSection = (props: GreetingSectionProps) => {
     <section className={classNames}>
       <div className={s.innerContainer}>
         <div className={clsx(s.background, showAnimation && s.hidden, 'fullContainer')}>
-          <Image src={'/main-section-bg.webp'} alt='' fill quality={100} priority />
+          <Image
+            src={'/main-section-bg.webp'}
+            alt=''
+            fill
+            quality={100}
+            priority
+            key='greeting-bg'
+          />
         </div>
         {!showAnimation ? (
           <div className={clsx(s.kids, 'fullContainer')}></div>
