@@ -35,4 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.idea
+# Игнорируем папку .idea и все её содержимое
+.idea/
+
+# Игнорируем файл workspace.xml
+workspace.xml
