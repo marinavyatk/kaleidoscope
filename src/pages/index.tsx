@@ -18,15 +18,68 @@ const FormSection = dynamic(() => import('@/sections/form/formSection'));
 const DocumentationSection = dynamic(() => import('@/sections/documentation/documentationSection'));
 const Footer = dynamic(() => import('../components/footer/footer'));
 
-export const getStaticProps = async () => {
-  const contactInfo = (await api.getContacts()) || {};
-  const categories = (await api.getProductsCategories()) || [];
-  const documents = (await api.getDocuments()) || [];
-  const faqData = (await api.getFAQ()) || [];
-  const projectMapData = (await api.getProjectMap()) || [];
-  const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
+// export const getStaticProps = async () => {
+//   const contactInfo = (await api.getContacts()) || {};
+//   const categories = (await api.getProductsCategories()) || [];
+//   const documents = (await api.getDocuments()) || [];
+//   const faqData = (await api.getFAQ()) || [];
+//   const projectMapData = (await api.getProjectMap()) || [];
+//   const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
+//
+//   console.log('Fetched data for static generation:', {
+//     contactInfo: contactInfo,
+//     categories: categories,
+//     documents: documents,
+//     faqData: faqData,
+//     projectMapData: projectMapData,
+//   });
+//
+//   return { props: { contactInfo, categories, documents, projectMap, stepData, faqData } };
+// };
 
-  return { props: { contactInfo, categories, documents, projectMap, stepData, faqData } };
+export const getStaticProps = async () => {
+  try {
+    const contactInfo = (await api.getContacts()) || {};
+    const categories = (await api.getProductsCategories()) || [];
+    const documents = (await api.getDocuments()) || [];
+    const faqData = (await api.getFAQ()) || [];
+    const projectMapData = (await api.getProjectMap()) || [];
+
+    const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
+
+    console.log('Fetched data for static generation:', {
+      contactInfo,
+      categories,
+      documents,
+      faqData,
+      projectMapData,
+    });
+
+    return {
+      props: {
+        contactInfo,
+        categories,
+        documents,
+        projectMap,
+        stepData,
+        faqData,
+      },
+    };
+  } catch (error) {
+    console.error('Error occurred during static generation:', error);
+
+    return {
+      props: {
+        contactInfo: {},
+        categories: [],
+        documents: [],
+        projectMap: [],
+        stepData: [],
+        faqData: [],
+        error: 'Failed to fetch data',
+      },
+    };
+  }
 };
 
 type HomeProps = {
