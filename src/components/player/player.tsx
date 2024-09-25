@@ -1,5 +1,5 @@
 import useSound from 'use-sound';
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import s from './player.module.scss';
 import PlayDirectionIcon from '../../assets/play-direction.svg';
 import PauseIcon from '../../assets/pause.svg';
@@ -11,7 +11,7 @@ type PlayerProps = {
   initialPlaying: boolean;
 };
 
-export const Player = (props: PlayerProps) => {
+const Player = (props: PlayerProps) => {
   const { initialPlaying } = props;
   const [isPlaying, setIsPlaying] = useState(initialPlaying);
   const [play, { pause, duration, sound }] = useSound('/compress.mp3', { loop: true });
@@ -112,3 +112,5 @@ export const Player = (props: PlayerProps) => {
     </div>
   );
 };
+
+export default memo(Player);

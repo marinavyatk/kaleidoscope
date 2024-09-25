@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, memo, ReactNode, useEffect, useRef, useState } from 'react';
+import { ComponentPropsWithoutRef, memo, ReactNode, useEffect, useState } from 'react';
 import s from './header.module.scss';
 import Logo from '../../assets/logo.svg';
 import Headroom from 'react-headroom';
@@ -12,8 +12,6 @@ export type HeaderProps = {
 const Header = (props: HeaderProps) => {
   const { player, className, ...restProps } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null);
-  const headerRef = useRef(null);
   const isTabletOrMobile = useScreenWidth(1099);
 
   useEffect(() => {
@@ -25,10 +23,10 @@ const Header = (props: HeaderProps) => {
   }, [isOpen]);
 
   return (
-    <Headroom className={className} ref={headerRef}>
-      <div className={s.headerContainer}>
-        {!isTabletOrMobile ? (
-          <header {...restProps} className={s.header}>
+    <Headroom className={className}>
+      <div className={s.headerContainer + ' ' + s.headerMobile}>
+        <header {...restProps} className={s.header}>
+          {!isTabletOrMobile && (
             <div className={s.links}>
               <a href='#about'>О нас</a>
               <a href='#catalog'>Каталог</a>
@@ -36,19 +34,18 @@ const Header = (props: HeaderProps) => {
               {/*need later*/}
               {/*<a href='#realized'>Реализовано</a>*/}
             </div>
-            <Logo className={s.logo} />
-            <div className={s.rightBlock}>
-              <a href='#contacts'>Контакты</a>
-              <div className={s.player}>{player}</div>
-            </div>
-          </header>
-        ) : (
-          <div className={s.headerMobile} ref={menuRef}>
-            <header className={s.header}>
-              <Logo className={s.logo} />
-              <div className={s.player}>{player}</div>
-              <BurgerButton onChange={() => setIsOpen((prev) => !prev)} checked={isOpen} />
-            </header>
+          )}
+          <Logo className={s.logo} />
+          <div className={s.rightBlock}>
+            {!isTabletOrMobile && <a href='#contacts'>Контакты</a>}
+            <div className={s.player}>{player}</div>
+          </div>
+          {isTabletOrMobile && (
+            <BurgerButton onChange={() => setIsOpen((prev) => !prev)} checked={isOpen} />
+          )}
+        </header>
+        {isTabletOrMobile && (
+          <>
             <div className={s.background}></div>
             <div className={s.links}>
               <div className={s.linksBackground}>
@@ -70,7 +67,7 @@ const Header = (props: HeaderProps) => {
                 </a>
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </Headroom>

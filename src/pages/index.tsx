@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Header from '@/components/header/header';
 import { GreetingSection } from '@/sections/greeting/greetingSection';
-import { Player } from '@/components/player/player';
+import Player from '@/components/player/player';
 import { api } from '@/common/api';
 import { Category, ContactsData, DocumentData, Faq, ProjectMap, StepData } from '@/common/types';
 import s from '@/styles/index.module.scss';
