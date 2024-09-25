@@ -1,7 +1,6 @@
 import { Button } from '@/components/button/button';
 import s from './mainSection.module.scss';
 import Image from 'next/image';
-import { clsx } from 'clsx';
 import { memo, useRef } from 'react';
 import { Animation } from '@/components/animations/animation';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
@@ -18,7 +17,7 @@ const MainSection = () => {
       {images.length && shouldPlayAnimation ? (
         <Animation images={images} ms={40} />
       ) : (
-        <div className={clsx(s.kids, 'fullContainer')} />
+        <div className={s.kids + ' fullContainer'} />
       )}
       <h1>Калейдоскоп ИГР</h1>
       <p>Производим уникальные изделия для развития спортивного будущего!</p>

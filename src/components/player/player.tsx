@@ -40,7 +40,6 @@ const Player = (props: PlayerProps) => {
 
   useEffect(() => {
     if (!isPlaying || !sound || isDraggingRef.current) return;
-
     const interval = setInterval(() => {
       if (isDraggingRef.current) return;
       setCurrTime(sound.seek([]));
@@ -51,7 +50,7 @@ const Player = (props: PlayerProps) => {
     };
   }, [isPlaying, sound, isDraggingRef.current]);
 
-  const tempSetStartSong = () => {
+  const setStartSong = () => {
     sound.seek([0]);
     setCurrTime(0);
   };
@@ -79,12 +78,9 @@ const Player = (props: PlayerProps) => {
         <div className={s.cover}>
           <Image
             src={'/song-cover.webp'}
-            blurDataURL={'/song-cover.webp'}
             alt='Обложка песни'
             fill
-            placeholder={'blur'}
             sizes='(max-width: 567px) 53px, 32px'
-            priority
           />
         </div>
         <div className={s.playerWithoutCover}>
@@ -93,7 +89,7 @@ const Player = (props: PlayerProps) => {
             <span className={s.author}>Petite Météorite</span>
           </div>
           <div className={s.controlPanel}>
-            <button onClick={tempSetStartSong} aria-label={'Предыдущий трек'}>
+            <button onClick={setStartSong} aria-label={'Предыдущий трек'}>
               <PlayDirectionIcon />
             </button>
             <button
@@ -103,7 +99,7 @@ const Player = (props: PlayerProps) => {
             >
               {isPlaying ? <PauseIcon /> : <PlayIcon />}
             </button>
-            <button className={s.btnNext} onClick={tempSetStartSong} aria-label={'Следующий трек'}>
+            <button className={s.btnNext} onClick={setStartSong} aria-label={'Следующий трек'}>
               <PlayDirectionIcon />
             </button>
           </div>

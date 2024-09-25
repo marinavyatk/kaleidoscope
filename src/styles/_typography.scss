@@ -1,38 +1,6 @@
-@font-face {
-  font-family: 'EurofontExtendedC';
-  src:
-    local('EurofontExtendedC'),
-    url('/fonts/EurofontExtendedC/eurofontextendedc.woff') format('truetype');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'EurofontExtendedC';
-  src:
-    local('EurofontExtendedC'),
-    url('/fonts/EurofontExtendedC/eurofontextendedc_bold.woff') format('truetype');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'PT Root UI';
-  src:
-    local('PT Root UI'),
-    url('/fonts/PTRootUI/PTRoot-UI-Bold.woff') format('truetype');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'PT Root UI';
-  src:
-    local('PT Root UI'),
-    url('/fonts/PTRootUI/PTRoot-UI-Medium.woff') format('truetype');
-  font-weight: normal;
-}
-
 :root {
-  --font-family: 'EurofontExtendedC', sans-serif;
-  --font-family-secondary: 'PT Root UI', sans-serif;
   --fw-normal: 500;
   --fw-bold: 700;
+  --font-family: var(--euroFontExtendedC);
+  --font-family-secondary: var(--pyRootUI);
 }

@@ -26,14 +26,6 @@ export const getStaticProps = async () => {
   const projectMapData = (await api.getProjectMap()) || [];
   const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
 
-  console.log('Fetched data for static generation:', {
-    contactInfo: contactInfo,
-    categories: categories,
-    documents: documents,
-    faqData: faqData,
-    projectMapData: projectMapData,
-  });
-
   return { props: { contactInfo, categories, documents, projectMap, stepData, faqData } };
 };
 
@@ -47,6 +39,7 @@ type HomeProps = {
 };
 
 export default function Home(props: HomeProps) {
+  console.log('Index');
   const { contactInfo, categories, documents, projectMap, stepData, faqData } = props;
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
