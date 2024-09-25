@@ -20,7 +20,7 @@ const Scene = dynamic<ModelProps>(
 
 const AboutSection = () => {
   const modelContainerRef = useRef<HTMLDivElement | null>(null);
-  const isVisible = useIntersectionObserver(modelContainerRef, 0.2, true);
+  const isVisible = useIntersectionObserver(modelContainerRef, 0.5, true);
 
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
