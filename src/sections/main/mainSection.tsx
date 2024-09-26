@@ -1,6 +1,5 @@
 import { Button } from '@/components/button/button';
 import s from './mainSection.module.scss';
-import Image from 'next/image';
 import { memo, useRef } from 'react';
 import { Animation } from '@/components/animations/animation';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
@@ -13,11 +12,11 @@ const MainSection = () => {
 
   return (
     <section className={s.mainSection} ref={animationRef}>
-      <Image src={'/main-section-bg.webp'} alt='' fill quality={100} className={s.background} />
+      <div className={s.background + ' fullContainer backgroundImg'}></div>
       {images.length && shouldPlayAnimation ? (
         <Animation images={images} ms={40} />
       ) : (
-        <div className={s.kids + ' fullContainer'} />
+        <div className={s.kids + ' fullContainer backgroundImg'} />
       )}
       <h1>Калейдоскоп ИГР</h1>
       <p>Производим уникальные изделия для развития спортивного будущего!</p>

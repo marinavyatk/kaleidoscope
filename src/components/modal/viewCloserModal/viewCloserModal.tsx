@@ -13,6 +13,7 @@ export const ViewCloserModal = (props: ViewCloserModalProps) => {
   return (
     <Modal
       contentProps={{ className: s.modalContainer }}
+      // contentProps={{ className: 'fullWidthCentered' }}
       modalHeader={'View image'}
       trigger={trigger}
     >

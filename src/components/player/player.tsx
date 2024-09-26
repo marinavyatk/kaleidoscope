@@ -83,7 +83,7 @@ const Player = (props: PlayerProps) => {
             sizes='(max-width: 567px) 53px, 32px'
           />
         </div>
-        <div className={s.playerWithoutCover}>
+        <div className={'fullWidthCentered ' + s.playerWithoutCover}>
           <div className={s.songInfo}>
             <span className={s.songTitle}>Coming home from mercury</span>
             <span className={s.author}>Petite Météorite</span>

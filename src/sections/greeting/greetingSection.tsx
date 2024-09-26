@@ -3,7 +3,6 @@ import { clsx } from 'clsx';
 import { Button } from '@/components/button/button';
 import s from './greetingSection.module.scss';
 import { Animation } from '@/components/animations/animation';
-import Image from 'next/image';
 import { usePreloadImages } from '@/common/customHooks/usePreloadImages';
 
 type GreetingSectionProps = {
@@ -52,17 +51,11 @@ export const GreetingSection = (props: GreetingSectionProps) => {
     <section className={classNames}>
       <div className={s.innerContainer}>
         <div className={clsx(s.background, showAnimation && s.hidden, 'fullContainer')}>
-          <Image
-            src={'/main-section-bg.webp'}
-            alt=''
-            fill
-            quality={100}
-            priority
-            key='greeting-bg'
-          />
+          <div className={clsx(s.backgroundImg, 'fullContainer backgroundImg')}></div>
         </div>
+
         {!showAnimation ? (
-          <div className={clsx(s.kids, 'fullContainer')}></div>
+          <div className={clsx(s.kids, 'fullContainer backgroundImg')}></div>
         ) : (
           <Animation images={images} setAnimationEnd={setAnimationEnd} ms={70} />
         )}

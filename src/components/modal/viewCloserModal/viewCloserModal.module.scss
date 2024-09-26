@@ -1,14 +1,9 @@
 .modalContainer {
-  width: fit-content;
-  max-width: unset;
+  width: max-content;
 }
 
 .imgCloser {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
-}
-
-.closeButton {
-  position: absolute;
 }

@@ -7,15 +7,13 @@
   .background {
     z-index: -2;
     object-fit: cover;
+    background-image: url('/main-section-bg.webp');
   }
 
   .kids {
     z-index: -1;
     object-fit: cover;
     background-image: url("/waving/desktop/00000.png.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
   }
 
   p {
@@ -39,6 +37,9 @@
 @media (max-width: 767px) {
   .mainSection {
     padding: 573px 20px 250px;
+    .background {
+      background-image: url('/main-section-bg-small.webp');
+    }
 
     p {
       font-size: 18px;

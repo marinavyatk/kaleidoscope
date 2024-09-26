@@ -12,7 +12,7 @@ export function Scene(props: ModelProps) {
   return (
     <Suspense
       fallback={
-        <div className={s.loaderContainer}>
+        <div className='fullWidthCentered'>
           <Loader className={s.loader} />
         </div>
       }

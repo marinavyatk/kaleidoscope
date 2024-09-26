@@ -132,5 +132,5 @@ export const Animation = ({
     }
   }, [frameIndex, images.length, loop, setAnimationEnd]);
 
-  return <canvas ref={canvasRef} className={s.canvas} />;
+  return <canvas ref={canvasRef} className={'fullContainer mainContainer ' + s.canvas} />;
 };

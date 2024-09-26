@@ -30,35 +30,17 @@
 }
 
 .background {
-  position: absolute;
   z-index: -2;
   background: radial-gradient(circle, #57251b 0%, var(--color-dark) 100%);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .model {
-  position: absolute;
-  right: 0;
-  left: 0;
   top: 289px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   max-width: 957px;
   max-height: 655px;
   margin: auto;
   background-image: url("/product-bg.webp");
   background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  img {
-    object-fit: contain;
-  }
 }
 
 .cardHeader {
@@ -143,14 +125,6 @@
     }
   }
 }
-.loaderContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
 
 @media (max-width: 1800px) {
   .productCard {
@@ -165,6 +139,7 @@
 
   .cardHeader {
     min-height: 170px;
+
     h2 {
       width: 74%;
     }
@@ -174,8 +149,8 @@
     display: none;
   }
   .cardMain h3 {
-      margin-bottom: 30px;
-    }
+    margin-bottom: 30px;
+  }
 
   .cardMain .specifications .commercialProposal {
     display: block;
@@ -252,10 +227,6 @@
     button {
       gap: 10px;
     }
-  }
-  .loader {
-    position: absolute;
-    top: 25%
   }
 }
 

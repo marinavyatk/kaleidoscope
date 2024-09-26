@@ -19,7 +19,7 @@ const Scene = dynamic<ModelProps>(
   {
     ssr: false,
     loading: () => (
-      <div className={s.loaderContainer}>
+      <div className='fullWidthCentered'>
         <Loader className={s.loader} />
       </div>
     ),
@@ -39,7 +39,7 @@ export const ProductCard = (props: ProductCardProps) => {
 
   return (
     <div {...restProps} className={classNames}>
-      <div className={s.background}></div>
+      <div className={'fullContainer ' + s.background}></div>
       <div>
         <div className={s.cardHeader}>
           <h2>{productData?.name}</h2>
@@ -76,7 +76,9 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
           )}
         </div>
-        <div className={s.model}>{productData?.model && <Scene link={productData.model} />}</div>
+        <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
+          {productData?.model && <Scene link={productData.model} />}
+        </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>
             <div className={s.specifications}>

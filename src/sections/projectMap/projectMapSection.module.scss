@@ -12,10 +12,7 @@
     line-height: 1;
     text-transform: uppercase;
     text-align: right;
-    position: absolute;
     color: var(--color-bg-text);
-    top: 0;
-    right: 0;
     z-index: -1;
 
     span {
@@ -40,10 +37,6 @@
     font-size: 20px;
     max-width: 547px;
     margin-bottom: 80px;
-  }
-
-  .navButtons {
-    margin: 0;
   }
 }
 

@@ -51,7 +51,7 @@ const DocumentationSection = (props: DocumentationSectionProps) => {
   return (
     <section className={s.docSection}>
       <h2>документация</h2>
-      <div className={s.background}>
+      <div className={'fullContainer ' + s.background}>
         документац
         <wbr />
         ия

@@ -32,7 +32,7 @@ export const Card = (props: CardProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.card}>
-        <CardBackground className={s.cardBackground} />
+        <CardBackground className={'fullContainer ' + s.cardBackground} />
         <p className={s.cardName}>{product?.name}</p>
         <p className={s.description}>{product?.shortDescription}</p>
         <Picture

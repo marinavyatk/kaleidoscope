@@ -15,7 +15,7 @@ export const Button = forwardRef(
 
     return (
       <Component className={classNames} {...restProps} ref={ref}>
-        <ButtonBackground className={s.btnBackground} />
+        <ButtonBackground className={'fullContainer ' + s.btnBackground} />
         <span>{restProps.children}</span>
       </Component>
     );

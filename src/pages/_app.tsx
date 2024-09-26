@@ -23,12 +23,12 @@ export const euroFontExtendedC = localFont({
 export const pyRootUI = localFont({
   src: [
     {
-      path: '../fonts/PTRootUI/PTRoot-UI-Medium.woff',
+      path: '../fonts/PTRootUI/PTRoot-UI-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../fonts/PTRootUI/PTRoot-UI-Bold.woff',
+      path: '../fonts/PTRootUI/PTRoot-UI-Bold.woff2',
       weight: '700',
       style: 'bold',
     },

@@ -44,7 +44,7 @@ const ProjectMapSection = (props: ProjectMapSectionProps) => {
     <section className={s.projectMapSection} id='history'>
       <h2>карта проекта</h2>
       <h3>{projectMap?.[activeStepIndex]?.title}</h3>
-      <div className={s.background} role='presentation'>
+      <div className={'fullContainer ' + s.background} role='presentation'>
         <span>идея</span>
         <span>и миссия</span>
       </div>

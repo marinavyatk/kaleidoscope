@@ -11,7 +11,7 @@ const Scene = dynamic<ModelProps>(
   () => import('../../components/3d/boy/scene').then((mod) => mod.Scene),
   {
     loading: () => (
-      <div className={s.loaderContainer}>
+      <div className={'fullWidthCentered'}>
         <Loader className={s.loader} />
       </div>
     ),
@@ -25,10 +25,10 @@ const AboutSection = () => {
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
       <Separator className={s.separator} />
-      <div className={s.backgroundText}>
+      <div className={'fullContainer ' + s.backgroundText}>
         <span>Калейдоскоп</span>
       </div>
-      <div className={s.boy}>
+      <div className={'fullContainer ' + s.boy}>
         <div className={s.imageContainer}>
           {isVisible && <Scene containerRef={modelContainerRef} />}
         </div>
