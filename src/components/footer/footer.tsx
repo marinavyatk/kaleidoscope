@@ -7,6 +7,7 @@ import VKIcon from '../../assets/social-media-icons/vk.svg';
 import TelegramIcon from '../../assets/social-media-icons/telegram.svg';
 import ArrowUp from '../../assets/arrow-up.svg';
 import { formatPhoneNumber } from '@/common/commonFunctions';
+import Link from 'next/link';
 
 type FooterProps = {
   tels: string[];
@@ -17,7 +18,7 @@ type FooterProps = {
 const Footer = (props: FooterProps) => {
   const { tels, emails, socialLinks } = props;
   return (
-    <footer className={s.footer} id='contacts'>
+    <footer className={s.footer} id='contacts' itemScope itemType='https://schema.org/Organization'>
       <div className={s.footerContent}>
         <div className={s.footerLeft}>
           <p>ИП Резник Александр Александрович</p>
@@ -115,6 +116,9 @@ const Footer = (props: FooterProps) => {
           <a href='/privacy-policy.pdf' target='_blank' rel='nofollow'>
             Политика конфиденциальности
           </a>
+          <Link href={'/privacy-policy'} rel='nofollow' target='_blank'>
+            Политика конфиденциальности
+          </Link>
           <span>
             Разработано в{' '}
             <a href='https://octoweb.ru/' target='_blank' rel='nofollow'>
