@@ -33,10 +33,10 @@ const AboutSection = () => {
           {isVisible && <Scene containerRef={modelContainerRef} />}
         </div>
       </div>
-      <h2>объединяем поколения через соперни&shy;чество</h2>
+      <h2>Объединяем поколения через соперни&shy;чество</h2>
       <div className={s.description}>
         <div className={s.aboutCompany}>
-          <h3>о компании</h3>
+          <h3>О компании</h3>
           <div className={s.text}>
             <p>
               «Калейдоскоп Игр» разрабатывает и производит уникальные спортивные изделия в виде
@@ -52,7 +52,7 @@ const AboutSection = () => {
           </Button>
         </div>
         <div className={s.aboutMission}>
-          <h3>наша миссия</h3>
+          <h3>Наша миссия</h3>
           <div className={s.text}>
             <p>
               Миссия «Калейдоскоп Игр» заключается в создании игровых изделий, которые способствуют

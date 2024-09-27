@@ -42,7 +42,7 @@ const ProjectMapSection = (props: ProjectMapSectionProps) => {
 
   return (
     <section className={s.projectMapSection} id='history'>
-      <h2>карта проекта</h2>
+      <h2>Карта проекта</h2>
       <h3>{projectMap?.[activeStepIndex]?.title}</h3>
       <div className={'fullContainer ' + s.background} role='presentation'>
         <span>идея</span>

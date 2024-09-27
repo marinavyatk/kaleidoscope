@@ -29,6 +29,7 @@
     font-size: 24px;
     text-transform: none;
     margin: 30px 0;
+    font-style: normal;
   }
 }
 
@@ -259,12 +260,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     width: 100%;
     top: 40px;
     bottom: unset;
