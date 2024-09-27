@@ -9,6 +9,11 @@ export type Product = {
   img: string;
   specifications: { key: string; value: string }[];
   model: string;
+  category: number;
+};
+
+export type CategoryProducts = {
+  [key: number]: Product[];
 };
 
 export type Faq = {
@@ -58,6 +63,7 @@ export type ProductData = {
   link: string;
   ['featured_media']: number;
   ['model_3d_link']: string;
+  ['product_category']: number;
 };
 
 export type StepData = {

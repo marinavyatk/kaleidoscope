@@ -35,7 +35,7 @@ const Header = (props: HeaderProps) => {
               {/*<a href='#realized'>Реализовано</a>*/}
             </div>
           )}
-          <Logo className={s.logo} itemProp='logo' />
+          <Logo className={s.logo} />
           <div className={s.rightBlock}>
             {!isTabletOrMobile && <a href='#contacts'>Контакты</a>}
             <div className={s.player}>{player}</div>

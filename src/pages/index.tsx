@@ -4,9 +4,18 @@ import Header from '@/components/header/header';
 import { GreetingSection } from '@/sections/greeting/greetingSection';
 import Player from '@/components/player/player';
 import { api } from '@/common/api';
-import { Category, ContactsData, DocumentData, Faq, ProjectMap, StepData } from '@/common/types';
+import {
+  Category,
+  CategoryProducts,
+  ContactsData,
+  DocumentData,
+  Faq,
+  Product,
+  ProjectMap,
+  StepData,
+} from '@/common/types';
 import s from '@/styles/index.module.scss';
-import { getStructuredProjectMap } from '@/common/commonFunctions';
+import { getStructuredProducts, getStructuredProjectMap } from '@/common/commonFunctions';
 import ErrorBoundary from '@/components/errorBoundary/errorBoundary';
 import dynamic from 'next/dynamic';
 const MainSection = dynamic(() => import('@/sections/main/mainSection'));
@@ -25,8 +34,15 @@ export const getStaticProps = async () => {
   const faqData = (await api.getFAQ()) || [];
   const projectMapData = (await api.getProjectMap()) || [];
   const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
+  const products: CategoryProducts = {};
+  await Promise.all(
+    categories.map(async (category) => {
+      const productsForCategory = await getStructuredProducts(category.id);
+      products[category.id] = productsForCategory || [];
+    }),
+  );
 
-  return { props: { contactInfo, categories, documents, projectMap, stepData, faqData } };
+  return { props: { contactInfo, categories, documents, projectMap, stepData, faqData, products } };
 };
 
 type HomeProps = {
@@ -36,11 +52,11 @@ type HomeProps = {
   projectMap: ProjectMap[];
   stepData: StepData[];
   faqData: Faq[];
+  products: CategoryProducts;
 };
 
 export default function Home(props: HomeProps) {
-  console.log('Index');
-  const { contactInfo, categories, documents, projectMap, stepData, faqData } = props;
+  const { contactInfo, categories, documents, projectMap, stepData, faqData, products } = props;
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
 
@@ -76,7 +92,7 @@ export default function Home(props: HomeProps) {
             <main>
               <MainSection />
               <AboutSection />
-              <CatalogSection categories={categories} />
+              <CatalogSection categories={categories} products={products} />
               <ProjectMapSection projectMap={projectMap} stepData={stepData} />
               <FAQ faqData={faqData} />
               <FormSection />
