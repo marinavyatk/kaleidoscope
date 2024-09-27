@@ -1,19 +1,18 @@
-<svg width="1740" height="1078" viewBox="0 0 1740 1078" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.1">
-<path d="M5.14795 73.0667H408.424L488.875 156.723H799.988V564.414" stroke="#E2BE98" stroke-linejoin="round"/>
-<path d="M1295.73 5.29468H1734.85V115.424" stroke="#E2BE98" stroke-linejoin="round"/>
-<path d="M1734.85 772.496V1011.92L1676.33 1072.18H802.048" stroke="#E2BE98" stroke-linejoin="round"/>
-<ellipse cx="5.14793" cy="73.0669" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="407.717" cy="73.0669" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="490.082" cy="156.723" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="799.989" cy="156.723" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="799.989" cy="564.415" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="1301.4" cy="5.2947" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="1734.85" cy="5.2947" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="1734.85" cy="115.424" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="1734.85" cy="773.026" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="1734.85" cy="1011.29" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="1676.17" cy="1072.71" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-<ellipse cx="799.989" cy="1072.71" rx="5.14793" ry="5.2947" fill="#E2BE98"/>
-</g>
+<svg width="1740" height="1078" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity=".1">
+        <path d="M5.148 73.067h403.276l80.451 83.656h311.113v407.691M1295.73 5.295h439.12v110.129M1734.85 772.496v239.424l-58.52 60.26H802.048"
+              stroke="#E2BE98" stroke-linejoin="round"/>
+        <ellipse cx="5.148" cy="73.067" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="407.717" cy="73.067" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="490.082" cy="156.723" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="799.989" cy="156.723" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="799.989" cy="564.415" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="1301.4" cy="5.295" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="1734.85" cy="5.295" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="1734.85" cy="115.424" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="1734.85" cy="773.026" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="1734.85" cy="1011.29" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="1676.17" cy="1072.71" rx="5.148" ry="5.295" fill="#E2BE98"/>
+        <ellipse cx="799.989" cy="1072.71" rx="5.148" ry="5.295" fill="#E2BE98"/>
+    </g>
 </svg>

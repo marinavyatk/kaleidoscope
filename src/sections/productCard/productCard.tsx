@@ -38,11 +38,11 @@ export const ProductCard = (props: ProductCardProps) => {
   const isTabletOrMobile = useScreenWidth(767);
 
   return (
-    <div {...restProps} className={classNames}>
+    <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
       <div className={'fullContainer ' + s.background}></div>
       <div>
         <div className={s.cardHeader}>
-          <h2>{productData?.name}</h2>
+          <h2 itemProp='title'>{productData?.name}</h2>
           <DialogClose onClick={onClose} className={s.close}>
             <CloseIcon />
           </DialogClose>
@@ -54,6 +54,7 @@ export const ProductCard = (props: ProductCardProps) => {
               dangerouslySetInnerHTML={{
                 __html: productData?.description || '',
               }}
+              itemProp='description'
             ></div>
           </div>
           {!isTabletOrMobile && (

@@ -32,7 +32,12 @@ const CatalogSection = (props: CatalogSectionProps) => {
   });
 
   return (
-    <section className={s.catalogSection} id='catalog'>
+    <section
+      className={s.catalogSection}
+      id='catalog'
+      itemScope
+      itemType='https://schema.org/CollectionPage'
+    >
       <Image src={'/radial-bg.webp'} alt='' fill className={s.gradient} />
       <Image src={'/bg-pattern-catalog.svg'} alt='' fill className={s.pattern} />
       <h2>Каталог</h2>
@@ -44,7 +49,13 @@ const CatalogSection = (props: CatalogSectionProps) => {
         ) : (
           <Carousel products={products || []} />
         )}
-        <div className={s.categories}>{categoriesButtons}</div>
+        <div
+          className={s.categories}
+          itemProp='category'
+          content='Развлекательно-игровые комплексы'
+        >
+          {categoriesButtons}
+        </div>
       </div>
     </section>
   );

@@ -30,11 +30,15 @@ export const Card = (props: CardProps) => {
   const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
 
   return (
-    <div {...restProps} className={classNames}>
+    <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
       <div className={s.card}>
         <CardBackground className={'fullContainer ' + s.cardBackground} />
-        <p className={s.cardName}>{product?.name}</p>
-        <p className={s.description}>{product?.shortDescription}</p>
+        <h3 className={s.cardName} itemProp='title'>
+          {product?.name}
+        </h3>
+        <p className={s.description} itemProp='description'>
+          {product?.shortDescription}
+        </p>
         <Picture
           component={Image}
           src={product?.img || ''}
@@ -43,6 +47,7 @@ export const Card = (props: CardProps) => {
           sizes='(max-width: 767px) 259px, 526px'
           containerProps={{ className: s.model }}
           loaderProps={{ lightBackground: true }}
+          itemProp='image'
         />
         {restProps.children}
         <ProductCardModal

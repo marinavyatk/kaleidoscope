@@ -25,12 +25,20 @@ export const AccordionItem = (props: AccordionItemProps) => {
   }
 
   return (
-    <div {...restProps} className={classNames}>
+    <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Question'>
       <div className={s.accordion}>
-        <h3 className={s.question}>{question}</h3>
+        <h3 className={s.question} itemProp='name'>
+          {question}
+        </h3>
         <AccordionButton opened={opened} setOpened={setOpened} />
       </div>
-      <div className={s.answer} ref={answerRef} dangerouslySetInnerHTML={{ __html: answer }}></div>
+      <div
+        className={s.answer}
+        ref={answerRef}
+        dangerouslySetInnerHTML={{ __html: answer }}
+        itemProp='acceptedAnswer'
+        itemType='https://schema.org/Answer'
+      ></div>
     </div>
   );
 };

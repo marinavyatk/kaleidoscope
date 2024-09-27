@@ -11,14 +11,19 @@ const MainSection = () => {
   const images = usePreloadImages({ animation: 'waving', imgQty: 88, reverse: true });
 
   return (
-    <section className={s.mainSection} ref={animationRef}>
+    <section
+      className={s.mainSection}
+      ref={animationRef}
+      itemScope
+      itemType='https://schema.org/Organization'
+    >
       <div className={s.background + ' fullContainer backgroundImg'}></div>
       {images.length && shouldPlayAnimation ? (
         <Animation images={images} ms={40} />
       ) : (
         <div className={s.kids + ' fullContainer backgroundImg'} />
       )}
-      <h1>Калейдоскоп ИГР</h1>
+      <h1 itemProp='name'>Калейдоскоп ИГР</h1>
       <p>Производим уникальные изделия для развития спортивного будущего!</p>
       <Button as='a' href='#catalog'>
         Смотреть все изделия

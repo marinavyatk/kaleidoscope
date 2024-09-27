@@ -21,11 +21,20 @@ const Footer = (props: FooterProps) => {
     <footer className={s.footer} id='contacts' itemScope itemType='https://schema.org/Organization'>
       <div className={s.footerContent}>
         <div className={s.footerLeft}>
-          <p>ИП Резник Александр Александрович</p>
-          <p className={s.inn}>ИНН: 230808907002</p>
-          <address className={s.address}>
-            350089, Краснодарский край, г.&nbsp;Краснодар, проспект Чекистов, дом&nbsp;23,
-            оф.&nbsp;226
+          <p itemProp='name'>ИП Резник Александр Александрович</p>
+          <p className={s.inn}>
+            ИНН: <span itemProp='taxID'>230808907002</span>
+          </p>
+          <address
+            className={s.address}
+            itemProp='address'
+            itemScope
+            itemType='https://schema.org/PostalAddress'
+          >
+            <span itemProp='postalCode'>350089</span>,{' '}
+            <span itemProp='addressRegion'>Краснодарский край</span>,{' '}
+            <span itemProp='addressLocality'>г.&nbsp;Краснодар</span>,{' '}
+            <span itemProp='streetAddress'>проспект Чекистов, дом&nbsp;23, оф.&nbsp;226</span>
           </address>
         </div>
         <div className={s.footerCenter}>
@@ -40,14 +49,14 @@ const Footer = (props: FooterProps) => {
         <div className={s.footerRight}>
           {tels?.map((tel) => {
             return (
-              <a href={`tel:${tel}`} className={s.tel} key={tel}>
+              <a href={`tel:${tel}`} className={s.tel} key={tel} itemProp='telephone'>
                 {formatPhoneNumber(tel)}
               </a>
             );
           })}
           {emails?.map((email) => {
             return (
-              <a href={`mailto:${email}`} className={s.email} key={email}>
+              <a href={`mailto:${email}`} className={s.email} key={email} itemProp='email'>
                 {email}
               </a>
             );
@@ -60,6 +69,8 @@ const Footer = (props: FooterProps) => {
                 rel='nofollow'
                 target={'_blank'}
                 aria-label='Мы в WhatsApp'
+                title='Мы в WhatsApp'
+                itemProp='sameAs'
               >
                 <WhatsUpIcon />
               </a>
@@ -71,6 +82,8 @@ const Footer = (props: FooterProps) => {
                 rel='nofollow'
                 target={'_blank'}
                 aria-label='Мы на Rutube'
+                title='Мы на Rutube'
+                itemProp='sameAs'
               >
                 <RutubeIcon />
               </a>
@@ -82,6 +95,8 @@ const Footer = (props: FooterProps) => {
                 rel='nofollow'
                 target={'_blank'}
                 aria-label='Мы на Youtube'
+                title='Мы на Youtube'
+                itemProp='sameAs'
               >
                 <YoutubeIcon />
               </a>
@@ -93,6 +108,8 @@ const Footer = (props: FooterProps) => {
                 rel='nofollow'
                 target={'_blank'}
                 aria-label='Мы ВКонтакте'
+                title='Мы ВКонтакте'
+                itemProp='sameAs'
               >
                 <VKIcon />
               </a>
@@ -103,7 +120,9 @@ const Footer = (props: FooterProps) => {
                 className={s.link + ' ' + s.telegram}
                 rel='nofollow'
                 target={'_blank'}
-                aria-label='Мы в telegram'
+                aria-label='Мы в Telegram'
+                title='Мы в Telegram'
+                itemProp='sameAs'
               >
                 <TelegramIcon />
               </a>
@@ -116,9 +135,9 @@ const Footer = (props: FooterProps) => {
           <a href='/privacy-policy.pdf' target='_blank' rel='nofollow'>
             Политика конфиденциальности
           </a>
-          <Link href={'/privacy-policy'} rel='nofollow' target='_blank'>
-            Политика конфиденциальности
-          </Link>
+          {/*<Link href={'/privacy-policy'} rel='nofollow' target='_blank'>*/}
+          {/*  Политика конфиденциальности*/}
+          {/*</Link>*/}
           <span>
             Разработано в{' '}
             <a href='https://octoweb.ru/' target='_blank' rel='nofollow'>

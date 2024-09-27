@@ -34,8 +34,7 @@
   }
 
   &:focus {
-    outline: 1px solid var(--color-light);
-    outline-offset: 5px;
+    background-color: var(--color-secondary);
   }
 }
 

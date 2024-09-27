@@ -68,6 +68,7 @@
 }
 
 .cardMain {
+  min-height: 539px;
   h3 {
     margin-bottom: 40px;
   }
@@ -148,6 +149,10 @@
   .cardFooter .commercialProposal {
     display: none;
   }
+  .cardMain{
+    min-height: unset;
+  }
+
   .cardMain h3 {
     margin-bottom: 30px;
   }

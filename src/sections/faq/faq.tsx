@@ -17,7 +17,7 @@ const FAQ = (props: FAQProps) => {
   });
 
   return (
-    <section {...restProps} className={classNames}>
+    <section {...restProps} className={classNames} itemScope itemType='https://schema.org/FAQPage'>
       <h2>Ч.З.В</h2>
       {items}
     </section>
