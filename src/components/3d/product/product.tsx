@@ -11,6 +11,7 @@ export default function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene } = useGLTF(link, true);
   const [scale, setScale] = useState(1);
+  console.log(link, scale);
 
   useEffect(() => {
     if (sceneRef.current) {
@@ -21,15 +22,9 @@ export default function Model(props: ModelProps) {
       const desiredSize = screenWidth > 650 ? 2.4 : 2;
       const calculatedScale = desiredSize / maxModelSize;
       setScale(calculatedScale);
+      console.log(link, modelSize);
     }
   }, [scene]);
 
-  return (
-    <primitive
-      object={scene}
-      ref={sceneRef}
-      position={[0, -0.3, 0]}
-      scale={[scale, scale, scale]}
-    />
-  );
+  return <primitive object={scene} ref={sceneRef} position={[0, -0.3, 0]} />;
 }

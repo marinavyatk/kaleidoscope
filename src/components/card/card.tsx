@@ -33,7 +33,7 @@ export const Card = (props: CardProps) => {
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
       <div className={s.card}>
         <CardBackground className={'fullContainer ' + s.cardBackground} />
-        <h3 className={s.cardName} itemProp='title'>
+        <h3 className={s.cardName} itemProp='name'>
           {product?.name}
         </h3>
         <p className={s.description} itemProp='description'>
