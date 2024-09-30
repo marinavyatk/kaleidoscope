@@ -10,22 +10,29 @@ import {
   ContactsData,
   DocumentData,
   Faq,
-  Product,
   ProjectMap,
   StepData,
 } from '@/common/types';
 import s from '@/styles/index.module.scss';
 import { getStructuredProducts, getStructuredProjectMap } from '@/common/commonFunctions';
 import ErrorBoundary from '@/components/errorBoundary/errorBoundary';
-import dynamic from 'next/dynamic';
-const MainSection = dynamic(() => import('@/sections/main/mainSection'));
-const AboutSection = dynamic(() => import('@/sections/about/aboutSection'));
-const CatalogSection = dynamic(() => import('@/sections/catalog/catalogSection'));
-const ProjectMapSection = dynamic(() => import('@/sections/projectMap/projectMapSection'));
-const FAQ = dynamic(() => import('@/sections/faq/faq'));
-const FormSection = dynamic(() => import('@/sections/form/formSection'));
-const DocumentationSection = dynamic(() => import('@/sections/documentation/documentationSection'));
-const Footer = dynamic(() => import('../components/footer/footer'));
+import MainSection from '@/sections/main/mainSection';
+import AboutSection from '@/sections/about/aboutSection';
+import CatalogSection from '@/sections/catalog/catalogSection';
+import ProjectMapSection from '@/sections/projectMap/projectMapSection';
+import FAQ from '@/sections/faq/faq';
+import FormSection from '@/sections/form/formSection';
+import DocumentationSection from '@/sections/documentation/documentationSection';
+import Footer from '@/components/footer/footer';
+// import dynamic from 'next/dynamic';
+// const MainSection = dynamic(() => import('@/sections/main/mainSection'));
+// const AboutSection = dynamic(() => import('@/sections/about/aboutSection'));
+// const CatalogSection = dynamic(() => import('@/sections/catalog/catalogSection'));
+// const ProjectMapSection = dynamic(() => import('@/sections/projectMap/projectMapSection'));
+// const FAQ = dynamic(() => import('@/sections/faq/faq'));
+// const FormSection = dynamic(() => import('@/sections/form/formSection'));
+// const DocumentationSection = dynamic(() => import('@/sections/documentation/documentationSection'));
+// const Footer = dynamic(() => import('../components/footer/footer'));
 
 export const getStaticProps = async () => {
   const contactInfo = (await api.getContacts()) || {};
