@@ -3,15 +3,12 @@ import { Button } from '../button/button';
 import s from './form.module.scss';
 import { useForm } from 'react-hook-form';
 import { FormValues } from '@/common/types';
-import { useEffect, useState } from 'react';
 import { api } from '@/common/api';
 import { Textarea } from '@/components/input/textarea';
 import { clsx } from 'clsx';
+import { useFormStatus } from '@/common/customHooks/useFormStatus';
 
 export const Form = () => {
-  const [status, setStatus] = useState('');
-  const [error, setError] = useState(false);
-
   const {
     reset,
     register,
@@ -19,34 +16,7 @@ export const Form = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
 
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
-    if (status && !error) {
-      timeoutId = setTimeout(() => {
-        setStatus('');
-        reset();
-      }, 3000);
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [status]);
-
-  const onSubmit = (data: FormValues) => {
-    api
-      .sendForm(data)
-      .then((response) => {
-        setStatus(response.data?.message);
-        if (response.data.status === 'mail_sent') {
-          setError(false);
-        } else {
-          setError(true);
-        }
-      })
-      .catch((response) => {
-        setStatus(response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.');
-        setError(true);
-      });
-  };
+  const { onSubmit, status, error } = useFormStatus(reset, api.sendForm);
 
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmit)}>

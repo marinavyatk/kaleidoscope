@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { CPFormValues } from '@/common/types';
-import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 import { Input } from '@/components/input/input';
 import { Button } from '@/components/button/button';
 import s from './commercialProposalForm.module.scss';
 import { api } from '@/common/api';
+import { useFormStatus } from '@/common/customHooks/useFormStatus';
 
 export type CPFormProps = {
   chosenProduct: string;
@@ -13,8 +13,6 @@ export type CPFormProps = {
 
 export const CommercialProposalForm = (props: CPFormProps) => {
   const { chosenProduct } = props;
-  const [status, setStatus] = useState('');
-  const [error, setError] = useState(false);
 
   const {
     reset,
@@ -30,34 +28,7 @@ export const CommercialProposalForm = (props: CPFormProps) => {
     },
   });
 
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
-    if (status && !error) {
-      timeoutId = setTimeout(() => {
-        setStatus('');
-        reset();
-      }, 3000);
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [status]);
-
-  const onSubmit = (data: CPFormValues) => {
-    api
-      .sendCPForm(data)
-      .then((response) => {
-        setStatus(response.data?.message);
-        if (response.data.status === 'mail_sent') {
-          setError(false);
-        } else {
-          setError(true);
-        }
-      })
-      .catch((response) => {
-        setStatus(response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.');
-        setError(true);
-      });
-  };
+  const { onSubmit, status, error } = useFormStatus(reset, api.sendCPForm);
 
   return (
     <form className={s.commercialProposalForm} onSubmit={handleSubmit(onSubmit)}>

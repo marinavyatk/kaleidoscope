@@ -30,10 +30,11 @@ export type ProductCardProps = {
   productData: Product;
   swiperRef: RefObject<SwiperClass>;
   onClose: () => void;
+  hasViewed: boolean;
 } & ComponentPropsWithoutRef<'div'>;
 
 export const ProductCard = (props: ProductCardProps) => {
-  const { productData, onClose, swiperRef, className, ...restProps } = props;
+  const { productData, onClose, swiperRef, className, hasViewed, ...restProps } = props;
   const classNames = clsx(s.productCard, className);
   const isTabletOrMobile = useScreenWidth(767);
 
@@ -78,7 +79,8 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
-          {productData?.model && <Scene link={productData.model} />}
+          {/*{productData?.model && <Scene link={productData.model} />}*/}
+          {hasViewed && productData?.model && <Scene link={productData.model} />}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>
