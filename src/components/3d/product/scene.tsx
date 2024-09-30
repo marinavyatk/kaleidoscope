@@ -21,7 +21,7 @@ export function Scene(props: ModelProps) {
     >
       <Canvas
         className={clsx(s.canvas, s.interactiveCanvas)}
-        camera={{ position: [-1.36, 1.73, 2.38], fov: 50 }}
+        camera={{ position: [-1.36, 1.73, 2.78], fov: 50 }}
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[-1, 10, -2]} intensity={1.7} castShadow />
