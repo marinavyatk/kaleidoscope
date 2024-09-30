@@ -39,7 +39,7 @@ const Footer = (props: FooterProps) => {
         </div>
         <div className={s.footerCenter}>
           <Logo className={s.logo} />
-          <a href='#top' aria-label={'Перейти вверх страницы'}>
+          <a href='#top' aria-label={'Перейти вверх страницы'} rel='nofollow'>
             <div className={s.arrowUp}>
               <ArrowUp />
             </div>
