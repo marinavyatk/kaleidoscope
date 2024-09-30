@@ -39,11 +39,14 @@ export const AccordionItem = (props: AccordionItemProps) => {
         <AccordionButton opened={opened} setOpened={setOpened} />
       </div>
       <div
+        itemProp='acceptedAnswer'
+        itemScope
+        itemType='https://schema.org/Answer'
         className={s.answer}
         ref={answerRef}
-        dangerouslySetInnerHTML={{ __html: answer }}
-        itemProp='text'
-      ></div>
+      >
+        <span dangerouslySetInnerHTML={{ __html: answer }} itemProp='text'></span>
+      </div>
     </div>
   );
 };
