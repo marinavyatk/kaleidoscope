@@ -42,8 +42,7 @@ export const AccordionItem = (props: AccordionItemProps) => {
         className={s.answer}
         ref={answerRef}
         dangerouslySetInnerHTML={{ __html: answer }}
-        itemProp='acceptedAnswer'
-        itemType='https://schema.org/Answer'
+        itemProp='text'
       ></div>
     </div>
   );
