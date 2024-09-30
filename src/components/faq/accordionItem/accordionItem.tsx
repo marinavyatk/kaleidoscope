@@ -25,7 +25,13 @@ export const AccordionItem = (props: AccordionItemProps) => {
   }
 
   return (
-    <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Question'>
+    <div
+      {...restProps}
+      className={classNames}
+      itemScope
+      itemType='https://schema.org/Question'
+      itemProp='mainEntity'
+    >
       <div className={s.accordion}>
         <h3 className={s.question} itemProp='name'>
           {question}

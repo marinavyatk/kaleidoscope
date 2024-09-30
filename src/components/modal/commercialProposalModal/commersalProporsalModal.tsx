@@ -17,7 +17,16 @@ export const CommercialProposalModal = (props: CommercialProposalModalProps) => 
       contentProps={{ className: s.cpContainer }}
       overlayProps={{ className: s.cpOverlay }}
       modalHeader={'Получить коммерческое предложение'}
-      trigger={<button className={clsx(s.cpTrigger, triggerClassName)}>получить кп</button>}
+      trigger={
+        <button
+          className={clsx(s.cpTrigger, triggerClassName)}
+          itemProp='offers'
+          itemScope
+          itemType='https://schema.org/Offer'
+        >
+          получить кп
+        </button>
+      }
     >
       <div className={s.cpModalContent}>
         <DialogClose className={s.close}>

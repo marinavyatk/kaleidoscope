@@ -19,9 +19,7 @@ const FAQ = (props: FAQProps) => {
   return (
     <section {...restProps} className={classNames} itemScope itemType='https://schema.org/FAQPage'>
       <h2>Ч.З.В</h2>
-      <div itemProp='mainEntity' itemScope itemType='https://schema.org/ItemList'>
-        {items}
-      </div>
+      <div>{items}</div>
     </section>
   );
 };

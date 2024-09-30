@@ -56,8 +56,8 @@ const Footer = (props: FooterProps) => {
           })}
           {emails?.map((email) => {
             return (
-              <a href={`mailto:${email}`} className={s.email} key={email} itemProp='email'>
-                {email}
+              <a href={`mailto:${email}`} className={s.email} key={email}>
+                <span itemProp='email'>{email}</span>
               </a>
             );
           })}

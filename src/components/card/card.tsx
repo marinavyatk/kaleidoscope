@@ -55,6 +55,10 @@ export const Card = (props: CardProps) => {
           activeSlide={activeSlide}
           setActiveIndex={setActiveIndex}
         />
+        <div itemProp='aggregateRating' itemScope itemType='https://schema.org/AggregateRating'>
+          <meta itemProp='ratingValue' content='5' />
+          <meta itemProp='reviewCount' content='1' />
+        </div>
       </div>
     </div>
   );
