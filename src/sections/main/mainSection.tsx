@@ -19,7 +19,7 @@ const MainSection = () => {
     >
       <div className={s.background + ' fullContainer backgroundImg'}></div>
       {images.length && shouldPlayAnimation ? (
-        <Animation images={images} ms={40} />
+        <Animation images={images} ms={40} loop />
       ) : (
         <div className={s.kids + ' fullContainer backgroundImg'} />
       )}
