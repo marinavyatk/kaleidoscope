@@ -14,12 +14,12 @@ export const usePreloadImages = ({ animation, imgQty, reverse }: Args) => {
         return new Promise<HTMLImageElement>((resolve, reject) => {
           const img = new window.Image();
           let imgSrc = '';
-          if (screenWidth >= 768) {
-            imgSrc = `/${animation}/desktop/${i.toString().padStart(5, '0')}.png.webp`;
+          if (screenWidth > 768) {
+            imgSrc = `/${animation}/desktop/${(i + 1).toString()}.webp`;
           } else if (screenWidth >= 480) {
-            imgSrc = `/${animation}/tablet/${i.toString().padStart(5, '0')}.png.webp`;
+            imgSrc = `/${animation}/tablet/${(i + 1).toString()}.webp`;
           } else {
-            imgSrc = `/${animation}/mobile/${i.toString().padStart(5, '0')}.png.webp`;
+            imgSrc = `/${animation}/mobile/${(i + 1).toString()}.webp`;
           }
           img.src = imgSrc;
           img.onload = () => resolve(img);

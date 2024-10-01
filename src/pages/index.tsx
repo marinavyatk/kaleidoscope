@@ -24,15 +24,6 @@ import FAQ from '@/sections/faq/faq';
 import FormSection from '@/sections/form/formSection';
 import DocumentationSection from '@/sections/documentation/documentationSection';
 import Footer from '@/components/footer/footer';
-// import dynamic from 'next/dynamic';
-// const MainSection = dynamic(() => import('@/sections/main/mainSection'));
-// const AboutSection = dynamic(() => import('@/sections/about/aboutSection'));
-// const CatalogSection = dynamic(() => import('@/sections/catalog/catalogSection'));
-// const ProjectMapSection = dynamic(() => import('@/sections/projectMap/projectMapSection'));
-// const FAQ = dynamic(() => import('@/sections/faq/faq'));
-// const FormSection = dynamic(() => import('@/sections/form/formSection'));
-// const DocumentationSection = dynamic(() => import('@/sections/documentation/documentationSection'));
-// const Footer = dynamic(() => import('../components/footer/footer'));
 
 export const getStaticProps = async () => {
   const contactInfo = (await api.getContacts()) || {};
@@ -81,6 +72,13 @@ export default function Home(props: HomeProps) {
         <link rel='manifest' href='/favicon/site.webmanifest' />
         <link rel='mask-icon' href='/favicon/safari-pinned-tab.svg' color='#5bbad5' />
         <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
+        <link rel='preload' as='image' href='/main-section-bg.webp' media='(min-width: 769px)' />
+        <link
+          rel='preload'
+          as='image'
+          href='/main-section-bg-small.webp'
+          media='(max-width: 768px)'
+        />
       </Head>
       <ErrorBoundary>
         <div className='mainContainer'>

@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import s from './timeline.module.scss';
 import { TimelineStep } from '@/components/timeline/timelineStep';

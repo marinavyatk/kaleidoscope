@@ -39,7 +39,7 @@
 
   .kids {
     z-index: -1;
-    background-image: url("/greeting/desktop/00000.png.webp");
+    background-image: url("/greeting/desktop/1.webp");
 
     &.hidden {
       opacity: 0;
@@ -96,7 +96,7 @@
     }
 
     .kids {
-      background-image: url("/greeting/tablet/00000.png.webp");
+      background-image: url("/greeting/tablet/1.webp");
     }
 
     .firstLine {
@@ -115,7 +115,7 @@
     padding: 270px 0 85px;
 
     .kids {
-      background-image: url("/greeting/mobile/00000.png.webp");
+      background-image: url("/greeting/mobile/1.webp");
     }
   }
 }

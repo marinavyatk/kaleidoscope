@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import CardBackground from '../../assets/card.svg';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import s from './card.module.scss';
 import { ProductCardModal } from '../modal/productCardModal/productCardModal';
 import { Product } from '@/common/types';

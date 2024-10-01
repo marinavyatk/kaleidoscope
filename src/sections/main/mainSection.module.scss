@@ -13,7 +13,7 @@
   .kids {
     z-index: -1;
     object-fit: cover;
-    background-image: url("/waving/desktop/00000.png.webp");
+    background-image: url("/waving/desktop/1.webp");
   }
 
   p {
@@ -34,7 +34,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .mainSection {
     padding: 573px 20px 250px;
     .background {
@@ -46,7 +46,7 @@
       margin: 20px 0 40px;
     }
     .kids {
-      background-image: url("/waving/tablet/00000.png.webp");
+      background-image: url("/waving/tablet/1.webp");
     }
   }
 }
@@ -54,7 +54,7 @@
   .mainSection {
     padding: 341px 16px 86px;
     .kids {
-      background-image: url("/waving/mobile/00000.png.webp");
+      background-image: url("/waving/mobile/1.webp");
     }
   }
 }

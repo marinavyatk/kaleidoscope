@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, Ref, useEffect, useState } from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import s from './input.module.scss';
 import InputMask from '@mona-health/react-input-mask';
 

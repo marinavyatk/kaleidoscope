@@ -8,7 +8,7 @@ import { usePreloadImages } from '@/common/customHooks/usePreloadImages';
 const MainSection = () => {
   const animationRef = useRef<HTMLDivElement | null>(null);
   const shouldPlayAnimation = useIntersectionObserver(animationRef, 0.3);
-  const images = usePreloadImages({ animation: 'waving', imgQty: 88, reverse: true });
+  const images = usePreloadImages({ animation: 'waving', imgQty: 96, reverse: false });
 
   return (
     <section

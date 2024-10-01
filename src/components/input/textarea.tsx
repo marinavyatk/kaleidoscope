@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, Ref } from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import s from './input.module.scss';
 import TextareaAutosize from 'react-textarea-autosize';
 

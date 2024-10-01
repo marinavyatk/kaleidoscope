@@ -1,15 +1,14 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { DialogContentProps, DialogOverlayProps, DialogProps } from '@radix-ui/react-dialog';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import s from './modal.module.scss';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export type ModalProps = {
-  contentProps?: DialogContentProps;
-  overlayProps?: DialogOverlayProps;
+  contentProps?: Dialog.DialogContentProps;
+  overlayProps?: Dialog.DialogOverlayProps;
   modalHeader: string;
-  rootProps?: DialogProps;
+  rootProps?: Dialog.DialogProps;
   trigger?: ReactNode;
 } & ComponentPropsWithoutRef<'div'>;
 

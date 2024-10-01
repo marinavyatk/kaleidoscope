@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import s from './timeline.module.scss';
 import { StepData } from '@/common/types';
 
