@@ -8,6 +8,7 @@ import {
   Field,
   FormValues,
   MapData,
+  PrivacyPolicyData,
 } from '@/common/types';
 
 export const instance = axios.create({
@@ -125,5 +126,13 @@ export const api = {
         'Content-Type': 'multipart/form-data',
       },
     });
+  },
+  getPrivacyPolicy() {
+    return instance
+      .get<PrivacyPolicyData>('/wp-json/myplugin/v1/privacy')
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error('Ошибка при загрузке политики конфиденциальности:', error);
+      });
   },
 };

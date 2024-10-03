@@ -1,17 +1,25 @@
 import { api } from '@/common/api';
-import { getStructuredProjectMap } from '@/common/commonFunctions';
-
-export const getStaticProps = async () => {
-  const privacyPolicy = (await api.getContacts()) || {}; //change
-
-  return { props: privacyPolicy };
-};
+import { PrivacyPolicyData } from '@/common/types';
+import s from './privacy.module.scss';
+import { Layout } from '@/components/layout/layout';
 
 type PrivacyPolicyProps = {
-  privacyPolicy: string;
+  privacyPolicy: PrivacyPolicyData;
+};
+
+export const getStaticProps = async () => {
+  const privacyPolicy = await api.getPrivacyPolicy();
+  return { props: { privacyPolicy } };
 };
 
 export default function PrivacyPolicy(props: PrivacyPolicyProps) {
   const { privacyPolicy } = props;
-  return <div dangerouslySetInnerHTML={{ __html: privacyPolicy }}></div>;
+  return (
+    <Layout>
+      <main className={'mainContainer ' + s.privacyPolicy}>
+        <h1 dangerouslySetInnerHTML={{ __html: privacyPolicy?.title }}></h1>
+        <div dangerouslySetInnerHTML={{ __html: privacyPolicy?.content }}></div>
+      </main>
+    </Layout>
+  );
 }

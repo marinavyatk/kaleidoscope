@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Head from 'next/head';
 import Header from '@/components/header/header';
 import { GreetingSection } from '@/sections/greeting/greetingSection';
 import Player from '@/components/player/player';
@@ -15,7 +14,6 @@ import {
 } from '@/common/types';
 import s from '@/styles/index.module.scss';
 import { getStructuredProducts, getStructuredProjectMap } from '@/common/commonFunctions';
-import ErrorBoundary from '@/components/errorBoundary/errorBoundary';
 import MainSection from '@/sections/main/mainSection';
 import AboutSection from '@/sections/about/aboutSection';
 import CatalogSection from '@/sections/catalog/catalogSection';
@@ -24,6 +22,7 @@ import FAQ from '@/sections/faq/faq';
 import FormSection from '@/sections/form/formSection';
 import DocumentationSection from '@/sections/documentation/documentationSection';
 import Footer from '@/components/footer/footer';
+import { Layout } from '@/components/layout/layout';
 
 export const getStaticProps = async () => {
   const contactInfo = (await api.getContacts()) || {};
@@ -59,62 +58,49 @@ export default function Home(props: HomeProps) {
   const [initialPlaying, setInitialPlaying] = useState(false);
 
   return (
-    <>
-      <Head>
-        <title>Калейдоскоп Игр – Развлекательные МАФ для Общественных Мест</title>
-        <meta
-          name='description'
-          content='Калейдоскоп Игр создает уникальные малые архитектурные формы (МАФ) для общественных пространств. Производство, продажа и установка МАФ для использования на улице.'
-        />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png' />
-        <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png' />
-        <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png' />
-        <link rel='manifest' href='/favicon/site.webmanifest' />
-        <link rel='icon' href='/favicon/favicon.ico' />
-        <link rel='manifest' href='/favicon/site.webmanifest' />
-        <link rel='mask-icon' href='/favicon/safari-pinned-tab.svg' color='#5bbad5' />
-        <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
-        <link rel='preload' as='image' href='/main-section-bg.webp' media='(min-width: 769px)' />
-        <link
-          rel='preload'
-          as='image'
-          href='/main-section-bg-small.webp'
-          media='(max-width: 768px)'
-        />
-        <link rel='canonical' href='https://xn----7sbkceuefeg0bbnri.xn--p1ai/' />
-      </Head>
-      <ErrorBoundary>
-        <div className='mainContainer'>
-          {showGreeting && (
-            <GreetingSection
-              setShowGreeting={setShowGreeting}
-              setPlaying={setInitialPlaying}
-              className={!showGreeting ? s.hiddenGreeting : ''}
-            />
-          )}
-          <div className={showGreeting ? s.hidden : ''}>
-            <Header
-              className={s.header}
-              player={<Player initialPlaying={initialPlaying} key={`playing-${initialPlaying}`} />}
-            />
-            <main>
-              <MainSection />
-              <AboutSection />
-              <CatalogSection categories={categories} products={products} />
-              <ProjectMapSection projectMap={projectMap} stepData={stepData} />
-              <FAQ faqData={faqData} />
-              <FormSection />
-              <DocumentationSection documents={documents} />
-            </main>
-            <Footer
-              tels={contactInfo['contact_phones']}
-              emails={contactInfo['contact_emails']}
-              socialLinks={contactInfo['social_links']}
-            />
-          </div>
+    <Layout
+      headTags={
+        <>
+          <link rel='preload' as='image' href='/main-section-bg.webp' media='(min-width: 769px)' />
+          <link
+            rel='preload'
+            as='image'
+            href='/main-section-bg-small.webp'
+            media='(max-width: 768px)'
+          />
+          <link rel='canonical' href='https://xn----7sbkceuefeg0bbnri.xn--p1ai/' />
+        </>
+      }
+    >
+      <div className='mainContainer'>
+        {showGreeting && (
+          <GreetingSection
+            setShowGreeting={setShowGreeting}
+            setPlaying={setInitialPlaying}
+            className={!showGreeting ? s.hiddenGreeting : ''}
+          />
+        )}
+        <div className={showGreeting ? s.hidden : ''}>
+          <Header
+            className={s.header}
+            player={<Player initialPlaying={initialPlaying} key={`playing-${initialPlaying}`} />}
+          />
+          <main>
+            <MainSection />
+            <AboutSection />
+            <CatalogSection categories={categories} products={products} />
+            <ProjectMapSection projectMap={projectMap} stepData={stepData} />
+            <FAQ faqData={faqData} />
+            <FormSection />
+            <DocumentationSection documents={documents} />
+          </main>
+          <Footer
+            tels={contactInfo['contact_phones']}
+            emails={contactInfo['contact_emails']}
+            socialLinks={contactInfo['social_links']}
+          />
         </div>
-      </ErrorBoundary>
-    </>
+      </div>
+    </Layout>
   );
 }

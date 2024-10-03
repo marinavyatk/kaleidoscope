@@ -132,12 +132,9 @@ const Footer = (props: FooterProps) => {
       </div>
       <div className={s.footerBottom}>
         <div className={s.bottomLinks}>
-          <a href='/privacy-policy.pdf' target='_blank' rel='nofollow'>
+          <Link href={'/privacy-policy'} rel='nofollow' target='_blank'>
             Политика конфиденциальности
-          </a>
-          {/*<Link href={'/privacy-policy'} rel='nofollow' target='_blank'>*/}
-          {/*  Политика конфиденциальности*/}
-          {/*</Link>*/}
+          </Link>
           <span>
             Разработано в{' '}
             <a href='https://octoweb.ru/' target='_blank' rel='nofollow'>

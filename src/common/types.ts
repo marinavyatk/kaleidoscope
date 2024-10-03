@@ -89,3 +89,8 @@ export type ContactsData = {
   ['contact_emails']: string[];
   ['social_links']: Record<string, string>;
 };
+
+export type PrivacyPolicyData = {
+  title: string;
+  content: string;
+};
