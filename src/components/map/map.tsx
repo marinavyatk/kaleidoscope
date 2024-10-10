@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import {
   YMap,
   YMapComponentsProvider,
@@ -28,7 +28,10 @@ const Map = (props: MapProps) => {
   const { mapData } = props;
   const isTabletOrMobile = useScreenWidth(767);
   const [center, setCenter] = useState<LngLat>([54.81, 54.55]);
-  const [zoom, setZoom] = useState<number>(isTabletOrMobile ? 2 : 4.2);
+  const [zoom, setZoom] = useState<number>(4.2);
+  useEffect(() => {
+    if (isTabletOrMobile) setZoom(2);
+  }, [isTabletOrMobile]);
 
   const pointsInfo: Feature[] | null =
     mapData &&
