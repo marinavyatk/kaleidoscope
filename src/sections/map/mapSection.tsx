@@ -1,5 +1,5 @@
 import s from './mapSection.module.scss';
-import { Map } from '@/components/map/map';
+import Map from '@/components/map/map';
 import { MapData } from '@/common/types';
 
 type MapSectionProps = {

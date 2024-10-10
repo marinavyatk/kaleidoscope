@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import {
   YMap,
   YMapComponentsProvider,
@@ -23,9 +23,13 @@ import { MapData } from '@/common/types';
 type MapProps = {
   mapData: MapData[];
 };
-export const Map = (props: MapProps) => {
+
+const Map = (props: MapProps) => {
   const { mapData } = props;
   const isTabletOrMobile = useScreenWidth(767);
+  const [center, setCenter] = useState<LngLat>([54.81, 54.55]);
+  const [zoom, setZoom] = useState<number>(isTabletOrMobile ? 2 : 4.2);
+
   const pointsInfo: Feature[] | null =
     mapData &&
     mapData
@@ -44,8 +48,34 @@ export const Map = (props: MapProps) => {
         },
       }));
 
-  const location = { center: [54.81, 54.55], zoom: isTabletOrMobile ? 2 : 4 };
   const apiKey = '9e37f796-a14c-440b-8977-8bec80c9f745';
+
+  const calculateClusterBounds = (features: Feature[]) => {
+    let minP = [999, 999];
+    let maxP = [0, 0];
+    for (const feature of features) {
+      const [lng, lat] = feature.geometry.coordinates;
+      minP[0] = Math.min(minP[0], lng);
+      minP[1] = Math.min(minP[1], lat);
+      maxP[0] = Math.max(maxP[0], lng);
+      maxP[1] = Math.max(maxP[1], lat);
+    }
+    return [minP, maxP];
+  };
+
+  const onClusterClickHandler = useCallback((coordinates: LngLat, features: Feature[]) => {
+    const bounds = calculateClusterBounds(features);
+    const newCenter: LngLat = [
+      (bounds[0][0] + bounds[1][0]) / 2,
+      (bounds[0][1] + bounds[1][1]) / 2,
+    ];
+    const latDiff = bounds[1][1] - bounds[0][1];
+    const lngDiff = bounds[1][0] - bounds[0][0];
+    const newZoom = Math.max(2, Math.min(15, Math.log2(360 / Math.max(latDiff, lngDiff))));
+
+    setCenter(newCenter);
+    setZoom(newZoom);
+  }, []);
 
   const marker = useCallback((feature: any) => {
     return <MapPoint coordinates={feature.geometry.coordinates} {...feature.properties} />;
@@ -53,11 +83,14 @@ export const Map = (props: MapProps) => {
 
   const cluster = useCallback(
     (coordinates: YMaps.LngLat, features: Feature[]) => (
-      <YMapMarker coordinates={coordinates}>
+      <YMapMarker
+        coordinates={coordinates}
+        onClick={() => onClusterClickHandler(coordinates, features)}
+      >
         <ClusterSign number={features.length} />
       </YMapMarker>
     ),
-    [],
+    [onClusterClickHandler],
   );
 
   return (
@@ -65,7 +98,7 @@ export const Map = (props: MapProps) => {
       <YMapComponentsProvider apiKey={apiKey} lang='ru_RU'>
         <YMap
           key='map'
-          location={location}
+          location={{ center, zoom }}
           mode='vector'
           behaviors={['drag', 'pinchZoom', 'dblClick']}
           zoomRange={{ min: 2, max: 21 }}
@@ -88,3 +121,5 @@ export const Map = (props: MapProps) => {
     </div>
   );
 };
+
+export default memo(Map);
