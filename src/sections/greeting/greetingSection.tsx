@@ -26,9 +26,9 @@ export const GreetingSection = (props: GreetingSectionProps) => {
 
   const handleButtonClick = () => {
     if (images.length) {
-      setShowAnimation((prev) => !prev);
+      setShowAnimation(true);
+      setPlaying(true);
     }
-    setPlaying(true);
   };
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
