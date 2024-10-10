@@ -24,7 +24,7 @@
   justify-content: space-between;
   background-color: var(--color-light);
   width: 500px;
-  height: 500px;
+  height: 100%;
   padding: 16px 16px 24px;
   z-index: 1;
   color: var(--color-dark);
@@ -73,7 +73,6 @@
 @media (max-width: 1439px) {
   .placeCard {
     width: 400px;
-    height: 400px;
 
     h6 {
       font-size: 18px;
@@ -88,7 +87,6 @@
 @media (max-width: 767px) {
   .placeCard {
     width: 270px;
-    height: 270px;
     padding: 16px 16px 24px;
 
     h6 {

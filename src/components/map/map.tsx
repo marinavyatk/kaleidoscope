@@ -16,28 +16,33 @@ import { MapPoint } from './mapPoint';
 import * as YMaps from '@yandex/ymaps3-types';
 import { LngLat } from '@yandex/ymaps3-types';
 import type { Feature } from '@yandex/ymaps3-types/packages/clusterer/YMapClusterer/interface';
-import { useMap } from '@/common/customHooks/useMap';
 import { v4 as uuid } from 'uuid';
 import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
+import { MapData } from '@/common/types';
 
-export const Map = () => {
+type MapProps = {
+  mapData: MapData[];
+};
+export const Map = (props: MapProps) => {
+  const { mapData } = props;
   const isTabletOrMobile = useScreenWidth(767);
-  const mapData = useMap();
   const pointsInfo: Feature[] | null =
     mapData &&
-    mapData.map((point) => ({
-      type: 'Feature',
-      id: uuid(),
-      geometry: {
-        type: 'Point',
-        coordinates: point.coordinates.split(',').map(Number) as LngLat,
-      },
-      properties: {
-        placeTitle: point.title.rendered,
-        placeDescription: point.content.rendered,
-        placePhoto: point.thumbnail_url,
-      },
-    }));
+    mapData
+      .filter((point) => point.coordinates)
+      .map((point) => ({
+        type: 'Feature',
+        id: uuid(),
+        geometry: {
+          type: 'Point',
+          coordinates: point.coordinates.split(',').map(Number) as LngLat,
+        },
+        properties: {
+          placeTitle: point.title.rendered,
+          placeDescription: point.content.rendered,
+          placePhoto: point.thumbnail_url,
+        },
+      }));
 
   const location = { center: [54.81, 54.55], zoom: isTabletOrMobile ? 2 : 4 };
   const apiKey = '9e37f796-a14c-440b-8977-8bec80c9f745';
@@ -68,7 +73,7 @@ export const Map = () => {
           <YMapCustomClusterer
             marker={marker}
             cluster={cluster}
-            gridSize={64}
+            gridSize={128}
             features={pointsInfo || []}
           />
           <YMapDefaultSchemeLayer

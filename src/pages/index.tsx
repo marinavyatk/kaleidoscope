@@ -9,6 +9,7 @@ import {
   ContactsData,
   DocumentData,
   Faq,
+  MapData,
   ProjectMap,
   StepData,
 } from '@/common/types';
@@ -23,6 +24,7 @@ import FormSection from '@/sections/form/formSection';
 import DocumentationSection from '@/sections/documentation/documentationSection';
 import Footer from '@/components/footer/footer';
 import { Layout } from '@/components/layout/layout';
+import { MapSection } from '@/sections/map/mapSection';
 
 export const getStaticProps = async () => {
   const contactInfo = (await api.getContacts()) || {};
@@ -38,8 +40,11 @@ export const getStaticProps = async () => {
       products[category.id] = productsForCategory || [];
     }),
   );
+  const mapData = (await api.getPoints()) || [];
 
-  return { props: { contactInfo, categories, documents, projectMap, stepData, faqData, products } };
+  return {
+    props: { contactInfo, categories, documents, projectMap, stepData, faqData, products, mapData },
+  };
 };
 
 type HomeProps = {
@@ -50,10 +55,12 @@ type HomeProps = {
   stepData: StepData[];
   faqData: Faq[];
   products: CategoryProducts;
+  mapData: MapData[];
 };
 
 export default function Home(props: HomeProps) {
-  const { contactInfo, categories, documents, projectMap, stepData, faqData, products } = props;
+  const { contactInfo, categories, documents, projectMap, stepData, faqData, products, mapData } =
+    props;
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
 
@@ -90,6 +97,7 @@ export default function Home(props: HomeProps) {
             <AboutSection />
             <CatalogSection categories={categories} products={products} />
             <ProjectMapSection projectMap={projectMap} stepData={stepData} />
+            <MapSection mapData={mapData} />
             <FAQ faqData={faqData} />
             <FormSection />
             <DocumentationSection documents={documents} />

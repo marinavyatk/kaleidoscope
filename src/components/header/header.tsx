@@ -32,7 +32,7 @@ const Header = (props: HeaderProps) => {
               <a href='#catalog'>Каталог</a>
               <a href='#history'>История</a>
               {/*need later*/}
-              {/*<a href='#realized'>Реализовано</a>*/}
+              <a href='#realized'>Реализовано</a>
             </div>
           )}
           <Logo className={s.logo} />
@@ -58,10 +58,9 @@ const Header = (props: HeaderProps) => {
                 <a href='#history' onClick={() => setIsOpen(false)}>
                   История
                 </a>
-                {/*need later*/}
-                {/*<a href='#realized' onClick={() => setIsOpen(false)}>*/}
-                {/*  Реализовано*/}
-                {/*</a>*/}
+                <a href='#realized' onClick={() => setIsOpen(false)}>
+                  Реализовано
+                </a>
                 <a href='#contacts' onClick={() => setIsOpen(false)}>
                   Контакты
                 </a>
