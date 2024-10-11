@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {
+  AlbumData,
   Category,
   ContactsData,
   CPFormValues,
@@ -95,6 +96,14 @@ export const api = {
   getContacts() {
     return instance
       .get<ContactsData>('/wp-json/custom/v1/contact-info/')
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error('Ошибка при загрузке контактов:', error);
+      });
+  },
+  getAlbums() {
+    return instance
+      .get<AlbumData[]>('/wp-json/custom/v1/albums/')
       .then((response) => response.data)
       .catch((error) => {
         console.error('Ошибка при загрузке контактов:', error);

@@ -34,10 +34,9 @@ export type CPFormValues = {
   product: string;
 };
 
-export type ProjectMap = {
-  title: string;
-  description: string;
-  gallery: Array<{ url: string }>;
+export type Album = {
+  img: string;
+  date: string;
 };
 
 //requests types
@@ -66,11 +65,6 @@ export type ProductData = {
   ['product_category']: number;
 };
 
-export type StepData = {
-  topTitle?: string;
-  bottomTitle: string;
-};
-
 export type DocumentData = {
   title: Field;
   thumbnail_url: string;
@@ -93,4 +87,11 @@ export type ContactsData = {
 export type PrivacyPolicyData = {
   title: string;
   content: string;
+};
+
+export type AlbumData = {
+  title: string;
+  description: string;
+  cover: string;
+  images: string[];
 };

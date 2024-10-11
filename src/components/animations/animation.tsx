@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import s from './animation.module.scss';
+import { Nullable } from '@/common/types';
 
 type AnimationProps = {
   images: HTMLImageElement[];
@@ -23,10 +24,10 @@ export const Animation = ({
   repeatInterval = 0,
   setAnimationEnd,
 }: AnimationProps) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasRef = useRef<Nullable<HTMLCanvasElement>>(null);
   const [frameIndex, setFrameIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [imageDimensions, setImageDimensions] = useState<ImageDimensions | null>(null);
+  const [imageDimensions, setImageDimensions] = useState<Nullable<ImageDimensions>>(null);
 
   const calculateImageDimensions = useCallback(
     (canvas: HTMLCanvasElement, img: HTMLImageElement): ImageDimensions => {

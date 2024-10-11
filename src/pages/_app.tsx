@@ -1,5 +1,6 @@
 import 'swiper/css';
 import '@/styles/globals.scss';
+import 'swiper/css/scrollbar';
 
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';

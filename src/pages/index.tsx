@@ -4,35 +4,32 @@ import { GreetingSection } from '@/sections/greeting/greetingSection';
 import Player from '@/components/player/player';
 import { api } from '@/common/api';
 import {
+  AlbumData,
   Category,
   CategoryProducts,
   ContactsData,
   DocumentData,
   Faq,
   MapData,
-  ProjectMap,
-  StepData,
 } from '@/common/types';
 import s from '@/styles/index.module.scss';
-import { getStructuredProducts, getStructuredProjectMap } from '@/common/commonFunctions';
+import { getStructuredProducts } from '@/common/commonFunctions';
 import MainSection from '@/sections/main/mainSection';
 import AboutSection from '@/sections/about/aboutSection';
 import CatalogSection from '@/sections/catalog/catalogSection';
-import ProjectMapSection from '@/sections/projectMap/projectMapSection';
 import FAQ from '@/sections/faq/faq';
 import FormSection from '@/sections/form/formSection';
 import DocumentationSection from '@/sections/documentation/documentationSection';
 import Footer from '@/components/footer/footer';
 import { Layout } from '@/components/layout/layout';
 import { MapSection } from '@/sections/map/mapSection';
+import GallerySection from '@/sections/gallery/gallery';
 
 export const getStaticProps = async () => {
   const contactInfo = (await api.getContacts()) || {};
   const categories = (await api.getProductsCategories()) || [];
   const documents = (await api.getDocuments()) || [];
   const faqData = (await api.getFAQ()) || [];
-  const projectMapData = (await api.getProjectMap()) || [];
-  const { projectMap, stepData } = getStructuredProjectMap(projectMapData);
   const products: CategoryProducts = {};
   await Promise.all(
     categories.map(async (category) => {
@@ -41,9 +38,18 @@ export const getStaticProps = async () => {
     }),
   );
   const mapData = (await api.getPoints()) || [];
+  const albumsData = (await api.getAlbums()) || [];
 
   return {
-    props: { contactInfo, categories, documents, projectMap, stepData, faqData, products, mapData },
+    props: {
+      contactInfo,
+      categories,
+      documents,
+      faqData,
+      products,
+      mapData,
+      albumsData,
+    },
   };
 };
 
@@ -51,16 +57,14 @@ type HomeProps = {
   contactInfo: ContactsData;
   categories: Category[];
   documents: DocumentData[];
-  projectMap: ProjectMap[];
-  stepData: StepData[];
   faqData: Faq[];
   products: CategoryProducts;
   mapData: MapData[];
+  albumsData: AlbumData[];
 };
 
 export default function Home(props: HomeProps) {
-  const { contactInfo, categories, documents, projectMap, stepData, faqData, products, mapData } =
-    props;
+  const { contactInfo, categories, documents, faqData, products, mapData, albumsData } = props;
   const [showGreeting, setShowGreeting] = useState(true);
   const [initialPlaying, setInitialPlaying] = useState(false);
 
@@ -96,7 +100,7 @@ export default function Home(props: HomeProps) {
             <MainSection />
             <AboutSection />
             <CatalogSection categories={categories} products={products} />
-            <ProjectMapSection projectMap={projectMap} stepData={stepData} />
+            <GallerySection albumsData={albumsData} />
             <MapSection mapData={mapData} />
             <FAQ faqData={faqData} />
             <FormSection />

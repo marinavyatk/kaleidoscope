@@ -1,0 +1,187 @@
+.gallerySection {
+  padding: var(--offset-y) var(--offset-x);
+  position: relative;
+
+  h2 {
+    margin-bottom: 100px;
+  }
+
+  .gradient {
+    object-fit: contain;
+    top: 250px !important;
+    right: 120px !important;
+    transform: scale(1.6);
+    z-index: -1;
+  }
+
+  .background {
+    font-weight: var(--fw-bold);
+    font-size: 140px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: right;
+    color: var(--color-bg-text);
+    z-index: -2;
+    top: 60px;
+  }
+}
+
+.galleryContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainInfo {
+  width: 100%;
+  max-width: 1076px;
+  //max-width: 1233px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.descriptionBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.description {
+  font-family: var(--font-family-secondary);
+  font-size: 26px;
+  line-height: 1.2;
+  max-width: 830px;
+}
+
+
+.slide {
+  width: 1076px;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.photo {
+  width: 1076px;
+  height: 548px;
+  background-color: var(--color-bg-text);
+}
+
+.navButtons {
+  width: 100%;
+  justify-content: flex-end;
+
+  button {
+    background-color: var(--color-primary);
+    width: 80px;
+    height: 80px;
+    gap: 48px;
+
+    svg {
+      width: 42px;
+      height: 42px;
+      color: var(--color-dark-footer);
+    }
+  }
+}
+
+@media (max-width: 1780px) {
+  .gallerySection {
+    h2 {
+      margin-bottom: 80px;
+    }
+
+    .background {
+      display: none;
+    }
+  }
+  .galleryContainer {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .mainInfo{
+    min-height: 492px;
+    gap: 30px;
+    max-width: unset;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+  .slide {
+    width: 639px;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .photo {
+    width: 639px;
+    height: 322px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallerySection {
+    h2 {
+      margin-bottom: 40px;
+    }
+    .gradient{
+      top: 50px !important;
+    }
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .galleryContainer {
+    gap: 24px;
+  }
+
+  .mainInfo{
+    min-height: 228px;
+    gap: 16px;
+  }
+
+  .slide {
+    width: 252px;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .photo {
+    width: 252px;
+    height: 128px;
+  }
+
+.descriptionBlock{
+  flex-direction: column;
+  gap:20px;
+}
+
+
+  .navButtons {
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+
+    button {
+      width: 57px;
+      height: 57px;
+
+      svg {
+        width: 27px;
+        height: 27px;
+      }
+    }
+  }
+}

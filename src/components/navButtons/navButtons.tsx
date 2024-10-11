@@ -24,12 +24,14 @@ export const NavButtons = (props: NavButtonsProps) => {
           setIsEnd(currentRef.isEnd);
         }
       };
+      currentRef.on('slideChange', updateButtonState);
       currentRef.on('resize', updateButtonState);
       currentRef.on('reachBeginning', updateButtonState);
       currentRef.on('reachEnd', updateButtonState);
       updateButtonState();
 
       return () => {
+        currentRef.off('slideChange', updateButtonState);
         currentRef?.off('resize', updateButtonState);
         currentRef?.off('reachBeginning', updateButtonState);
         currentRef?.off('reachEnd', updateButtonState);

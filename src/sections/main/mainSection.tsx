@@ -4,9 +4,10 @@ import { memo, useRef } from 'react';
 import { Animation } from '@/components/animations/animation';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 import { usePreloadImages } from '@/common/customHooks/usePreloadImages';
+import { Nullable } from '@/common/types';
 
 const MainSection = () => {
-  const animationRef = useRef<HTMLDivElement | null>(null);
+  const animationRef = useRef<Nullable<HTMLDivElement>>(null);
   const shouldPlayAnimation = useIntersectionObserver(animationRef, 0.3);
   const images = usePreloadImages({ animation: 'waving', imgQty: 96, reverse: false });
 

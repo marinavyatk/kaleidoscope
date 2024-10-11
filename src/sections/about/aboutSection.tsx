@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import { ModelProps } from '@/components/3d/boy/boy';
 import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
+import { Nullable } from '@/common/types';
 
 const Scene = dynamic<ModelProps>(
   () => import('../../components/3d/boy/scene').then((mod) => mod.Scene),
@@ -19,7 +20,7 @@ const Scene = dynamic<ModelProps>(
 );
 
 const AboutSection = () => {
-  const modelContainerRef = useRef<HTMLDivElement | null>(null);
+  const modelContainerRef = useRef<Nullable<HTMLDivElement>>(null);
   const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
 
   return (

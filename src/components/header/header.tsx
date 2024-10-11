@@ -30,8 +30,7 @@ const Header = (props: HeaderProps) => {
             <div className={s.links}>
               <a href='#about'>О нас</a>
               <a href='#catalog'>Каталог</a>
-              <a href='#history'>История</a>
-              {/*need later*/}
+              <a href='#gallery'>Галерея</a>
               <a href='#realized'>Реализовано</a>
             </div>
           )}
@@ -55,8 +54,8 @@ const Header = (props: HeaderProps) => {
                 <a href='#catalog' onClick={() => setIsOpen(false)}>
                   Каталог
                 </a>
-                <a href='#history' onClick={() => setIsOpen(false)}>
-                  История
+                <a href='#gallery' onClick={() => setIsOpen(false)}>
+                  Галерея
                 </a>
                 <a href='#realized' onClick={() => setIsOpen(false)}>
                   Реализовано

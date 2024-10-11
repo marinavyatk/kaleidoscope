@@ -18,7 +18,7 @@ import { LngLat } from '@yandex/ymaps3-types';
 import type { Feature } from '@yandex/ymaps3-types/packages/clusterer/YMapClusterer/interface';
 import { v4 as uuid } from 'uuid';
 import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
-import { MapData } from '@/common/types';
+import { MapData, Nullable } from '@/common/types';
 
 type MapProps = {
   mapData: MapData[];
@@ -33,7 +33,7 @@ const Map = (props: MapProps) => {
     if (isTabletOrMobile) setZoom(2);
   }, [isTabletOrMobile]);
 
-  const pointsInfo: Feature[] | null =
+  const pointsInfo: Nullable<Feature[]> =
     mapData &&
     mapData
       .filter((point) => point.coordinates)
