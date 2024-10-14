@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
-import { Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
+import { Mesh, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export type ModelProps = {
@@ -20,6 +20,29 @@ export default function Model(props: ModelProps) {
     const blinkAnimation = actions[names[1]];
     blinkAnimation?.play();
     bodyAnimation?.play();
+
+    return () => {
+      blinkAnimation?.stop();
+      bodyAnimation?.stop();
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      scene.traverse((object) => {
+        if ((object as Mesh).geometry) {
+          (object as Mesh).geometry.dispose();
+        }
+        if ((object as Mesh).material) {
+          const material = (object as Mesh).material;
+          if (Array.isArray(material)) {
+            material.forEach((mat) => mat.dispose());
+          } else {
+            material.dispose();
+          }
+        }
+      });
+    };
   }, []);
 
   const target = useMemo(() => {
