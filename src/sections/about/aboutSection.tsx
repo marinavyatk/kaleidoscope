@@ -2,7 +2,7 @@ import s from './aboutSection.module.scss';
 import { Button } from '@/components/button/button';
 import Separator from '../../assets/separator.svg';
 import dynamic from 'next/dynamic';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ModelProps } from '@/components/3d/boy/boy';
 import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
@@ -23,6 +23,24 @@ const AboutSection = () => {
   const modelContainerRef = useRef<Nullable<HTMLDivElement>>(null);
   // const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
   const isVisible = useIntersectionObserver(modelContainerRef, 0.1);
+  const [isModelReady, setIsModelReady] = useState(false);
+
+  useEffect(() => {
+    let idleCallbackId: number | undefined;
+
+    if (isVisible) {
+      idleCallbackId = window.requestIdleCallback(() => {
+        setIsModelReady(true);
+      });
+    }
+
+    return () => {
+      if (idleCallbackId) {
+        window.cancelIdleCallback(idleCallbackId);
+      }
+      setIsModelReady(false);
+    };
+  }, [isVisible]);
 
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
@@ -32,7 +50,7 @@ const AboutSection = () => {
       </div>
       <div className={'fullContainer ' + s.boy}>
         <div className={s.imageContainer}>
-          {isVisible && <Scene containerRef={modelContainerRef} />}
+          {isModelReady && <Scene containerRef={modelContainerRef} />}
         </div>
       </div>
       <h2>Объединяем поколения через соперни&shy;чество</h2>
