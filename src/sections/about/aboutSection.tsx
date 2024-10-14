@@ -21,26 +21,7 @@ const Scene = dynamic<ModelProps>(
 
 const AboutSection = () => {
   const modelContainerRef = useRef<Nullable<HTMLDivElement>>(null);
-  // const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
-  const isVisible = useIntersectionObserver(modelContainerRef, 0.1);
-  const [isModelReady, setIsModelReady] = useState(false);
-
-  useEffect(() => {
-    let idleCallbackId: number | undefined;
-
-    if (isVisible) {
-      idleCallbackId = window.requestIdleCallback(() => {
-        setIsModelReady(true);
-      });
-    }
-
-    return () => {
-      if (idleCallbackId) {
-        window.cancelIdleCallback(idleCallbackId);
-      }
-      setIsModelReady(false);
-    };
-  }, [isVisible]);
+  const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
 
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
@@ -50,7 +31,7 @@ const AboutSection = () => {
       </div>
       <div className={'fullContainer ' + s.boy}>
         <div className={s.imageContainer}>
-          {isModelReady && <Scene containerRef={modelContainerRef} />}
+          {isVisible && <Scene containerRef={modelContainerRef} />}
         </div>
       </div>
       <h2>Объединяем поколения через соперни&shy;чество</h2>
