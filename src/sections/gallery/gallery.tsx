@@ -22,43 +22,58 @@ const GallerySection = (props: GallerySectionProps) => {
     return { img: album.cover || album.images[0], caption: album.title };
   });
 
+  // const updateSlidesOpacity = () => {
+  //   const swiper = swiperRef.current;
+  //   if (!swiper || !swiper.el) return;
+  //
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         const slideElement = entry.target as HTMLElement;
+  //         if (entry.intersectionRatio === 1) {
+  //           slideElement.classList.add(s.visibleSlide);
+  //           slideElement.classList.remove(s.invisibleSlide);
+  //         } else {
+  //           slideElement.classList.add(s.invisibleSlide);
+  //           slideElement.classList.remove(s.visibleSlide);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       root: swiper.el,
+  //       threshold: [0, 1],
+  //     },
+  //   );
+  //
+  //   swiper.slides.forEach((slide) => {
+  //     observer.observe(slide as HTMLElement);
+  //   });
+  //
+  //   return () => {
+  //     swiper.slides.forEach((slide) => {
+  //       observer.unobserve(slide as HTMLElement);
+  //     });
+  //   };
+  // };
+  //
+  // useEffect(() => {
+  //   updateSlidesOpacity();
+  // }, []);
+
   const updateSlidesOpacity = () => {
     const swiper = swiperRef.current;
     if (!swiper || !swiper.el) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const slideElement = entry.target as HTMLElement;
-          if (entry.intersectionRatio === 1) {
-            slideElement.classList.add(s.visibleSlide);
-            slideElement.classList.remove(s.invisibleSlide);
-          } else {
-            slideElement.classList.add(s.invisibleSlide);
-            slideElement.classList.remove(s.visibleSlide);
-          }
-        });
-      },
-      {
-        root: swiper.el,
-        threshold: [0, 1],
-      },
-    );
-
-    swiper.slides.forEach((slide) => {
-      observer.observe(slide as HTMLElement);
+    swiper.slides.forEach((slide, index) => {
+      const slideElement = slide as HTMLElement;
+      if (index === swiper.activeIndex) {
+        slideElement.style.opacity = '1';
+      } else {
+        slideElement.style.opacity = '0.25';
+      }
+      slideElement.style.transition = 'opacity 0.2s';
     });
-
-    return () => {
-      swiper.slides.forEach((slide) => {
-        observer.unobserve(slide as HTMLElement);
-      });
-    };
   };
-
-  useEffect(() => {
-    updateSlidesOpacity();
-  }, []);
 
   const photos = albumsData?.[activeIndex]?.images.map((photo) => (
     <SwiperSlide key={photo} className={s.slide}>
