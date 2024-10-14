@@ -4,6 +4,7 @@ import { Button } from '@/components/button/button';
 import s from './greetingSection.module.scss';
 import { Animation } from '@/components/animations/animation';
 import { usePreloadImages } from '@/common/customHooks/usePreloadImages';
+import { Loader } from '@/components/loader/loader';
 
 type GreetingSectionProps = {
   setShowGreeting: (show: boolean) => void;
@@ -62,7 +63,12 @@ export const GreetingSection = (props: GreetingSectionProps) => {
         <div className={clsx(s.firstLine, showAnimation && s.goLeft)}>Привет, чемпион!</div>
         <div className={clsx(s.secondLine, showAnimation && s.goRight)}>Ну что, приступим?</div>
         <Button onClick={handleButtonClick} className={clsx(showAnimation && s.goRight)}>
-          Поехали!
+          <span className={!images.length ? s.hiddenSection : ''}>Поехали!</span>
+          {!images.length && (
+            <div className={'fullContainer'}>
+              <Loader className={s.greetingLoader} />
+            </div>
+          )}
         </Button>
       </div>
     </section>
