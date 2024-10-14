@@ -32,7 +32,7 @@ export const AlbumsNavigation = (props: VerticalGalleryProps) => {
           className={s.cover}
           sizes='(max-width: 767px) 130px, (max-width: 1780px) 261px, 433px'
         />
-        <div className={s.date}>{event.date}</div>
+        <div className={s.caption}>{event.caption}</div>
       </SwiperSlide>
     );
   });

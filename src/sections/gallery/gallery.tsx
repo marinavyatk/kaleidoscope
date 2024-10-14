@@ -19,7 +19,7 @@ const GallerySection = (props: GallerySectionProps) => {
   const swiperRef = useRef<SwiperClass>(null);
 
   const albums = albumsData?.map((album) => {
-    return { img: album.cover || album.images[0], date: album.title };
+    return { img: album.cover || album.images[0], caption: album.title };
   });
 
   const updateSlidesOpacity = () => {
@@ -64,12 +64,11 @@ const GallerySection = (props: GallerySectionProps) => {
         Наши воспоминания
       </div>
       <div className={s.galleryContainer}>
-        <div>
+        <div className={s.albumNavigation}>
           <AlbumsNavigation
             activeIndex={activeIndex}
             albums={albums}
             setActiveIndex={setActiveIndex}
-            className={s.albumNavigation}
           />
         </div>
         <div className={s.mainInfo}>

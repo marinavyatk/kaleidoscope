@@ -36,7 +36,7 @@ export type CPFormValues = {
 
 export type Album = {
   img: string;
-  date: string;
+  caption: string;
 };
 
 //requests types
