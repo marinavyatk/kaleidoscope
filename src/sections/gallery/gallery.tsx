@@ -1,5 +1,5 @@
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-import { MutableRefObject, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { handleSwiper } from '@/common/commonFunctions';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
@@ -25,17 +25,39 @@ const GallerySection = (props: GallerySectionProps) => {
   const updateSlidesOpacity = () => {
     const swiper = swiperRef.current;
     if (!swiper || !swiper.el) return;
-    const containerRect = swiper.el.getBoundingClientRect();
-    swiper.slides.forEach((slide) => {
-      const slideElement = slide as HTMLElement;
-      const slideRect = slideElement.getBoundingClientRect();
 
-      const isFullyVisible =
-        slideRect.left >= containerRect.left && slideRect.right <= containerRect.right;
-      slideElement.style.opacity = isFullyVisible ? '1' : '0.25';
-      slideElement.style.transition = 'opacity 0.2s';
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const slideElement = entry.target as HTMLElement;
+          if (entry.intersectionRatio === 1) {
+            slideElement.style.opacity = '1';
+          } else {
+            slideElement.style.opacity = '0.25';
+          }
+          slideElement.style.transition = 'opacity 0.2s';
+        });
+      },
+      {
+        root: swiper.el,
+        threshold: [0, 1],
+      },
+    );
+
+    swiper.slides.forEach((slide) => {
+      observer.observe(slide as HTMLElement);
     });
+
+    return () => {
+      swiper.slides.forEach((slide) => {
+        observer.unobserve(slide as HTMLElement);
+      });
+    };
   };
+
+  useEffect(() => {
+    updateSlidesOpacity();
+  }, []);
 
   const photos = albumsData?.[activeIndex]?.images.map((photo) => (
     <SwiperSlide key={photo} className={s.slide}>
@@ -81,6 +103,7 @@ const GallerySection = (props: GallerySectionProps) => {
                 handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
               }}
               onResize={() => {
+                console.log('resize');
                 updateSlidesOpacity();
               }}
               keyboard
