@@ -31,11 +31,12 @@ const GallerySection = (props: GallerySectionProps) => {
         entries.forEach((entry) => {
           const slideElement = entry.target as HTMLElement;
           if (entry.intersectionRatio === 1) {
-            slideElement.style.opacity = '1';
+            slideElement.classList.add(s.visibleSlide);
+            slideElement.classList.remove(s.invisibleSlide);
           } else {
-            slideElement.style.opacity = '0.25';
+            slideElement.classList.add(s.invisibleSlide);
+            slideElement.classList.remove(s.visibleSlide);
           }
-          slideElement.style.transition = 'opacity 0.2s';
         });
       },
       {
