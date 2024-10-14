@@ -22,6 +22,21 @@ const GallerySection = (props: GallerySectionProps) => {
     return { img: album.cover || album.images[0], date: album.title };
   });
 
+  const updateSlidesOpacity = () => {
+    const swiper = swiperRef.current;
+    if (!swiper || !swiper.el) return;
+    const containerRect = swiper.el.getBoundingClientRect();
+    swiper.slides.forEach((slide) => {
+      const slideElement = slide as HTMLElement;
+      const slideRect = slideElement.getBoundingClientRect();
+
+      const isFullyVisible =
+        slideRect.left >= containerRect.left && slideRect.right <= containerRect.right;
+      slideElement.style.opacity = isFullyVisible ? '1' : '0.25';
+      slideElement.style.transition = 'opacity 0.2s';
+    });
+  };
+
   const photos = albumsData?.[activeIndex]?.images.map((photo) => (
     <SwiperSlide key={photo} className={s.slide}>
       <ViewCloserModal
@@ -54,6 +69,7 @@ const GallerySection = (props: GallerySectionProps) => {
             activeIndex={activeIndex}
             albums={albums}
             setActiveIndex={setActiveIndex}
+            className={s.albumNavigation}
           />
         </div>
         <div className={s.mainInfo}>
@@ -65,9 +81,17 @@ const GallerySection = (props: GallerySectionProps) => {
               onSwiper={(swiper) => {
                 handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
               }}
+              onResize={() => {
+                updateSlidesOpacity();
+              }}
               keyboard
               className={s.slidesContainer}
-              onSlideChange={() => swiperRef.current?.update()}
+              onSlideChange={() => {
+                swiperRef.current?.update();
+              }}
+              onSlideChangeTransitionEnd={() => {
+                updateSlidesOpacity();
+              }}
             >
               {photos}
             </Swiper>
