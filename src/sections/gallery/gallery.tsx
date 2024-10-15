@@ -36,6 +36,10 @@ const GallerySection = (props: GallerySectionProps) => {
     });
   };
 
+  useEffect(() => {
+    updateSlidesOpacity();
+  }, [activeIndex]);
+
   const photos = albumsData?.[activeIndex]?.images.map((photo) => (
     <SwiperSlide key={photo} className={s.slide}>
       <ViewCloserModal

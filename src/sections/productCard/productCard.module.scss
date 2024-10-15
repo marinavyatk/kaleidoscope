@@ -8,7 +8,7 @@
 }
 
 .productCard {
-  padding: 160px 120px;
+  //padding: 160px 120px;
   width: 100%;
   max-width: 1920px;
   min-height: 100vh;
@@ -16,6 +16,23 @@
   gap: 50px;
   position: relative;
   margin: auto;
+
+
+
+    padding: 160px 120px; // стандартные паддинги
+
+    @media (max-width: 1800px) {
+      padding: 100px 20px;
+    }
+
+    @media (max-width: 767px) {
+      padding: 30px 16px 60px;
+    }
+
+    // Чтобы паддинги всегда учитывались в расчетах ширины/высоты
+    box-sizing: border-box;
+
+
 
   h2,
   h3 {
@@ -128,9 +145,9 @@
 }
 
 @media (max-width: 1800px) {
-  .productCard {
-    padding: 100px 20px;
-  }
+  //.productCard {
+  //  padding: 100px 20px;
+  //}
 
   .model {
     position: relative;
@@ -169,9 +186,9 @@
 }
 
 @media (max-width: 767px) {
-  .productCard {
-    padding: 30px 16px 60px;
-  }
+  //.productCard {
+  //  padding: 30px 16px 60px;
+  //}
 
   .cardHeader {
     min-height: 90px;

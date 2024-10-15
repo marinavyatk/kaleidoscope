@@ -54,6 +54,9 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
           loop
           initialSlide={activeSlide}
           allowTouchMove={false}
+          autoHeight
+          observer
+          observeParents
         >
           {cards}
         </Swiper>

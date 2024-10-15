@@ -79,7 +79,6 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
-          {/*{productData?.model && <Scene link={productData.model} />}*/}
           {hasViewed && productData?.model && <Scene link={productData.model} />}
         </div>
         {isTabletOrMobile && (
