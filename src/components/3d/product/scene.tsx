@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { lazy, Suspense, useEffect } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import s from '../3d.module.scss';
 import { OrbitControls } from '@react-three/drei';
 import { Loader } from '@/components/loader/loader';
@@ -10,6 +10,13 @@ const Model = lazy(() => import('./product'));
 
 export function Scene(props: ModelProps) {
   const { link } = props;
+  const { gl } = useThree();
+
+  useEffect(() => {
+    return () => {
+      gl.dispose();
+    };
+  }, [gl]);
 
   return (
     <Suspense

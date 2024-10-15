@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { Box3, Mesh, Object3D, Vector3 } from 'three';
+import { Box3, Vector3 } from 'three';
 
 export type ModelProps = {
   link: string;
@@ -8,30 +8,9 @@ export type ModelProps = {
 
 export default function Model(props: ModelProps) {
   const { link } = props;
-  const sceneRef = useRef<Object3D>();
+  const sceneRef = useRef();
   const { scene } = useGLTF(link, true);
   const [scale, setScale] = useState(1);
-
-  const cleanUpScene = (object: Object3D) => {
-    object.traverse((child) => {
-      if (child instanceof Mesh) {
-        if (child.geometry) {
-          child.geometry.dispose();
-        }
-        if (child.material) {
-          if (Array.isArray(child.material)) {
-            child.material.forEach((material) => {
-              if (material.map) material.map.dispose();
-              material.dispose();
-            });
-          } else {
-            if (child.material.map) child.material.map.dispose();
-            child.material.dispose();
-          }
-        }
-      }
-    });
-  };
 
   useEffect(() => {
     if (sceneRef.current) {
@@ -47,12 +26,6 @@ export default function Model(props: ModelProps) {
       const calculatedScale = desiredSize / maxModelSize;
       setScale(calculatedScale);
     }
-
-    return () => {
-      if (sceneRef.current) {
-        cleanUpScene(sceneRef.current);
-      }
-    };
   }, [scene]);
 
   return (
