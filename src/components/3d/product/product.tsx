@@ -38,10 +38,11 @@
 //   );
 // }
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { Box3, Group, Object3DEventMap, Vector3 } from 'three';
 import { Nullable } from '@/common/types';
+import { SkeletonUtils } from 'three-stdlib';
 
 export type ModelProps = {
   link: string;
@@ -54,7 +55,7 @@ export default function Model(props: ModelProps) {
   const [scale, setScale] = useState(1);
 
   const { scene } = useGLTF(link, true);
-
+  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   useEffect(() => {
     if (!modelRef.current && scene) {
       modelRef.current = scene;
@@ -73,11 +74,11 @@ export default function Model(props: ModelProps) {
       const calculatedScale = desiredSize / maxModelSize;
       setScale(calculatedScale);
     }
-  }, [scene]);
+  }, [clone]);
 
   return (
     <primitive
-      object={modelRef.current || scene}
+      object={modelRef.current || clone}
       ref={sceneRef}
       position={[0, -0.3, 0]}
       scale={[scale, scale, scale]}
