@@ -26,7 +26,7 @@ const GallerySection = (props: GallerySectionProps) => {
     const swiper = swiperRef.current;
     if (!swiper || !swiper.el) return;
     const containerRect = swiper.el.getBoundingClientRect();
-    swiper.slides.forEach((slide, index) => {
+    swiper.slides.forEach((slide) => {
       const slideElement = slide as HTMLElement;
       const slideRect = slideElement.getBoundingClientRect();
       const isFullyVisible =
@@ -53,7 +53,6 @@ const GallerySection = (props: GallerySectionProps) => {
             sizes='(max-width: 767px) 252px, (max-width: 1780px) 639px, 1076px'
             containerComponent={'button'}
             containerProps={{ 'aria-label': 'Посмотреть', className: s.photo }}
-            quality={100}
           />
         }
       />
