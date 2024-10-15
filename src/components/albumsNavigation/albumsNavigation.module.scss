@@ -66,35 +66,34 @@
     height: 90px;
     margin: 0 20px 0 0;
 
+    &:first-child {
+      margin-left: var(--offset-x);
+    }
+
     &:last-child {
-      margin: 0;
+      margin-right: var(--offset-x);
     }
   }
   .scrollbar {
-    width: 100%;
     height: 3px;
-    margin-top: 20px;
-    margin-left: 0;
+    width: calc(100% - 2 * var(--offset-x));
+    margin: 20px var(--offset-x) 0;
   }
 }
 
 @media (max-width: 767px) {
   .albumsNavigation {
-    height: 58px;
+    height: 88px;
     padding: 0 0 13px 0;
   }
 
   .coverContainer {
-    width: 130px;
-    height: 45px;
+    width: 200px;
+    height: 75px;
     margin: 0 6px 0 0;
 
     .caption {
       font-size: 10px;
-    }
-
-    &:last-child {
-      margin: 0;
     }
   }
   .scrollbar {
