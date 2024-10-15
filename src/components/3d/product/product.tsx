@@ -13,6 +13,20 @@ export default function Model(props: ModelProps) {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
+    if (sceneRef.current) {
+      const box = new Box3().setFromObject(sceneRef.current);
+      const modelSize = box.getSize(new Vector3());
+      let maxModelSize = Math.max(modelSize.x, modelSize.y, modelSize.z);
+      const minModelSize = Math.min(modelSize.x, modelSize.z);
+      if (maxModelSize / minModelSize > 3) {
+        maxModelSize = 2.5;
+      }
+      const screenWidth = window.innerWidth;
+      const desiredSize = screenWidth > 650 ? 2.7 : 2;
+      const calculatedScale = desiredSize / maxModelSize;
+      setScale(calculatedScale);
+    }
+
     return () => {
       if (scene) {
         scene.traverse((object) => {
@@ -28,22 +42,6 @@ export default function Model(props: ModelProps) {
         });
       }
     };
-  }, [scene]);
-
-  useEffect(() => {
-    if (sceneRef.current) {
-      const box = new Box3().setFromObject(sceneRef.current);
-      const modelSize = box.getSize(new Vector3());
-      let maxModelSize = Math.max(modelSize.x, modelSize.y, modelSize.z);
-      const minModelSize = Math.min(modelSize.x, modelSize.z);
-      if (maxModelSize / minModelSize > 3) {
-        maxModelSize = 2.5;
-      }
-      const screenWidth = window.innerWidth;
-      const desiredSize = screenWidth > 650 ? 2.7 : 2;
-      const calculatedScale = desiredSize / maxModelSize;
-      setScale(calculatedScale);
-    }
   }, [scene]);
 
   return (

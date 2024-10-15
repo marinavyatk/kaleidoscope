@@ -31,7 +31,7 @@ const AboutSection = () => {
       </div>
       <div className={'fullContainer ' + s.boy}>
         <div className={s.imageContainer}>
-          {isVisible && <Scene containerRef={modelContainerRef} />}
+          {/*{isVisible && <Scene containerRef={modelContainerRef} />}*/}
         </div>
       </div>
       <h2>Объединяем поколения через соперни&shy;чество</h2>

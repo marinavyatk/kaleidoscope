@@ -27,6 +27,24 @@ export default function Model(props: ModelProps) {
     };
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (scene) {
+        scene.traverse((object) => {
+          if ((object as Mesh).isMesh) {
+            const mesh = object as Mesh;
+            mesh.geometry.dispose();
+            if (Array.isArray(mesh.material)) {
+              mesh.material.forEach((material) => material.dispose());
+            } else if (mesh.material.isMaterial) {
+              mesh.material.dispose();
+            }
+          }
+        });
+      }
+    };
+  }, [scene]);
+
   const target = useMemo(() => {
     const newTarget = new Object3D();
     newTarget.position.z = 3;
