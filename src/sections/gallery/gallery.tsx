@@ -53,6 +53,7 @@ const GallerySection = (props: GallerySectionProps) => {
             sizes='(max-width: 767px) 252px, (max-width: 1780px) 639px, 1076px'
             containerComponent={'button'}
             containerProps={{ 'aria-label': 'Посмотреть', className: s.photo }}
+            quality={100}
           />
         }
       />
