@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { Box3, Vector3 } from 'three';
+import { Box3, Mesh, Vector3 } from 'three';
 
 export type ModelProps = {
   link: string;
@@ -11,6 +11,24 @@ export default function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene } = useGLTF(link, true);
   const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    return () => {
+      if (scene) {
+        scene.traverse((object) => {
+          if ((object as Mesh).isMesh) {
+            const mesh = object as Mesh;
+            mesh.geometry.dispose();
+            if (Array.isArray(mesh.material)) {
+              mesh.material.forEach((material) => material.dispose());
+            } else if (mesh.material.isMaterial) {
+              mesh.material.dispose();
+            }
+          }
+        });
+      }
+    };
+  }, [scene]);
 
   useEffect(() => {
     if (sceneRef.current) {
