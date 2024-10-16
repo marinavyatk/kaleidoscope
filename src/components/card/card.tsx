@@ -6,6 +6,7 @@ import { ProductCardModal } from '../modal/productCardModal/productCardModal';
 import { Product } from '@/common/types';
 import Image from 'next/image';
 import { Picture } from '@/components/picture/picture';
+import { Button, ButtonProps } from '@/components/button/button';
 
 export type CardProps = {
   product: Product;
@@ -14,6 +15,7 @@ export type CardProps = {
   activeSlide: number;
   setActiveIndex: (index: number) => void;
   direction: 'forward' | 'backward';
+  buttonProps?: ButtonProps;
 } & ComponentPropsWithoutRef<'div'>;
 
 export const Card = (props: CardProps) => {
@@ -25,6 +27,7 @@ export const Card = (props: CardProps) => {
     className,
     status,
     direction,
+    buttonProps,
     ...restProps
   } = props;
   const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
@@ -50,11 +53,12 @@ export const Card = (props: CardProps) => {
           itemProp='image'
         />
         {restProps.children}
-        <ProductCardModal
-          products={products}
-          activeSlide={activeSlide}
-          setActiveIndex={setActiveIndex}
-        />
+        {/*<ProductCardModal*/}
+        {/*  products={products}*/}
+        {/*  activeSlide={activeSlide}*/}
+        {/*  setActiveIndex={setActiveIndex}*/}
+        {/*/>*/}
+        <Button {...buttonProps}>Смотреть</Button>
         <div itemProp='aggregateRating' itemScope itemType='https://schema.org/AggregateRating'>
           <meta itemProp='ratingValue' content='5' />
           <meta itemProp='reviewCount' content='1' />

@@ -1,7 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import { Box3, Mesh, Vector3 } from 'three';
-import { GLTFLoader } from 'three-stdlib';
-import { useLoader } from '@react-three/fiber';
+import { useGLTF } from '@react-three/drei';
 
 export type ModelProps = {
   link: string;
@@ -10,8 +9,7 @@ export type ModelProps = {
 function Model(props: ModelProps) {
   const { link } = props;
   const sceneRef = useRef();
-  // const { scene } = useGLTF(link, true)
-  const { scene } = useLoader(GLTFLoader, link);
+  const { scene } = useGLTF(link, true);
   const [scale, setScale] = useState(1);
 
   useEffect(() => {

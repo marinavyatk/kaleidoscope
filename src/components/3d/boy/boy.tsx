@@ -1,9 +1,8 @@
-import { memo, RefObject, useEffect, useMemo, useRef } from 'react';
-import { invalidate, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { useAnimations } from '@react-three/drei';
+import { memo, RefObject, useEffect, useMemo, useRef, useState } from 'react';
+import { invalidate, useFrame, useThree } from '@react-three/fiber';
+import { useAnimations, useGLTF } from '@react-three/drei';
 import { Mesh, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
-import { GLTFLoader } from 'three-stdlib';
 
 export type ModelProps = {
   containerRef: RefObject<HTMLDivElement>;
@@ -12,8 +11,7 @@ export type ModelProps = {
 function Model(props: ModelProps) {
   const { containerRef } = props;
   const sceneRef = useRef();
-  // const { scene, animations } = useGLTF('/boy.glb', true)
-  const { scene, animations } = useLoader(GLTFLoader, '/boy.glb');
+  const { scene, animations } = useGLTF('/boy.glb', true);
   const { actions, names } = useAnimations(animations, sceneRef);
   const isVisible = useIntersectionObserver(containerRef, 0.02);
 

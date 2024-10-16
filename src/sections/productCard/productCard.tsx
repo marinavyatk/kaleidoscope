@@ -40,9 +40,10 @@ export const ProductCard = (props: ProductCardProps) => {
       <div>
         <div className={s.cardHeader}>
           <h2 itemProp='title'>{productData?.name}</h2>
-          <DialogClose onClick={onClose} className={s.close}>
+          {/*<DialogClose onClick={onClose} className={s.close}>*/}
+          <button onClick={onClose} className={s.close}>
             <CloseIcon />
-          </DialogClose>
+          </button>
         </div>
         <div className={s.cardMain}>
           <div className={s.description}>

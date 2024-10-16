@@ -5,6 +5,8 @@ import Arrow from '../../assets/arrow-up.svg';
 import { Product } from '@/common/types';
 import { clsx } from 'clsx';
 import { ProgressBar } from '@/components/progressBar/progressBar';
+import { ProductCardSlider } from '@/sections/productCard/productCardSlider';
+import { ProductCardModal } from '@/components/modal/productCardModal/productCardModal';
 
 export type CarouselProps = {
   products: Product[];
@@ -16,6 +18,8 @@ export const Carousel = ({ products }: CarouselProps) => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const [isCardSliderOpen, setIsCardSliderOpen] = useState(false);
+  const [isCardSliderVisible, setIsCardSliderVisible] = useState(false);
 
   useEffect(() => {
     updateCardClasses();
@@ -76,6 +80,13 @@ export const Carousel = ({ products }: CarouselProps) => {
     }
   };
 
+  const handleShowMore = () => {
+    if (!isCardSliderOpen) {
+      setIsCardSliderOpen(true);
+    }
+    setIsCardSliderVisible(true);
+  };
+
   return (
     <div
       className={s.carousel}
@@ -95,6 +106,7 @@ export const Carousel = ({ products }: CarouselProps) => {
             products={products}
             activeSlide={activeIndex}
             setActiveIndex={setActiveIndex}
+            buttonProps={{ onClick: handleShowMore }}
           />
         ))}
       </div>
@@ -117,6 +129,15 @@ export const Carousel = ({ products }: CarouselProps) => {
           <Arrow />
         </button>
       </div>
+      {isCardSliderOpen && (
+        <ProductCardSlider
+          products={products}
+          activeSlide={activeIndex}
+          setActiveIndex={setActiveIndex}
+          isVisible={isCardSliderVisible}
+          setIsCardSliderVisible={setIsCardSliderVisible}
+        />
+      )}
     </div>
   );
 };
