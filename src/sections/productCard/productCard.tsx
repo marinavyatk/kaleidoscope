@@ -107,9 +107,9 @@ export const ProductCard = (props: ProductCardProps) => {
         <div className={s.navButtons}>
           <button
             onClick={() => {
-              swiperRef.current?.enable();
+              // swiperRef.current?.enable();
               handlePrevButtonClick(swiperRef as MutableRefObject<SwiperClass>);
-              swiperRef.current?.disable();
+              // swiperRef.current?.disable();
             }}
           >
             <ArrowIcon />
@@ -118,9 +118,9 @@ export const ProductCard = (props: ProductCardProps) => {
           <button
             className={s.next}
             onClick={() => {
-              swiperRef.current?.enable();
+              // swiperRef.current?.enable();
               handleNextButtonClick(swiperRef as MutableRefObject<SwiperClass>);
-              swiperRef.current?.disable();
+              // swiperRef.current?.disable();
             }}
           >
             Вперед <ArrowIcon />

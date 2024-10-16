@@ -9,16 +9,28 @@ import ProductCardSlider from '@/sections/productCard/productCardSlider';
 
 export type CarouselProps = {
   products: Product[];
+  setIsCardSliderVisible: (isVisible: boolean) => void;
+  isCardSliderOpen: boolean;
+  setIsCardSliderOpen: (isOpen: boolean) => void;
+  activeIndex: number;
+  setActiveIndex: (index: (prevIndex: number) => number) => void;
 };
 
-export const Carousel = ({ products }: CarouselProps) => {
-  const [activeIndex, setActiveIndex] = useState(products.length < 3 ? 0 : 1);
+export const Carousel = ({
+  products,
+  setIsCardSliderVisible,
+  isCardSliderOpen,
+  setIsCardSliderOpen,
+  activeIndex,
+  setActiveIndex,
+}: CarouselProps) => {
+  // const [activeIndex, setActiveIndex] = useState(products.length < 3 ? 0 : 1);
   const [cardStatus, setCardStatus] = useState<string[]>([]);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const [isCardSliderOpen, setIsCardSliderOpen] = useState(false);
-  const [isCardSliderVisible, setIsCardSliderVisible] = useState(false);
+  // const [isCardSliderOpen, setIsCardSliderOpen] = useState(false);
+  // const [isCardSliderVisible, setIsCardSliderVisible] = useState(true);
 
   useEffect(() => {
     updateCardClasses();
@@ -86,8 +98,8 @@ export const Carousel = ({ products }: CarouselProps) => {
     setIsCardSliderVisible(true);
   };
 
-  const setActiveIndexMemo = useCallback(setActiveIndex, []);
-  const setIsCardSliderVisibleMemo = useCallback(setIsCardSliderVisible, []);
+  // const setActiveIndexMemo = useCallback(setActiveIndex, []);
+  // const setIsCardSliderVisibleMemo = useCallback(setIsCardSliderVisible, []);
 
   return (
     <div
@@ -107,7 +119,7 @@ export const Carousel = ({ products }: CarouselProps) => {
             direction={direction}
             products={products}
             activeSlide={activeIndex}
-            setActiveIndex={setActiveIndex}
+            // setActiveIndex={setActiveIndex}
             buttonProps={{ onClick: handleShowMore }}
           />
         ))}
@@ -131,15 +143,15 @@ export const Carousel = ({ products }: CarouselProps) => {
           <Arrow />
         </button>
       </div>
-      {isCardSliderOpen && (
-        <ProductCardSlider
-          products={products}
-          activeSlide={activeIndex}
-          setActiveIndex={setActiveIndexMemo}
-          isVisible={isCardSliderVisible}
-          setIsCardSliderVisible={setIsCardSliderVisibleMemo}
-        />
-      )}
+      {/*{isCardSliderOpen && (*/}
+      {/*  <ProductCardSlider*/}
+      {/*    products={products}*/}
+      {/*    activeSlide={activeIndex}*/}
+      {/*    setActiveIndex={setActiveIndexMemo}*/}
+      {/*    isVisible={isCardSliderVisible}*/}
+      {/*    setIsCardSliderVisible={setIsCardSliderVisibleMemo}*/}
+      {/*  />*/}
+      {/*)}*/}
     </div>
   );
 };

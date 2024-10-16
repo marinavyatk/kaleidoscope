@@ -13,7 +13,7 @@ export type CardProps = {
   products: Product[];
   status: string;
   activeSlide: number;
-  setActiveIndex: (index: number) => void;
+  // setActiveIndex: (index: number) => void;
   direction: 'forward' | 'backward';
   buttonProps?: ButtonProps;
 } & ComponentPropsWithoutRef<'div'>;
@@ -23,7 +23,7 @@ export const Card = (props: CardProps) => {
     product,
     products,
     activeSlide,
-    setActiveIndex,
+    // setActiveIndex,
     className,
     status,
     direction,

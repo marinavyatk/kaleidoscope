@@ -41,22 +41,23 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
     }
   }, [isVisible]);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.allowTouchMove = false;
-      swiperRef.current.updateAutoHeight();
-      swiperRef.current.disable();
-    }
-  }, [swiperRef.current]);
+  // useEffect(() => {
+  //   if (swiperRef.current) {
+  //     swiperRef.current.allowTouchMove = false;
+  //     swiperRef.current.updateAutoHeight();
+  //     swiperRef.current.disable();
+  //   }
+  // }, [swiperRef.current]);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current?.enable();
-      swiperRef.current.slideTo(activeSlide);
-      swiperRef.current.updateAutoHeight();
-      swiperRef.current?.disable();
-    }
-  }, [activeSlide]);
+  // useEffect(() => {
+  //   if (swiperRef.current) {
+  //     swiperRef.current.enable();
+  //     swiperRef.current.allowTouchMove = false;
+  //     swiperRef.current.slideTo(activeSlide);
+  //     swiperRef.current.updateAutoHeight();
+  //     swiperRef.current.disable();
+  //   }
+  // }, [activeSlide]);
 
   const cards = products.map((product, index) => {
     const hasViewed = viewedSlides.has(index);
@@ -75,22 +76,27 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
   return (
     <div className={clsx(s.overlay, !isVisible && s.hidden)}>
       <div className={clsx(s.productsSlider, !isVisible && s.hidden)}>
-        <Swiper
-          modules={[Keyboard, Navigation]}
-          onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
-          onSlideChange={handleSlideChange}
-          keyboard
-          loop
-          initialSlide={!isVisible ? 1 : activeSlide}
-          allowTouchMove={false}
-          simulateTouch={false}
-          autoHeight
-          observer
-          observeParents
-          touchStartPreventDefault={false}
-        >
-          {cards}
-        </Swiper>
+        <div>
+          <Swiper
+            key='productCardSlider'
+            modules={[Keyboard, Navigation]}
+            onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
+            onSlideChange={handleSlideChange}
+            keyboard
+            loop
+            initialSlide={!isVisible ? 1 : activeSlide}
+            allowTouchMove={false}
+            simulateTouch={false}
+            autoHeight
+            observer
+            observeParents
+            // onTouchEnd={(_, event) => {
+            //   event.preventDefault();
+            // }}
+          >
+            {cards}
+          </Swiper>
+        </div>
       </div>
     </div>
   );
