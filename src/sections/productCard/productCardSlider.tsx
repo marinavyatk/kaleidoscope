@@ -44,13 +44,17 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.allowTouchMove = false;
+      swiperRef.current.updateAutoHeight();
       swiperRef.current.disable();
     }
   }, [swiperRef.current]);
 
   useEffect(() => {
     if (swiperRef.current) {
+      swiperRef.current?.enable();
       swiperRef.current.slideTo(activeSlide);
+      swiperRef.current.updateAutoHeight();
+      swiperRef.current?.disable();
     }
   }, [activeSlide]);
 
