@@ -1,7 +1,7 @@
 import s from './productCard.module.scss';
 import CloseIcon from '../../assets/close.svg';
 import ArrowIcon from '../../assets/arrow-triangle.svg';
-import { ComponentPropsWithoutRef, MutableRefObject, RefObject, useEffect, useState } from 'react';
+import { ComponentPropsWithoutRef, MutableRefObject, RefObject } from 'react';
 import { clsx } from 'clsx';
 import { SwiperClass } from 'swiper/react';
 import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFunctions';
@@ -32,11 +32,6 @@ export const ProductCard = (props: ProductCardProps) => {
   const { productData, onClose, swiperRef, className, hasViewed, ...restProps } = props;
   const classNames = clsx(s.productCard, className);
   const isTabletOrMobile = useScreenWidth(767);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    if (hasViewed !== shown) setTimeout(() => setShown(hasViewed), 300);
-  }, [hasViewed]);
 
   return (
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
@@ -80,7 +75,7 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
-          {shown && productData?.model && <Scene link={productData.model} />}
+          {hasViewed && productData?.model && <Scene link={productData.model} />}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>
@@ -110,13 +105,23 @@ export const ProductCard = (props: ProductCardProps) => {
           triggerClassName={s.commercialProposal}
         />
         <div className={s.navButtons}>
-          <button onClick={() => handlePrevButtonClick(swiperRef as MutableRefObject<SwiperClass>)}>
+          <button
+            onClick={() => {
+              swiperRef.current?.enable();
+              handlePrevButtonClick(swiperRef as MutableRefObject<SwiperClass>);
+              swiperRef.current?.disable();
+            }}
+          >
             <ArrowIcon />
             Назад
           </button>
           <button
             className={s.next}
-            onClick={() => handleNextButtonClick(swiperRef as MutableRefObject<SwiperClass>)}
+            onClick={() => {
+              swiperRef.current?.enable();
+              handleNextButtonClick(swiperRef as MutableRefObject<SwiperClass>);
+              swiperRef.current?.disable();
+            }}
           >
             Вперед <ArrowIcon />
           </button>

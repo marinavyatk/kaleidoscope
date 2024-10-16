@@ -1,20 +1,10 @@
-//.productsSlider{
-//  position: absolute;
-//  width: 100%;
-//  height: 100%;
-//  z-index: 3;
-//  top: 0;
-//}
-
-
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1000; // Высокий z-index, чтобы компонент находился над всеми остальными
-  background-color: rgba(0, 0, 0, 0.5); // Затемнение фона, если нужно
+  z-index: 3;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -24,8 +14,6 @@
   height: 100%;
 }
 
-
-.hidden{
-  //display: none;
+.hidden {
   transform: translateX(100vw);
 }

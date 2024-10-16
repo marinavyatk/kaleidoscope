@@ -1,12 +1,11 @@
-import { useState, useEffect, useRef, KeyboardEvent } from 'react';
+import { KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { Card } from '../card/card';
 import s from './carousel.module.scss';
 import Arrow from '../../assets/arrow-up.svg';
 import { Product } from '@/common/types';
 import { clsx } from 'clsx';
 import { ProgressBar } from '@/components/progressBar/progressBar';
-import { ProductCardSlider } from '@/sections/productCard/productCardSlider';
-import { ProductCardModal } from '@/components/modal/productCardModal/productCardModal';
+import ProductCardSlider from '@/sections/productCard/productCardSlider';
 
 export type CarouselProps = {
   products: Product[];
@@ -24,8 +23,6 @@ export const Carousel = ({ products }: CarouselProps) => {
   useEffect(() => {
     updateCardClasses();
   }, [activeIndex]);
-
-  console.log('Carousel', activeIndex);
 
   const updateCardClasses = () => {
     const statuses = products.map((_, index) => {
@@ -89,6 +86,9 @@ export const Carousel = ({ products }: CarouselProps) => {
     setIsCardSliderVisible(true);
   };
 
+  const setActiveIndexMemo = useCallback(setActiveIndex, []);
+  const setIsCardSliderVisibleMemo = useCallback(setIsCardSliderVisible, []);
+
   return (
     <div
       className={s.carousel}
@@ -135,9 +135,9 @@ export const Carousel = ({ products }: CarouselProps) => {
         <ProductCardSlider
           products={products}
           activeSlide={activeIndex}
-          setActiveIndex={setActiveIndex}
+          setActiveIndex={setActiveIndexMemo}
           isVisible={isCardSliderVisible}
-          setIsCardSliderVisible={setIsCardSliderVisible}
+          setIsCardSliderVisible={setIsCardSliderVisibleMemo}
         />
       )}
     </div>

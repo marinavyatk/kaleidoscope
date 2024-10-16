@@ -2,7 +2,7 @@ import { ProductCard } from '@/sections/productCard/productCard';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { handleSwiper } from '@/common/commonFunctions';
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { memo, MutableRefObject, useEffect, useRef } from 'react';
 import { Product } from '@/common/types';
 import { useState } from 'react';
 import s from './productCardSlider.module.scss';
@@ -16,14 +16,13 @@ export type ProductCardsSliderProps = {
   setIsCardSliderVisible: (isVisible: boolean) => void;
 };
 
-export const ProductCardSlider = (props: ProductCardsSliderProps) => {
+const ProductCardSlider = (props: ProductCardsSliderProps) => {
   const { products, activeSlide, setActiveIndex, isVisible, setIsCardSliderVisible } = props;
   const swiperRef = useRef<SwiperClass>(null);
   const [viewedSlides, setViewedSlides] = useState<Set<number>>(new Set());
 
   const handleSlideChange = (swiper: SwiperClass) => {
     const currentIndex = swiper.realIndex;
-    console.log('currentIndex', currentIndex);
     if (!viewedSlides.has(currentIndex)) {
       setViewedSlides((prev) => new Set(prev).add(currentIndex));
     }
@@ -33,8 +32,6 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
     if (activeSlide !== index) setActiveIndex(index);
     setIsCardSliderVisible(false);
   };
-
-  console.log('activeSlide', activeSlide);
 
   useEffect(() => {
     if (isVisible) {
@@ -46,6 +43,13 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
 
   useEffect(() => {
     if (swiperRef.current) {
+      swiperRef.current.allowTouchMove = false;
+      swiperRef.current.disable();
+    }
+  }, [swiperRef.current]);
+
+  useEffect(() => {
+    if (swiperRef.current) {
       swiperRef.current.slideTo(activeSlide);
     }
   }, [activeSlide]);
@@ -53,7 +57,7 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
   const cards = products.map((product, index) => {
     const hasViewed = viewedSlides.has(index);
     return (
-      <SwiperSlide key={product.name}>
+      <SwiperSlide key={product.name} className={s.slide}>
         <ProductCard
           productData={product}
           onClose={() => handleOnClose(index)}
@@ -75,9 +79,11 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
           loop
           initialSlide={!isVisible ? 1 : activeSlide}
           allowTouchMove={false}
+          simulateTouch={false}
           autoHeight
           observer
           observeParents
+          touchStartPreventDefault={false}
         >
           {cards}
         </Swiper>
@@ -85,3 +91,5 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
     </div>
   );
 };
+
+export default memo(ProductCardSlider);
