@@ -13,10 +13,12 @@ export type ProductCardsSliderProps = {
   products: Product[];
   activeSlide: number;
   setActiveIndex: (index: number) => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
 };
 
 export const ProductCardModal = (props: ProductCardsSliderProps) => {
-  const { products, activeSlide, setActiveIndex } = props;
+  const { products, activeSlide, setActiveIndex, open, setOpen } = props;
   const swiperRef = useRef<SwiperClass>(null);
   const [viewedSlides, setViewedSlides] = useState<Set<number>>(new Set());
 
@@ -35,7 +37,10 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
       <SwiperSlide key={product.name}>
         <ProductCard
           productData={product}
-          onClose={() => handleOnClose(index)}
+          onClose={() => {
+            handleOnClose(index);
+            setOpen(false);
+          }}
           swiperRef={swiperRef}
           hasViewed={hasViewed}
         />
@@ -48,6 +53,7 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
       contentProps={{ className: s.modalContainer }}
       modalHeader={'Product card'}
       trigger={<Button>Смотреть</Button>}
+      rootProps={{ open: open, defaultOpen: true }}
     >
       <div className={s.productsSlider}>
         <Swiper
