@@ -23,13 +23,18 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
 
   const handleSlideChange = (swiper: SwiperClass) => {
     const currentIndex = swiper.realIndex;
-    setViewedSlides((prev) => new Set(prev).add(currentIndex));
+    console.log('currentIndex', currentIndex);
+    if (!viewedSlides.has(currentIndex)) {
+      setViewedSlides((prev) => new Set(prev).add(currentIndex));
+    }
   };
 
   const handleOnClose = (index: number) => {
     if (activeSlide !== index) setActiveIndex(index);
     setIsCardSliderVisible(false);
   };
+
+  console.log('activeSlide', activeSlide);
 
   useEffect(() => {
     if (isVisible) {
@@ -38,6 +43,12 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
       document.body.style.overflow = 'unset';
     }
   }, [isVisible]);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(activeSlide);
+    }
+  }, [activeSlide]);
 
   const cards = products.map((product, index) => {
     const hasViewed = viewedSlides.has(index);
@@ -62,7 +73,7 @@ export const ProductCardSlider = (props: ProductCardsSliderProps) => {
           onSlideChange={handleSlideChange}
           keyboard
           loop
-          initialSlide={activeSlide}
+          initialSlide={!isVisible ? 1 : activeSlide}
           allowTouchMove={false}
           autoHeight
           observer

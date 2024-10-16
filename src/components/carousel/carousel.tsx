@@ -25,6 +25,8 @@ export const Carousel = ({ products }: CarouselProps) => {
     updateCardClasses();
   }, [activeIndex]);
 
+  console.log('Carousel', activeIndex);
+
   const updateCardClasses = () => {
     const statuses = products.map((_, index) => {
       if (index === activeIndex) return 'activeCard';
