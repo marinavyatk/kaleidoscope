@@ -14,17 +14,13 @@ import dynamic from 'next/dynamic';
 import { ModelProps } from '@/components/3d/product/product';
 import { Loader } from '@/components/loader/loader';
 
-const Scene = dynamic<ModelProps>(
-  () => import('../../components/3d/product/scene').then((mod) => mod.Scene),
-  {
-    ssr: false,
-    loading: () => (
-      <div className='fullWidthCentered'>
-        <Loader className={s.loader} />
-      </div>
-    ),
-  },
-);
+const Scene = dynamic<ModelProps>(() => import('../../components/3d/product/scene'), {
+  loading: () => (
+    <div className='fullWidthCentered'>
+      <Loader className={s.loader} />
+    </div>
+  ),
+});
 
 export type ProductCardProps = {
   productData: Product;

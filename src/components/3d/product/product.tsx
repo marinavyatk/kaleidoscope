@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { Box3, Mesh, Vector3 } from 'three';
 
@@ -6,7 +6,7 @@ export type ModelProps = {
   link: string;
 };
 
-export default function Model(props: ModelProps) {
+function Model(props: ModelProps) {
   const { link } = props;
   const sceneRef = useRef();
   const { scene } = useGLTF(link, true);
@@ -53,3 +53,5 @@ export default function Model(props: ModelProps) {
     />
   );
 }
+
+export default memo(Model);

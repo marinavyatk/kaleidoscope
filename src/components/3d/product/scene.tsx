@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, memo, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import s from '../3d.module.scss';
 import { OrbitControls } from '@react-three/drei';
@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 
 const Model = lazy(() => import('./product'));
 
-export function Scene(props: ModelProps) {
+function Scene(props: ModelProps) {
   const { link } = props;
 
   return (
@@ -38,3 +38,5 @@ export function Scene(props: ModelProps) {
     </Suspense>
   );
 }
+
+export default memo(Scene);

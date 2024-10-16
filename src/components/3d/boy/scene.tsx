@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, memo, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import s from '../3d.module.scss';
 import { Environment } from '@react-three/drei';
@@ -7,7 +7,7 @@ import { ModelProps } from '@/components/3d/boy/boy';
 
 const Model = lazy(() => import('./boy'));
 
-export function Scene(props: ModelProps) {
+function Scene(props: ModelProps) {
   const { containerRef } = props;
   return (
     <Suspense
@@ -26,3 +26,5 @@ export function Scene(props: ModelProps) {
     </Suspense>
   );
 }
+
+export default memo(Scene);

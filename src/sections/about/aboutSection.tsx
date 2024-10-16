@@ -8,20 +8,18 @@ import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 import { Nullable } from '@/common/types';
 
-const Scene = dynamic<ModelProps>(
-  () => import('../../components/3d/boy/scene').then((mod) => mod.Scene),
-  {
-    loading: () => (
-      <div className={'fullWidthCentered'}>
-        <Loader className={s.loader} />
-      </div>
-    ),
-  },
-);
+const Scene = dynamic<ModelProps>(() => import('../../components/3d/boy/scene'), {
+  loading: () => (
+    <div className={'fullWidthCentered'}>
+      <Loader className={s.loader} />
+    </div>
+  ),
+});
 
 const AboutSection = () => {
   const modelContainerRef = useRef<Nullable<HTMLDivElement>>(null);
-  const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
+  // const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
+  const isVisible = useIntersectionObserver(modelContainerRef, 0.02);
 
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
