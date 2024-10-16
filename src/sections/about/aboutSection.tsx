@@ -18,8 +18,7 @@ const Scene = dynamic<ModelProps>(() => import('../../components/3d/boy/scene'),
 
 const AboutSection = () => {
   const modelContainerRef = useRef<Nullable<HTMLDivElement>>(null);
-  // const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
-  const isVisible = useIntersectionObserver(modelContainerRef, 0.02);
+  const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
 
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
