@@ -15,7 +15,8 @@
   height: 100vh;
   z-index: 1000; // Высокий z-index, чтобы компонент находился над всеми остальными
   background-color: rgba(0, 0, 0, 0.5); // Затемнение фона, если нужно
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .productsSlider {
@@ -25,5 +26,6 @@
 
 
 .hidden{
-  display: none;
+  //display: none;
+  transform: translateX(100vw);
 }
