@@ -1,5 +1,5 @@
 import { memo, RefObject, useEffect, useMemo, useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { invalidate, useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { Mesh, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
@@ -13,7 +13,21 @@ function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/boy.glb', true);
   const { actions, names } = useAnimations(animations, sceneRef);
-  // const isVisible = useIntersectionObserver(containerRef, 0.02);
+  const isVisible = useIntersectionObserver(containerRef, 0.02);
+
+  useEffect(() => {
+    let intervalId: ReturnType<typeof setInterval>;
+
+    if (isVisible) {
+      intervalId = setInterval(() => {
+        invalidate();
+      }, 17);
+    }
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
@@ -60,7 +74,6 @@ function Model(props: ModelProps) {
   const previousTargetPosition = useRef(new Vector3(0, 0, 2));
 
   useFrame(() => {
-    // if (!isVisible) return;
     if (head) {
       previousTargetPosition.current.lerp(target.position, 0.1);
       head.lookAt(previousTargetPosition.current);
@@ -72,6 +85,7 @@ function Model(props: ModelProps) {
     if (!container) return;
 
     const handleMove = (clientX: number, clientY: number) => {
+      invalidate();
       const rect = container.getBoundingClientRect();
       const relativeX = clientX - rect.left;
       const relativeY = clientY - rect.top;
