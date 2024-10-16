@@ -15,19 +15,19 @@ function Model(props: ModelProps) {
   const { actions, names } = useAnimations(animations, sceneRef);
   const isVisible = useIntersectionObserver(containerRef, 0.05);
 
-  // useEffect(() => {
-  //   let intervalId: ReturnType<typeof setInterval>;
-  //
-  //   if (isVisible) {
-  //     intervalId = setInterval(() => {
-  //       invalidate();
-  //     }, 17);
-  //   }
-  //
-  //   return () => {
-  //     if (intervalId) clearInterval(intervalId);
-  //   };
-  // }, [isVisible]);
+  useEffect(() => {
+    let intervalId: ReturnType<typeof setInterval>;
+
+    if (isVisible) {
+      intervalId = setInterval(() => {
+        invalidate();
+      }, 17);
+    }
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
@@ -74,7 +74,7 @@ function Model(props: ModelProps) {
   const previousTargetPosition = useRef(new Vector3(0, 0, 2));
 
   useFrame(() => {
-    if (!isVisible) return;
+    // if (!isVisible) return;
     if (head) {
       previousTargetPosition.current.lerp(target.position, 0.1);
       head.lookAt(previousTargetPosition.current);
@@ -86,7 +86,7 @@ function Model(props: ModelProps) {
     if (!container) return;
 
     const handleMove = (clientX: number, clientY: number) => {
-      // invalidate();
+      invalidate();
       const rect = container.getBoundingClientRect();
       const relativeX = clientX - rect.left;
       const relativeY = clientY - rect.top;
