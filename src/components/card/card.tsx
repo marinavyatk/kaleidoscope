@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, useState } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 import CardBackground from '../../assets/card.svg';
 import { clsx } from 'clsx';
 import s from './card.module.scss';
@@ -6,7 +6,6 @@ import { ProductCardModal } from '../modal/productCardModal/productCardModal';
 import { Product } from '@/common/types';
 import Image from 'next/image';
 import { Picture } from '@/components/picture/picture';
-import { Button } from '@/components/button/button';
 
 export type CardProps = {
   product: Product;
@@ -30,8 +29,6 @@ export const Card = (props: CardProps) => {
   } = props;
   const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
 
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
       <div className={s.card}>
@@ -53,17 +50,11 @@ export const Card = (props: CardProps) => {
           itemProp='image'
         />
         {restProps.children}
-        {openModal ? (
-          <ProductCardModal
-            open={openModal}
-            setOpen={setOpenModal}
-            products={products}
-            activeSlide={activeSlide}
-            setActiveIndex={setActiveIndex}
-          />
-        ) : (
-          <Button onClick={() => setOpenModal(true)}>Смотреть</Button>
-        )}
+        <ProductCardModal
+          products={products}
+          activeSlide={activeSlide}
+          setActiveIndex={setActiveIndex}
+        />
         <div itemProp='aggregateRating' itemScope itemType='https://schema.org/AggregateRating'>
           <meta itemProp='ratingValue' content='5' />
           <meta itemProp='reviewCount' content='1' />
