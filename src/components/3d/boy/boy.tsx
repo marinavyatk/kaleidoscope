@@ -12,7 +12,7 @@ export type ModelProps = {
 function Model(props: ModelProps) {
   const { containerRef } = props;
   const sceneRef = useRef();
-  // const { scene, animations } = useGLTF('/boy.glb', true);
+  // const { scene, animations } = useGLTF('/boy.glb', true)
   const { scene, animations } = useLoader(GLTFLoader, '/boy.glb');
   const { actions, names } = useAnimations(animations, sceneRef);
   const isVisible = useIntersectionObserver(containerRef, 0.02);

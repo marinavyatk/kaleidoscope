@@ -10,7 +10,7 @@ export type ModelProps = {
 function Model(props: ModelProps) {
   const { link } = props;
   const sceneRef = useRef();
-  // const { scene } = useGLTF(link, true);
+  // const { scene } = useGLTF(link, true)
   const { scene } = useLoader(GLTFLoader, link);
   const [scale, setScale] = useState(1);
 
