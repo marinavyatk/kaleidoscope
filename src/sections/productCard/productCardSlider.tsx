@@ -168,6 +168,7 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
     return (
       // <SwiperSlide key={product.name} className={s.slide}>
       <ProductCard
+        key={product.name}
         productData={product}
         onClose={() => handleOnClose(index)}
         swiperRef={swiperRef}
