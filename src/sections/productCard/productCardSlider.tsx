@@ -186,8 +186,8 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
             onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
             onSlideChange={handleSlideChange}
             keyboard
-            // initialSlide={!isVisible ? 1 : activeSlide}
-            initialSlide={activeSlide}
+            initialSlide={!isVisible ? 1 : activeSlide}
+            // initialSlide={activeSlide}
             allowTouchMove={false}
             autoHeight
             observer
