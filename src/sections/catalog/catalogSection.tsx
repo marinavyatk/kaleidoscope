@@ -1,5 +1,5 @@
 import s from './catalogSection.module.scss';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Carousel } from '@/components/carousel/carousel';
 import Image from 'next/image';
 import { v4 as uuid } from 'uuid';
@@ -37,6 +37,8 @@ const CatalogSection = (props: CatalogSectionProps) => {
     );
   });
 
+  const memoProducts = useMemo(() => currentProducts, [activeCategory]);
+
   return (
     <section className={s.catalogSection} id='catalog'>
       <Image src={'/radial-bg.webp'} alt='' fill className={s.gradient} />
@@ -55,7 +57,8 @@ const CatalogSection = (props: CatalogSectionProps) => {
       </div>
       {isCardSliderOpen && (
         <ProductCardSlider
-          products={currentProducts}
+          // products={currentProducts}
+          products={memoProducts}
           activeSlide={activeIndex}
           // setActiveIndex={setActiveIndexMemo}
           setActiveIndex={setActiveIndexMemo}
