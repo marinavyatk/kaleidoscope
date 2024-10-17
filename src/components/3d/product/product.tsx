@@ -10,12 +10,12 @@ export type ModelProps = {
 
 function Model(props: ModelProps) {
   const { link } = props;
-  const sceneRef = useRef();
+  const sceneRef = useRef(null);
   const { scene } = useGLTF(link, true);
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    if (sceneRef.current) {
+    if (scene && sceneRef.current) {
       const box = new Box3().setFromObject(sceneRef.current);
       const modelSize = box.getSize(new Vector3());
       let maxModelSize = Math.max(modelSize.x, modelSize.y, modelSize.z);
@@ -43,8 +43,6 @@ function Model(props: ModelProps) {
           }
         });
       }
-      scene.traverse((object) => {});
-      dispose(scene);
       useGLTF.clear(link);
       // clear();
     };
