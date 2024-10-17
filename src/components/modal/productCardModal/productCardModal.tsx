@@ -18,8 +18,8 @@ export type ProductCardsSliderProps = {
   setOpenModal: (openModal: boolean) => void;
 };
 
-console.log('hello!');
 export const ProductCardModal = (props: ProductCardsSliderProps) => {
+  console.log('hello!');
   const { products, activeSlide, setActiveIndex, openModal, setOpenModal } = props;
   const swiperRef = useRef<SwiperClass>(null);
   const [viewedSlides, setViewedSlides] = useState<Set<number>>(new Set());
