@@ -65,10 +65,10 @@ body {
   font-size: 18px;
 }
 
-html body[data-scroll-locked] {
-  overflow: unset !important;
-  margin-right: 0 !important;
-}
+//html body[data-scroll-locked] {
+//  overflow: unset !important;
+//  margin-right: 0 !important;
+//}
 
 h1 {
   font-weight: var(--fw-bold);

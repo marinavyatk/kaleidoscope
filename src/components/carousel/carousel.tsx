@@ -131,7 +131,7 @@ export const Carousel = ({ products }: CarouselProps) => {
       {initialOpenModal && (
         <ProductCardModal
           products={products}
-          activeSlide={activeIndex}
+          activeSlide={openModal ? activeIndex : 1}
           setActiveIndex={setActiveIndex}
           openModal={openModal}
           setOpenModal={setOpenModal}
