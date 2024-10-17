@@ -79,12 +79,12 @@ export const ProductCard = (props: ProductCardProps) => {
         </div>
         {!showModel && <Button onClick={() => setShowModel(true)}>Загрузить 3д</Button>}
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
-          {showModel ? (
-            <Scene link={productData.model} />
-          ) : (
-            <Image src={productData.img} fill alt='' />
-          )}
-          {/*{hasViewed && productData?.model && <Scene link={productData.model} />}*/}
+          {/*{showModel ? (*/}
+          {/*  <Scene link={productData.model} />*/}
+          {/*) : (*/}
+          {/*  <Image src={productData.img} fill alt='' />*/}
+          {/*)}*/}
+          {hasViewed && productData?.model && <Scene link={productData.model} />}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>

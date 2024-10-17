@@ -46,7 +46,7 @@ function Model(props: ModelProps) {
       scene.traverse((object) => {});
       dispose(scene);
       useGLTF.clear(link);
-      clear();
+      // clear();
     };
   }, [scene]);
 
