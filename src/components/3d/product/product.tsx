@@ -1,7 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import { Box3, Mesh, Vector3 } from 'three';
 import { useGLTF } from '@react-three/drei';
-import { dispose } from '@react-three/fiber';
 import { clear } from 'suspend-react';
 
 export type ModelProps = {
@@ -43,7 +42,7 @@ function Model(props: ModelProps) {
           }
         });
       }
-      useGLTF.clear(link);
+      // useGLTF.clear(link);
       // clear();
     };
   }, [scene]);

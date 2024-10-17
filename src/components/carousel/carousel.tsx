@@ -5,6 +5,7 @@ import Arrow from '../../assets/arrow-up.svg';
 import { Product } from '@/common/types';
 import { clsx } from 'clsx';
 import { ProgressBar } from '@/components/progressBar/progressBar';
+import { ProductCardModal } from '@/components/modal/productCardModal/productCardModal';
 
 export type CarouselProps = {
   products: Product[];
@@ -16,6 +17,8 @@ export const Carousel = ({ products }: CarouselProps) => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     updateCardClasses();
@@ -95,6 +98,7 @@ export const Carousel = ({ products }: CarouselProps) => {
             products={products}
             activeSlide={activeIndex}
             setActiveIndex={setActiveIndex}
+            setOpenModal={setOpenModal}
           />
         ))}
       </div>
@@ -117,6 +121,13 @@ export const Carousel = ({ products }: CarouselProps) => {
           <Arrow />
         </button>
       </div>
+      <ProductCardModal
+        products={products}
+        activeSlide={activeIndex}
+        setActiveIndex={setActiveIndex}
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+      />
     </div>
   );
 };
