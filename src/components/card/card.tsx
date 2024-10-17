@@ -16,6 +16,8 @@ export type CardProps = {
   setActiveIndex: (index: number) => void;
   direction: 'forward' | 'backward';
   setOpenModal: (openModal: boolean) => void;
+  initialOpenModal: boolean;
+  setInitialOpenModal: (setInitialOpenModal: boolean) => void;
 } & ComponentPropsWithoutRef<'div'>;
 
 export const Card = (props: CardProps) => {
@@ -28,9 +30,19 @@ export const Card = (props: CardProps) => {
     status,
     direction,
     setOpenModal,
+    initialOpenModal,
+    setInitialOpenModal,
     ...restProps
   } = props;
   const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
+
+  const onClickHandler = (): void => {
+    if (!initialOpenModal) {
+      setInitialOpenModal(true);
+    }
+
+    setOpenModal(true);
+  };
 
   return (
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
@@ -53,7 +65,7 @@ export const Card = (props: CardProps) => {
           itemProp='image'
         />
         {restProps.children}
-        <Button onClick={() => setOpenModal(true)}>Смотреть</Button>
+        <Button onClick={onClickHandler}>Смотреть</Button>
         {/*<ProductCardModal*/}
         {/*  products={products}*/}
         {/*  activeSlide={activeSlide}*/}

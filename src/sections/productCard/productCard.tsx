@@ -43,9 +43,11 @@ export const ProductCard = (props: ProductCardProps) => {
       <div>
         <div className={s.cardHeader}>
           <h2 itemProp='title'>{productData?.name}</h2>
-          <DialogClose onClick={onClose} className={s.close}>
+          {/*<DialogClose onClick={onClose} className={s.close}>*/}
+          <button onClick={onClose} className={s.close}>
             <CloseIcon />
-          </DialogClose>
+          </button>
+          {/*</DialogClose>*/}
         </div>
         <div className={s.cardMain}>
           <div className={s.description}>
@@ -77,7 +79,7 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
           )}
         </div>
-        {!showModel && <Button onClick={() => setShowModel(true)}>Загрузить 3д</Button>}
+        {/*{!showModel && <Button onClick={() => setShowModel(true)}>Загрузить 3д</Button>}*/}
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
           {/*{showModel ? (*/}
           {/*  <Scene link={productData.model} />*/}

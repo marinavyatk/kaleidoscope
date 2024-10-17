@@ -1,4 +1,13 @@
 .modalContainer {
   width: 100%;
   height: 100%;
+
+  &.modalContainerHidden{
+    //transform: translateX(-100vw);
+    margin-left: -100vw;
+  }
+}
+
+.hidden{
+  display: none;
 }

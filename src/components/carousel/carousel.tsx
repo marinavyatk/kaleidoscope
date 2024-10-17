@@ -6,6 +6,7 @@ import { Product } from '@/common/types';
 import { clsx } from 'clsx';
 import { ProgressBar } from '@/components/progressBar/progressBar';
 import { ProductCardModal } from '@/components/modal/productCardModal/productCardModal';
+import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export type CarouselProps = {
   products: Product[];
@@ -17,8 +18,11 @@ export const Carousel = ({ products }: CarouselProps) => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  // const isVisible = useIntersectionObserver(containerRef, 0.4, true);
 
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [initialOpenModal, setInitialOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     updateCardClasses();
@@ -87,6 +91,7 @@ export const Carousel = ({ products }: CarouselProps) => {
       onTouchEnd={handleTouchEnd}
       onKeyDown={handleKeyDown}
       tabIndex={0}
+      ref={containerRef}
     >
       <div className={s.itemsContainer}>
         {products.map((product, index) => (
@@ -99,6 +104,8 @@ export const Carousel = ({ products }: CarouselProps) => {
             activeSlide={activeIndex}
             setActiveIndex={setActiveIndex}
             setOpenModal={setOpenModal}
+            setInitialOpenModal={setInitialOpenModal}
+            initialOpenModal={initialOpenModal}
           />
         ))}
       </div>
@@ -121,13 +128,15 @@ export const Carousel = ({ products }: CarouselProps) => {
           <Arrow />
         </button>
       </div>
-      <ProductCardModal
-        products={products}
-        activeSlide={activeIndex}
-        setActiveIndex={setActiveIndex}
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-      />
+      {initialOpenModal && (
+        <ProductCardModal
+          products={products}
+          activeSlide={activeIndex}
+          setActiveIndex={setActiveIndex}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
+      )}
     </div>
   );
 };
