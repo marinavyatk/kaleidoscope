@@ -27,13 +27,17 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
     }
   };
 
+  const handleOnClose = (index: number) => {
+    if (activeSlide !== index) setActiveIndex(index);
+  };
+
   const cards = products.map((product, index) => {
     const hasViewed = viewedSlides.has(index);
     return (
       <SwiperSlide key={product.name}>
         <ProductCard
           productData={product}
-          onClose={() => setActiveIndex(index)}
+          onClose={() => handleOnClose(index)}
           swiperRef={swiperRef}
           hasViewed={hasViewed}
         />

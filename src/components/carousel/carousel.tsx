@@ -1,37 +1,22 @@
-import { KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef, KeyboardEvent } from 'react';
 import { Card } from '../card/card';
 import s from './carousel.module.scss';
 import Arrow from '../../assets/arrow-up.svg';
 import { Product } from '@/common/types';
 import { clsx } from 'clsx';
 import { ProgressBar } from '@/components/progressBar/progressBar';
-import ProductCardSlider from '@/sections/productCard/productCardSlider';
 
 export type CarouselProps = {
   products: Product[];
-  setIsCardSliderVisible: (isVisible: boolean) => void;
-  isCardSliderOpen: boolean;
-  setIsCardSliderOpen: (isOpen: boolean) => void;
-  activeIndex: number;
-  setActiveIndex: (index: (prevIndex: number) => number) => void;
 };
 
-export const Carousel = ({
-  products,
-  setIsCardSliderVisible,
-  isCardSliderOpen,
-  setIsCardSliderOpen,
-  activeIndex,
-  setActiveIndex,
-}: CarouselProps) => {
-  // const [activeIndex, setActiveIndex] = useState(products.length < 3 ? 0 : 1);
+export const Carousel = ({ products }: CarouselProps) => {
+  const [activeIndex, setActiveIndex] = useState(products.length < 3 ? 0 : 1);
   const [cardStatus, setCardStatus] = useState<string[]>([]);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  // const [isCardSliderOpen, setIsCardSliderOpen] = useState(false);
-  // const [isCardSliderVisible, setIsCardSliderVisible] = useState(true);
-  console.log('Carousel', activeIndex);
+
   useEffect(() => {
     updateCardClasses();
   }, [activeIndex]);
@@ -91,16 +76,6 @@ export const Carousel = ({
     }
   };
 
-  const handleShowMore = () => {
-    if (!isCardSliderOpen) {
-      setIsCardSliderOpen(true);
-    }
-    setIsCardSliderVisible(true);
-  };
-
-  // const setActiveIndexMemo = useCallback(setActiveIndex, []);
-  // const setIsCardSliderVisibleMemo = useCallback(setIsCardSliderVisible, []);
-
   return (
     <div
       className={s.carousel}
@@ -119,8 +94,7 @@ export const Carousel = ({
             direction={direction}
             products={products}
             activeSlide={activeIndex}
-            // setActiveIndex={setActiveIndex}
-            buttonProps={{ onClick: handleShowMore }}
+            setActiveIndex={setActiveIndex}
           />
         ))}
       </div>
@@ -143,15 +117,6 @@ export const Carousel = ({
           <Arrow />
         </button>
       </div>
-      {/*{isCardSliderOpen && (*/}
-      {/*  <ProductCardSlider*/}
-      {/*    products={products}*/}
-      {/*    activeSlide={activeIndex}*/}
-      {/*    setActiveIndex={setActiveIndexMemo}*/}
-      {/*    isVisible={isCardSliderVisible}*/}
-      {/*    setIsCardSliderVisible={setIsCardSliderVisibleMemo}*/}
-      {/*  />*/}
-      {/*)}*/}
     </div>
   );
 };
