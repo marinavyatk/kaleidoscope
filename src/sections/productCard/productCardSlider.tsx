@@ -21,8 +21,11 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
   const swiperRef = useRef<SwiperClass>(null);
   const [viewedSlides, setViewedSlides] = useState<Set<number>>(new Set());
 
+  console.log('SlideractiveSlide', activeSlide);
+
   const handleSlideChange = (swiper: SwiperClass) => {
     const currentIndex = swiper.realIndex;
+    // const currentIndex = swiper.activeIndex;
     if (!viewedSlides.has(currentIndex)) {
       setViewedSlides((prev) => new Set(prev).add(currentIndex));
     }
@@ -50,14 +53,18 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
   // }, [swiperRef.current]);
 
   // useEffect(() => {
-  //   if (swiperRef.current) {
-  //     swiperRef.current.enable();
-  //     swiperRef.current.allowTouchMove = false;
-  //     swiperRef.current.slideTo(activeSlide);
+  //   if (swiperRef.current && isVisible) {
+  //     // swiperRef.current.slideTo(activeSlide);
+  //     swiperRef.current.slideToLoop(activeSlide);
   //     swiperRef.current.updateAutoHeight();
-  //     swiperRef.current.disable();
   //   }
-  // }, [activeSlide]);
+  // }, [activeSlide, isVisible]);
+
+  useEffect(() => {
+    if (swiperRef.current && isVisible) {
+      swiperRef.current.slideTo(activeSlide);
+    }
+  }, [activeSlide, isVisible]);
 
   const cards = products.map((product, index) => {
     const hasViewed = viewedSlides.has(index);
@@ -78,21 +85,16 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
       <div className={clsx(s.productsSlider, !isVisible && s.hidden)}>
         <div>
           <Swiper
-            key='productCardSlider'
             modules={[Keyboard, Navigation]}
             onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
             onSlideChange={handleSlideChange}
             keyboard
-            loop
+            // loop
             initialSlide={!isVisible ? 1 : activeSlide}
             allowTouchMove={false}
-            simulateTouch={false}
             autoHeight
             observer
             observeParents
-            // onTouchEnd={(_, event) => {
-            //   event.preventDefault();
-            // }}
           >
             {cards}
           </Swiper>

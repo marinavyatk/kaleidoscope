@@ -31,7 +31,7 @@ export const Carousel = ({
   const touchEndX = useRef(0);
   // const [isCardSliderOpen, setIsCardSliderOpen] = useState(false);
   // const [isCardSliderVisible, setIsCardSliderVisible] = useState(true);
-
+  console.log('Carousel', activeIndex);
   useEffect(() => {
     updateCardClasses();
   }, [activeIndex]);

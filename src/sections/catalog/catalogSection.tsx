@@ -19,7 +19,7 @@ const CatalogSection = (props: CatalogSectionProps) => {
   const [isCardSliderVisible, setIsCardSliderVisible] = useState(true);
   const setActiveIndexMemo = useCallback(setActiveIndex, []);
   const setIsCardSliderVisibleMemo = useCallback(setIsCardSliderVisible, []);
-
+  console.log('CatalogSection', activeIndex);
   const categoriesButtons = categories?.map((item) => {
     const handleChangeCategory = () => {
       setActiveCategory(item.id);
@@ -49,7 +49,7 @@ const CatalogSection = (props: CatalogSectionProps) => {
           isCardSliderOpen={isCardSliderOpen}
           setIsCardSliderOpen={setIsCardSliderOpen}
           activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
+          setActiveIndex={setActiveIndexMemo}
         />
         <div className={s.categories}>{categoriesButtons}</div>
       </div>
@@ -58,7 +58,7 @@ const CatalogSection = (props: CatalogSectionProps) => {
           products={currentProducts}
           activeSlide={activeIndex}
           // setActiveIndex={setActiveIndexMemo}
-          setActiveIndex={setActiveIndex}
+          setActiveIndex={setActiveIndexMemo}
           isVisible={isCardSliderVisible}
           setIsCardSliderVisible={setIsCardSliderVisibleMemo}
         />
