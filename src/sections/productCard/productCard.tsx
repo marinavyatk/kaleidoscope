@@ -106,9 +106,7 @@ export const ProductCard = (props: ProductCardProps) => {
         >
           {/*{hasViewed && productData?.model && <Scene link={productData.model} />}*/}
           {/*{hasViewed && productData?.model && isVisible && <Scene link={productData.model} />}*/}
-          {hasViewed && productData?.model && showModel && (
-            <SceneWrapper link={productData.model} />
-          )}
+          {productData?.model && <SceneWrapper link={productData.model} />}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>
