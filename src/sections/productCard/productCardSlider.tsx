@@ -141,6 +141,23 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
     }
   };
 
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (swiperRef.current && isVisible) {
+      swiperRef.current.slideTo(activeSlide);
+      // swiperRef.current.slideToLoop(activeSlide);
+      swiperRef.current.updateAutoHeight();
+      // swiperRef.current.updateSlides();
+    }
+  }, [activeSlide, isVisible]);
+
   const handleOnClose = (index: number) => {
     if (activeSlide !== index) setActiveIndex(index);
     setIsCardSliderVisible(false);
@@ -169,11 +186,13 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
             onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
             onSlideChange={handleSlideChange}
             keyboard
-            initialSlide={!isVisible ? 1 : activeSlide}
+            // initialSlide={!isVisible ? 1 : activeSlide}
+            initialSlide={activeSlide}
             allowTouchMove={false}
             autoHeight
             observer
             observeParents
+            // loop
           >
             {cards}
           </Swiper>
@@ -182,7 +201,7 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
     </div>
   );
 
-  return isVisible ? createPortal(sliderContent, document.body) : null;
+  return createPortal(sliderContent, document.body);
 };
 
 export default memo(ProductCardSlider);

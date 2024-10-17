@@ -51,10 +51,10 @@ export const ProductCard = (props: ProductCardProps) => {
   const classNames = clsx(s.productCard, className);
   const isTabletOrMobile = useScreenWidth(767);
   const modelContainerRef = useRef(null);
-  const isVisible = useIntersectionObserver(modelContainerRef, 1);
+  const isVisible = useIntersectionObserver(modelContainerRef, 1, true);
   const [showModel, setShowModel] = useState(false);
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible && !showModel) {
       setTimeout(() => setShowModel(true), 1000);
     }
   }, [isVisible]);
