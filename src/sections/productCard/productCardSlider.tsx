@@ -149,14 +149,14 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
     }
   }, [isVisible]);
 
-  // useEffect(() => {
-  //   if (swiperRef.current && isVisible) {
-  //     swiperRef.current.slideTo(activeSlide);
-  //     // swiperRef.current.slideToLoop(activeSlide);
-  //     swiperRef.current.updateAutoHeight();
-  //     // swiperRef.current.updateSlides();
-  //   }
-  // }, [activeSlide, isVisible]);
+  useEffect(() => {
+    if (swiperRef.current && isVisible) {
+      swiperRef.current.slideTo(activeSlide);
+      // swiperRef.current.slideToLoop(activeSlide);
+      swiperRef.current.updateAutoHeight();
+      // swiperRef.current.updateSlides();
+    }
+  }, [activeSlide, isVisible]);
 
   const handleOnClose = (index: number) => {
     if (activeSlide !== index) setActiveIndex(index);
@@ -166,15 +166,14 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
   const cards = products.map((product, index) => {
     const hasViewed = viewedSlides.has(index);
     return (
-      // <SwiperSlide key={product.name} className={s.slide}>
-      <ProductCard
-        key={product.name}
-        productData={product}
-        onClose={() => handleOnClose(index)}
-        swiperRef={swiperRef}
-        hasViewed={hasViewed}
-      />
-      // </SwiperSlide>
+      <SwiperSlide key={product.name} className={s.slide}>
+        <ProductCard
+          productData={product}
+          onClose={() => handleOnClose(index)}
+          swiperRef={swiperRef}
+          hasViewed={hasViewed}
+        />
+      </SwiperSlide>
     );
   });
 
@@ -182,21 +181,21 @@ const ProductCardSlider = (props: ProductCardsSliderProps) => {
     <div className={clsx(s.overlay, !isVisible && s.hidden)}>
       <div className={clsx(s.productsSlider, !isVisible && s.hidden)}>
         <div>
-          {/*<Swiper*/}
-          {/*  modules={[Keyboard, Navigation]}*/}
-          {/*  onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}*/}
-          {/*  onSlideChange={handleSlideChange}*/}
-          {/*  keyboard*/}
-          {/*  initialSlide={!isVisible ? 1 : activeSlide}*/}
-          {/*  // initialSlide={activeSlide}*/}
-          {/*  allowTouchMove={false}*/}
-          {/*  autoHeight*/}
-          {/*  observer*/}
-          {/*  observeParents*/}
-          {/*  // loop*/}
-          {/*>*/}
-          {cards}
-          {/*</Swiper>*/}
+          <Swiper
+            modules={[Keyboard, Navigation]}
+            onSwiper={(swiper) => handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>)}
+            onSlideChange={handleSlideChange}
+            keyboard
+            // initialSlide={!isVisible ? 1 : activeSlide}
+            initialSlide={activeSlide}
+            allowTouchMove={false}
+            autoHeight
+            observer
+            observeParents
+            // loop
+          >
+            {cards}
+          </Swiper>
         </div>
       </div>
     </div>

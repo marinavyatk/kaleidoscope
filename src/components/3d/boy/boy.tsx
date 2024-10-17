@@ -13,21 +13,21 @@ function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/boy.glb', true);
   const { actions, names } = useAnimations(animations, sceneRef);
-  // const isVisible = useIntersectionObserver(containerRef, 0.05);
+  const isVisible = useIntersectionObserver(containerRef, 0.05);
 
-  // useEffect(() => {
-  //   let intervalId: ReturnType<typeof setInterval>;
-  //
-  //   if (isVisible) {
-  //     intervalId = setInterval(() => {
-  //       invalidate();
-  //     }, 17);
-  //   }
-  //
-  //   return () => {
-  //     if (intervalId) clearInterval(intervalId);
-  //   };
-  // }, [isVisible]);
+  useEffect(() => {
+    let intervalId: ReturnType<typeof setInterval>;
+
+    if (isVisible) {
+      intervalId = setInterval(() => {
+        invalidate();
+      }, 17);
+    }
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
@@ -86,7 +86,7 @@ function Model(props: ModelProps) {
     if (!container) return;
 
     const handleMove = (clientX: number, clientY: number) => {
-      // invalidate();
+      invalidate();
       const rect = container.getBoundingClientRect();
       const relativeX = clientX - rect.left;
       const relativeY = clientY - rect.top;
