@@ -1,7 +1,14 @@
 import s from './productCard.module.scss';
 import CloseIcon from '../../assets/close.svg';
 import ArrowIcon from '../../assets/arrow-triangle.svg';
-import { ComponentPropsWithoutRef, MutableRefObject, RefObject, useRef } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  MutableRefObject,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { clsx } from 'clsx';
 import { SwiperClass } from 'swiper/react';
 import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFunctions';
@@ -35,7 +42,13 @@ export const ProductCard = (props: ProductCardProps) => {
   const classNames = clsx(s.productCard, className);
   const isTabletOrMobile = useScreenWidth(767);
   const modelContainerRef = useRef(null);
-  const isVisible = useIntersectionObserver(modelContainerRef, 0.2);
+  const isVisible = useIntersectionObserver(modelContainerRef, 0.5);
+  const [showModel, setShowModel] = useState(false);
+  useEffect(() => {
+    if (isVisible) {
+      setTimeout(() => setShowModel(true), 1000);
+    }
+  }, [isVisible]);
 
   return (
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
@@ -84,7 +97,7 @@ export const ProductCard = (props: ProductCardProps) => {
         >
           {/*{hasViewed && productData?.model && <Scene link={productData.model} />}*/}
           {/*{hasViewed && productData?.model && isVisible && <Scene link={productData.model} />}*/}
-          {hasViewed && productData?.model && isVisible && (
+          {hasViewed && productData?.model && showModel && (
             <SceneWrapper link={productData.model} />
           )}
         </div>
