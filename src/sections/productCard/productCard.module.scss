@@ -58,6 +58,10 @@
   margin: 0 auto;
   background-image: url("/product-bg.webp");
   background-size: contain;
+
+  img{
+    object-fit: contain;
+  }
 }
 
 .cardHeader {
