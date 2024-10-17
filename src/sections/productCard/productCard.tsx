@@ -20,7 +20,7 @@ import dynamic from 'next/dynamic';
 import { ModelProps } from '@/components/3d/product/product';
 import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
-import SceneWrapper from '@/components/3d/product/sceneWrapper';
+// import SceneWrapper from '@/components/3d/product/sceneWrapper';
 
 // const Scene = dynamic<ModelProps>(() => import('../../components/3d/product/scene'), {
 //   loading: () => (
@@ -29,6 +29,15 @@ import SceneWrapper from '@/components/3d/product/sceneWrapper';
 //     </div>
 //   ),
 // });
+//
+const SceneWrapper = dynamic<ModelProps>(() => import('../../components/3d/product/sceneWrapper'), {
+  loading: () => (
+    <div className='fullWidthCentered'>
+      <Loader className={s.loader} />
+      wrapper
+    </div>
+  ),
+});
 
 export type ProductCardProps = {
   productData: Product;
@@ -42,7 +51,7 @@ export const ProductCard = (props: ProductCardProps) => {
   const classNames = clsx(s.productCard, className);
   const isTabletOrMobile = useScreenWidth(767);
   const modelContainerRef = useRef(null);
-  const isVisible = useIntersectionObserver(modelContainerRef, 0.5);
+  const isVisible = useIntersectionObserver(modelContainerRef, 1);
   const [showModel, setShowModel] = useState(false);
   useEffect(() => {
     if (isVisible) {
