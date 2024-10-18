@@ -2,7 +2,6 @@ import { ComponentPropsWithoutRef } from 'react';
 import CardBackground from '../../assets/card.svg';
 import { clsx } from 'clsx';
 import s from './card.module.scss';
-import { ProductCardModal } from '../modal/productCardModal/productCardModal';
 import { Product } from '@/common/types';
 import Image from 'next/image';
 import { Picture } from '@/components/picture/picture';
@@ -40,7 +39,6 @@ export const Card = (props: CardProps) => {
     if (!initialOpenModal) {
       setInitialOpenModal(true);
     }
-
     setOpenModal(true);
   };
 
@@ -66,11 +64,6 @@ export const Card = (props: CardProps) => {
         />
         {restProps.children}
         <Button onClick={onClickHandler}>Смотреть</Button>
-        {/*<ProductCardModal*/}
-        {/*  products={products}*/}
-        {/*  activeSlide={activeSlide}*/}
-        {/*  setActiveIndex={setActiveIndex}*/}
-        {/*/>*/}
         <div itemProp='aggregateRating' itemScope itemType='https://schema.org/AggregateRating'>
           <meta itemProp='ratingValue' content='5' />
           <meta itemProp='reviewCount' content='1' />

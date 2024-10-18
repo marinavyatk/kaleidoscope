@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, KeyboardEvent } from 'react';
+import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 import { Card } from '../card/card';
 import s from './carousel.module.scss';
 import Arrow from '../../assets/arrow-up.svg';
@@ -6,7 +6,6 @@ import { Product } from '@/common/types';
 import { clsx } from 'clsx';
 import { ProgressBar } from '@/components/progressBar/progressBar';
 import { ProductCardModal } from '@/components/modal/productCardModal/productCardModal';
-import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export type CarouselProps = {
   products: Product[];
@@ -19,8 +18,6 @@ export const Carousel = ({ products }: CarouselProps) => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  // const isVisible = useIntersectionObserver(containerRef, 0.4, true);
-
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [initialOpenModal, setInitialOpenModal] = useState<boolean>(false);
 

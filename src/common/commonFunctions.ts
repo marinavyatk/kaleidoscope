@@ -2,6 +2,7 @@ import { MutableRefObject } from 'react';
 import { SwiperClass } from 'swiper/react';
 import { Product, ProductData } from '@/common/types';
 import { api } from '@/common/api';
+import { Group, Mesh } from 'three';
 
 export const handlePrevButtonClick = (swiperRef: MutableRefObject<SwiperClass>) => {
   swiperRef.current?.slidePrev();
@@ -48,4 +49,20 @@ export const getStructuredProducts = (activeCategory: number) => {
   };
 
   return getProducts();
+};
+
+export const cleanUp = (scene: Group) => {
+  if (scene) {
+    scene.traverse((object) => {
+      if ((object as Mesh).isMesh) {
+        const mesh = object as Mesh;
+        mesh.geometry.dispose();
+        if (Array.isArray(mesh.material)) {
+          mesh.material.forEach((material) => material.dispose());
+        } else if (mesh.material.isMaterial) {
+          mesh.material.dispose();
+        }
+      }
+    });
+  }
 };

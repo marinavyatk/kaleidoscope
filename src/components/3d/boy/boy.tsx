@@ -1,7 +1,8 @@
 import { memo, RefObject, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
-import { Mesh, Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
+import { Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
+import { cleanUp } from '@/common/commonFunctions';
 
 export type ModelProps = {
   containerRef: RefObject<HTMLDivElement>;
@@ -26,21 +27,7 @@ function Model(props: ModelProps) {
   }, []);
 
   useEffect(() => {
-    return () => {
-      if (scene) {
-        scene.traverse((object) => {
-          if ((object as Mesh).isMesh) {
-            const mesh = object as Mesh;
-            mesh.geometry.dispose();
-            if (Array.isArray(mesh.material)) {
-              mesh.material.forEach((material) => material.dispose());
-            } else if (mesh.material.isMaterial) {
-              mesh.material.dispose();
-            }
-          }
-        });
-      }
-    };
+    return cleanUp(scene);
   }, [scene]);
 
   const target = useMemo(() => {

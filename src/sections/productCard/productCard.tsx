@@ -1,7 +1,7 @@
 import s from './productCard.module.scss';
 import CloseIcon from '../../assets/close.svg';
 import ArrowIcon from '../../assets/arrow-triangle.svg';
-import { ComponentPropsWithoutRef, MutableRefObject, RefObject, useState } from 'react';
+import { ComponentPropsWithoutRef, MutableRefObject, RefObject } from 'react';
 import { clsx } from 'clsx';
 import { SwiperClass } from 'swiper/react';
 import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFunctions';
@@ -14,7 +14,6 @@ import dynamic from 'next/dynamic';
 import { ModelProps } from '@/components/3d/product/product';
 import { Loader } from '@/components/loader/loader';
 import { Button } from '@/components/button/button';
-import Image from 'next/image';
 
 const Scene = dynamic<ModelProps>(() => import('../../components/3d/product/scene'), {
   loading: () => (
@@ -35,7 +34,6 @@ export const ProductCard = (props: ProductCardProps) => {
   const { productData, onClose, swiperRef, className, hasViewed, ...restProps } = props;
   const classNames = clsx(s.productCard, className);
   const isTabletOrMobile = useScreenWidth(767);
-  const [showModel, setShowModel] = useState(false);
 
   return (
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
@@ -79,13 +77,7 @@ export const ProductCard = (props: ProductCardProps) => {
             </div>
           )}
         </div>
-        {/*{!showModel && <Button onClick={() => setShowModel(true)}>Загрузить 3д</Button>}*/}
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
-          {/*{showModel ? (*/}
-          {/*  <Scene link={productData.model} />*/}
-          {/*) : (*/}
-          {/*  <Image src={productData.img} fill alt='' />*/}
-          {/*)}*/}
           {hasViewed && productData?.model && <Scene link={productData.model} />}
         </div>
         {isTabletOrMobile && (

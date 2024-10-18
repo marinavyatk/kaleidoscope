@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { Box3, Mesh, Vector3 } from 'three';
+import { Box3, Vector3 } from 'three';
 import { useGLTF } from '@react-three/drei';
-import { clear } from 'suspend-react';
+import { cleanUp } from '@/common/commonFunctions';
 
 export type ModelProps = {
   link: string;
@@ -28,23 +28,7 @@ function Model(props: ModelProps) {
       setScale(calculatedScale);
     }
 
-    return () => {
-      if (scene) {
-        scene.traverse((object) => {
-          if ((object as Mesh).isMesh) {
-            const mesh = object as Mesh;
-            mesh.geometry.dispose();
-            if (Array.isArray(mesh.material)) {
-              mesh.material.forEach((material) => material.dispose());
-            } else if (mesh.material.isMaterial) {
-              mesh.material.dispose();
-            }
-          }
-        });
-      }
-      // useGLTF.clear(link);
-      // clear();
-    };
+    return cleanUp(scene);
   }, [scene]);
 
   return (
