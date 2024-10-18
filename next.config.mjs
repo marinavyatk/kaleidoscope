@@ -56,7 +56,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: 'https://kaleidoscope-gamma.vercel.app/',
+        source: '/',
         destination: 'https://xn----7sbkceuefeg0bbnri.xn--p1ai/',
         permanent: true,
       },
