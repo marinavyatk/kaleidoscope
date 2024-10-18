@@ -13,7 +13,7 @@ function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/boy/untitled.gltf', true);
   const { actions, names } = useAnimations(animations, sceneRef);
-
+  //
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
     const blinkAnimation = actions[names[1]];
