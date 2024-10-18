@@ -11,7 +11,7 @@ type CatalogSectionProps = {
 };
 const CatalogSection = (props: CatalogSectionProps) => {
   const { categories, products } = props;
-  const [activeCategory, setActiveCategory] = useState(categories?.[0].id || 0);
+  const [activeCategory, setActiveCategory] = useState(categories?.[0]?.id || 0);
   const [currentProducts, setCurrentProducts] = useState<Product[]>(products[activeCategory] || []);
 
   const categoriesButtons = categories?.map((item) => {
