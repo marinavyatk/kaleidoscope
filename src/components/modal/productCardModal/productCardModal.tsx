@@ -61,10 +61,11 @@ export const ProductCardModal = (props: ProductCardsSliderProps) => {
           keyboard
           loop
           initialSlide={openModal ? activeSlide : 1}
-          allowTouchMove={false}
           autoHeight
           observer
           observeParents
+          noSwiping
+          noSwipingSelector={'canvas'}
         >
           {cards}
         </Swiper>

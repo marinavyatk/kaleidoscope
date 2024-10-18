@@ -11,7 +11,7 @@ export type ModelProps = {
 function Model(props: ModelProps) {
   const { containerRef } = props;
   const sceneRef = useRef();
-  const { scene, animations } = useGLTF('/boy/untitled.gltf', true);
+  const { scene, animations } = useGLTF('/model/boy.gltf', true);
   const { actions, names } = useAnimations(animations, sceneRef);
 
   useEffect(() => {
