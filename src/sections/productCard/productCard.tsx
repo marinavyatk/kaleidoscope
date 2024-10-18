@@ -5,7 +5,6 @@ import { ComponentPropsWithoutRef, MutableRefObject, RefObject } from 'react';
 import { clsx } from 'clsx';
 import { SwiperClass } from 'swiper/react';
 import { handleNextButtonClick, handlePrevButtonClick } from '@/common/commonFunctions';
-import { DialogClose } from '@radix-ui/react-dialog';
 import { Product } from '@/common/types';
 import { v4 as uuid } from 'uuid';
 import { CommercialProposalModal } from '@/components/modal/commercialProposalModal/commersalProporsalModal';
@@ -13,7 +12,6 @@ import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 import dynamic from 'next/dynamic';
 import { ModelProps } from '@/components/3d/product/product';
 import { Loader } from '@/components/loader/loader';
-import { Button } from '@/components/button/button';
 
 const Scene = dynamic<ModelProps>(() => import('../../components/3d/product/scene'), {
   loading: () => (
@@ -41,11 +39,9 @@ export const ProductCard = (props: ProductCardProps) => {
       <div>
         <div className={s.cardHeader}>
           <h2 itemProp='title'>{productData?.name}</h2>
-          {/*<DialogClose onClick={onClose} className={s.close}>*/}
           <button onClick={onClose} className={s.close}>
             <CloseIcon />
           </button>
-          {/*</DialogClose>*/}
         </div>
         <div className={s.cardMain}>
           <div className={s.description}>
