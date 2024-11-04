@@ -1,9 +1,8 @@
 import { memo, RefObject, useEffect, useMemo, useRef } from 'react';
-import { invalidate, useFrame, useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { cleanUp } from '@/common/commonFunctions';
-import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 
 export type ModelProps = {
   containerRef: RefObject<HTMLDivElement>;
@@ -14,20 +13,6 @@ function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/model/boy.gltf', true);
   const { actions, names } = useAnimations(animations, sceneRef);
-  const isVisible = useIntersectionObserver(containerRef, 0.05);
-
-  useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval>;
-    if (isVisible) {
-      intervalId = setInterval(() => {
-        invalidate();
-      }, 17);
-    }
-
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [isVisible]);
 
   useEffect(() => {
     const bodyAnimation = actions[names[0]];
@@ -71,7 +56,6 @@ function Model(props: ModelProps) {
     if (!container) return;
 
     const handleMove = (clientX: number, clientY: number) => {
-      invalidate();
       const rect = container.getBoundingClientRect();
       const relativeX = clientX - rect.left;
       const relativeY = clientY - rect.top;
