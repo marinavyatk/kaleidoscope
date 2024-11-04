@@ -1,7 +1,8 @@
 import React, { ComponentPropsWithoutRef, Ref } from 'react';
 import { clsx } from 'clsx';
 import s from './input.module.scss';
-import InputMask from '@mona-health/react-input-mask';
+import dynamic from 'next/dynamic';
+const InputMask = dynamic(() => import('@mona-health/react-input-mask'), { ssr: false });
 
 export type InputProps = {
   label: string;

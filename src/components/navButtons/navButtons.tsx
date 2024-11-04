@@ -19,22 +19,14 @@ export const NavButtons = (props: NavButtonsProps) => {
     const currentRef = swiperRef.current;
     if (currentRef) {
       const updateButtonState = () => {
-        if (currentRef) {
-          setIsBeginning(currentRef.isBeginning);
-          setIsEnd(currentRef.isEnd);
-        }
+        setIsBeginning(currentRef.isBeginning);
+        setIsEnd(currentRef.isEnd);
       };
-      currentRef.on('slideChange', updateButtonState);
-      currentRef.on('resize', updateButtonState);
-      currentRef.on('reachBeginning', updateButtonState);
-      currentRef.on('reachEnd', updateButtonState);
+      currentRef.on('progress', updateButtonState);
       updateButtonState();
 
       return () => {
-        currentRef.off('slideChange', updateButtonState);
-        currentRef?.off('resize', updateButtonState);
-        currentRef?.off('reachBeginning', updateButtonState);
-        currentRef?.off('reachEnd', updateButtonState);
+        currentRef.off('progress', updateButtonState);
       };
     }
   }, [swiperRef]);

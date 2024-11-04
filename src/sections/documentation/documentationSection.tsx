@@ -63,6 +63,8 @@ const DocumentationSection = (props: DocumentationSectionProps) => {
         onSlideChange={(swiper) => {
           setCurrentSlide(swiper.activeIndex);
         }}
+        centeredSlides={true}
+        centeredSlidesBounds={true}
       >
         {docs}
       </Swiper>

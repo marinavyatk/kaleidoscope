@@ -25,10 +25,6 @@
     top: 60px;
   }
 
-  :global(.swiper-slide) {
-    transition: opacity 0.2s;
-  }
-
   img {
     object-position: 50% 30%;
   }
@@ -37,69 +33,6 @@
 .galleryContainer {
   display: flex;
   justify-content: space-between;
-}
-
-.mainInfo {
-  width: 100%;
-  max-width: 1233px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.descriptionBlock {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  max-width: 1076px;
-  gap: 20px;
-}
-
-.description {
-  font-family: var(--font-family-secondary);
-  font-size: 26px;
-  line-height: 1.2;
-  max-width: 830px;
-}
-
-
-.slide {
-  width: 1076px;
-  margin-left: 20px;
-  opacity: 0.25;
-
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:last-child {
-    margin-right: var(--offset-x);
-  }
-}
-
-.photo {
-  width: 1076px;
-  height: 548px;
-  background-color: var(--color-bg-text);
-}
-
-.navButtons {
-  width: 100%;
-  justify-content: flex-end;
-
-  button {
-    background-color: var(--color-primary);
-    width: 80px;
-    height: 80px;
-    gap: 48px;
-
-    svg {
-      width: 42px;
-      height: 42px;
-      color: var(--color-dark-footer);
-    }
-  }
 }
 
 @media (max-width: 1780px) {
@@ -124,89 +57,19 @@
     padding: 0 var(--offset-x);
   }
 
-  .mainInfo {
-    min-height: 492px;
-    gap: 30px;
-    max-width: unset;
-  }
-
-  .descriptionBlock {
-    max-width: unset;
-    padding: 0 var(--offset-x);
-  }
-  .description {
-    font-size: 20px;
-  }
-  .slide {
-    width: 639px;
-    margin-left: 12px;
-
-    &:first-child {
-      margin-left: var(--offset-x);
-    }
-  }
-
-  .photo {
-    width: 639px;
-    height: 322px;
-  }
-}
-
-@media (max-width: 767px) {
-  .gallerySection {
-    h2 {
-      margin-bottom: 40px;
-    }
-
-    .gradient {
-      top: 50px !important;
-    }
-  }
-  .descriptionBlock {
-    align-items: flex-start;
-  }
-
-  .description {
-    font-size: 12px;
-  }
-
-  .galleryContainer {
-    gap: 24px;
-  }
-
-  .mainInfo {
-    min-height: 228px;
-    gap: 16px;
-  }
-
-  .slide {
-    width: 252px;
-    margin-left: 10px;
-  }
-
-  .photo {
-    width: 252px;
-    height: 128px;
-  }
-
-  .descriptionBlock {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .navButtons {
-    margin: 0;
-    width: 100%;
-    justify-content: space-between;
-
-    button {
-      width: 57px;
-      height: 57px;
-
-      svg {
-        width: 27px;
-        height: 27px;
+  @media (max-width: 767px) {
+    .gallerySection {
+      h2 {
+        margin-bottom: 40px;
       }
+
+      .gradient {
+        top: 50px !important;
+      }
+    }
+
+    .galleryContainer {
+      gap: 24px;
     }
   }
 }

@@ -22,6 +22,10 @@ const Header = (props: HeaderProps) => {
     }
   }, [isOpen]);
 
+  const closeSideMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Headroom className={className}>
       <div className={s.headerContainer + ' ' + s.headerMobile}>
@@ -48,19 +52,19 @@ const Header = (props: HeaderProps) => {
             <div className={s.background}></div>
             <div className={s.links}>
               <div className={s.linksBackground}>
-                <a href='#about' onClick={() => setIsOpen(false)}>
+                <a href='#about' onClick={closeSideMenu}>
                   О нас
                 </a>
-                <a href='#catalog' onClick={() => setIsOpen(false)}>
+                <a href='#catalog' onClick={closeSideMenu}>
                   Каталог
                 </a>
-                <a href='#gallery' onClick={() => setIsOpen(false)}>
+                <a href='#gallery' onClick={closeSideMenu}>
                   Галерея
                 </a>
-                <a href='#realized' onClick={() => setIsOpen(false)}>
+                <a href='#realized' onClick={closeSideMenu}>
                   Реализовано
                 </a>
-                <a href='#contacts' onClick={() => setIsOpen(false)}>
+                <a href='#contacts' onClick={closeSideMenu}>
                   Контакты
                 </a>
               </div>

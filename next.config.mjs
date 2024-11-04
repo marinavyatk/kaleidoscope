@@ -25,18 +25,18 @@ const nextConfig = {
           },
         },
       },
-        {
-          test: /\.(gltf)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                outputPath: 'models/',
-                publicPath: '/models/',
-              },
+      {
+        test: /\.(gltf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'models/',
+              publicPath: '/models/',
             },
-          ],
-        }
+          },
+        ],
+      },
     );
 
     fileLoaderRule.exclude = /\.svg$/i;
@@ -52,15 +52,6 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-  },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: 'https://xn----7sbkceuefeg0bbnri.xn--p1ai/',
-        permanent: true,
-      },
-    ];
   },
 };
 
