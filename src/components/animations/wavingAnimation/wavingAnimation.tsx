@@ -2,7 +2,7 @@ import { Ref } from 'react';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 import { usePreloadImages } from '@/common/customHooks/usePreloadImages';
 import { Animation } from '@/components/animations/animation';
-import s from '@/sections/main/mainSection.module.scss';
+import s from './wavingAnimation.module.scss';
 
 type WavingAnimationProps = {
   containerRef: Ref<HTMLDivElement>;
