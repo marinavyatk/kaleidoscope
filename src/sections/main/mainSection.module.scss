@@ -10,12 +10,6 @@
     background-image: url('/main-section-bg.webp');
   }
 
-  .kids {
-    z-index: -1;
-    object-fit: cover;
-    background-image: url("/waving/desktop/1.webp");
-  }
-
   p {
     font-size: 24px;
     font-family: var(--font-family-secondary);
@@ -37,6 +31,7 @@
 @media (max-width: 768px) {
   .mainSection {
     padding: 573px 20px 250px;
+
     .background {
       background-image: url('/main-section-bg-small.webp');
     }
@@ -45,16 +40,11 @@
       font-size: 18px;
       margin: 20px 0 40px;
     }
-    .kids {
-      background-image: url("/waving/tablet/1.webp");
-    }
   }
 }
+
 @media (max-width: 480px) {
   .mainSection {
     padding: 341px 16px 86px;
-    .kids {
-      background-image: url("/waving/mobile/1.webp");
-    }
   }
 }

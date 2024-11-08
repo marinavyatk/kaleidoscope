@@ -1,0 +1,17 @@
+.kids {
+  z-index: -1;
+  object-fit: cover;
+  background-image: url("/waving/desktop/1.webp");
+}
+
+@media (max-width: 768px) {
+  .kids {
+    background-image: url("/waving/tablet/1.webp");
+  }
+}
+
+@media (max-width: 480px) {
+  .kids {
+    background-image: url("/waving/mobile/1.webp");
+  }
+}
