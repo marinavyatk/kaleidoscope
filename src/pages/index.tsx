@@ -79,6 +79,9 @@ export default function Home(props: HomeProps) {
             href='/main-section-bg-small.webp'
             media='(max-width: 768px)'
           />
+          <link rel='preload' href='/waving/desktop/1.webp' as='image' media='(min-width: 769px)' />
+          <link rel='preload' href='/waving/tablet/1.webp' as='image' media='(max-width: 768px)' />
+          <link rel='preload' href='/waving/mobile/1.webp' as='image' media='(max-width: 480px)' />
           <link rel='canonical' href='https://xn----7sbkceuefeg0bbnri.xn--p1ai/' />
         </>
       }
