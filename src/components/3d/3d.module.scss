@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.hidden{
+  opacity: 0;
+}
+
 @media(max-width: 767px) {
   .loader {
     position: absolute;
