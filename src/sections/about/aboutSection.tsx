@@ -4,16 +4,12 @@ import Separator from '../../assets/separator.svg';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 import { ModelProps } from '@/components/3d/boy/boy';
-import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 import { Nullable } from '@/common/types';
+import { ResponsiveLoader } from '@/components/loader/responsiveLoader/responsiveLoader';
 
 const Scene = dynamic<ModelProps>(() => import('../../components/3d/boy/scene'), {
-  loading: () => (
-    <div className={'fullWidthCentered'}>
-      <Loader className={s.loader} />
-    </div>
-  ),
+  loading: () => <ResponsiveLoader />,
 });
 
 const AboutSection = () => {
