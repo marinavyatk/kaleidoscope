@@ -5,6 +5,7 @@ import s from '@/components/3d/3d.module.scss';
 
 export const ResponsiveLoader = () => {
   const isMobile = useScreenWidth(767);
+
   return isMobile ? (
     <div>
       <Image src={'/boy.webp'} alt={'boy'} fill quality={100} />
