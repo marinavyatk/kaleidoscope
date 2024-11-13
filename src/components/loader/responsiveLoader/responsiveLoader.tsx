@@ -7,7 +7,7 @@ export const ResponsiveLoader = () => {
   const isMobile = useScreenWidth(767);
   return isMobile ? (
     <div>
-      <Image src={'/boy-img.webp'} alt={'boy'} fill quality={100} />
+      <Image src={'/boy.webp'} alt={'boy'} fill quality={100} />
     </div>
   ) : (
     <div className='fullWidthCentered'>
