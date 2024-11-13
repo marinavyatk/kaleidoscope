@@ -4,12 +4,16 @@ import Separator from '../../assets/separator.svg';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 import { ModelProps } from '@/components/3d/boy/boy';
+import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 import { Nullable } from '@/common/types';
-import { ResponsiveLoader } from '@/components/loader/responsiveLoader/responsiveLoader';
 
 const Scene = dynamic<ModelProps>(() => import('../../components/3d/boy/scene'), {
-  loading: () => <ResponsiveLoader />,
+  loading: () => (
+    <div className={'fullWidthCentered'}>
+      <Loader className={s.loader} />
+    </div>
+  ),
 });
 
 const AboutSection = () => {
@@ -24,7 +28,7 @@ const AboutSection = () => {
       </div>
       <div className={'fullContainer ' + s.boy}>
         <div className={s.imageContainer}>
-          {/*{isVisible ? <Scene containerRef={modelContainerRef} /> : <ResponsiveLoader />}*/}
+          {isVisible && <Scene containerRef={modelContainerRef} />}
         </div>
       </div>
       <h2>Объединяем поколения через соперни&shy;чество</h2>
