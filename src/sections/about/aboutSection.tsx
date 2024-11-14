@@ -7,6 +7,8 @@ import { ModelProps } from '@/components/3d/boy/boy';
 import { Loader } from '@/components/loader/loader';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';
 import { Nullable } from '@/common/types';
+import { BoyAnimation } from '@/components/animations/boyAnimation/boyAnimation';
+import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 
 const Scene = dynamic<ModelProps>(() => import('../../components/3d/boy/scene'), {
   loading: () => (
@@ -19,7 +21,12 @@ const Scene = dynamic<ModelProps>(() => import('../../components/3d/boy/scene'),
 const AboutSection = () => {
   const modelContainerRef = useRef<Nullable<HTMLDivElement>>(null);
   const isVisible = useIntersectionObserver(modelContainerRef, 0.4, true);
-
+  const isTabletOrMobile = useScreenWidth(768);
+  const boy = isTabletOrMobile ? (
+    <BoyAnimation containerRef={modelContainerRef} />
+  ) : (
+    <Scene containerRef={modelContainerRef} />
+  );
   return (
     <section className={s.aboutSection} id='about' ref={modelContainerRef}>
       <Separator className={s.separator} />
@@ -28,7 +35,13 @@ const AboutSection = () => {
       </div>
       <div className={'fullContainer ' + s.boy}>
         <div className={s.imageContainer}>
-          {isVisible && <Scene containerRef={modelContainerRef} />}
+          {isVisible ? (
+            boy
+          ) : (
+            <div className={'fullWidthCentered'}>
+              <Loader className={s.loader} />
+            </div>
+          )}
         </div>
       </div>
       <h2>Объединяем поколения через соперни&shy;чество</h2>

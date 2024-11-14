@@ -1,12 +1,13 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useRef, useState } from 'react';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import s from './gallerySlider.module.scss';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
 import { Picture } from '@/components/picture/picture';
 import Image from 'next/image';
-import { Keyboard, Navigation } from 'swiper/modules';
+import { Keyboard, Navigation, Virtual } from 'swiper/modules';
 import { handleSwiper } from '@/common/commonFunctions';
 import { NavButtons } from '@/components/navButtons/navButtons';
+import { clsx } from 'clsx';
 
 type GallerySliderProps = {
   activeIndex: number;
@@ -17,27 +18,13 @@ type GallerySliderProps = {
 export const GallerySlider = (props: GallerySliderProps) => {
   const { activeIndex, images, description } = props;
   const swiperRef = useRef<SwiperClass>(null);
+  const [isAtEnd, setIsAtEnd] = useState(false); //need for swiper last slide issue
 
-  const updateSlidesOpacity = () => {
-    const swiper = swiperRef.current;
-    if (!swiper || !swiper.el) return;
-    const containerRect = swiper.el.getBoundingClientRect();
-    swiper.slides.forEach((slide) => {
-      const slideElement = slide as HTMLElement;
-      const slideRect = slideElement.getBoundingClientRect();
-      const isFullyVisible =
-        slideRect.left >= containerRect.left && slideRect.right <= containerRect.right;
-      slideElement.style.opacity = isFullyVisible ? '1' : '0.25';
-      slideElement.style.transition = 'opacity 0.2s';
-    });
-  };
-
-  useEffect(() => {
-    updateSlidesOpacity();
-  }, [activeIndex]);
-
-  const photos = images.map((photo) => (
-    <SwiperSlide key={photo} className={s.slide}>
+  const photos = images.map((photo, index) => (
+    <SwiperSlide
+      key={photo}
+      className={clsx(s.slide, isAtEnd && index === images.length - 1 && s.activeLastSlide)}
+    >
       <ViewCloserModal
         imgSrc={photo}
         trigger={
@@ -55,29 +42,28 @@ export const GallerySlider = (props: GallerySliderProps) => {
     </SwiperSlide>
   ));
 
+  const handleReachEnd = () => {
+    setIsAtEnd(true);
+  };
+  const handleSlideChange = () => {
+    if (isAtEnd) setIsAtEnd(false);
+  };
+
   return (
     <div className={s.gallerySlider}>
       <div>
         <Swiper
-          key={activeIndex} //need for correct render slides when activeStepIndex changes
-          modules={[Keyboard, Navigation]}
+          key={activeIndex} //need for correct render slides when activeIndex changes
+          modules={[Keyboard, Navigation, Virtual]}
           slidesPerView={'auto'}
           onSwiper={(swiper) => {
             handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
           }}
-          onResize={() => {
-            updateSlidesOpacity();
-          }}
           keyboard
-          className={s.slidesContainer}
-          onSlideChange={() => {
-            swiperRef.current?.update();
-          }}
-          onSlideChangeTransitionEnd={() => {
-            updateSlidesOpacity();
-          }}
-          centeredSlides={true}
-          centeredSlidesBounds={true}
+          watchSlidesProgress
+          onReachEnd={handleReachEnd} //need for swiper last slide issue
+          onSlideChange={handleSlideChange} //need for swiper last slide issue
+          speed={300}
         >
           {photos}
         </Swiper>

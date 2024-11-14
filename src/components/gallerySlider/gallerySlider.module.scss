@@ -1,5 +1,6 @@
 .gallerySlider {
-  width: 100%;
+  //width: 100%;
+  width: 100vw;
   max-width: 1233px;
   display: flex;
   flex-direction: column;
@@ -7,7 +8,20 @@
   gap: 10px;
 
   :global(.swiper-slide) {
+    opacity: .25;
     transition: opacity 0.2s;
+  }
+
+  :global(.swiper-slide-visible) {
+    opacity: .25;
+  }
+
+  :global(.swiper-slide-fully-visible) {
+    opacity: 1;
+  }
+
+  :global(.swiper-slide-active) {
+    opacity: 1;
   }
 }
 
@@ -26,7 +40,6 @@
   max-width: 830px;
 }
 
-
 .slide {
   width: 1076px;
   margin-left: 20px;
@@ -38,6 +51,10 @@
 
   &:last-child {
     margin-right: var(--offset-x);
+  }
+
+  &.activeLastSlide {
+    opacity: 1;
   }
 }
 

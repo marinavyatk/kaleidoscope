@@ -26,7 +26,7 @@ type MapProps = {
 
 const Map = (props: MapProps) => {
   const { mapData } = props;
-  const isTabletOrMobile = useScreenWidth(767);
+  const isTabletOrMobile = useScreenWidth(768);
   const [center, setCenter] = useState<LngLat>([54.81, 54.55]);
   const [zoom, setZoom] = useState<number>(4.2);
   useEffect(() => {

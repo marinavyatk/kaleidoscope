@@ -44,3 +44,35 @@ export const usePreloadImages = ({ animation, imgQty, reverse }: Args) => {
 
   return images;
 };
+
+export const usePreloadMobileImages = ({ animation, imgQty, reverse }: Args) => {
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  useEffect(() => {
+    const preloadImages = (numFrames: number) => {
+      const promises = Array.from({ length: numFrames }, (_, i) => {
+        return new Promise<HTMLImageElement>((resolve, reject) => {
+          const img = new window.Image();
+          let imgSrc = `/${animation}/${(i + 1).toString()}.webp`;
+          img.src = imgSrc;
+          img.onload = () => resolve(img);
+          img.onerror = () => reject(new Error(`Failed to load image: ${imgSrc}`));
+        });
+      });
+
+      Promise.all(promises)
+        .then((images) => {
+          if (reverse) {
+            const reversedImages = images.slice().reverse();
+            setImages([...images, ...reversedImages]);
+          } else {
+            setImages(images);
+          }
+        })
+        .catch((err) => console.error('Image preload error:', err));
+    };
+
+    preloadImages(imgQty);
+  }, []);
+
+  return images;
+};

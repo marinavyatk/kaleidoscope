@@ -112,6 +112,20 @@
   }
 }
 
+
+@media (max-width: 768px) {
+  .aboutSection {
+    .boy {
+      overflow: hidden;
+      .imageContainer {
+        top: 90px;
+      }
+    }
+  }
+}
+
+
+
 @media (max-width: 767px) {
   .aboutSection {
     padding: 40px 16px;
@@ -126,12 +140,6 @@
       font-size: 114px;
       display: block;
       margin-top: 110px;
-    }
-
-    .boy {
-      .imageContainer {
-        height: 55%;
-      }
     }
 
     h2 {
@@ -154,5 +162,26 @@
   .loader {
     position: absolute;
     top: 25%
+  }
+}
+
+@media (max-width: 650px) {
+  .aboutSection {
+    .boy {
+      .imageContainer {
+        height: 55%;
+        top: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .aboutSection {
+    .boy {
+      .imageContainer {
+        top: 50px;
+      }
+    }
   }
 }

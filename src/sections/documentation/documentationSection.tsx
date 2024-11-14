@@ -65,6 +65,7 @@ const DocumentationSection = (props: DocumentationSectionProps) => {
         }}
         centeredSlides={true}
         centeredSlidesBounds={true}
+        speed={300}
       >
         {docs}
       </Swiper>
