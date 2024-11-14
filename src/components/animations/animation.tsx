@@ -29,8 +29,6 @@ export const Animation = ({
   const [isPaused, setIsPaused] = useState(false);
   const [imageDimensions, setImageDimensions] = useState<Nullable<ImageDimensions>>(null);
 
-  console.log('Current frame:', frameIndex);
-
   const calculateImageDimensions = useCallback(
     (canvas: HTMLCanvasElement, img: HTMLImageElement): ImageDimensions => {
       const canvasWidth = canvas.width;

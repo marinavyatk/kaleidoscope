@@ -14,12 +14,12 @@ export const BoyAnimation = (props: BoyAnimationProps) => {
   const images = usePreloadMobileImages({ animation: 'boy-animation', imgQty: 50, reverse: false });
 
   return (
-    <>
+    <div>
       {isVisible ? (
-        <Animation images={images} ms={70} />
+        <Animation images={images} ms={140} />
       ) : (
         <Image src={'/boy-animation/1.webp'} alt='Мальчик' fill />
       )}
-    </>
+    </div>
   );
 };
