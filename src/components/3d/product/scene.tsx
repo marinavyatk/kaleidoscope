@@ -5,8 +5,8 @@ import { OrbitControls } from '@react-three/drei';
 import { Loader } from '@/components/loader/loader';
 import { ModelProps } from '@/components/3d/product/product';
 import { clsx } from 'clsx';
-import { isWebGLAvailable } from '@/common/webGLSupport';
 import Image from 'next/image';
+import ErrorBoundary from '@/components/errorBoundary/errorBoundary';
 
 const Model = lazy(() => import('./product'));
 
@@ -16,38 +16,34 @@ export type SceneProps = {
 
 function Scene(props: SceneProps) {
   const { link, img } = props;
-  const webglSupported = isWebGLAvailable();
-  console.log('webglSupported', webglSupported);
-
-  if (!webglSupported) {
-    return <Image src={img} alt='Внешний вид МАФ' fill />;
-  }
 
   return (
-    <Suspense
-      fallback={
-        <div className='fullWidthCentered'>
-          <Loader />
-        </div>
-      }
-    >
-      <Canvas
-        className={clsx(s.canvas, s.interactiveCanvas)}
-        camera={{ position: [-1.36, 1.73, 2.78], fov: 50 }}
+    <ErrorBoundary errorPlaceholder={<Image src={img} alt='Внешний вид МАФ' fill />}>
+      <Suspense
+        fallback={
+          <div className='fullWidthCentered'>
+            <Loader />
+          </div>
+        }
       >
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[-1, 10, -2]} intensity={1.7} />
-        <directionalLight position={[2, -5, 5]} intensity={0.5} />
-        <OrbitControls
-          enableZoom={false}
-          minPolarAngle={1}
-          maxPolarAngle={1}
-          rotateSpeed={0.8}
-          enablePan={false}
-        />
-        <Model link={link} />
-      </Canvas>
-    </Suspense>
+        <Canvas
+          className={clsx(s.canvas, s.interactiveCanvas)}
+          camera={{ position: [-1.36, 1.73, 2.78], fov: 50 }}
+        >
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[-1, 10, -2]} intensity={1.7} />
+          <directionalLight position={[2, -5, 5]} intensity={0.5} />
+          <OrbitControls
+            enableZoom={false}
+            minPolarAngle={1}
+            maxPolarAngle={1}
+            rotateSpeed={0.8}
+            enablePan={false}
+          />
+          <Model link={link} />
+        </Canvas>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 

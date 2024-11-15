@@ -3,6 +3,7 @@ import s from './errorBoundary.module.scss';
 
 type ErrorBoundaryProps = {
   children: ReactNode;
+  errorPlaceholder?: ReactNode;
 };
 
 type ErrorBoundaryState = {
@@ -27,10 +28,12 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   render() {
     if (this.state.hasError) {
       return (
-        <div className={s.error}>
-          <h2>Упс, ошибка!</h2>
-          <p>Извините, что-то пошло не так. Попробуйте перезагрузить страницу.</p>
-        </div>
+        this.props.errorPlaceholder || (
+          <div className={s.error}>
+            <h2>Упс, ошибка!</h2>
+            <p>Извините, что-то пошло не так. Попробуйте перезагрузить страницу.</p>
+          </div>
+        )
       );
     }
 
