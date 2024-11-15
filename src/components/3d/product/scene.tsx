@@ -5,11 +5,23 @@ import { OrbitControls } from '@react-three/drei';
 import { Loader } from '@/components/loader/loader';
 import { ModelProps } from '@/components/3d/product/product';
 import { clsx } from 'clsx';
+import { isWebGLAvailable } from '@/common/webGLSupport';
+import Image from 'next/image';
 
 const Model = lazy(() => import('./product'));
 
-function Scene(props: ModelProps) {
-  const { link } = props;
+export type SceneProps = {
+  img: string;
+} & ModelProps;
+
+function Scene(props: SceneProps) {
+  const { link, img } = props;
+  const webglSupported = isWebGLAvailable();
+  console.log('webglSupported', webglSupported);
+
+  if (!webglSupported) {
+    return <Image src={img} alt='Внешний вид МАФ' fill />;
+  }
 
   return (
     <Suspense

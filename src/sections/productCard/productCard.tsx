@@ -10,10 +10,10 @@ import { v4 as uuid } from 'uuid';
 import { CommercialProposalModal } from '@/components/modal/commercialProposalModal/commersalProporsalModal';
 import { useScreenWidth } from '@/common/customHooks/useScreenWidth';
 import dynamic from 'next/dynamic';
-import { ModelProps } from '@/components/3d/product/product';
 import { Loader } from '@/components/loader/loader';
+import { SceneProps } from '@/components/3d/product/scene';
 
-const Scene = dynamic<ModelProps>(() => import('../../components/3d/product/scene'), {
+const Scene = dynamic<SceneProps>(() => import('../../components/3d/product/scene'), {
   loading: () => (
     <div className='fullWidthCentered'>
       <Loader className={s.loader} />
@@ -74,7 +74,9 @@ export const ProductCard = (props: ProductCardProps) => {
           )}
         </div>
         <div className={'fullWidthCentered backgroundImg fullContainer ' + s.model}>
-          {hasViewed && productData?.model && <Scene link={productData.model} />}
+          {hasViewed && productData?.model && (
+            <Scene link={productData.model} img={productData.img} />
+          )}
         </div>
         {isTabletOrMobile && (
           <div className={s.cardMain}>

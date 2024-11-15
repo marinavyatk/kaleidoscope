@@ -16,7 +16,7 @@ export const MapSection = (props: MapSectionProps) => {
   return (
     <section className={s.mapSection} id='realized' ref={containerRef}>
       <h2>
-        места
+        Места
         <br /> размещения
       </h2>
       <div className={s.mapContainer}>{isVisible && <Map mapData={mapData} />}</div>

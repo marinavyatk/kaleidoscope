@@ -9,11 +9,11 @@
 .content {
   scrollbar-width: none;
   position: fixed;
-  z-index: 4;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: scroll;
+  z-index: 2000;
 
   &:focus-visible {
     outline: none;

@@ -52,7 +52,7 @@ export const usePreloadMobileImages = ({ animation, imgQty, reverse }: Args) => 
       const promises = Array.from({ length: numFrames }, (_, i) => {
         return new Promise<HTMLImageElement>((resolve, reject) => {
           const img = new window.Image();
-          let imgSrc = `/${animation}/${(i + 1).toString()}.webp`;
+          let imgSrc = `/${animation}/${(i + 1).toString().padStart(4, '0')}.webp`;
           img.src = imgSrc;
           img.onload = () => resolve(img);
           img.onerror = () => reject(new Error(`Failed to load image: ${imgSrc}`));

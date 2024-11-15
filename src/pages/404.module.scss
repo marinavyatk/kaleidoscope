@@ -1,0 +1,15 @@
+.notFound {
+  height: 100vh;
+
+  h1 {
+    width: 60%;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .notFound h1 {
+    width: 80%;
+    font-size: 20px;
+  }
+}
