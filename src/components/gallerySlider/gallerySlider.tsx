@@ -1,10 +1,10 @@
-import { MutableRefObject, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import s from './gallerySlider.module.scss';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
 import { Picture } from '@/components/picture/picture';
 import Image from 'next/image';
-import { Keyboard, Navigation, Virtual } from 'swiper/modules';
+import { Keyboard, Navigation } from 'swiper/modules';
 import { handleSwiper } from '@/common/commonFunctions';
 import { NavButtons } from '@/components/navButtons/navButtons';
 import { clsx } from 'clsx';
@@ -19,6 +19,11 @@ export const GallerySlider = (props: GallerySliderProps) => {
   const { activeIndex, images, description } = props;
   const swiperRef = useRef<SwiperClass>(null);
   const [isAtEnd, setIsAtEnd] = useState(false); //need for swiper last slide issue
+
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const photos = images.map((photo, index) => (
     <SwiperSlide
@@ -50,32 +55,36 @@ export const GallerySlider = (props: GallerySliderProps) => {
   };
 
   return (
-    <div className={s.gallerySlider}>
-      <div>
-        <Swiper
-          key={activeIndex} //need for correct render slides when activeIndex changes
-          modules={[Keyboard, Navigation, Virtual]}
-          slidesPerView={'auto'}
-          onSwiper={(swiper) => {
-            handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
-          }}
-          keyboard
-          watchSlidesProgress
-          onReachEnd={handleReachEnd} //need for swiper last slide issue
-          onSlideChange={handleSlideChange} //need for swiper last slide issue
-          speed={300}
-        >
-          {photos}
-        </Swiper>
-      </div>
-      <div className={s.descriptionBlock}>
-        <p className={s.description}>{description}</p>
-        <NavButtons
-          swiperRef={swiperRef}
-          className={s.navButtons}
-          key={`nav-buttons-${activeIndex}`}
-        />
-      </div>
-    </div>
+    <>
+      {isClient && (
+        <div className={s.gallerySlider}>
+          <div>
+            <Swiper
+              key={activeIndex} //need for correct render slides when activeIndex changes
+              modules={[Keyboard, Navigation]}
+              slidesPerView={'auto'}
+              onSwiper={(swiper) => {
+                handleSwiper(swiper, swiperRef as MutableRefObject<SwiperClass>);
+              }}
+              keyboard
+              watchSlidesProgress
+              onReachEnd={handleReachEnd} //need for swiper last slide issue
+              onSlideChange={handleSlideChange} //need for swiper last slide issue
+              speed={300}
+            >
+              {photos}
+            </Swiper>
+          </div>
+          <div className={s.descriptionBlock}>
+            <p className={s.description}>{description}</p>
+            <NavButtons
+              swiperRef={swiperRef}
+              className={s.navButtons}
+              key={`nav-buttons-${activeIndex}`}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
