@@ -119,13 +119,6 @@
       overflow: hidden;
       .imageContainer {
         top: 90px;
-
-        video{
-          width: 100%;
-          object-fit: cover;
-          height: 100%;
-          background-color: var(--color-dark);
-        }
       }
     }
   }

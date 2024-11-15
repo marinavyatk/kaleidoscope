@@ -16,10 +16,8 @@ export const BoyAnimation = (props: BoyAnimationProps) => {
   return (
     <>
       {isVisible ? (
-        // <Animation images={images} ms={50} />
-        <video src={'/boy.webm'} autoPlay></video>
+        <Animation images={images} ms={50} />
       ) : (
-        // <Image src={'/boy-animation/1.webp'} alt='Мальчик' fill />
         <Image src={'/boy/0001.webp'} alt='Мальчик' fill />
       )}
     </>
