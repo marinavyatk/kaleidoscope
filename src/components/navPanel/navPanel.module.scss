@@ -1,0 +1,30 @@
+.navPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 30px auto 65px;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .btnPrev {
+    transform: rotate(-90deg);
+  }
+
+  .btnNext {
+    transform: rotate(90deg);
+  }
+}
+
+.hidden{
+  opacity: 0;
+}
+
+@media (max-width: 767px) {
+  .navPanel {
+    margin: 24px auto 0;
+  }
+}

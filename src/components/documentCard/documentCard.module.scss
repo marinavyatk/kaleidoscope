@@ -1,0 +1,124 @@
+.docCard {
+  position: absolute;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.75);
+  transition: transform 0.5s ease;
+  max-width: 445px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(45, 18, 8, 0.15);
+    transition: background-color 0.5s ease;
+  }
+}
+
+.imgContainer {
+  width: 445px;
+  height: 630px;
+  position: relative;
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.description {
+  width: 100%;
+  font-size: 24px;
+  font-family: var(--font-family-secondary);
+  text-align: center;
+  margin: 15px 0 10px;
+}
+
+.activeCard {
+  .card {
+    transition: transform 0.5s;
+    filter: blur(0);
+    transform: scale(1) translateX(0);
+    z-index: 1;
+
+    &::before {
+      background-color: transparent;
+    }
+  }
+}
+
+.hiddenCard {
+  .card {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.75);
+  }
+}
+
+.nextCard {
+  .card {
+    transform: translateX(82%) scale(0.75); //6% or 27px under active card
+    transition: transform 0.5s;
+    pointer-events: none;
+
+    button {
+      pointer-events: none;
+    }
+  }
+
+  &.forward {
+    z-index: -2;
+  }
+
+  &.backward {
+    z-index: -1;
+  }
+}
+
+.prevCard {
+  .card {
+    transform: translateX(-82%) scale(0.75);
+    transition: transform 0.5s;
+    pointer-events: none;
+
+    button {
+      pointer-events: none;
+    }
+  }
+
+  &.forward {
+    .card {
+      z-index: -1;
+    }
+  }
+
+  &.backward {
+    .card {
+      z-index: -2;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    max-width: 288px;
+  }
+
+  .imgContainer {
+    width: 288px;
+    height: 408px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+}

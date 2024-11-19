@@ -16,66 +16,41 @@
     text-transform: uppercase;
     text-align: center;
     word-break: break-word;
-    z-index: -1;
+    z-index: -2;
   }
 }
 
-.docInfo {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-}
-
-.description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 50px;
-  max-width: 538px;
-  width: 100%;
-
-  p {
-    font-size: 32px;
-    font-family: var(--font-family-secondary);
-  }
-}
-
-.imgContainer {
-  width: 604px;
-  height: 585px;
+.carousel {
+  margin: auto;
   position: relative;
 
-  img {
-    object-fit: contain;
+  &:focus {
+    outline: none;
   }
 }
 
-.navPanelContainer {
+.itemsContainer {
   display: flex;
   justify-content: center;
-  gap: 100px;
-
-  .emptyElement {
-    width: 538px;
-  }
+  align-items: center;
+  position: relative;
+  min-height: 740px;
+  touch-action: none;
 }
 
 .navPanel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 22px;
-  max-width: 604px;
-  font-weight: var(--fw-bold);
-  font-size: 20px;
-  margin: 30px auto 0;
-  width: 604px;
+  margin: 50px auto 65px;
 }
+
 
 @media (max-width: 1735px) {
   .docSection {
     .background {
-      top: 30px;
+      top: unset;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
     }
   }
 }
@@ -89,34 +64,6 @@
     h2 {
       margin-bottom: 80px;
     }
-  }
-
-  .docInfo {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-  .description {
-    flex-direction: row;
-    gap: 123px;
-    max-width: 728px;
-    margin-bottom: 50px;
-    height: 100px;
-
-    p {
-      font-size: 28px;
-    }
-  }
-  .navPanelContainer {
-    max-width: 604px;
-    margin: auto;
-
-    .emptyElement {
-      display: none;
-    }
-  }
-  .navPanel {
-    margin: 0;
   }
 }
 
@@ -135,24 +82,13 @@
       align-items: center;
     }
   }
-  .docInfo {
-    gap: 30px;
-  }
-  .imgContainer {
-    width: 288px;
-    height: 340px;
-  }
-  .description {
-    gap: 0;
-    margin-bottom: 30px;
-    height: unset;
 
-    p {
-      font-size: 13px;
-      max-width: 127px;
-    }
+  .itemsContainer {
+    min-height: 500px;
   }
-  .navPanelContainer {
-    max-width: 288px;
+
+  .navPanel {
+    margin: 24px auto 80px;
+    padding: 0 16px;
   }
 }
