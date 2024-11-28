@@ -1,5 +1,6 @@
 import s from './footer.module.scss';
 import Logo from '../../assets/logo.svg';
+import PinterestIcon from '../../assets/social-media-icons/pinterest.svg';
 import WhatsUpIcon from '../../assets/social-media-icons/whats-up.svg';
 import RutubeIcon from '../../assets/social-media-icons/rutube.svg';
 import YoutubeIcon from '../../assets/social-media-icons/youtube.svg';
@@ -62,6 +63,19 @@ const Footer = (props: FooterProps) => {
             );
           })}
           <div className={s.links}>
+            {socialLinks?.pinterest && (
+              <a
+                href={socialLinks.pinterest}
+                className={s.link}
+                rel='nofollow'
+                target={'_blank'}
+                aria-label='Мы в Pinterest'
+                title='Мы в Pinterest'
+                itemProp='sameAs'
+              >
+                <PinterestIcon />
+              </a>
+            )}
             {socialLinks?.whatsapp && (
               <a
                 href={socialLinks.whatsapp}
