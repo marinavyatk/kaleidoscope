@@ -13,18 +13,36 @@ function Model(props: ModelProps) {
   const sceneRef = useRef();
   const { scene, animations } = useGLTF('/model/boy.gltf', true);
   const { actions, names } = useAnimations(animations, sceneRef);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
-    const bodyAnimation = actions[names[0]];
-    const blinkAnimation = actions[names[1]];
-    blinkAnimation?.play();
-    bodyAnimation?.play();
+    actions[names[0]]?.play();
+    actions[names[1]]?.play();
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          actions[names[0]]?.play();
+          actions[names[1]]?.play();
+        } else {
+          actions[names[0]]?.stop();
+          actions[names[1]]?.stop();
+        }
+      },
+      { threshold: 0.01 },
+    );
+
+    if (containerRef?.current) {
+      observer.observe(containerRef.current);
+    }
 
     return () => {
-      blinkAnimation?.stop();
-      bodyAnimation?.stop();
+      if (containerRef?.current) {
+        observer.unobserve(containerRef.current);
+      }
     };
-  }, []);
+  }, [containerRef, actions, names]);
 
   useEffect(() => {
     return cleanUp(scene);
@@ -45,6 +63,7 @@ function Model(props: ModelProps) {
   const previousTargetPosition = useRef(new Vector3(0, 0, 2));
 
   useFrame(() => {
+    if (!isVisibleRef.current) return;
     if (head) {
       previousTargetPosition.current.lerp(target.position, 0.1);
       head.lookAt(previousTargetPosition.current);
