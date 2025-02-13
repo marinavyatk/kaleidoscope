@@ -156,7 +156,7 @@ const Footer = (props: FooterProps) => {
             </a>
           </span>
         </div>
-        <p>© 2024 «Калейдоскоп игр» — Все права защищены</p>
+        <p>© {new Date().getFullYear()} «Калейдоскоп игр» — Все права защищены</p>
       </div>
     </footer>
   );
