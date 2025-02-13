@@ -53,15 +53,15 @@ const nextConfig = {
       },
     ],
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/',
-  //       destination: 'https://xn----7sbkceuefeg0bbnri.xn--p1ai/',
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: 'https://xn----7sbkceuefeg0bbnri.xn--p1ai/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
