@@ -36,6 +36,8 @@ export const Card = (props: CardProps) => {
   const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
 
   const onClickHandler = (): void => {
+    const catalog = document.getElementById('catalog');
+    catalog?.scrollIntoView({ behavior: 'smooth' });
     if (!initialOpenModal) {
       setInitialOpenModal(true);
     }

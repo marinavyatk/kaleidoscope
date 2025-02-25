@@ -1,5 +1,5 @@
 import { memo, RefObject, useEffect, useMemo, useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { invalidate, useFrame, useThree } from '@react-three/fiber';
 import { useAnimations, useGLTF } from '@react-three/drei';
 import { Object3D, Plane, Raycaster, Vector2, Vector3 } from 'three';
 import { cleanUp } from '@/common/commonFunctions';
@@ -14,6 +14,13 @@ function Model(props: ModelProps) {
   const { scene, animations } = useGLTF('/model/boy.gltf', true);
   const { actions, names } = useAnimations(animations, sceneRef);
   const isVisibleRef = useRef(true);
+  const animationFrameId = useRef<number | null>(null);
+
+  function animate() {
+    if (!isVisibleRef.current) return;
+    invalidate();
+    animationFrameId.current = requestAnimationFrame(animate);
+  }
 
   useEffect(() => {
     actions[names[0]]?.play();
@@ -25,9 +32,14 @@ function Model(props: ModelProps) {
         if (entry.isIntersecting) {
           actions[names[0]]?.play();
           actions[names[1]]?.play();
+          animate();
         } else {
           actions[names[0]]?.stop();
           actions[names[1]]?.stop();
+          if (animationFrameId.current !== null) {
+            cancelAnimationFrame(animationFrameId.current);
+            animationFrameId.current = null;
+          }
         }
       },
       { threshold: 0.01 },
@@ -40,6 +52,10 @@ function Model(props: ModelProps) {
     return () => {
       if (containerRef?.current) {
         observer.unobserve(containerRef.current);
+      }
+      observer.disconnect();
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
       }
     };
   }, [containerRef, actions, names]);

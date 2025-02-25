@@ -26,19 +26,36 @@ import { MapSection } from '@/sections/map/mapSection';
 import GallerySection from '@/sections/gallery/gallery';
 
 export const getStaticProps = async () => {
-  const contactInfo = (await api.getContacts()) || {};
-  const categories = (await api.getProductsCategories()) || [];
-  const documents = (await api.getDocuments()) || [];
-  const faqData = (await api.getFAQ()) || [];
-  const products: CategoryProducts = {};
-  await Promise.all(
+  const [
+    contactInfoResult,
+    categoriesResult,
+    documentsResult,
+    faqDataResult,
+    mapDataResult,
+    albumsDataResult,
+  ] = await Promise.all([
+    api.getContacts(),
+    api.getProductsCategories(),
+    api.getDocuments(),
+    api.getFAQ(),
+    api.getPoints(),
+    api.getAlbums(),
+  ]);
+
+  const contactInfo = contactInfoResult || {};
+  const categories = categoriesResult || [];
+  const documents = documentsResult || [];
+  const faqData = faqDataResult || [];
+  const mapData = mapDataResult || [];
+  const albumsData = albumsDataResult || [];
+
+  const productsEntries = await Promise.all(
     categories.map(async (category) => {
       const productsForCategory = await getStructuredProducts(category.id);
-      products[category.id] = productsForCategory || [];
+      return [category.id, productsForCategory || []];
     }),
   );
-  const mapData = (await api.getPoints()) || [];
-  const albumsData = (await api.getAlbums()) || [];
+  const products = Object.fromEntries(productsEntries);
 
   return {
     props: {

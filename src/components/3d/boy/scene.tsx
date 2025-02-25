@@ -17,7 +17,13 @@ function Scene(props: ModelProps) {
         </div>
       }
     >
-      <Canvas camera={{ fov: 50, zoom: 7 }} className={s.canvas} dpr={1} resize={{ scroll: false }}>
+      <Canvas
+        camera={{ fov: 50, zoom: 7 }}
+        className={s.canvas}
+        dpr={1}
+        resize={{ scroll: false }}
+        frameloop='demand'
+      >
         <Environment files={'/lebombo_1k.hdr'} environmentIntensity={0.3} />
         <directionalLight position={[2.6, 2.25, 1]} intensity={0.5} />
         <directionalLight position={[-2, -1, -5]} intensity={1.5} />
