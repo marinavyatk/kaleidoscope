@@ -8,26 +8,15 @@
   justify-content: center;
   align-items: center;
   transform: scale(0.75);
-  transition: transform 0.5s ease;
   max-width: 445px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(45, 18, 8, 0.15);
-    transition: background-color 0.5s ease;
-  }
+  transition: opacity 0.1s ease 0.1s, transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(75%);
+  pointer-events: none;
 }
 
 .imgContainer {
   width: 445px;
   height: 630px;
-  position: relative;
 
   img {
     object-fit: contain;
@@ -43,25 +32,18 @@
 }
 
 .activeCard {
-  z-index: 1;
+  z-index: 2;
 
   .card {
-    transition: transform 0.5s;
-    filter: blur(0);
     transform: scale(1) translateX(0);
-    z-index: 1;
-
-
-    &::before {
-      background-color: transparent;
-    }
+    filter: brightness(100%);
+    pointer-events: unset;
   }
 }
 
 .hiddenCard {
   .card {
     opacity: 0;
-    pointer-events: none;
     transform: scale(0.75);
   }
 }
@@ -69,12 +51,6 @@
 .nextCard {
   .card {
     transform: translateX(82%) scale(0.75); //6% or 27px under active card
-    transition: transform 0.5s;
-    pointer-events: none;
-
-    button {
-      pointer-events: none;
-    }
   }
 
   &.forward {
@@ -82,31 +58,13 @@
   }
 
   &.backward {
-    z-index: -1;
+    z-index: 1;
   }
 }
 
 .prevCard {
   .card {
     transform: translateX(-82%) scale(0.75);
-    transition: transform 0.5s;
-    pointer-events: none;
-
-    button {
-      pointer-events: none;
-    }
-  }
-
-  &.forward {
-    .card {
-      z-index: -1;
-    }
-  }
-
-  &.backward {
-    .card {
-      z-index: -2;
-    }
   }
 }
 

@@ -11,6 +11,7 @@
   filter: blur(1px);
   transform: scale(0.75);
   transition: transform 0.5s ease;
+  pointer-events: none;
 
   &::before {
     content: '';
@@ -63,10 +64,10 @@
   z-index: 1;
 
   .card {
-    transition: transform 0.5s;
     filter: blur(0);
     transform: scale(1) translateX(0);
     z-index: 1;
+    pointer-events: unset;
 
     &::before {
       background-color: transparent;
@@ -77,7 +78,6 @@
 .hiddenCard {
   .card {
     opacity: 0;
-    pointer-events: none;
     transform: scale(0.75);
   }
 }
@@ -85,12 +85,6 @@
 .nextCard {
   .card {
     transform: translateX(82%) scale(0.75); //6% or 27px under active card
-    transition: transform 0.5s;
-    pointer-events: none;
-
-    button {
-      pointer-events: none;
-    }
   }
 
   &.forward {
@@ -105,12 +99,6 @@
 .prevCard {
   .card {
     transform: translateX(-82%) scale(0.75);
-    transition: transform 0.5s;
-    pointer-events: none;
-
-    button {
-      pointer-events: none;
-    }
   }
 
   &.forward {
