@@ -37,12 +37,11 @@ export const RenderCarousel = ({ products }: CarouselProps) => {
             product={product}
             status={cardStatus[index]}
             direction={direction}
-            products={products}
           />
         ))}
       </div>
       <NavPanel
-        items={products}
+        itemsLength={products.length}
         onBackClick={prevItem}
         onForwardClick={nextItem}
         activeIndex={activeIndex}

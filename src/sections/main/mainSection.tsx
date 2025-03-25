@@ -1,4 +1,4 @@
-import { Button } from '@/components/button/button';
+import { Button } from '@/components/buttons/button/button';
 import s from './mainSection.module.scss';
 import { memo, useRef } from 'react';
 import { useIntersectionObserver } from '@/common/customHooks/useIntersectionObserver';

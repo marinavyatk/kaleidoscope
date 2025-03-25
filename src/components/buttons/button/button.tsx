@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType, forwardRef, ReactElement, Ref } from 'react';
-import ButtonBackground from '../../assets/btn-with-shadow.svg';
+import ButtonBackground from '../../../assets/btn-with-shadow.svg';
 import { clsx } from 'clsx';
 import s from './button.module.scss';
 

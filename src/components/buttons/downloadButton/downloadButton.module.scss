@@ -1,27 +1,27 @@
 .button {
+  --button-width: 110px;
   display: flex;
   flex-direction: column;
   gap: 9px;
-  width: 110px;
+  width: var(--button-width);
 }
 
 .logoContainer {
   background-color: var(--color-primary);
   background-image: url('/button-bg.png');
-  height: 110px;
+  height: var(--button-width);
   display: flex;
   justify-content: center;
   align-items: center;
 
   svg {
     width: 80px;
-    height: 60px;
     aspect-ratio: 8/6;
   }
 }
 
 .text {
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -30,15 +30,11 @@
 
 @media (max-width: 1440px) {
   .button {
-    width: 80px;
+    --button-width: 80px;
   }
 
-  .logoContainer {
-    height: 80px;
-
-    svg {
-      width: 50px;
-    }
+  .logoContainer svg {
+    width: 50px;
   }
 
   .text {
@@ -48,15 +44,11 @@
 
 @media (max-width: 767px) {
   .button {
-    width: 50px;
+    --button-width: 50px;
   }
 
-  .logoContainer {
-    height: 50px;
-
-    svg {
-      width: 35px;
-    }
+  .logoContainer svg {
+    width: 35px;
   }
 
   .text {

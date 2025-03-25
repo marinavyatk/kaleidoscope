@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef, forwardRef, ReactElement, Ref } from 'react';
-import Logo from '../../assets/logo-white.svg';
+import { ComponentPropsWithoutRef, forwardRef, Ref } from 'react';
+import Logo from '../../../assets/logo-white.svg';
 import { clsx } from 'clsx';
 import s from './downloadButton.module.scss';
 
@@ -17,4 +17,4 @@ export const DownloadButton = forwardRef((props: ButtonProps, ref: Ref<HTMLAncho
       <span className={s.text}>скачать рендеры</span>
     </a>
   );
-}) as (props: { ref?: Ref<HTMLElement> } & ButtonProps) => ReactElement;
+});

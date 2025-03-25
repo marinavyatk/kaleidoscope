@@ -8,6 +8,7 @@
   width: fit-content;
   height: fit-content;
   touch-action: none;
+  z-index: 1;
 
   .btnBackground {
     width: calc(100% + 2px);

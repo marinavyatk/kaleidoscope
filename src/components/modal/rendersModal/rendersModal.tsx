@@ -1,7 +1,7 @@
 import s from './rendersModal.module.scss';
 import { Modal } from '../modal';
 import { Category, CategoryProducts } from '@/common/types';
-import { DownloadButton } from '@/components/downloadButton/downloadButton';
+import { DownloadButton } from '@/components/buttons/downloadButton/downloadButton';
 import RendersSection from '@/sections/renders/rendersSection';
 import { useState } from 'react';
 

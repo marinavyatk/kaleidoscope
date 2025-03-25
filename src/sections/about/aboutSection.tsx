@@ -1,5 +1,5 @@
 import s from './aboutSection.module.scss';
-import { Button } from '@/components/button/button';
+import { Button } from '@/components/buttons/button/button';
 import Separator from '../../assets/separator.svg';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
-import { Button } from '@/components/button/button';
+import { Button } from '@/components/buttons/button/button';
 import s from './greetingSection.module.scss';
 import { Animation } from '@/components/animations/animation';
 import { usePreloadImages } from '@/common/customHooks/usePreloadImages';

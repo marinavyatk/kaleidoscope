@@ -1,3 +1,8 @@
+.renderSection {
+  min-height: 100%;
+  height: unset;
+}
+
 .cardHeader {
   display: flex;
   justify-content: space-between;
@@ -32,11 +37,6 @@
 }
 
 @media (max-width: 1440px) {
-  .renderSection {
-    min-height: 100%;
-    height: unset;
-  }
-
   .cardHeader {
     flex-direction: column-reverse;
   }

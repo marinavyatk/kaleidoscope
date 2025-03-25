@@ -1,5 +1,5 @@
 import { Input } from '../input/input';
-import { Button } from '../button/button';
+import { Button } from '@/components/buttons/button/button';
 import s from './form.module.scss';
 import { useForm } from 'react-hook-form';
 import { FormValues } from '@/common/types';

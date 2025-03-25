@@ -5,7 +5,7 @@ import s from './documentCard.module.scss';
 import { Picture } from '@/components/picture/picture';
 import Image from 'next/image';
 import { ViewCloserModal } from '@/components/modal/viewCloserModal/viewCloserModal';
-import { Button } from '@/components/button/button';
+import { Button } from '@/components/buttons/button/button';
 
 type DocumentCardProps = {
   document: DocumentData;

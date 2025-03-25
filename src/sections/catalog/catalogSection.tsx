@@ -1,9 +1,8 @@
 import s from './catalogSection.module.scss';
-import { useEffect, useRef, useState } from 'react';
 import { Carousel } from '@/components/carousel/carousel';
 import Image from 'next/image';
-import { v4 as uuid } from 'uuid';
-import { Category, CategoryProducts, Product } from '@/common/types';
+import { Category, CategoryProducts } from '@/common/types';
+import { useCatalog } from '@/common/customHooks/useCatalog';
 
 type CatalogSectionProps = {
   categories: Category[];
@@ -11,35 +10,7 @@ type CatalogSectionProps = {
 };
 const CatalogSection = (props: CatalogSectionProps) => {
   const { categories, products } = props;
-  const [activeCategory, setActiveCategory] = useState(categories?.[0]?.id || 0);
-  const [currentProducts, setCurrentProducts] = useState<Product[]>(products[activeCategory] || []);
-  const categoriesRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!categoriesRef?.current) return;
-    if (categories?.length === 1) {
-      categoriesRef.current.style.justifyContent = 'center';
-    } else {
-      categoriesRef.current.style.justifyContent = 'justify-content: space-between';
-    }
-  }, [categories]);
-
-  const categoriesButtons = categories?.map((item) => {
-    const handleChangeCategory = () => {
-      setActiveCategory(item.id);
-      setCurrentProducts(products[item.id]);
-    };
-
-    return (
-      <button
-        className={activeCategory === item.id ? s.active : ''}
-        onClick={handleChangeCategory}
-        key={uuid()}
-      >
-        {item.name}
-      </button>
-    );
-  });
+  const { currentProducts, categoriesButtons, categoriesRef } = useCatalog(categories, products);
 
   return (
     <section className={s.catalogSection} id='catalog'>

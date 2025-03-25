@@ -53,7 +53,7 @@ const DocumentationSection = (props: DocumentationSectionProps) => {
             ))}
           </div>
           <NavPanel
-            items={documents}
+            itemsLength={documents.length}
             onBackClick={prevItem}
             onForwardClick={nextItem}
             activeIndex={activeIndex}

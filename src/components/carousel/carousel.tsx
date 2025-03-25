@@ -27,6 +27,15 @@ export const Carousel = ({ products }: CarouselProps) => {
     handleKeyDown,
   } = useCarousel(products);
 
+  const onOpenClickHandler = (): void => {
+    const catalog = document.getElementById('catalog');
+    catalog?.scrollIntoView({ behavior: 'smooth' });
+    if (!initialOpenModal) {
+      setInitialOpenModal(true);
+    }
+    setOpenModal(true);
+  };
+
   return (
     <div
       className={s.carousel}
@@ -43,17 +52,12 @@ export const Carousel = ({ products }: CarouselProps) => {
             product={product}
             status={cardStatus[index]}
             direction={direction}
-            products={products}
-            activeSlide={activeIndex}
-            setActiveIndex={setActiveIndex}
-            setOpenModal={setOpenModal}
-            setInitialOpenModal={setInitialOpenModal}
-            initialOpenModal={initialOpenModal}
+            onOpenClick={onOpenClickHandler}
           />
         ))}
       </div>
       <NavPanel
-        items={products}
+        itemsLength={products.length}
         onBackClick={prevItem}
         onForwardClick={nextItem}
         activeIndex={activeIndex}

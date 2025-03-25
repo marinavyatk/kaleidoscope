@@ -5,31 +5,31 @@ import { ProgressBar } from '@/components/progressBar/progressBar';
 import { ComponentPropsWithoutRef } from 'react';
 
 type NavPanelProps = {
-  items: any[];
+  itemsLength: number;
   onBackClick: () => void;
   onForwardClick: () => void;
   activeIndex: number;
 } & ComponentPropsWithoutRef<'div'>;
 
 export const NavPanel = (props: NavPanelProps) => {
-  const { items, onBackClick, onForwardClick, activeIndex, className, ...restProps } = props;
-  const classNames = clsx(s.navPanel, className, !items.length && s.hidden);
+  const { itemsLength, onBackClick, onForwardClick, activeIndex, className, ...restProps } = props;
+  const classNames = clsx(s.navPanel, className, !itemsLength && s.hidden);
   return (
     <div className={classNames} {...restProps}>
       <button
         className={s.btnPrev}
         onClick={onBackClick}
         aria-label={'Назад'}
-        disabled={items.length <= 1}
+        disabled={itemsLength <= 1}
       >
         <Arrow />
       </button>
-      <ProgressBar currentSlide={activeIndex + 1} total={items.length} />
+      <ProgressBar currentSlide={activeIndex + 1} total={itemsLength} />
       <button
         className={s.btnNext}
         onClick={onForwardClick}
         aria-label={'Вперёд'}
-        disabled={items.length <= 1}
+        disabled={itemsLength <= 1}
       >
         <Arrow />
       </button>

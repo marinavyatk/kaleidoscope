@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { CPFormValues } from '@/common/types';
 import { clsx } from 'clsx';
 import { Input } from '@/components/input/input';
-import { Button } from '@/components/button/button';
+import { Button } from '@/components/buttons/button/button';
 import s from './commercialProposalForm.module.scss';
 import { api } from '@/common/api';
 import { useFormStatus } from '@/common/customHooks/useFormStatus';
