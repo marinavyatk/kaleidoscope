@@ -48,6 +48,18 @@
 
 @media (max-width: 767px) {
   .button {
-    bottom: 16px;
+    width: 50px;
+  }
+
+  .logoContainer {
+    height: 50px;
+
+    svg {
+      width: 35px;
+    }
+  }
+
+  .text {
+    font-size: 8px;
   }
 }
