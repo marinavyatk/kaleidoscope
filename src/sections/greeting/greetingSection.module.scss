@@ -2,6 +2,8 @@
   z-index: 10;
   background-color: var(--color-dark);
   scrollbar-width: none;
+  max-width: 1920px;
+  overflow: hidden;
 
   .greetingLoader{
     width: 25px;

@@ -42,7 +42,7 @@ export const api = {
   getProducts(categoryId: number) {
     return instance
       .get(
-        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields,featured_media,model_3d_link`,
+        `/wp-json/wp/v2/product?product_category=${categoryId}&orderby=date&order=asc&fields=title,content,product_category,short_description,custom_meta_fields,featured_media,model_3d_link,render_file`,
       )
       .then((response) => {
         return response.data;

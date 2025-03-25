@@ -24,6 +24,7 @@ import Footer from '@/components/footer/footer';
 import { Layout } from '@/components/layout/layout';
 import { MapSection } from '@/sections/map/mapSection';
 import GallerySection from '@/sections/gallery/gallery';
+import { RendersModal } from '@/components/modal/rendersModal/rendersModal';
 
 export const getStaticProps = async () => {
   const [
@@ -118,6 +119,7 @@ export default function Home(props: HomeProps) {
             player={<Player initialPlaying={initialPlaying} key={`playing-${initialPlaying}`} />}
           />
           <main>
+            <RendersModal categories={categories} products={products} />
             <MainSection />
             <AboutSection />
             <CatalogSection categories={categories} products={products} />

@@ -1,6 +1,8 @@
 .docSection {
   position: relative;
   margin: var(--offset-y) 0;
+  max-width: 100vw;
+  overflow: hidden;
 
   h2 {
     margin-left: var(--offset-x);

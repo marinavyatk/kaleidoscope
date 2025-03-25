@@ -1,6 +1,8 @@
 .gallerySection {
   padding: var(--offset-y) 0 var(--offset-y) var(--offset-x);
   position: relative;
+  max-width: 100vw;
+  overflow: hidden;
 
   h2 {
     margin-bottom: 100px;

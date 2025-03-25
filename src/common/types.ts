@@ -10,6 +10,7 @@ export type Product = {
   specifications: { key: string; value: string }[];
   model: string;
   category: number;
+  file: string;
 };
 
 export type CategoryProducts = {
@@ -63,6 +64,7 @@ export type ProductData = {
   ['featured_media']: number;
   ['model_3d_link']: string;
   ['product_category']: number;
+  ['render_file']: string;
 };
 
 export type DocumentData = {

@@ -32,6 +32,7 @@ export const getStructuredProducts = (activeCategory: number) => {
         img: '',
         model: product['model_3d_link'],
         category: product['product_category'],
+        file: product['render_file'],
       }));
 
       const structuredDataWithImg = await Promise.all(
