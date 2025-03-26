@@ -33,7 +33,7 @@ export const RenderCard = (props: CardProps) => {
           loaderProps={{ lightBackground: true }}
         />
         {restProps.children}
-        <Button as={'a'} href={product.file} rel='noreferrer' download>
+        <Button as={'a'} href={product.file} rel='noreferrer' download target='_blank'>
           Скачать
         </Button>
       </div>
