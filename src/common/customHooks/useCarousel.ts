@@ -1,7 +1,10 @@
 import { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
-export const useCarousel = (items: any[]) => {
-  const [activeIndex, setActiveIndex] = useState(items.length < 3 ? 0 : 1);
+export const useCarousel = (items: any[], lastVisible = false) => {
+  const visibleCardsCount = 3;
+  const isLessThenVisible = items.length < visibleCardsCount;
+  const startIndex = lastVisible || isLessThenVisible ? 0 : 1;
+  const [activeIndex, setActiveIndex] = useState(startIndex);
   const [cardStatus, setCardStatus] = useState<string[]>([]);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const touchStartX = useRef(0);

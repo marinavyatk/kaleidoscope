@@ -21,7 +21,7 @@ const DocumentationSection = (props: DocumentationSectionProps) => {
     handleTouchMove,
     handleTouchEnd,
     handleKeyDown,
-  } = useCarousel(documents);
+  } = useCarousel(documents, true);
 
   const isDocsExist = documents && documents.length;
 
