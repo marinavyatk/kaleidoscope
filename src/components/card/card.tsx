@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef } from 'react';
-import CardBackground from '../../assets/card.svg';
 import { clsx } from 'clsx';
 import s from './card.module.scss';
 import { Product } from '@/common/types';
@@ -21,7 +20,7 @@ export const Card = (props: CardProps) => {
   return (
     <div {...restProps} className={classNames} itemScope itemType='https://schema.org/Product'>
       <div className={s.card}>
-        <CardBackground className={'fullContainer ' + s.cardBackground} />
+        <div className={'fullContainer ' + s.cardBackground} />
         <h3 className={s.cardName} itemProp='name'>
           {product?.name}
         </h3>
@@ -38,7 +37,6 @@ export const Card = (props: CardProps) => {
           loaderProps={{ lightBackground: true }}
           itemProp='image'
         />
-        {restProps.children}
         <Button onClick={onOpenClick}>Смотреть</Button>
         <div itemProp='aggregateRating' itemScope itemType='https://schema.org/AggregateRating'>
           <meta itemProp='ratingValue' content='5' />

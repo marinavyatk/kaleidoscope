@@ -16,10 +16,23 @@ export const RenderCard = (props: CardProps) => {
   const { product, className, status, direction, ...restProps } = props;
   const classNames = clsx(s.cardContainer, className, s[status], s[direction]);
 
+  //for bg disappearance bug
+  const handleDownloadClick = () => {
+    requestAnimationFrame(() => {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card) => {
+        (card as HTMLElement).style.outline = '1px solid transparent';
+        void (card as HTMLElement).offsetHeight;
+      });
+    });
+  };
+
   return (
     <div {...restProps} className={classNames}>
       <div className={s.card}>
-        <div className={'fullContainer ' + s.cardBackground} />
+        <div className='fullContainer'>
+          <div className={s.cardBackground} />
+        </div>
         <h3 className={s.cardName}>{product?.name}</h3>
         <p className={s.description}>{product?.shortDescription}</p>
         <Picture
@@ -31,8 +44,13 @@ export const RenderCard = (props: CardProps) => {
           containerProps={{ className: s.model }}
           loaderProps={{ lightBackground: true }}
         />
-        {restProps.children}
-        <Button as={'a'} href={product.file} rel='noreferrer' download target='_blank'>
+        <Button
+          as={'a'}
+          href={product.file}
+          rel='noreferrer'
+          download
+          onClick={handleDownloadClick}
+        >
           Скачать
         </Button>
       </div>
