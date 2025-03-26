@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef } from 'react';
-import CardBackground from '../../assets/card.svg';
 import { clsx } from 'clsx';
 import s from './card.module.scss';
 import { Product } from '@/common/types';
@@ -20,7 +19,7 @@ export const RenderCard = (props: CardProps) => {
   return (
     <div {...restProps} className={classNames}>
       <div className={s.card}>
-        <CardBackground className={'fullContainer ' + s.cardBackground} />
+        <div className={'fullContainer ' + s.cardBackground} />
         <h3 className={s.cardName}>{product?.name}</h3>
         <p className={s.description}>{product?.shortDescription}</p>
         <Picture
