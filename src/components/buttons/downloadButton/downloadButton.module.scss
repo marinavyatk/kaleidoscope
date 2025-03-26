@@ -1,23 +1,8 @@
 .button {
-  --button-width: 110px;
   display: flex;
   flex-direction: column;
   gap: 9px;
-  width: var(--button-width);
-}
-
-.logoContainer {
-  background-color: var(--color-primary);
-  background-image: url('/button-bg.png');
-  height: var(--button-width);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  svg {
-    width: 80px;
-    aspect-ratio: 8/6;
-  }
+  width: 110px;
 }
 
 .text {
@@ -30,11 +15,7 @@
 
 @media (max-width: 1440px) {
   .button {
-    --button-width: 80px;
-  }
-
-  .logoContainer svg {
-    width: 50px;
+    width: 80px;
   }
 
   .text {
@@ -44,11 +25,7 @@
 
 @media (max-width: 767px) {
   .button {
-    --button-width: 50px;
-  }
-
-  .logoContainer svg {
-    width: 35px;
+    width: 50px;
   }
 
   .text {

@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef, forwardRef, Ref } from 'react';
-import Logo from '../../../assets/logo-white.svg';
 import { clsx } from 'clsx';
 import s from './downloadButton.module.scss';
 
@@ -11,9 +10,7 @@ export const DownloadButton = forwardRef((props: ButtonProps, ref: Ref<HTMLAncho
 
   return (
     <a className={classNames} {...restProps} ref={ref} download>
-      <div className={s.logoContainer}>
-        <Logo />
-      </div>
+      <img srcSet='/download-button.png, /download-button-2x.png 2x' alt='' />
       <span className={s.text}>скачать рендеры</span>
     </a>
   );
