@@ -4,14 +4,13 @@
   max-width: 1920px;
 }
 
-.triggerContainer{
+.triggerContainer {
   position: sticky;
-  top: calc(100vh - var(--offset-y));
   z-index: 3;
+  opacity: 0;
 }
 
 .trigger {
   position: absolute;
   left: var(--offset-x);
-  transform: translateY(-100%);
 }

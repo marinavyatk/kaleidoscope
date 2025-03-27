@@ -11,7 +11,7 @@ const MainSection = () => {
 
   return (
     <section
-      className={s.mainSection}
+      className={s.mainSection + ' mainSection'}
       ref={animationRef}
       itemScope
       itemType='https://schema.org/Organization'

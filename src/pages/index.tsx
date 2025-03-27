@@ -119,7 +119,7 @@ export default function Home(props: HomeProps) {
             player={<Player initialPlaying={initialPlaying} key={`playing-${initialPlaying}`} />}
           />
           <main>
-            <RendersModal categories={categories} products={products} />
+            <RendersModal categories={categories} products={products} showGreeting={showGreeting} />
             <MainSection />
             <AboutSection />
             <CatalogSection categories={categories} products={products} />
