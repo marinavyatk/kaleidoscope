@@ -25,6 +25,7 @@ import { Layout } from '@/components/layout/layout';
 import { MapSection } from '@/sections/map/mapSection';
 import GallerySection from '@/sections/gallery/gallery';
 import { RendersModal } from '@/components/modal/rendersModal/rendersModal';
+import { ConformityCertificate } from '@/components/conformityCertificate/conformityCertificate';
 
 export const getStaticProps = async () => {
   const [
@@ -120,6 +121,7 @@ export default function Home(props: HomeProps) {
           />
           <main>
             <RendersModal categories={categories} products={products} showGreeting={showGreeting} />
+            <ConformityCertificate />
             <MainSection />
             <AboutSection />
             <CatalogSection categories={categories} products={products} />

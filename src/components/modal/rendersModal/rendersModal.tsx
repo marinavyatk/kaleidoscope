@@ -19,6 +19,8 @@ export const RendersModal = (props: ProductCardsSliderProps) => {
 
   useEffect(() => {
     const mainScreen = document.querySelector('.mainSection') as HTMLDivElement;
+    const certificate = document.querySelector('.certificate') as HTMLDivElement;
+    const certificateImage = document.querySelector('.certificateImage') as HTMLImageElement;
 
     const screenWidth = window.innerWidth;
     const sectionHeight = mainScreen.offsetHeight;
@@ -36,6 +38,13 @@ export const RendersModal = (props: ProductCardsSliderProps) => {
 
       triggerRef.current.style.transform =
         screenWidth > 767 ? 'translateY(-100%)' : 'translateY(0)';
+    }
+
+    if (certificate && certificateImage) {
+      certificate.style.top = `${offset}px`;
+      certificate.style.opacity = `1`;
+
+      certificateImage.style.transform = screenWidth > 767 ? 'translateY(-100%)' : 'translateY(0)';
     }
   }, [showGreeting]);
 

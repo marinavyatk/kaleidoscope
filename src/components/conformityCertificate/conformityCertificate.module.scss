@@ -1,0 +1,25 @@
+.image {
+  width: 150px;
+  height: fit-content;
+  position: absolute;
+  right: var(--offset-x);
+  object-fit: unset;
+}
+
+.container {
+  position: sticky;
+  z-index: 3;
+  opacity: 0;
+}
+
+@media (max-width: 1850px) {
+  .image {
+    width: 110px;
+  }
+}
+
+@media (max-width: 960px) {
+  .image {
+    width: 85px;
+  }
+}
