@@ -12,14 +12,22 @@
 
   .btnPrev {
     transform: rotate(-90deg);
+
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 
   .btnNext {
     transform: rotate(90deg);
+
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 }
 
-.hidden{
+.hidden {
   opacity: 0;
 }
 

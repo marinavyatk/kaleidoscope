@@ -16,6 +16,7 @@ export const useCarousel = (items: any[], lastVisible = false) => {
 
   const updateCardClasses = () => {
     const statuses = items.map((_, index) => {
+      if (items.length === 1) return 'activeCard';
       if (index === activeIndex) return 'activeCard';
       if (index === (activeIndex + 1) % items.length) return 'nextCard';
       if (index === (activeIndex - 1 + items.length) % items.length) return 'prevCard';

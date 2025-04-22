@@ -40,19 +40,31 @@
 
   button {
     opacity: 0.3;
-    transition:
-      opacity 0.3s,
-      text-decoration 0.3s;
+    transition: opacity 0.3s,
+    text-decoration 0.3s;
+    text-align: center;
   }
 
   .active {
     opacity: 1;
     text-decoration: underline;
     text-underline-position: under;
-    transition:
-      opacity 0.3s,
-      text-decoration 0.3s;
+    transition: opacity 0.3s,
+    text-decoration 0.3s;
   }
+}
+
+.fewCategories {
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.oneCategory {
+  justify-content: center;
+}
+
+.moreCategories {
+  flex-direction: column;
 }
 
 @media (max-width: 1750px) {

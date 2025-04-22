@@ -3,6 +3,7 @@ import { Carousel } from '@/components/carousel/carousel';
 import Image from 'next/image';
 import { Category, CategoryProducts } from '@/common/types';
 import { useCatalog } from '@/common/customHooks/useCatalog';
+import { clsx } from 'clsx';
 
 type CatalogSectionProps = {
   categories: Category[];
@@ -10,7 +11,12 @@ type CatalogSectionProps = {
 };
 const CatalogSection = (props: CatalogSectionProps) => {
   const { categories, products } = props;
-  const { currentProducts, categoriesButtons, categoriesRef } = useCatalog(categories, products);
+  const { currentProducts, categoriesButtons, activeCategory } = useCatalog(categories, products);
+  const classNames = clsx(
+    s.categories,
+    categoriesButtons?.length > 1 ? s.fewCategories : s.oneCategory,
+    categoriesButtons?.length > 3 && s.moreCategories,
+  );
 
   return (
     <section className={s.catalogSection} id='catalog'>
@@ -18,10 +24,8 @@ const CatalogSection = (props: CatalogSectionProps) => {
       <Image src={'/bg-pattern-catalog.svg'} alt='' fill className={s.pattern} />
       <h2>Каталог</h2>
       <div className={s.catalogMain}>
-        <Carousel products={currentProducts} />
-        <div className={s.categories} ref={categoriesRef}>
-          {categoriesButtons}
-        </div>
+        <Carousel products={currentProducts} key={activeCategory} />
+        <div className={classNames}>{categoriesButtons}</div>
       </div>
     </section>
   );

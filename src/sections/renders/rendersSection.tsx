@@ -15,7 +15,12 @@ type CatalogSectionProps = {
 };
 const RendersSection = (props: CatalogSectionProps) => {
   const { categories, products, setOpen } = props;
-  const { currentProducts, categoriesButtons, categoriesRef } = useCatalog(categories, products);
+  const { currentProducts, categoriesButtons, activeCategory } = useCatalog(categories, products);
+  const classNames = clsx(
+    s.categories,
+    categoriesButtons?.length > 1 ? s.fewCategories : s.oneCategory,
+    categoriesButtons?.length > 3 && s.moreCategories,
+  );
 
   return (
     <section className={clsx(s.catalogSection, styles.renderSection)}>
@@ -28,10 +33,8 @@ const RendersSection = (props: CatalogSectionProps) => {
         </Dialog.Close>
       </div>
       <div className={s.catalogMain}>
-        <RenderCarousel products={currentProducts} />
-        <div className={s.categories} ref={categoriesRef}>
-          {categoriesButtons}
-        </div>
+        <RenderCarousel products={currentProducts} key={activeCategory} />
+        <div className={classNames}>{categoriesButtons}</div>
       </div>
     </section>
   );
