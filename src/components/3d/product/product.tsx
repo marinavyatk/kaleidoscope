@@ -5,15 +5,19 @@ import { cleanUp } from '@/common/commonFunctions';
 
 export type ModelProps = {
   link: string;
+  productType: string;
 };
 
 function Model(props: ModelProps) {
-  const { link } = props;
+  const { link, productType } = props;
   const sceneRef = useRef(null);
   const { scene } = useGLTF(link, true);
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
+    if (!productType.toLowerCase().includes('коробка')) {
+      return;
+    }
     if (scene && sceneRef.current) {
       const box = new Box3().setFromObject(sceneRef.current);
       const modelSize = box.getSize(new Vector3());

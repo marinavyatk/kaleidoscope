@@ -10,7 +10,7 @@
   text-align: center;
   filter: blur(1px);
   transform: scale(0.75);
-  transition: transform 0.5s ease;
+  transition: opacity 0.1s ease 0.1s, transform 0.5s ease;
   pointer-events: none;
   will-change: transform, filter, opacity, z-index, pointer-events;
 
@@ -35,7 +35,7 @@
 
   .cardName {
     color: var(--color-primary);
-    font-size: 50px;
+    font-size: 40px;
     font-weight: var(--fw-bold);
     margin-bottom: 24px;
     position: relative;
@@ -67,7 +67,7 @@
 }
 
 .activeCard {
-  z-index: 1;
+  z-index: 2;
 
   .card {
     filter: blur(0);
@@ -85,6 +85,7 @@
   .card {
     opacity: 0;
     transform: scale(0.75);
+    z-index: -2;
   }
 }
 
@@ -98,7 +99,7 @@
   }
 
   &.backward {
-    z-index: -1;
+    z-index: 1;
   }
 }
 

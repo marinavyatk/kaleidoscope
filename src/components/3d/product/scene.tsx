@@ -12,10 +12,11 @@ const Model = lazy(() => import('./product'));
 
 export type SceneProps = {
   img: string;
+  productType: string;
 } & ModelProps;
 
 function Scene(props: SceneProps) {
-  const { link, img } = props;
+  const { link, img, productType } = props;
 
   return (
     <ErrorBoundary errorPlaceholder={<Image src={img} alt='Внешний вид МАФ' fill />}>
@@ -40,7 +41,7 @@ function Scene(props: SceneProps) {
             rotateSpeed={0.8}
             enablePan={false}
           />
-          <Model link={link} />
+          <Model link={link} productType={productType} />
         </Canvas>
       </Suspense>
     </ErrorBoundary>
