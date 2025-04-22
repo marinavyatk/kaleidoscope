@@ -7,7 +7,10 @@ export const useCatalog = (categories: Category[], products: CategoryProducts) =
   const [activeCategory, setActiveCategory] = useState(categories?.[0]?.id || 0);
   const [currentProducts, setCurrentProducts] = useState<Product[]>(products[activeCategory] || []);
 
-  const categoriesButtons = categories?.map((item) => {
+  const filteredCategories = categories?.filter((category) => {
+    return products[category.id].length > 0;
+  });
+  const categoriesButtons = filteredCategories?.map((item) => {
     const handleChangeCategory = () => {
       setActiveCategory(item.id);
       setCurrentProducts(products[item.id]);

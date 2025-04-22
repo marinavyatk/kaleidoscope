@@ -61,14 +61,6 @@ export const api = {
         console.error('Ошибка при загрузке изображений:', error);
       });
   },
-  getProjectMap() {
-    return instance
-      .get<any>('/wp-json/wp/v2/project_map?_fields=quarter_data,title')
-      .then((response) => response.data)
-      .catch((error) => {
-        console.error('Ошибка при загрузке карты проекта:', error);
-      });
-  },
   getFAQ() {
     return instance
       .get<FaqData[]>('/wp-json/wp/v2/faq?_fields=title,content')
