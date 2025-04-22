@@ -8,9 +8,7 @@ export const useCatalog = (categories: Category[], products: CategoryProducts) =
   const [currentProducts, setCurrentProducts] = useState<Product[]>(products[activeCategory] || []);
 
   const filteredCategories = categories?.filter((category) => {
-    return (
-      products[category.id].length > 0 && products[category.id].every((product) => product.file)
-    );
+    return products[category.id].length > 0;
   });
   const categoriesButtons = filteredCategories?.map((item) => {
     const handleChangeCategory = () => {
