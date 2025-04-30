@@ -107,17 +107,11 @@ export const api = {
     formData.append('clientTel', data.clientTel);
     formData.append('clientMessage', data.clientMessage);
 
-    const validationToken = await new Promise<string | undefined>((resolve) => {
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute('6LdLxCkrAAAAAMLe6DCcMo0qEPyxSzke98iEEmxP', {
-            action: 'submit',
-          })
-          .then((token: string) => {
-            resolve(token);
-          });
-      });
-    });
+    let validationToken = '';
+    if (typeof window !== 'undefined') {
+      const { getRecaptchaToken } = await import('@/common/captcha');
+      validationToken = await getRecaptchaToken();
+    }
     formData.append('g-recaptcha-response', validationToken || '');
 
     return instance.post('/wp-json/custom-forms/v1/contact', formData, {
@@ -133,17 +127,11 @@ export const api = {
     formData.append('clientEmail', data.clientEmail);
     formData.append('productType', data.product);
 
-    const validationToken = await new Promise<string | undefined>((resolve) => {
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute('6LdLxCkrAAAAAMLe6DCcMo0qEPyxSzke98iEEmxP', {
-            action: 'submit',
-          })
-          .then((token: string) => {
-            resolve(token);
-          });
-      });
-    });
+    let validationToken = '';
+    if (typeof window !== 'undefined') {
+      const { getRecaptchaToken } = await import('@/common/captcha');
+      validationToken = await getRecaptchaToken();
+    }
     formData.append('g-recaptcha-response', validationToken || '');
 
     return instance.post('/wp-json/custom-forms/v1/product-request', formData, {
