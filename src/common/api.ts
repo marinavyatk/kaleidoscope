@@ -101,28 +101,52 @@ export const api = {
         console.error('Ошибка при загрузке контактов:', error);
       });
   },
-  sendForm(data: FormValues) {
+  async sendForm(data: FormValues) {
     const formData = new FormData();
     formData.append('clientName', data.clientName);
     formData.append('clientTel', data.clientTel);
     formData.append('clientMessage', data.clientMessage);
-    formData.append('_wpcf7_unit_tag', 'wpcf7-f36-p7-o1');
 
-    return instance.post('/wp-json/contact-form-7/v1/contact-forms/36/feedback', formData, {
+    const validationToken = await new Promise<string | undefined>((resolve) => {
+      grecaptcha.ready(() => {
+        grecaptcha
+          .execute('6LdLxCkrAAAAAMLe6DCcMo0qEPyxSzke98iEEmxP', {
+            action: 'submit',
+          })
+          .then((token: string) => {
+            resolve(token);
+          });
+      });
+    });
+    formData.append('g-recaptcha-response', validationToken || '');
+
+    return instance.post('/wp-json/custom-forms/v1/contact', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
   },
-  sendCPForm(data: CPFormValues) {
+  async sendCPForm(data: CPFormValues) {
     const formData = new FormData();
     formData.append('clientName', data.clientName);
     formData.append('clientTel', data.clientTel);
     formData.append('clientEmail', data.clientEmail);
     formData.append('productType', data.product);
-    formData.append('_wpcf7_unit_tag', 'wpcf7-f79-p7-o2');
 
-    return instance.post('/wp-json/contact-form-7/v1/contact-forms/79/feedback', formData, {
+    const validationToken = await new Promise<string | undefined>((resolve) => {
+      grecaptcha.ready(() => {
+        grecaptcha
+          .execute('6LdLxCkrAAAAAMLe6DCcMo0qEPyxSzke98iEEmxP', {
+            action: 'submit',
+          })
+          .then((token: string) => {
+            resolve(token);
+          });
+      });
+    });
+    formData.append('g-recaptcha-response', validationToken || '');
+
+    return instance.post('/wp-json/custom-forms/v1/product-request', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

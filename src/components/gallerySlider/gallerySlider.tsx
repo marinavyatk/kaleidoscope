@@ -25,7 +25,7 @@ export const GallerySlider = (props: GallerySliderProps) => {
     setIsClient(true);
   }, []);
 
-  const photos = images.map((photo, index) => (
+  const photos = images?.map((photo, index) => (
     <SwiperSlide
       key={photo}
       className={clsx(s.slide, isAtEnd && index === images.length - 1 && s.activeLastSlide)}

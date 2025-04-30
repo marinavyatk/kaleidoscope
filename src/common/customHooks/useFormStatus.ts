@@ -19,15 +19,17 @@ export const useFormStatus = (reset: any, request: any) => {
   const onSubmit = (data: any) => {
     request(data)
       .then((response: any) => {
-        setStatus(response.data?.message);
-        if (response.data.status === 'mail_sent') {
+        setStatus(response.response.data?.message);
+        if (response.response.data.success) {
           setError(false);
         } else {
           setError(true);
         }
       })
       .catch((response: any) => {
-        setStatus(response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.');
+        setStatus(
+          response.response.data?.message || 'Ошибка при отправке формы. Попробуйте снова.',
+        );
         setError(true);
       });
   };
