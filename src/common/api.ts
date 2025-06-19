@@ -13,7 +13,7 @@ import {
 } from '@/common/types';
 
 export const instance = axios.create({
-  baseURL: 'https://kaleidoscope-games.store',
+  baseURL: 'https://kaleidoscope-games.ru',
 });
 
 const getProperties = (array: any[]) => {
