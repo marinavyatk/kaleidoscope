@@ -47,7 +47,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'kaleidoscope-games.store',
+        hostname: 'kaleidoscope-games.ru',
         port: '',
         pathname: '/**',
       },
