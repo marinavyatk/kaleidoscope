@@ -15,7 +15,15 @@ export const getStaticProps = async () => {
 export default function PrivacyPolicy(props: PrivacyPolicyProps) {
   const { privacyPolicy } = props;
   return (
-    <Layout>
+    <Layout
+      headTags={
+        <>
+          <title>Политика конфиденциальности</title>
+          <meta name='description' content='Политика конфиденциальности' />
+          <meta name='robots' content='noindex, nofollow' />
+        </>
+      }
+    >
       <main className={'mainContainer ' + s.privacyPolicy}>
         <h1 dangerouslySetInnerHTML={{ __html: privacyPolicy?.title }}></h1>
         <div dangerouslySetInnerHTML={{ __html: privacyPolicy?.content }}></div>
