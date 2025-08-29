@@ -12,7 +12,7 @@ export type HeaderProps = {
 const Header = (props: HeaderProps) => {
   const { player, className, ...restProps } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const isTabletOrMobile = useScreenWidth(1099);
+  const isTabletOrMobile = useScreenWidth(1199);
 
   useEffect(() => {
     if (isOpen) {

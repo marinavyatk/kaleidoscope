@@ -37,6 +37,7 @@
   width: 39%;
   display: flex;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .logo {
@@ -83,7 +84,7 @@
   }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1199px) {
   .header {
     padding: 8px 30px;
 
