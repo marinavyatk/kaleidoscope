@@ -66,6 +66,10 @@ export const ProductCard = (props: ProductCardProps) => {
                   );
                 })}
               </div>
+              {productData?.price ? (
+                <div className={s.price}>Цена: {productData?.price} ₽</div>
+              ) : null}
+
               <CommercialProposalModal
                 chosenProduct={productData?.name}
                 triggerClassName={s.commercialProposal}
@@ -92,6 +96,9 @@ export const ProductCard = (props: ProductCardProps) => {
                   );
                 })}
               </div>
+              {productData?.price ? (
+                <div className={s.price}>Цена: {productData?.price} ₽</div>
+              ) : null}
               <CommercialProposalModal
                 chosenProduct={productData?.name}
                 triggerClassName={s.commercialProposal}

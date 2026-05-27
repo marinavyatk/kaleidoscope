@@ -11,6 +11,7 @@ export type Product = {
   model: string;
   category: number;
   file: string;
+  price: string;
 };
 
 export type CategoryProducts = {
@@ -65,6 +66,7 @@ export type ProductData = {
   ['model_3d_link']: string;
   ['product_category']: number;
   ['render_file']: string;
+  price: string;
 };
 
 export type DocumentData = {
